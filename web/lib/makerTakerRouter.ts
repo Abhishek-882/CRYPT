@@ -227,7 +227,7 @@ export class MakerTakerRouter {
             symbol: req.symbol,
             side: req.side,
             type: "LIMIT",
-            timeInForce: "GTX",
+            timeInForce: "GTX" as any,
             price: limitPrice,
             quantity: req.quantity.toString(),
             clientOrderId,

@@ -3039,7 +3039,10 @@ export async function executeDualHedgeEntry(
       userId,
       botId
     );
-    quarantineBotSymbol(bot, symbol, 3600, eligibility.rejectionReason || "Agreement or non-crypto rejection", state, userId);
+    const targetBot = state.bots?.find((b: any) => b.id === botId);
+    if (targetBot) {
+      quarantineBotSymbol(targetBot, symbol, 3600, eligibility.rejectionReason || "Agreement or non-crypto rejection", state, userId);
+    }
     return {
       success: false,
       error: `CONTRACT_INELIGIBLE: ${eligibility.rejectionReason}`,
@@ -3236,7 +3239,7 @@ export async function executeDualHedgeEntry(
   }
 
   // PRE-EXECUTION VENUE AGREEMENT & RESTRICTION GATE
-  if (venueAName === "Bybit" || venueBName === "Bybit") {
+  if ((venueAName as string) === "Bybit" || venueBName === "Bybit") {
     const restrictedBybit = await getBybitRestrictedInstruments();
     if (restrictedBybit.has(symbol.toUpperCase())) {
       appendBotLog(
@@ -5527,11 +5530,11 @@ export async function runTenantBotCycle(
         const enableContinuation = config.enableCarryContinuation !== false;
         const minContinuationSpreadBps = config.minContinuationSpreadBps ?? Math.max(20, (config.minSpreadBps || 30) * 0.7);
 
+        let nextYieldBps = 0;
         const currentOppForContinuation = opportunities.find((o: any) => o.symbol === hedge.symbol);
         if (enableContinuation && currentOppForContinuation) {
           const rateA = vA === "CoinDCX" ? (currentOppForContinuation.coindcxRate || currentOppForContinuation.binanceRate) : (vA === "Binance" ? currentOppForContinuation.binanceRate : currentOppForContinuation.bitgetRate);
           const rateB = vB === "Bybit" ? currentOppForContinuation.bybitRate : (vB === "CoinDCX" ? currentOppForContinuation.coindcxRate : currentOppForContinuation.bitgetRate);
-          let nextYieldBps = 0;
           let isProfitableContinuation = false;
 
           if (hedge.isAsymmetric && hedge.venueAIntervalHours && hedge.venueBIntervalHours) {
@@ -6070,16 +6073,14 @@ export async function runTenantBotCycle(
           const remainingMinutes = Math.ceil((cooldownUntil - now) / 60000);
           if (corridorSpreadBps > bestCorridorSpread) {
             bestCorridorSpread = corridorSpreadBps;
-            if (!bestCorridorCandidate) {
-              bestCorridorCandidate = {
-                symbol: coin.symbol,
-                spreadBps: corridorSpreadBps,
-                divergencePct,
-                secondsToFunding,
-                qualified: false,
-                reason: `[ANTI-CHURN QUARANTINE] Quarantined for ${remainingMinutes}m`,
-              };
-            }
+            bestCorridorCandidate = {
+              symbol: coin.symbol,
+              spreadBps: corridorSpreadBps,
+              divergencePct,
+              secondsToFunding,
+              qualified: false,
+              reason: `[ANTI-CHURN QUARANTINE] Quarantined for ${remainingMinutes}m`,
+            };
           }
           continue;
         }
@@ -6088,22 +6089,20 @@ export async function runTenantBotCycle(
         if (!isFundingSync) {
           if (corridorSpreadBps > bestCorridorSpread) {
             bestCorridorSpread = corridorSpreadBps;
-            if (!bestCorridorCandidate) {
-              bestCorridorCandidate = {
-                symbol: coin.symbol,
-                spreadBps: corridorSpreadBps,
-                divergencePct,
-                secondsToFunding,
-                qualified: false,
-                reason: `[FUNDING SYNC LOCK] Disqualified: ${syncDisqualificationReason}`,
-              };
-            }
+            bestCorridorCandidate = {
+              symbol: coin.symbol,
+              spreadBps: corridorSpreadBps,
+              divergencePct,
+              secondsToFunding,
+              qualified: false,
+              reason: `[FUNDING SYNC LOCK] Disqualified: ${syncDisqualificationReason}`,
+            };
           }
           continue;
         }
 
         if (!clearsFeeFilter) {
-          if (corridorSpreadBps > bestCorridorSpread && (!bestCorridorCandidate || bestCorridorCandidate.reason?.includes("FUNDING SYNC LOCK"))) {
+          if (corridorSpreadBps > bestCorridorSpread) {
             bestCorridorSpread = corridorSpreadBps;
             bestCorridorCandidate = {
               symbol: coin.symbol,
@@ -6238,7 +6237,7 @@ export async function runTenantBotCycle(
         };
       } else if (bestWaitingDiffCandidate) {
         bot.lastEvaluatedCandidate = bestWaitingDiffCandidate;
-      } else if (bestCorridorCandidate) {
+      } else if (bestCorridorCandidate && (!topOpp || (bestCorridorCandidate.spreadBps || 0) >= (topOpp.spreadBps || 0))) {
         bot.lastEvaluatedCandidate = bestCorridorCandidate;
       } else if (topOpp) {
         const topPair = topOpp.allPairs?.find((p: any) => {
