@@ -2188,6 +2188,7 @@ export async function fetchOpportunityCoins(): Promise<any[]> {
     for (const sym of allSymbols) {
       if (!sym.endsWith("USDT")) continue;
       if (bybitRestrictedSet && bybitRestrictedSet.has(sym)) continue;
+      if (ContractIdentityResolver.isTradFiOrEquity(sym)) continue;
 
       const bn = bnMap.get(sym);
       const bg = bgMap.get(sym);
@@ -6208,6 +6209,7 @@ export async function runTenantBotCycle(
 
       // Pre-evaluate corridor top candidate from opportunities table
       const topOpp = opportunities.find((c: any) =>
+        !ContractIdentityResolver.isTradFiOrEquity(c.symbol) &&
         c.allPairs?.some((p: any) => {
           const vA = p.venueA?.toLowerCase();
           const vB = p.venueB?.toLowerCase();
@@ -6216,6 +6218,7 @@ export async function runTenantBotCycle(
           return ((vA === reqA && vB === reqB) || (vA === reqB && vB === reqA)) && p.isFundingSynchronized !== false && p.clearsFeeFilter;
         })
       ) || opportunities.find((c: any) =>
+        !ContractIdentityResolver.isTradFiOrEquity(c.symbol) &&
         c.allPairs?.some((p: any) => {
           const vA = p.venueA?.toLowerCase();
           const vB = p.venueB?.toLowerCase();
@@ -6223,7 +6226,7 @@ export async function runTenantBotCycle(
           const reqB = expectedVB.toLowerCase();
           return (vA === reqA && vB === reqB) || (vA === reqB && vB === reqA);
         })
-      ) || opportunities[0];
+      ) || opportunities.find((c: any) => !ContractIdentityResolver.isTradFiOrEquity(c.symbol)) || opportunities[0];
 
       // Assign the true top evaluated candidate for UI and daemon state
       if (topCandidate) {
