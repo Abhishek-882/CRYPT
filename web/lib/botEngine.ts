@@ -2788,7 +2788,18 @@ export function calculateRequiredPriceDivergencePct(
   shouldFreeze: boolean;
 } {
   const baseCeilingPct = config.maxPriceDivergencePct || 0.10;
-  const hardCeilingPct = baseCeilingPct;
+
+  // Dynamic spread-ratio scaling: Allow divergence up to a percentage of the spread (e.g. 25% of 120 bps = 0.30%)
+  let spreadScaledCeilingPct = baseCeilingPct;
+  if (spreadBps && spreadBps > 0 && config.maxDivergenceSpreadRatioPct && config.maxDivergenceSpreadRatioPct > 0) {
+    const spreadPct = spreadBps / 100;
+    const ratioCeiling = (spreadPct * config.maxDivergenceSpreadRatioPct) / 100;
+    spreadScaledCeilingPct = Math.max(baseCeilingPct, ratioCeiling);
+  }
+
+  // Cap at hard safety ceiling (0.50%) to prevent entering heavily dislocated pairs
+  const maxCapPct = config.maxPriceDivergenceCapPct || 0.50;
+  const hardCeilingPct = Math.min(spreadScaledCeilingPct, maxCapPct);
 
   // Strict tolerance enforcement: honor dynamic ceiling directly across countdown stages
   const optimalTargetPct = config.optimalPriceDivergencePct && config.optimalPriceDivergencePct > 0
