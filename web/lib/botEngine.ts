@@ -6262,7 +6262,20 @@ export async function runTenantBotCycle(
           return (vA === reqA && vB === reqB) || (vA === reqB && vB === reqA);
         });
         const oppSpread = topPair?.spreadBps ?? topOpp.spreadBps ?? 0;
-        const oppDiv = topOpp.divergencePct ?? 0;
+        const oppPriceA = expectedVA === "CoinDCX"
+          ? (topOpp.coindcxMarkPrice || topOpp.bybitMarkPrice || topOpp.binanceMarkPrice)
+          : expectedVA === "Binance"
+          ? topOpp.binanceMarkPrice
+          : topOpp.bitgetMarkPrice;
+        const oppPriceB = expectedVB === "Bybit"
+          ? (topOpp.bybitMarkPrice || topOpp.binanceMarkPrice)
+          : expectedVB === "CoinDCX"
+          ? (topOpp.coindcxMarkPrice || topOpp.bybitMarkPrice)
+          : topOpp.bitgetMarkPrice;
+        const oppDiv = (oppPriceA > 0 && oppPriceB > 0)
+          ? parseFloat(((Math.abs(oppPriceA - oppPriceB) / oppPriceA) * 100).toFixed(4))
+          : (topOpp.divergencePct ?? 0);
+        const oppSignedBasisBps = oppPriceB > 0 ? parseFloat((((oppPriceA - oppPriceB) / oppPriceB) * 10000).toFixed(2)) : 0;
         const oppSec = topPair?.secondsToFunding ?? topOpp.secondsToFunding ?? 0;
         const botMinGross = Math.max(config.minSpreadBps || MIN_GROSS_SPREAD_BPS, MIN_GROSS_SPREAD_BPS);
         const oppTiming = calculateRequiredPriceDivergencePct(config, oppSec, oppSpread);
@@ -6271,6 +6284,8 @@ export async function runTenantBotCycle(
           fallbackReason = `[TRADFI EXCLUDED] Stock/TradFi contract excluded from crypto arbitrage`;
         } else if (oppSpread < botMinGross) {
           fallbackReason = `[FEE CLEARANCE FILTER] Spread (${oppSpread} bps) < Min Gross (${botMinGross} bps)`;
+        } else if (Math.abs(oppSignedBasisBps) > 250) {
+          fallbackReason = `[BASIS SAFETY CAP] Signed basis |${oppSignedBasisBps.toFixed(1)}| bps exceeds 250 bps safety cap (entering would lose price parity on unwind)`;
         } else if (oppDiv > oppTiming.requiredDivergencePct) {
           fallbackReason = `[PRICE DIFF GATE] Price diff ${oppDiv.toFixed(3)}% > ceiling ${oppTiming.requiredDivergencePct.toFixed(3)}% (${oppSec}s left)`;
         }
