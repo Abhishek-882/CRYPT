@@ -6254,15 +6254,23 @@ export async function runTenantBotCycle(
         const oppDiv = topOpp.divergencePct ?? 0;
         const oppSec = topPair?.secondsToFunding ?? topOpp.secondsToFunding ?? 0;
         const botMinGross = Math.max(config.minSpreadBps || MIN_GROSS_SPREAD_BPS, MIN_GROSS_SPREAD_BPS);
+        const oppTiming = calculateRequiredPriceDivergencePct(config, oppSec, oppSpread);
+        let fallbackReason = `[MONITORING] Waiting for optimal entry convergence`;
+        if (ContractIdentityResolver.isTradFiOrEquity(topOpp.symbol)) {
+          fallbackReason = `[TRADFI EXCLUDED] Stock/TradFi contract excluded from crypto arbitrage`;
+        } else if (oppSpread < botMinGross) {
+          fallbackReason = `[FEE CLEARANCE FILTER] Spread (${oppSpread} bps) < Min Gross (${botMinGross} bps)`;
+        } else if (oppDiv > oppTiming.requiredDivergencePct) {
+          fallbackReason = `[PRICE DIFF GATE] Price diff ${oppDiv.toFixed(3)}% > ceiling ${oppTiming.requiredDivergencePct.toFixed(3)}% (${oppSec}s left)`;
+        }
+
         bot.lastEvaluatedCandidate = {
           symbol: topOpp.symbol,
           spreadBps: oppSpread,
           divergencePct: oppDiv,
           secondsToFunding: oppSec,
           qualified: false,
-          reason: oppSpread < botMinGross
-            ? `[FEE CLEARANCE FILTER] Spread (${oppSpread} bps) < Min Gross (${botMinGross} bps)`
-            : `[PRICE DIFF GATE] Price diff ${oppDiv.toFixed(3)}% > stage target (${oppSec}s left)`,
+          reason: fallbackReason,
         };
       }
 
