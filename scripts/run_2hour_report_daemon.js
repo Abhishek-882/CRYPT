@@ -1,6 +1,6 @@
 /**
- * Standalone Autonomous 2-Hour Fleet Reporting Daemon
- * Generates and archives comprehensive fleet telemetry reports every 2 hours (7,200,000 ms).
+ * Standalone Autonomous Fleet Reporting Daemon
+ * Generates and archives comprehensive fleet telemetry reports every 30 minutes (1,800,000 ms).
  * Operates independently around the clock to ensure uninterrupted historical audit tracking.
  */
 
@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const { generateReport } = require('./generate_fleet_status_report');
 
-const TWO_HOURS_MS = 2 * 60 * 60 * 1000; // 7,200,000 ms
+const REPORT_INTERVAL_MS = 30 * 60 * 1000; // 30 minutes (1,800,000 ms)
 const RETRY_DELAY_MS = 60 * 1000; // 60s retry on failure
 
 const logDir = path.join(__dirname, '..', 'web', 'data', 'reports');
@@ -43,7 +43,7 @@ async function executeReportCycle() {
       `2-Hour Fleet Report successfully generated. Total NAV: $${result.totalNav.toFixed(2)} | Binance: $${result.binanceUsdt.toFixed(2)} | Bybit: $${result.bybitUsableMargin.toFixed(2)} | Open Positions: ${result.totalOpenPositions}. Archive: ${path.basename(result.archivePath)}`,
       'SUCCESS'
     );
-    scheduleNext(TWO_HOURS_MS);
+    scheduleNext(REPORT_INTERVAL_MS);
   } catch (err) {
     logSchedulerEvent(`Report generation encountered an error: ${err.message}. Retrying in 60 seconds...`, 'ERROR');
     scheduleNext(RETRY_DELAY_MS);
