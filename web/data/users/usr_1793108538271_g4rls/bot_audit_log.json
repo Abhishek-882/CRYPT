@@ -1,0 +1,9 @@
+[
+  {
+    "timestamp": "2026-10-27T13:49:23.148Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  }
+]

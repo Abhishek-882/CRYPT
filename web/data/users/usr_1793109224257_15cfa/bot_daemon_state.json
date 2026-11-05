@@ -1,0 +1,1099 @@
+{
+  "isRunning": true,
+  "runInBackgroundWhenClosed": true,
+  "mode": "AUTONOMOUS_SERVER_24_7",
+  "startedAt": 1793109220587,
+  "lastCycleAt": 1793109274992,
+  "cyclesCompleted": 51,
+  "activeBotId": "bot-1",
+  "bots": [
+    {
+      "id": "bot-1",
+      "name": "Conservative Funding Sniper",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 500,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5,
+        "optimalPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT",
+        "enableFlattenMemoryLock": true
+      },
+      "flattenedCoinsBlacklist": [],
+      "symbolCooldowns": {},
+      "activeHedges": [],
+      "completedHedges": [],
+      "logs": [
+        {
+          "timestamp": "2026-10-27T13:53:40.587Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:53:40.564Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:53:38.437Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:53:06.196Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:53:06.175Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:49:27.325Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:49:13.634Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:42:15.177Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:42:15.156Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:41:52.057Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:41:52.037Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:41:50.071Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:35:17.852Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:35:17.828Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:34:31.652Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:34:31.631Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:34:25.319Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:32:44.304Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.646Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.621Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.598Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.576Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.550Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.524Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.490Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.467Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.429Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.403Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:17.736Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:17.712Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:08.356Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:08.336Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:07.056Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:50:55.652Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:50:55.616Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:58.896Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:58.874Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:57.184Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:20.633Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:20.615Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:44:58.832Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:44:58.809Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.135Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.112Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.112Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.070Z",
+          "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+          "level": "warn"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.063Z",
+          "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+          "level": "error"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:26.885Z",
+          "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+          "level": "info"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:26.729Z",
+          "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+          "level": "info"
+        }
+      ],
+      "statusText": "WAITING_API_KEYS (Configure in Profile/Settings)",
+      "lastEvaluatedCandidate": null,
+      "createdAt": 1793104946529,
+      "updatedAt": 1793104947089
+    }
+  ],
+  "setFiles": [
+    {
+      "id": "set-conservative",
+      "fileName": "conservative_35bps_sniper.set",
+      "name": "Conservative 35bps Sniper",
+      "description": "Snipes within 60s of funding with strict 35 bps spread (clears 23 bps taker fees), 0.03% parity, $500 hard margin cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-10-27T13:54:34.985Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-aggressive",
+      "fileName": "aggressive_continuous_arbitrage.set",
+      "name": "Aggressive Continuous Arbitrage",
+      "description": "Continuous spread capture 24/7 without waiting for funding window. 35 bps spread (clears taker drag), 0.05% parity, $1,000 cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 5,
+        "maxMarginCapUsdt": 1000,
+        "maxAmountPerHedgeUsdt": 50,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.05,
+        "scanIntervalSeconds": 5,
+        "timingMode": "CONTINUOUS_SPREAD",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-10-27T13:54:34.986Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-balanced",
+      "fileName": "balanced_institutional_harvest.set",
+      "name": "Balanced Institutional Harvest",
+      "description": "Funding Sniper mode with 35 bps spread threshold (clears taker drag), 0.03% parity, $750 hard cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 4,
+        "maxMarginCapUsdt": 750,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-10-27T13:54:34.986Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-10-27T13:53:40.587Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:40.564Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:40.520Z",
+      "message": "[HEDGE FILLED] Bot \"TestBot\": Successfully entered dual delta-neutral hedge on BTCUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg arrival delta: 129ms (Leg 1: 213ms, Leg 2: 82ms). CoinDCX #sim_coindcx_1793109220376 @ $79969 | Bitget #sim_coindcx_1793109220505 @ $79970.1.",
+      "level": "success"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:40.505Z",
+      "message": "[LEG 2 FILLED] Bot \"TestBot\": CoinDCX BUY BTCUSDT filled successfully! Order #sim_coindcx_1793109220505 @ $79970.1 (82ms, placedAt: 2026-10-27T13:53:40.505Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:40.376Z",
+      "message": "[LEG 1 FILLED] Bot \"TestBot\": CoinDCX SELL BTCUSDT filled successfully! Order #sim_coindcx_1793109220376 @ $79969 (213ms, placedAt: 2026-10-27T13:53:40.376Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:40.155Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:40.011Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:38.437Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:06.196Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:06.175Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:06.135Z",
+      "message": "[HEDGE FILLED] Bot \"TestBot\": Successfully entered dual delta-neutral hedge on BTCUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg arrival delta: 90ms (Leg 1: 138ms, Leg 2: 42ms). CoinDCX #sim_coindcx_1793109186030 @ $79985 | Bitget #sim_coindcx_1793109186120 @ $79985.7.",
+      "level": "success"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:06.120Z",
+      "message": "[LEG 2 FILLED] Bot \"TestBot\": CoinDCX BUY BTCUSDT filled successfully! Order #sim_coindcx_1793109186120 @ $79985.7 (42ms, placedAt: 2026-10-27T13:53:06.120Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:06.030Z",
+      "message": "[LEG 1 FILLED] Bot \"TestBot\": CoinDCX SELL BTCUSDT filled successfully! Order #sim_coindcx_1793109186030 @ $79985 (138ms, placedAt: 2026-10-27T13:53:06.030Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:05.885Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:53:05.717Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:49:27.325Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:49:13.634Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:49:12.251Z",
+      "message": "[HEDGE FILLED] Bot \"TestBot\": Successfully entered dual delta-neutral hedge on BTCUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg arrival delta: 114ms (Leg 1: 49ms, Leg 2: 50ms). CoinDCX #sim_coindcx_1793108952120 @ $80164 | Bitget #sim_coindcx_1793108952234 @ $80166.",
+      "level": "success"
+    },
+    {
+      "timestamp": "2026-10-27T13:49:12.235Z",
+      "message": "[LEG 2 FILLED] Bot \"TestBot\": CoinDCX BUY BTCUSDT filled successfully! Order #sim_coindcx_1793108952234 @ $80166 (50ms, placedAt: 2026-10-27T13:49:12.234Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:49:12.120Z",
+      "message": "[LEG 1 FILLED] Bot \"TestBot\": CoinDCX SELL BTCUSDT filled successfully! Order #sim_coindcx_1793108952120 @ $80164 (49ms, placedAt: 2026-10-27T13:49:12.120Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:49:12.063Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:49:11.888Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:42:15.177Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:42:15.156Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:42:15.119Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T13:42:15.113Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T13:42:14.904Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:42:14.738Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:41:52.057Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:41:52.037Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:41:51.999Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T13:41:51.992Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T13:41:51.765Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:41:51.596Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:41:50.071Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:35:17.852Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:35:17.828Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:35:17.786Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T13:35:17.779Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T13:35:17.349Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:35:17.014Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:34:31.652Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:34:31.631Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:34:31.587Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T13:34:31.581Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T13:34:27.183Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:34:26.513Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T13:34:25.319Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:32:44.304Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.646Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.621Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.598Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.576Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.550Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.524Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.490Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.467Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.429Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.403Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.736Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.712Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.667Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.659Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.489Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.316Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.356Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.336Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.292Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.284Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.096Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:07.958Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:07.056Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.652Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.616Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.543Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.526Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.335Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.191Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.896Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.874Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.818Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.811Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.555Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.336Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:57.184Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.633Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.615Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.572Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.564Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.399Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.235Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.832Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.809Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.764Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.757Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.586Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.439Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.135Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.112Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.112Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.070Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.063Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:26.885Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:26.729Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 35,
+    "maxPriceDivergencePct": 0.05,
+    "maxDivergenceSpreadRatioPct": 50,
+    "maxPriceDivergenceCapPct": 0.5,
+    "optimalPriceDivergencePct": 0.01,
+    "balanceAllocationPct": 20,
+    "leverageMode": "MAX_PER_COIN",
+    "customLeverage": 50,
+    "maxSimultaneousHedges": 3,
+    "maxMarginCapUsdt": 500,
+    "maxAmountPerHedgeUsdt": 30,
+    "postSettlementWaitSeconds": 15,
+    "closeMaxPriceDivergencePct": 0.03,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_5M",
+    "executionCorridor": "COINDCX_BYBIT",
+    "enableFlattenMemoryLock": true
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "WAITING_API_KEYS (Configure in Profile/Settings)",
+  "lastEvaluatedCandidate": null
+}

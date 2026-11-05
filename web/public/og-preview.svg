@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="50%" stop-color="#121215" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="rgba(245, 158, 11, 0.15)" />
+      <stop offset="100%" stop-color="rgba(245, 158, 11, 0)" />
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.75" stroke-opacity="0.6" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#27272a" stroke-width="2" rx="16" />
+
+  <!-- Top Institutional Bar -->
+  <g transform="translate(80, 70)">
+    <!-- Logo Badge -->
+    <rect width="56" height="56" rx="14" fill="#18181c" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5" />
+    <text x="28" y="38" font-family="monospace, sans-serif" font-size="32" font-weight="900" fill="#f59e0b" text-anchor="middle">Δ</text>
+
+    <!-- Brand Name -->
+    <text x="76" y="28" font-family="monospace, sans-serif" font-size="24" font-weight="900" fill="#f4f4f5" letter-spacing="2">AI-HEDGE COCKPIT</text>
+    <text x="76" y="50" font-family="monospace, sans-serif" font-size="14" font-weight="500" fill="#71717a">SAFECOINER TECHNOLOGIES</text>
+
+    <!-- Active Badge -->
+    <rect x="790" y="8" width="250" height="40" rx="20" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1.2" />
+    <circle cx="814" cy="28" r="5" fill="#10b981" />
+    <text x="830" y="33" font-family="monospace, sans-serif" font-size="14" font-weight="700" fill="#10b981">PRODUCTION ENGINE v2.5</text>
+  </g>
+
+  <!-- Center Hero Headline -->
+  <g transform="translate(80, 240)">
+    <text x="520" y="50" font-family="system-ui, sans-serif" font-size="54" font-weight="900" fill="#ffffff" text-anchor="middle">
+      Dual-Venue Delta-Neutral
+    </text>
+    <text x="520" y="115" font-family="system-ui, sans-serif" font-size="54" font-weight="900" fill="url(#amberGrad)" text-anchor="middle">
+      Basis Arbitrage Engine
+    </text>
+    <text x="520" y="170" font-family="system-ui, sans-serif" font-size="22" font-weight="400" fill="#a1a1aa" text-anchor="middle">
+      Continuous multi-pair spread scanning across 453+ mutual contracts on Binance USD-M &amp; Bitget UTA V3
+    </text>
+  </g>
+
+  <!-- Bottom Corridor Strip -->
+  <g transform="translate(80, 500)">
+    <rect width="1040" height="64" rx="12" fill="#121215" stroke="#27272a" stroke-width="1" />
+    <text x="36" y="38" font-family="monospace, sans-serif" font-size="15" font-weight="700" fill="#f59e0b">🟡 Binance USD-M</text>
+    <text x="210" y="38" font-family="monospace, sans-serif" font-size="15" fill="#52525b">•</text>
+    <text x="240" y="38" font-family="monospace, sans-serif" font-size="15" font-weight="700" fill="#06b6d4">🔵 Bitget UTA V3</text>
+    <text x="400" y="38" font-family="monospace, sans-serif" font-size="15" fill="#52525b">•</text>
+    <text x="430" y="38" font-family="monospace, sans-serif" font-size="15" font-weight="700" fill="#10b981">⚡ 24/7 Autonomous Bot</text>
+    <text x="650" y="38" font-family="monospace, sans-serif" font-size="15" fill="#52525b">•</text>
+    <text x="680" y="38" font-family="monospace, sans-serif" font-size="14" font-weight="600" fill="#71717a">Sub-Millisecond Execution Delta</text>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "summary": "Comprehensive implementation plan for the Spot-Futures Basis & Cross-Exchange Funding Arbitrage Cockpit (/basis-bot).\nIncludes strict admin-only access control, frontend dashboard architecture, backend execution engine (ASBAE-V5 / QUANT-BASIS-CORE-v4 & QUANT-FUNDING-CORE-v2), Bybit UTA Spot+Perp dual-leg execution, 5 non-bypassable pre-flight gates, real-time dislocation radar, and multi-tier verification protocols.",
+  "updatedAt": "2026-10-30T17:00:24.992419900Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

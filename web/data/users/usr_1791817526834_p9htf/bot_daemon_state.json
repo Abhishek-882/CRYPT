@@ -1,0 +1,2968 @@
+{
+  "isRunning": true,
+  "runInBackgroundWhenClosed": true,
+  "mode": "AUTONOMOUS_SERVER_24_7",
+  "startedAt": 1791382174180,
+  "lastCycleAt": 1793104750492,
+  "cyclesCompleted": 449112,
+  "activeBotId": "bot-1",
+  "bots": [
+    {
+      "id": "bot-1",
+      "name": "Binance ⇄ Bybit Real USD Sniper",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 3000,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 10,
+        "maxPriceDivergencePct": 0.1,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5,
+        "optimalPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 7,
+        "maxMarginCapUsdt": 3000,
+        "maxAmountPerHedgeUsdt": 100,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.01,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_1M",
+        "executionCorridor": "BINANCE_BYBIT",
+        "enableFlattenMemoryLock": true
+      },
+      "flattenedCoinsBlacklist": [],
+      "symbolCooldowns": {},
+      "activeHedges": [],
+      "completedHedges": [],
+      "logs": [
+        {
+          "timestamp": "2026-10-27T12:05:50.839Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T11:44:14.753Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T11:28:21.122Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:26.163Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:01.151Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:35.690Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:10.819Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:45.710Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:20.813Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:56.253Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:31.073Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:05.731Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:41.104Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:15.662Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:50.648Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:25.689Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:00.705Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:35.636Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:11.013Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:46.009Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:20.662Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:56:56.071Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:56:30.612Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:56:05.636Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:55:40.974Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:55:16.079Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:54:50.557Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:54:25.820Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:54:00.365Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:53:35.202Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:53:10.697Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:52:45.437Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:52:20.203Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:51:55.280Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:51:29.990Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:51:04.916Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:50:40.125Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:50:15.078Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:49:50.268Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:49:15.224Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:48:43.787Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:48:08.653Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:47:29.190Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:46:38.957Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:45:48.967Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:44:58.904Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:44:08.506Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:43:19.315Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:42:29.110Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:41:38.912Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:40:48.992Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:39:59.198Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:39:08.609Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:38:18.691Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:37:29.027Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:36:38.592Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:35:48.598Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:34:58.921Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:34:08.672Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:33:19.627Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:32:29.305Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:31:39.250Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:30:48.685Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:29:59.423Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:29:09.101Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:28:19.536Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:27:29.659Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:26:39.061Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:25:48.606Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:24:58.572Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:24:08.635Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:23:19.034Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:22:29.522Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:21:39.058Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:20:49.315Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:19:59.176Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:19:08.916Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:18:18.888Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:17:28.892Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:16:38.962Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:15:48.527Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:14:59.140Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:14:08.338Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:13:19.251Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:12:28.515Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:11:38.972Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:10:48.799Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:09:58.918Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:09:08.555Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:08:18.444Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:07:29.006Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:06:38.479Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:05:54.064Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:05:01.712Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:04:33.252Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:04:10.242Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:03:45.508Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:03:16.902Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:02:51.964Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:02:22.000Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:01:56.597Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:01:30.612Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:01:01.948Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:00:37.223Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:00:10.175Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:59:45.154Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:59:20.556Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:58:55.415Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:58:21.546Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:57:56.850Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:57:31.919Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:57:06.631Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:56:41.583Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:56:16.555Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:55:47.142Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:55:10.580Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:54:40.825Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:54:10.873Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:53:35.546Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:53:05.379Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:52:40.191Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:52:10.562Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:51:31.869Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:51:05.095Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:50:36.643Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:50:05.452Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:49:35.179Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:49:07.203Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:48:37.212Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:48:10.272Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:47:36.701Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:47:06.980Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:46:40.081Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:46:00.733Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:45:30.039Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:44:46.426Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:44:06.319Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:43:35.021Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:43:05.020Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:42:35.038Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:42:01.503Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:41:31.499Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:40:55.246Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:40:21.574Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:39:45.260Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:39:15.309Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:38:50.013Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:38:15.059Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:37:41.132Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:37:09.977Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:36:30.297Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:35:50.290Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:35:00.276Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:34:15.336Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:33:41.320Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:32:55.174Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:32:20.474Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:31:30.086Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:30:50.281Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:30:20.592Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:29:49.928Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:29:05.644Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:28:26.313Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:27:49.970Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:27:19.892Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:26:35.636Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:25:51.565Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:25:19.836Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:24:45.418Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:24:00.161Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:23:20.012Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:22:30.028Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:21:40.136Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:20:50.097Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:19:59.980Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:19:09.842Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:18:20.251Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:17:30.895Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:16:40.221Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:15:50.240Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:15:00.512Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:14:10.465Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:13:19.963Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:12:30.198Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:11:40.120Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:10:50.593Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:10:00.096Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:09:10.095Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:08:20.432Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:07:30.344Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:06:41.398Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:05:51.211Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:05:01.219Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:04:10.386Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:03:20.233Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:02:34.909Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:01:45.107Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:00:54.913Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T07:00:04.936Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T06:59:14.949Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        }
+      ],
+      "statusText": "CONSENT_WITHDRAWN (DPDP Act Section 6 exchange dispatch consent missing or revoked)",
+      "lastEvaluatedCandidate": {
+        "symbol": "SOLUSDT",
+        "spreadBps": 0,
+        "divergencePct": 0.00583,
+        "secondsToFunding": 1,
+        "qualified": false,
+        "reason": "Spread (0 bps) < Min (10 bps)"
+      },
+      "createdAt": 1791382174180,
+      "updatedAt": 1791785997220
+    }
+  ],
+  "setFiles": [
+    {
+      "id": "set-conservative",
+      "fileName": "conservative_35bps_sniper.set",
+      "name": "Conservative 35bps Sniper",
+      "description": "Snipes within 60s of funding with strict 35 bps spread (clears 23 bps taker fees), 0.03% parity, $500 hard margin cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-10-27T12:39:10.486Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-aggressive",
+      "fileName": "aggressive_continuous_arbitrage.set",
+      "name": "Aggressive Continuous Arbitrage",
+      "description": "Continuous spread capture 24/7 without waiting for funding window. 35 bps spread (clears taker drag), 0.05% parity, $1,000 cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 5,
+        "maxMarginCapUsdt": 1000,
+        "maxAmountPerHedgeUsdt": 50,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.05,
+        "scanIntervalSeconds": 5,
+        "timingMode": "CONTINUOUS_SPREAD",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-10-27T12:39:10.487Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-balanced",
+      "fileName": "balanced_institutional_harvest.set",
+      "name": "Balanced Institutional Harvest",
+      "description": "Funding Sniper mode with 35 bps spread threshold (clears taker drag), 0.03% parity, $750 hard cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 4,
+        "maxMarginCapUsdt": 750,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-10-27T12:39:10.487Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-10-27T12:05:50.839Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T11:44:14.753Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T11:28:21.122Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:26.163Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:01.151Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:35.690Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:10.819Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:45.710Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:20.813Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:56.253Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:31.073Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:05.731Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:41.104Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:15.662Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:50.648Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:25.689Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:00.705Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:35.636Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:11.013Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:46.009Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:20.662Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:56:56.071Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:56:30.612Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:56:05.636Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:55:40.974Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:55:16.079Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:54:50.557Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:54:25.820Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:54:00.365Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:53:35.202Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:53:10.697Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:52:45.437Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:52:20.203Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:51:55.280Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:51:29.990Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:51:04.916Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:50:40.125Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:50:15.078Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:49:50.268Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:49:15.224Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:48:43.787Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:48:08.653Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:47:29.190Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:46:38.957Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:45:48.967Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:44:58.904Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:44:08.506Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:43:19.315Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:42:29.110Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:41:38.912Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:40:48.992Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:39:59.198Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:39:08.609Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:38:18.691Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:37:29.027Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:36:38.592Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:35:48.598Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:34:58.921Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:34:08.672Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:33:19.627Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:32:29.305Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:31:39.250Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:30:48.685Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:29:59.423Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:29:09.101Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:28:19.536Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:27:29.659Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:26:39.061Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:25:48.606Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:24:58.572Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:24:08.635Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:23:19.034Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:22:29.522Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:21:39.058Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:20:49.315Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:19:59.176Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:19:08.916Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:18:18.888Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:17:28.892Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:16:38.962Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:15:48.527Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:14:59.140Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:14:08.338Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:13:19.251Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:12:28.515Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:11:38.972Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:10:48.799Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:09:58.918Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:09:08.555Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:08:18.444Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:07:29.006Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:06:38.479Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:05:54.064Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:05:01.712Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:04:33.252Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:04:10.242Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:03:45.508Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:03:16.902Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:02:51.964Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:02:22.000Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:01:56.597Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:01:30.612Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:01:01.948Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:00:37.223Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:00:10.175Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:59:45.154Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:59:20.556Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:58:55.415Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:58:21.546Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:57:56.850Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:57:31.919Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:57:06.631Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:56:41.583Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:56:16.555Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:55:47.142Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:55:10.580Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:54:40.825Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:54:10.873Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:53:35.546Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:53:05.379Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:52:40.191Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:52:10.562Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:51:31.869Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:51:05.095Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:50:36.643Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:50:05.452Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:49:35.179Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:49:07.203Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:48:37.212Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:48:10.272Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:47:36.701Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:47:06.980Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:46:40.081Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:46:00.733Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:45:30.039Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:44:46.426Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:44:06.319Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:43:35.021Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:43:05.020Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:42:35.038Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:42:01.503Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:41:31.499Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:40:55.246Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:40:21.574Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:39:45.260Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:39:15.309Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:38:50.013Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:38:15.059Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:37:41.132Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:37:09.977Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:36:30.297Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:35:50.290Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:35:00.276Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:34:15.336Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:33:41.320Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:32:55.174Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:32:20.474Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:31:30.086Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:30:50.281Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:30:20.592Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:29:49.928Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:29:05.644Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:28:26.313Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:27:49.970Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:27:19.892Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:26:35.636Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:25:51.565Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:25:19.836Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:24:45.418Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:24:00.161Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:23:20.012Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:22:30.028Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:21:40.136Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:20:50.097Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:19:59.980Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:19:09.842Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:18:20.251Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:17:30.895Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:16:40.221Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:15:50.240Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:15:00.512Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:14:10.465Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:13:19.963Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:12:30.198Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:11:40.120Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:10:50.593Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:10:00.096Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:09:10.095Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:08:20.432Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:07:30.344Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:06:41.398Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:05:51.211Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:05:01.219Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:04:10.386Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:03:20.233Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:02:34.909Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:01:45.107Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:00:54.913Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T07:00:04.936Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T06:59:14.949Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for audit_principal_1791817526813@hedge.quant: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 10,
+    "maxPriceDivergencePct": 0.1,
+    "maxDivergenceSpreadRatioPct": 50,
+    "maxPriceDivergenceCapPct": 0.5,
+    "optimalPriceDivergencePct": 0.01,
+    "balanceAllocationPct": 20,
+    "leverageMode": "MAX_PER_COIN",
+    "customLeverage": 50,
+    "maxSimultaneousHedges": 7,
+    "maxMarginCapUsdt": 3000,
+    "maxAmountPerHedgeUsdt": 100,
+    "postSettlementWaitSeconds": 15,
+    "closeMaxPriceDivergencePct": 0.01,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_1M",
+    "executionCorridor": "BINANCE_BYBIT",
+    "enableFlattenMemoryLock": true
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "CONSENT_WITHDRAWN (DPDP Act Section 6 exchange dispatch consent missing or revoked)",
+  "lastEvaluatedCandidate": {
+    "symbol": "SOLUSDT",
+    "spreadBps": 0,
+    "divergencePct": 0.00583,
+    "secondsToFunding": 1,
+    "qualified": false,
+    "reason": "Spread (0 bps) < Min (10 bps)"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "cyclesCompleted": 1,
+  "lastCycleTimestamp": 1793110821538,
+  "bots": [
+    {
+      "id": "bot_exposure",
+      "name": "ExposureBot",
+      "statusText": "HEDGED",
+      "config": {
+        "enabled": true,
+        "executionCorridor": "BINANCE_BITGET",
+        "maxSimultaneousHedges": 3,
+        "balanceAllocationPct": 20,
+        "minSpreadBps": 35,
+        "targetProfitSpreadBps": 20,
+        "stopLossSpreadBps": 60,
+        "maxHoldHours": 12,
+        "leverageMode": "AUTO_MAX",
+        "customLeverage": 10,
+        "postSettlementWaitSeconds": 120,
+        "closeMaxPriceDivergencePct": 0.25,
+        "scanIntervalSeconds": 5
+      },
+      "activeHedges": [],
+      "completedHedges": []
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "executionCorridor": "BINANCE_BITGET",
+    "maxSimultaneousHedges": 3,
+    "balanceAllocationPct": 20,
+    "minSpreadBps": 35,
+    "targetProfitSpreadBps": 20,
+    "stopLossSpreadBps": 60,
+    "maxHoldHours": 12,
+    "leverageMode": "AUTO_MAX",
+    "customLeverage": 10,
+    "postSettlementWaitSeconds": 120,
+    "closeMaxPriceDivergencePct": 0.25,
+    "scanIntervalSeconds": 5
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "HEDGED"
+}

@@ -1,0 +1,6 @@
+{
+  "summary": "Updated implementation plan with Dynamic Net-Yield Hurdle (Cost-Benefit Ratio) to prevent over-fitting and ensure high-yield trades like TUSDT and BLURUSDT are never missed.",
+  "updatedAt": "2026-10-29T09:06:49.944160800Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

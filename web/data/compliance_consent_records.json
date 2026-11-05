@@ -1,0 +1,200 @@
+[
+  {
+    "id": "cst_4e15a12fc00c6a96",
+    "userId": "usr_1793116484544_ga557",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T15:54:44.586Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_e3397091a6424656",
+    "userId": "usr_1793116484544_ga557",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T15:54:44.586Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_6a397a24cc106b5e",
+    "userId": "usr_1793116499521_1vuy7",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T15:56:02.510Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_2d7368877d3d3746",
+    "userId": "usr_1793116499521_1vuy7",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T15:56:02.510Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_2b6d8ffaee910e01",
+    "userId": "usr_admin_varsha",
+    "userEmail": "admin@safecoiner.com",
+    "purpose": "PURPOSE_DIAGNOSTICS_TELEMETRY",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T15:58:13.038Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_a2aa2586f4824616",
+    "userId": "usr_admin_varsha",
+    "userEmail": "admin@safecoiner.com",
+    "purpose": "PURPOSE_MARKET_CACHE",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T15:58:13.038Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_9f24d1f9f9b3eff5",
+    "userId": "usr_1793116577436_5mble",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T16:08:35.530Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_5fddedaabb1dca57",
+    "userId": "usr_1793116577436_5mble",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T16:08:35.530Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_1238bb5672fcd9b9",
+    "userId": "usr_1793117334011_2by1v",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T16:11:03.674Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_e0fc7397f5b5243c",
+    "userId": "usr_1793117334011_2by1v",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T16:11:03.674Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_e500b363a1921a60",
+    "userId": "usr_1793117480086_ak8sl",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T16:39:11.492Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_65f4a1c303b49bf2",
+    "userId": "usr_1793117480086_ak8sl",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-27T16:39:11.492Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_a3f9bd8aafdf7026",
+    "userId": "usr_1793119166225_0ndvh",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-28T02:48:56.313Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_2ec372ec3ba2c20a",
+    "userId": "usr_1793119166225_0ndvh",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-28T02:48:56.313Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_84baf9963628cf8a",
+    "userId": "usr_1793155757579_i68t5",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-28T06:29:08.996Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_48a3c2342c8e849b",
+    "userId": "usr_1793155757579_i68t5",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-28T06:29:08.996Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_6a8f4a6f0f4e6d1f",
+    "userId": "usr_1793168970063_o0w7l",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_AUTH_AND_EXECUTION",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-28T06:41:07.714Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  },
+  {
+    "id": "cst_8b1a0b24a71413f4",
+    "userId": "usr_1793168970063_o0w7l",
+    "userEmail": "regular_trader@safecoiner.com",
+    "purpose": "PURPOSE_EXCHANGE_DISPATCH",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-10-28T06:41:07.714Z",
+    "ipAddress": "127.0.0.1",
+    "userAgent": "test"
+  }
+]

@@ -1,0 +1,1194 @@
+{
+  "isRunning": true,
+  "runInBackgroundWhenClosed": true,
+  "mode": "AUTONOMOUS_SERVER_24_7",
+  "startedAt": 1793105627646,
+  "lastCycleAt": 1793106658800,
+  "cyclesCompleted": 217,
+  "activeBotId": "bot-1",
+  "bots": [
+    {
+      "id": "bot-1",
+      "name": "Conservative Funding Sniper",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 500,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5,
+        "optimalPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT",
+        "enableFlattenMemoryLock": true
+      },
+      "flattenedCoinsBlacklist": [],
+      "symbolCooldowns": {},
+      "activeHedges": [],
+      "completedHedges": [],
+      "logs": [
+        {
+          "timestamp": "2026-10-27T13:10:54.781Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:10:24.694Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:09:54.692Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:09:24.682Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:08:54.883Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:08:26.656Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:07:55.410Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:07:24.784Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:06:54.578Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:06:24.644Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:05:54.683Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:05:24.568Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:04:54.623Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:04:24.728Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:03:54.622Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:03:24.809Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:02:54.709Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:02:24.718Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:01:54.559Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:01:24.585Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:00:54.596Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T13:00:24.904Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:59:54.704Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:59:24.612Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:58:54.682Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:58:24.614Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:57:54.611Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:57:24.605Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:56:54.509Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:56:27.423Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:55:54.527Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:55:24.731Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:54:54.602Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:54:24.579Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.646Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.621Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.598Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.576Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.550Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.524Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.490Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.467Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.429Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:53:47.403Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:17.736Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:17.712Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:08.356Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:08.336Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:51:07.056Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:50:55.652Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:50:55.616Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:58.896Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:58.874Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:57.184Z",
+          "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:20.633Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:49:20.615Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:44:58.832Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:44:58.809Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.135Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.112Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.112Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot-1",
+          "botName": "Conservative Funding Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.070Z",
+          "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+          "level": "warn"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:27.063Z",
+          "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+          "level": "error"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:26.885Z",
+          "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+          "level": "info"
+        },
+        {
+          "timestamp": "2026-10-27T12:42:26.729Z",
+          "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+          "level": "info"
+        }
+      ],
+      "statusText": "LOW_MARGIN_BUFFER (CoinDCX: $0.00, Bybit: $0.00 < $0.50)",
+      "lastEvaluatedCandidate": null,
+      "createdAt": 1793104946529,
+      "updatedAt": 1793104947089
+    }
+  ],
+  "setFiles": [
+    {
+      "id": "set-conservative",
+      "fileName": "conservative_35bps_sniper.set",
+      "name": "Conservative 35bps Sniper",
+      "description": "Snipes within 60s of funding with strict 35 bps spread (clears 23 bps taker fees), 0.03% parity, $500 hard margin cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-10-27T12:54:18.648Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-aggressive",
+      "fileName": "aggressive_continuous_arbitrage.set",
+      "name": "Aggressive Continuous Arbitrage",
+      "description": "Continuous spread capture 24/7 without waiting for funding window. 35 bps spread (clears taker drag), 0.05% parity, $1,000 cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 5,
+        "maxMarginCapUsdt": 1000,
+        "maxAmountPerHedgeUsdt": 50,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.05,
+        "scanIntervalSeconds": 5,
+        "timingMode": "CONTINUOUS_SPREAD",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-10-27T12:54:18.649Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-balanced",
+      "fileName": "balanced_institutional_harvest.set",
+      "name": "Balanced Institutional Harvest",
+      "description": "Funding Sniper mode with 35 bps spread threshold (clears taker drag), 0.03% parity, $750 hard cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 4,
+        "maxMarginCapUsdt": 750,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-10-27T12:54:18.649Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-656882",
+      "fileName": "24th.set",
+      "name": "CoinDCX ⇄ Bybit Real_test",
+      "description": "Custom user quantitative preset",
+      "config": {
+        "minSpreadBps": 10,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "CUSTOM",
+        "customLeverage": 10,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 20,
+        "closeMaxPriceDivergencePct": 0.02,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT",
+        "enableFlattenMemoryLock": false,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: CoinDCX ⇄ Bybit Real_test\n; Exported: 2026-10-24T07:40:56.881Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=undefined\nMinSpreadBps=10\nMaxPriceDivergencePct=0.05\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=20\nPostSettlementWaitSeconds=undefined\nCloseMaxPriceDivergencePct=0.02\nScanIntervalSeconds=undefined\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=false\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5",
+      "isBuiltIn": false,
+      "createdAt": 1792827656882,
+      "updatedAt": 1792827656882
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-10-27T13:10:54.781Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:10:24.694Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:09:54.692Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:09:24.682Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:08:54.883Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:08:26.656Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:07:55.410Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:07:24.784Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:06:54.578Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:06:24.644Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:05:54.683Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:05:24.568Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:04:54.623Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:04:24.728Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:03:54.622Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:03:24.809Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:02:54.709Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:02:24.718Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:01:54.559Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:01:24.585Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:00:54.596Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T13:00:24.904Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:59:54.704Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:59:24.612Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:58:54.682Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:58:24.614Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:57:54.611Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:57:24.605Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:56:54.509Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:56:27.423Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:55:54.527Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:55:24.731Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:54:54.602Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:54:24.579Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.646Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.621Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.598Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.576Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.550Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.524Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.490Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.467Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.429Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:53:47.403Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.736Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.712Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.667Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.659Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.489Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:17.316Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.356Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.336Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.292Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.284Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:08.096Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:07.958Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:51:07.056Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.652Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.616Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.543Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.526Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.335Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:50:55.191Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.896Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.874Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.818Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.811Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.555Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:58.336Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:57.184Z",
+      "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.633Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.615Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.572Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.564Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.399Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:49:20.235Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.832Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.809Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.764Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.757Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.586Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:44:58.439Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.135Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.112Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.112Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot-1",
+      "botName": "Conservative Funding Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.070Z",
+      "message": "[ZERO-ORPHAN PROTECTION] Bot \"TestBot\": Leg 1 (CoinDCX) rejected (CoinDCX Order Rejected: Invalid credentials). Bitget was NOT dispatched (0 orphan exposure, $0.00 fee loss). Coin BTCUSDT locked into Review Pause list until manually resumed in Bot Fleet.",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:27.063Z",
+      "message": "[LEG 1 REJECTED] Bot \"TestBot\": CoinDCX SELL BTCUSDT failed: CoinDCX Order Rejected: Invalid credentials",
+      "level": "error"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:26.885Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for BTCUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T12:42:26.729Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for BTCUSDT | Notional: $1445.00 USDT (0.017 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 35,
+    "maxPriceDivergencePct": 0.05,
+    "maxDivergenceSpreadRatioPct": 50,
+    "maxPriceDivergenceCapPct": 0.5,
+    "optimalPriceDivergencePct": 0.01,
+    "balanceAllocationPct": 20,
+    "leverageMode": "MAX_PER_COIN",
+    "customLeverage": 50,
+    "maxSimultaneousHedges": 3,
+    "maxMarginCapUsdt": 500,
+    "maxAmountPerHedgeUsdt": 30,
+    "postSettlementWaitSeconds": 15,
+    "closeMaxPriceDivergencePct": 0.03,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_5M",
+    "executionCorridor": "COINDCX_BYBIT",
+    "enableFlattenMemoryLock": true
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "LOW_MARGIN_BUFFER (CoinDCX: $0.00, Bybit: $0.00 < $0.50)",
+  "lastEvaluatedCandidate": null
+}

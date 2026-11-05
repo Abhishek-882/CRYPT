@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": "2026-10-26T19:19:42.263Z",
+    "message": "[FUNDING SYNC LOCK] Disqualified DESYNC_TIME on Binance ⇄ Bybit: Countdown desynchronization: |Binance - Bybit| = 180s delta > 60s",
+    "level": "warn",
+    "botId": "bot-dryrun-1",
+    "botName": "Adversarial Test Bot"
+  },
+  {
+    "timestamp": "2026-10-26T19:19:42.250Z",
+    "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+    "level": "warn",
+    "botId": "bot-dryrun-1",
+    "botName": "Adversarial Test Bot"
+  },
+  {
+    "timestamp": "2026-10-26T17:09:32.061Z",
+    "message": "[FUNDING SYNC LOCK] Disqualified DESYNC_TIME on Binance ⇄ Bybit: Countdown desynchronization: |Binance - Bybit| = 180s delta > 60s",
+    "level": "warn",
+    "botId": "bot-dryrun-1",
+    "botName": "Adversarial Test Bot"
+  },
+  {
+    "timestamp": "2026-10-26T17:09:32.048Z",
+    "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+    "level": "warn",
+    "botId": "bot-dryrun-1",
+    "botName": "Adversarial Test Bot"
+  }
+]

@@ -1,0 +1,35 @@
+[Unit]
+Description=SafeCoiner Autonomous Delta-Neutral Hedge Cockpit
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=safecoiner
+Group=safecoiner
+WorkingDirectory=/opt/safecoiner/web
+Environment=NODE_ENV=production
+# Restrict binding strictly to localhost or Tailscale VPN interface to prevent Shodan/internet exposure
+Environment=PORT=3000
+Environment=HOST=127.0.0.1
+Environment=DATA_DIR=/opt/safecoiner/data
+EnvironmentFile=-/opt/safecoiner/.env
+
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=5s
+
+# Hardened Resource Limits
+LimitNOFILE=65536
+MemoryMax=1024M
+MemoryHigh=896M
+CPUQuota=200%
+
+# Security Sandbox
+ProtectSystem=full
+ProtectHome=read-only
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

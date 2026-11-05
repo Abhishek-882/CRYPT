@@ -1,0 +1,12 @@
+{
+  "isRunning": false,
+  "runInBackgroundWhenClosed": false,
+  "mode": "REAL_TRADING",
+  "startedAt": 1793880234873,
+  "lastCycleAt": 1793880234873,
+  "cyclesCompleted": 0,
+  "activeBotId": "bot_1",
+  "bots": [],
+  "setFiles": [],
+  "logs": []
+}

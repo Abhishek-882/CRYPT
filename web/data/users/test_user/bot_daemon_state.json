@@ -1,0 +1,103 @@
+{
+  "bots": [
+    {
+      "id": "bot-dryrun-1",
+      "name": "Adversarial Test Bot",
+      "enabled": true,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5,
+        "optimalPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "BINANCE_BYBIT",
+        "enableFlattenMemoryLock": true
+      },
+      "activeHedges": [],
+      "completedHedges": [],
+      "flattenedCoinsBlacklist": [],
+      "statusText": "STARTING",
+      "logs": [
+        {
+          "timestamp": "2026-10-26T19:19:42.263Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified DESYNC_TIME on Binance ⇄ Bybit: Countdown desynchronization: |Binance - Bybit| = 180s delta > 60s",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Adversarial Test Bot"
+        },
+        {
+          "timestamp": "2026-10-26T19:19:42.257Z",
+          "message": "[FEE CLEARANCE FILTER] Disqualified LOWFEEUSDT on Binance ⇄ Bybit: Gross spread 22 bps fails fee filter (Min required gross: 35 bps, Roundtrip fee: 23 bps).",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Adversarial Test Bot"
+        },
+        {
+          "timestamp": "2026-10-26T19:19:42.250Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Adversarial Test Bot"
+        }
+      ]
+    }
+  ],
+  "cyclesCompleted": 1,
+  "logs": [
+    {
+      "timestamp": "2026-10-26T19:19:42.263Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified DESYNC_TIME on Binance ⇄ Bybit: Countdown desynchronization: |Binance - Bybit| = 180s delta > 60s",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Adversarial Test Bot"
+    },
+    {
+      "timestamp": "2026-10-26T19:19:42.257Z",
+      "message": "[FEE CLEARANCE FILTER] Disqualified LOWFEEUSDT on Binance ⇄ Bybit: Gross spread 22 bps fails fee filter (Min required gross: 35 bps, Roundtrip fee: 23 bps).",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Adversarial Test Bot"
+    },
+    {
+      "timestamp": "2026-10-26T19:19:42.250Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Adversarial Test Bot"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 35,
+    "maxPriceDivergencePct": 0.05,
+    "maxDivergenceSpreadRatioPct": 50,
+    "maxPriceDivergenceCapPct": 0.5,
+    "optimalPriceDivergencePct": 0.01,
+    "balanceAllocationPct": 20,
+    "leverageMode": "MAX_PER_COIN",
+    "customLeverage": 50,
+    "maxSimultaneousHedges": 3,
+    "maxMarginCapUsdt": 500,
+    "maxAmountPerHedgeUsdt": 30,
+    "postSettlementWaitSeconds": 15,
+    "closeMaxPriceDivergencePct": 0.03,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_5M",
+    "executionCorridor": "BINANCE_BYBIT",
+    "enableFlattenMemoryLock": true
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "STARTING"
+}

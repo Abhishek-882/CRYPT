@@ -1,0 +1,52 @@
+{
+  "name": "safecoiner-cockpit",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:soak": "tsx tests/soak/continuousSoakRunner.ts",
+    "test:all": "tsx tests/adversarial_routes_challenge.ts && tsx tests/adversarial_m1_challenge.ts && tsx tests/adversarial_m2_challenge.ts && tsx tests/adversarial_m2_challenger_deep_stress.ts && tsx tests/adversarial_m3_challenge.ts && vitest run"
+  },
+  "dependencies": {
+    "@types/aos": "^3.0.8",
+    "@types/ws": "^8.18.2",
+    "animate.css": "^4.1.1",
+    "animejs": "^4.5.0",
+    "aos": "^2.3.4",
+    "framer-motion": "^14.2.0",
+    "https-proxy-agent": "^9.1.0",
+    "lucide-react": "^1.16.0",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "socket.io-client": "^2.4.0",
+    "three": "^0.169.0",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/animejs": "^3.1.13",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.169.0",
+    "@webgpu/types": "^0.1.74",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.35",
+    "postcss": "^8.5.29",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.23.15",
+    "typescript": "^5.5.4",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "overrides": {
+    "braces": "^3.0.3",
+    "micromatch": "^4.0.8",
+    "postcss": "^8.5.29"
+  }
+}

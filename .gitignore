@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+web/node_modules/
+.pnp
+.pnp.js
+
+# Next.js Build & Caches
+.next/
+web/.next/
+out/
+build/
+dist/
+
+# Large binaries
+*.exe
+cloudflared.exe
+
+# Chrome profiles & Automation caches
+chrome_automation_profile/
+chrome_temp_profile/
+screenshots/
+
+# Secrets & Environment Variables (Security Invariant)
+.env
+.env*.local
+.vault_master_key
+user_accounts_store.json
+web/data/user_accounts_store.json
+
+# Exclude one-off debug scripts with test keys
+scripts/*.py
+scripts/check_*
+scripts/detailed_*
+scripts/test_*
+scripts/probe_*
+scripts/verify_*
+scripts/patch_*
+scripts/save_*
+scripts/update_admin_*
+scripts/measure_*
+
+# Backups & Logs
+*.bak
+*.log
+logs/
+web/data/reports/*.log
+
+# Operating System Files
+.DS_Store
+Thumbs.db

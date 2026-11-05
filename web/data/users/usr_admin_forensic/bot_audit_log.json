@@ -1,0 +1,240 @@
+[
+  {
+    "timestamp": "2026-10-27T13:10:54.781Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:10:24.694Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:09:54.692Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:09:24.682Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:08:54.883Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:08:26.656Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:07:55.410Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:07:24.784Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:06:54.578Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:06:24.644Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:05:54.683Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:05:24.568Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:04:54.623Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:04:24.728Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:03:54.622Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:03:24.809Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:02:54.709Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:02:24.718Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:01:54.559Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:01:24.585Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:00:54.596Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T13:00:24.904Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:59:54.704Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:59:24.612Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:58:54.682Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:58:24.614Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:57:54.611Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:57:24.605Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:56:54.509Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:56:27.423Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:55:54.527Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:55:24.731Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:54:54.602Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T12:54:24.579Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  }
+]

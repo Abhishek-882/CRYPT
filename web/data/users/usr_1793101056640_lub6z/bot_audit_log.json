@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2026-10-27T12:05:41.028Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-dryrun-1",
+    "botName": "Binance ⇄ Bybit Real USD Sniper"
+  },
+  {
+    "timestamp": "2026-10-27T11:37:38.319Z",
+    "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for regular_trader@safecoiner.com: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+    "level": "warn",
+    "botId": "bot-dryrun-1",
+    "botName": "Binance ⇄ Bybit Real USD Sniper"
+  }
+]

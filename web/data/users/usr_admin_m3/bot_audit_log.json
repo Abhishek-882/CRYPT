@@ -1,0 +1,65 @@
+[
+  {
+    "timestamp": "2026-10-27T14:18:39.210Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:18:09.190Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:17:39.178Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:17:09.081Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:16:39.462Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:16:09.151Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:15:39.084Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:15:09.104Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-27T14:14:39.209Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  }
+]

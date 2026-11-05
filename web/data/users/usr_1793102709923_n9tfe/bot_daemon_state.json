@@ -1,0 +1,2968 @@
+{
+  "isRunning": true,
+  "runInBackgroundWhenClosed": true,
+  "mode": "AUTONOMOUS_SERVER_24_7",
+  "startedAt": 1793042383613,
+  "lastCycleAt": 1793102754889,
+  "cyclesCompleted": 11633,
+  "activeBotId": "bot-dryrun-1",
+  "bots": [
+    {
+      "id": "bot-dryrun-1",
+      "name": "Binance ⇄ Bybit Real USD Sniper",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 500,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5,
+        "optimalPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "BINANCE_BYBIT",
+        "enableFlattenMemoryLock": true
+      },
+      "flattenedCoinsBlacklist": [],
+      "symbolCooldowns": {},
+      "activeHedges": [],
+      "completedHedges": [],
+      "logs": [
+        {
+          "timestamp": "2026-10-27T12:05:41.090Z",
+          "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for challenger_tester_std@safecoiner.test: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T11:55:08.839Z",
+          "message": "[BUFFER GUARD] Bot \"Binance ⇄ Bybit Real USD Sniper\": Available margin on Bybit ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T11:30:10.391Z",
+          "message": "[BUFFER GUARD] Bot \"Binance ⇄ Bybit Real USD Sniper\": Available margin on Bybit ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T11:28:15.810Z",
+          "message": "[BUFFER GUARD] Bot \"Binance ⇄ Bybit Real USD Sniper\": Available margin on Bybit ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:41.014Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:38.552Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:35.861Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:34.241Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: CYPHUSDT (Spread: 91.19 bps, Cycle: 8h, Div: 0.01069%). Countdown: 24927s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:34.227Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:30.696Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:28.918Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:26.085Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:23.438Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:20.971Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:18.868Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: CYPHUSDT (Spread: 91.19 bps, Cycle: 8h, Div: 0.14979%). Countdown: 24942s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:18.856Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:15.637Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:14.287Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:10.697Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:08.593Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:06.183Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:03.850Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: CYPHUSDT (Spread: 91.19 bps, Cycle: 8h, Div: 0.14979%). Countdown: 24957s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:03.836Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:04:01.075Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:58.874Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:56.027Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:53.427Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:50.979Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:48.835Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 0.04079%). Countdown: 24972s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:48.822Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:45.975Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:43.918Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:40.974Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:38.465Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:35.616Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:34.198Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 0.0498%). Countdown: 24987s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:34.184Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:30.667Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:29.172Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:25.612Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:23.525Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:21.037Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:18.862Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 3.48559%). Countdown: 25002s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:18.851Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:15.696Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:14.204Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:10.749Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:08.446Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:06.132Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:03.852Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 0.01818%). Countdown: 25017s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:03.840Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:03:01.019Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:58.831Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:56.002Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:53.719Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:50.953Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:48.828Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.16467%). Countdown: 25032s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:48.816Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:45.639Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:44.171Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:40.753Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:38.784Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:35.675Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:33.962Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.19964%). Countdown: 25047s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:33.951Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:31.011Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:28.840Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:25.979Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:23.461Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:20.741Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:19.212Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.109%). Countdown: 25062s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:19.201Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:15.622Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:13.859Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:11.023Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:08.471Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:05.713Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:04.289Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.13311%). Countdown: 25077s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:04.275Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:02:00.672Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:58.859Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:56.178Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:53.511Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:50.610Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:49.198Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.10966%). Countdown: 25092s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:49.183Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:45.683Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:44.179Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:40.625Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:38.700Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:36.142Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:33.872Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.07556%). Countdown: 25107s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:33.860Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:30.998Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:28.970Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:25.982Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:23.530Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:20.664Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:19.222Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25122s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:19.209Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:15.613Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:13.848Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:10.954Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:08.496Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:05.655Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:04.232Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25137s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:04.221Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:01:00.663Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:58.809Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:56.000Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:53.546Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:50.650Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:49.212Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25152s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:49.201Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:45.679Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:43.865Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:41.036Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:38.459Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:35.583Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:34.137Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25167s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:34.124Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:30.647Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:28.887Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:26.017Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:23.469Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:20.612Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:19.141Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.84879%). Countdown: 25182s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:19.130Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:15.593Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:13.990Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:10.969Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:08.567Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:05.657Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:04.175Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.16293%). Countdown: 25197s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:04.163Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T09:00:00.598Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:59.140Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:55.716Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:53.877Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:50.579Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:48.836Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.1609%). Countdown: 25212s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:48.825Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:45.913Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:43.827Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:40.893Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:38.484Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:35.655Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:34.240Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.07382%). Countdown: 25227s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:34.228Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:30.644Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:29.146Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:25.616Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:23.786Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:20.636Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:18.918Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.06916%). Countdown: 25242s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:18.907Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:15.999Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:13.803Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:10.924Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:08.451Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:05.626Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:04.165Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.06362%). Countdown: 25257s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:04.152Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:59:00.636Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:59.139Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:55.637Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:53.763Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:50.565Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:48.875Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.04428%). Countdown: 25272s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:48.860Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:45.955Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:43.794Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:40.885Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:38.491Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:35.565Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:34.274Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.01212%). Countdown: 25287s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:34.263Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:30.605Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:29.135Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:25.606Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:23.555Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:21.045Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:18.817Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.05088%). Countdown: 25302s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:18.804Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:16.185Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:13.853Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:10.941Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:08.467Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:05.575Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:04.268Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.21911%). Countdown: 25317s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:04.257Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:58:00.587Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:59.114Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:55.596Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:53.785Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:50.605Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:48.862Z",
+          "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 117.08 bps, Cycle: 8h, Div: 0.00303%). Countdown: 25332s (8h cycle, >300s sniper window). Standing by.",
+          "level": "info",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:48.851Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:45.940Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        },
+        {
+          "timestamp": "2026-10-27T08:57:43.791Z",
+          "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+          "level": "warn",
+          "botId": "bot-dryrun-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper"
+        }
+      ],
+      "statusText": "CONSENT_WITHDRAWN (DPDP Act Section 6 exchange dispatch consent missing or revoked)",
+      "lastEvaluatedCandidate": {
+        "symbol": "ZCSHUSDT",
+        "spreadBps": 90.61,
+        "divergencePct": 0.309,
+        "secondsToFunding": 24920,
+        "qualified": false,
+        "reason": "[COUNTDOWN WAIT] Spread (90.61 bps) >= Min. Waiting for 300s funding window (24920s left)."
+      },
+      "createdAt": 1793042383613,
+      "updatedAt": 1793042383613
+    }
+  ],
+  "setFiles": [
+    {
+      "id": "set-conservative",
+      "fileName": "conservative_35bps_sniper.set",
+      "name": "Conservative 35bps Sniper",
+      "description": "Snipes within 60s of funding with strict 35 bps spread (clears 23 bps taker fees), 0.03% parity, $500 hard margin cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-10-27T12:05:09.884Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-aggressive",
+      "fileName": "aggressive_continuous_arbitrage.set",
+      "name": "Aggressive Continuous Arbitrage",
+      "description": "Continuous spread capture 24/7 without waiting for funding window. 35 bps spread (clears taker drag), 0.05% parity, $1,000 cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 5,
+        "maxMarginCapUsdt": 1000,
+        "maxAmountPerHedgeUsdt": 50,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.05,
+        "scanIntervalSeconds": 5,
+        "timingMode": "CONTINUOUS_SPREAD",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-10-27T12:05:09.885Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-balanced",
+      "fileName": "balanced_institutional_harvest.set",
+      "name": "Balanced Institutional Harvest",
+      "description": "Funding Sniper mode with 35 bps spread threshold (clears taker drag), 0.03% parity, $750 hard cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 4,
+        "maxMarginCapUsdt": 750,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-10-27T12:05:09.885Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-10-27T12:05:41.090Z",
+      "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for challenger_tester_std@safecoiner.test: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T11:55:08.839Z",
+      "message": "[BUFFER GUARD] Bot \"Binance ⇄ Bybit Real USD Sniper\": Available margin on Bybit ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T11:30:10.391Z",
+      "message": "[BUFFER GUARD] Bot \"Binance ⇄ Bybit Real USD Sniper\": Available margin on Bybit ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T11:28:15.810Z",
+      "message": "[BUFFER GUARD] Bot \"Binance ⇄ Bybit Real USD Sniper\": Available margin on Bybit ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:41.014Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:38.552Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:35.861Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:34.241Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: CYPHUSDT (Spread: 91.19 bps, Cycle: 8h, Div: 0.01069%). Countdown: 24927s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:34.227Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:30.696Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:28.918Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:26.085Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:23.438Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:20.971Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:18.868Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: CYPHUSDT (Spread: 91.19 bps, Cycle: 8h, Div: 0.14979%). Countdown: 24942s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:18.856Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:15.637Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:14.287Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:10.697Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:08.593Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:06.183Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:03.850Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: CYPHUSDT (Spread: 91.19 bps, Cycle: 8h, Div: 0.14979%). Countdown: 24957s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:03.836Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:04:01.075Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:58.874Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:56.027Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:53.427Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:50.979Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:48.835Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 0.04079%). Countdown: 24972s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:48.822Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:45.975Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:43.918Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:40.974Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:38.465Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:35.616Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:34.198Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 0.0498%). Countdown: 24987s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:34.184Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:30.667Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:29.172Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:25.612Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:23.525Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:21.037Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:18.862Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 3.48559%). Countdown: 25002s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:18.851Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:15.696Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:14.204Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:10.749Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:08.446Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:06.132Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:03.852Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 93.83 bps, Cycle: 8h, Div: 0.01818%). Countdown: 25017s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:03.840Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:03:01.019Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:58.831Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:56.002Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:53.719Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:50.953Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:48.828Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.16467%). Countdown: 25032s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:48.816Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:45.639Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:44.171Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:40.753Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:38.784Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:35.675Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:33.962Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.19964%). Countdown: 25047s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:33.951Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:31.011Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:28.840Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:25.979Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:23.461Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:20.741Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:19.212Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.109%). Countdown: 25062s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:19.201Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:15.622Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:13.859Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:11.023Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:08.471Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:05.713Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:04.289Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 97.15 bps, Cycle: 8h, Div: 0.13311%). Countdown: 25077s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:04.275Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:02:00.672Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:58.859Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:56.178Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:53.511Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:50.610Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:49.198Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.10966%). Countdown: 25092s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:49.183Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:45.683Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:44.179Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:40.625Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:38.700Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:36.142Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:33.872Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.07556%). Countdown: 25107s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:33.860Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:30.998Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:28.970Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:25.982Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:23.530Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:20.664Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:19.222Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25122s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:19.209Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:15.613Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:13.848Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:10.954Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:08.496Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:05.655Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:04.232Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 100.69 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25137s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:04.221Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:01:00.663Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:58.809Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:56.000Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:53.546Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:50.650Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:49.212Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25152s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:49.201Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:45.679Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:43.865Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:41.036Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:38.459Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:35.583Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:34.137Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.15436%). Countdown: 25167s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:34.124Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:30.647Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:28.887Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:26.017Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:23.469Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:20.612Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:19.141Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.84879%). Countdown: 25182s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:19.130Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:15.593Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:13.990Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:10.969Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:08.567Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:05.657Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:04.175Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 104.35 bps, Cycle: 8h, Div: 0.16293%). Countdown: 25197s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:04.163Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T09:00:00.598Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:59.140Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:55.716Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:53.877Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:50.579Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:48.836Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.1609%). Countdown: 25212s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:48.825Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:45.913Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:43.827Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:40.893Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:38.484Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:35.655Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:34.240Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.07382%). Countdown: 25227s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:34.228Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:30.644Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:29.146Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:25.616Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:23.786Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:20.636Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:18.918Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.06916%). Countdown: 25242s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:18.907Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:15.999Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:13.803Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:10.924Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:08.451Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:05.626Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:04.165Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 108.25 bps, Cycle: 8h, Div: 0.06362%). Countdown: 25257s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:04.152Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:59:00.636Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:59.139Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:55.637Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:53.763Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:50.565Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:48.875Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.04428%). Countdown: 25272s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:48.860Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:45.955Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:43.794Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:40.885Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:38.491Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:35.565Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:34.274Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.01212%). Countdown: 25287s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:34.263Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:30.605Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:29.135Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:25.606Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:23.555Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:21.045Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:18.817Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.05088%). Countdown: 25302s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:18.804Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:16.185Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:13.853Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:10.941Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:08.467Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:05.575Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:04.268Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 112.44 bps, Cycle: 8h, Div: 0.21911%). Countdown: 25317s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:04.257Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:58:00.587Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:59.114Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:55.596Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:53.785Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:50.605Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:48.862Z",
+      "message": "[SCAN CHECK] Bot \"Binance ⇄ Bybit Real USD Sniper\" [Binance⇄Bybit]: Inspected 805 pairs. Top: ZCSHUSDT (Spread: 117.08 bps, Cycle: 8h, Div: 0.00303%). Countdown: 25332s (8h cycle, >300s sniper window). Standing by.",
+      "level": "info",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:48.851Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:45.940Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    },
+    {
+      "timestamp": "2026-10-27T08:57:43.791Z",
+      "message": "[FUNDING SYNC LOCK] Disqualified ERAUSDT on Binance ⇄ Bybit: Interval mismatch: Binance (1h) !== Bybit (4h)",
+      "level": "warn",
+      "botId": "bot-dryrun-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 35,
+    "maxPriceDivergencePct": 0.05,
+    "maxDivergenceSpreadRatioPct": 50,
+    "maxPriceDivergenceCapPct": 0.5,
+    "optimalPriceDivergencePct": 0.01,
+    "balanceAllocationPct": 20,
+    "leverageMode": "MAX_PER_COIN",
+    "customLeverage": 50,
+    "maxSimultaneousHedges": 3,
+    "maxMarginCapUsdt": 500,
+    "maxAmountPerHedgeUsdt": 30,
+    "postSettlementWaitSeconds": 15,
+    "closeMaxPriceDivergencePct": 0.03,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_5M",
+    "executionCorridor": "BINANCE_BYBIT",
+    "enableFlattenMemoryLock": true
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "CONSENT_WITHDRAWN (DPDP Act Section 6 exchange dispatch consent missing or revoked)",
+  "lastEvaluatedCandidate": {
+    "symbol": "ZCSHUSDT",
+    "spreadBps": 90.61,
+    "divergencePct": 0.309,
+    "secondsToFunding": 24920,
+    "qualified": false,
+    "reason": "[COUNTDOWN WAIT] Spread (90.61 bps) >= Min. Waiting for 300s funding window (24920s left)."
+  }
+}

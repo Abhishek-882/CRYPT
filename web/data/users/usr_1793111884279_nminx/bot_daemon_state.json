@@ -1,0 +1,327 @@
+{
+  "isRunning": true,
+  "runInBackgroundWhenClosed": true,
+  "mode": "AUTONOMOUS_SERVER_24_7",
+  "startedAt": 1793111145891,
+  "lastCycleAt": 1793111890358,
+  "cyclesCompleted": 14,
+  "activeBotId": "bot_exposure",
+  "bots": [
+    {
+      "id": "bot_exposure",
+      "name": "ExposureBot",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 500,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5,
+        "optimalPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "AUTO_MAX",
+        "customLeverage": 10,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 120,
+        "closeMaxPriceDivergencePct": 0.25,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "BINANCE_BITGET",
+        "enableFlattenMemoryLock": true,
+        "targetProfitSpreadBps": 20,
+        "stopLossSpreadBps": 60,
+        "maxHoldHours": 12
+      },
+      "flattenedCoinsBlacklist": [],
+      "symbolCooldowns": {},
+      "activeHedges": [],
+      "completedHedges": [],
+      "logs": [
+        {
+          "timestamp": "2026-10-27T14:38:10.086Z",
+          "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-27T14:25:45.891Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-27T14:25:45.870Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-27T14:23:44.291Z",
+          "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-27T14:23:33.769Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-27T14:23:33.748Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-27T14:22:56.829Z",
+          "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+          "level": "success",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-27T14:22:56.807Z",
+          "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        }
+      ],
+      "statusText": "WAITING_API_KEYS (Configure in Profile/Settings)",
+      "lastEvaluatedCandidate": null,
+      "createdAt": 1793110974477,
+      "updatedAt": 1793110974477
+    }
+  ],
+  "setFiles": [
+    {
+      "id": "set-conservative",
+      "fileName": "conservative_35bps_sniper.set",
+      "name": "Conservative 35bps Sniper",
+      "description": "Snipes within 60s of funding with strict 35 bps spread (clears 23 bps taker fees), 0.03% parity, $500 hard margin cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-10-27T14:38:05.330Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-aggressive",
+      "fileName": "aggressive_continuous_arbitrage.set",
+      "name": "Aggressive Continuous Arbitrage",
+      "description": "Continuous spread capture 24/7 without waiting for funding window. 35 bps spread (clears taker drag), 0.05% parity, $1,000 cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 5,
+        "maxMarginCapUsdt": 1000,
+        "maxAmountPerHedgeUsdt": 50,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.05,
+        "scanIntervalSeconds": 5,
+        "timingMode": "CONTINUOUS_SPREAD",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-10-27T14:38:05.331Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-balanced",
+      "fileName": "balanced_institutional_harvest.set",
+      "name": "Balanced Institutional Harvest",
+      "description": "Funding Sniper mode with 35 bps spread threshold (clears taker drag), 0.03% parity, $750 hard cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 4,
+        "maxMarginCapUsdt": 750,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-10-27T14:38:05.331Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-10-27T14:38:10.086Z",
+      "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:25:45.891Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:25:45.870Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:25:45.828Z",
+      "message": "[HEDGE FILLED] Bot \"TestBot\": Successfully entered dual delta-neutral hedge on ETHUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg arrival delta: 103ms (Leg 1: 125ms, Leg 2: 52ms). CoinDCX #sim_coindcx_1793111145709 @ $2321.66 | Bitget #sim_coindcx_1793111145812 @ $2321.67.",
+      "level": "success"
+    },
+    {
+      "timestamp": "2026-10-27T14:25:45.812Z",
+      "message": "[LEG 2 FILLED] Bot \"TestBot\": CoinDCX BUY ETHUSDT filled successfully! Order #sim_coindcx_1793111145812 @ $2321.67 (52ms, placedAt: 2026-10-27T14:25:45.812Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:25:45.709Z",
+      "message": "[LEG 1 FILLED] Bot \"TestBot\": CoinDCX SELL ETHUSDT filled successfully! Order #sim_coindcx_1793111145709 @ $2321.66 (125ms, placedAt: 2026-10-27T14:25:45.709Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:25:45.576Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for ETHUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:25:45.409Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for ETHUSDT | Notional: $275.00 USDT (0.11 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:44.291Z",
+      "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:33.769Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:33.748Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:33.702Z",
+      "message": "[HEDGE FILLED] Bot \"TestBot\": Successfully entered dual delta-neutral hedge on ETHUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg arrival delta: 102ms (Leg 1: 124ms, Leg 2: 50ms). CoinDCX #sim_coindcx_1793111013583 @ $2318 | Bitget #sim_coindcx_1793111013685 @ $2318.01.",
+      "level": "success"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:33.685Z",
+      "message": "[LEG 2 FILLED] Bot \"TestBot\": CoinDCX BUY ETHUSDT filled successfully! Order #sim_coindcx_1793111013685 @ $2318.01 (50ms, placedAt: 2026-10-27T14:23:33.685Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:33.583Z",
+      "message": "[LEG 1 FILLED] Bot \"TestBot\": CoinDCX SELL ETHUSDT filled successfully! Order #sim_coindcx_1793111013583 @ $2318 (124ms, placedAt: 2026-10-27T14:23:33.583Z)",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:33.449Z",
+      "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for ETHUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:23:33.286Z",
+      "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for ETHUSDT | Notional: $275.00 USDT (0.11 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+      "level": "info"
+    },
+    {
+      "timestamp": "2026-10-27T14:22:56.829Z",
+      "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+      "level": "success",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:22:56.807Z",
+      "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-27T14:22:56.764Z",
+      "message": "[RISK GATE REJECTED] Bot \"TestBot\": Entry on BTCUSDT blocked by RiskGate: ORDER_EXCEEDS_NOTIONAL_CAP: Order notional $1445.00 USDT exceeds maximum allowed cap of $500.00 USDT. (code: ORDER_EXCEEDS_NOTIONAL_CAP)",
+      "level": "error"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 35,
+    "maxPriceDivergencePct": 0.05,
+    "maxDivergenceSpreadRatioPct": 50,
+    "maxPriceDivergenceCapPct": 0.5,
+    "optimalPriceDivergencePct": 0.01,
+    "balanceAllocationPct": 20,
+    "leverageMode": "AUTO_MAX",
+    "customLeverage": 10,
+    "maxSimultaneousHedges": 3,
+    "maxMarginCapUsdt": 500,
+    "maxAmountPerHedgeUsdt": 30,
+    "postSettlementWaitSeconds": 120,
+    "closeMaxPriceDivergencePct": 0.25,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_5M",
+    "executionCorridor": "BINANCE_BITGET",
+    "enableFlattenMemoryLock": true,
+    "targetProfitSpreadBps": 20,
+    "stopLossSpreadBps": 60,
+    "maxHoldHours": 12
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "WAITING_API_KEYS (Configure in Profile/Settings)",
+  "lastEvaluatedCandidate": null
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "paper_hedge_1792433446766_roi2o",
+    "userId": "usr_test_paper_quant_1792433446747",
+    "symbol": "PEPEUSDT",
+    "direction": "STANDARD_CARRY",
+    "quantity": 2381000,
+    "notionalUsdt": 25,
+    "leverage": 10,
+    "marginLocked": 5,
+    "openTimestamp": 1792433446766,
+    "status": "CLOSED",
+    "leg1": {
+      "venue": "Binance",
+      "side": "SELL",
+      "quantity": 2381000,
+      "entryPrice": 0.00001,
+      "currentPrice": 0.00001,
+      "feePaid": 0.012498,
+      "unrealizedPnl": 0,
+      "orderId": "SIM_BN_1792433446766"
+    },
+    "leg2": {
+      "venue": "Bitget",
+      "side": "BUY",
+      "quantity": 2381000,
+      "entryPrice": 0.00001,
+      "currentPrice": 0.00001,
+      "feePaid": 0.014975,
+      "unrealizedPnl": 0,
+      "orderId": "SIM_BG_1792433446766"
+    },
+    "fundingRateBinance": 0,
+    "fundingRateBitget": 0,
+    "nextFundingTime": 1792462246766,
+    "fundingIntervalHours": 8,
+    "fundingAccrued": 0,
+    "netUnrealizedPnl": 0,
+    "totalFees": 0.0275,
+    "isPaper": true,
+    "closeTimestamp": 1792433446789
+  }
+]

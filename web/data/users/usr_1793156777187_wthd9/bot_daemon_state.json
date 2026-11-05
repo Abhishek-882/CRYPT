@@ -1,0 +1,2996 @@
+{
+  "isRunning": true,
+  "runInBackgroundWhenClosed": true,
+  "mode": "AUTONOMOUS_SERVER_24_7",
+  "startedAt": 1793156866390,
+  "lastCycleAt": 1793172916474,
+  "cyclesCompleted": 4035,
+  "activeBotId": "bot_exposure",
+  "bots": [
+    {
+      "id": "bot_exposure",
+      "name": "ExposureBot",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 500,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "maxDivergenceSpreadRatioPct": 50,
+        "maxPriceDivergenceCapPct": 0.5,
+        "optimalPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 10,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 120,
+        "closeMaxPriceDivergencePct": 0.25,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "BINANCE_BITGET",
+        "enableFlattenMemoryLock": true,
+        "allowAsymmetricFunding": false,
+        "targetProfitSpreadBps": 20,
+        "stopLossSpreadBps": 60,
+        "maxHoldHours": 12
+      },
+      "flattenedCoinsBlacklist": [],
+      "symbolCooldowns": {},
+      "activeHedges": [],
+      "completedHedges": [],
+      "logs": [
+        {
+          "timestamp": "2026-10-28T07:34:55.185Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:34:03.703Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:33:15.624Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:32:25.474Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:31:34.183Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:30:44.611Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:29:55.900Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:29:04.532Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:28:14.521Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:27:25.089Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:26:34.141Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:25:45.392Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:24:55.210Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:24:03.579Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:23:14.689Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:22:19.157Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:21:29.715Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:20:40.967Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:19:48.923Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:19:00.492Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:18:10.680Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:17:19.340Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:16:12.776Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:15:24.847Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:14:35.425Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:13:42.773Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:12:54.699Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:12:05.214Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:11:12.799Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:10:25.736Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:09:39.807Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:08:50.366Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:07:57.529Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:07:09.550Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:06:24.613Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:05:34.998Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:04:42.850Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:03:57.333Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:03:09.682Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:02:20.170Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:01:27.794Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T07:00:39.797Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:59:50.096Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:58:57.478Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:58:09.833Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:57:20.189Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:56:27.800Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:55:42.396Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:54:54.684Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:54:05.169Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:53:20.089Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:52:27.597Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:51:39.415Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:50:54.801Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:50:10.192Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:49:20.281Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:48:27.889Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:47:39.656Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:46:50.176Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:45:59.905Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:45:10.452Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:44:24.650Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:43:34.808Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:42:50.158Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:41:58.021Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:41:12.272Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:40:24.541Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:39:42.825Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:38:55.026Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:38:05.895Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:37:12.830Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:36:24.582Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:35:35.025Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:34:42.909Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:33:54.613Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:33:04.591Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:32:12.612Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:31:24.700Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:30:34.152Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:29:42.458Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:28:54.220Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:28:04.043Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:27:12.806Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:26:23.785Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:25:34.056Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:24:42.636Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:23:54.401Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:23:04.292Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:22:12.729Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:21:23.644Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:20:34.569Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:19:42.659Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:18:54.061Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:18:03.965Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:17:12.627Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:16:23.261Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:15:33.826Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:14:42.281Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:13:52.842Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:13:03.618Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:12:12.577Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:11:22.907Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:10:33.078Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:09:47.336Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:09:07.789Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:08:27.335Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:07:37.676Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:06:48.116Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:05:57.770Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:05:07.579Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:04:18.043Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:03:38.378Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:02:52.583Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:02:02.503Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:01:12.565Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T06:00:22.739Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:59:32.604Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:58:42.379Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:57:52.413Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:57:02.194Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:56:13.131Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:55:22.915Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:54:44.208Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:54:07.644Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:53:34.755Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:52:52.613Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:52:13.847Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:51:48.836Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:51:23.584Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:50:58.624Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:50:33.865Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:50:06.444Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:49:41.765Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:49:13.730Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:48:48.634Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:48:23.998Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:47:58.839Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:47:33.996Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:47:08.708Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:46:43.545Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:46:18.614Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:45:53.676Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:45:28.857Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:45:04.230Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:44:38.577Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:44:13.827Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:43:48.828Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:43:23.727Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:42:58.531Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:42:33.524Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:42:08.546Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:41:43.575Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:41:16.596Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:40:51.364Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:40:26.089Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:39:56.268Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:39:24.107Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:38:49.151Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:38:19.021Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:37:48.864Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:37:23.878Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:36:58.552Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:36:33.484Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:36:06.027Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:35:40.880Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:35:15.670Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:34:50.648Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:34:25.541Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:34:00.848Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:33:25.578Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:32:55.469Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:32:23.507Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:31:54.580Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:31:15.859Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:30:45.615Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:30:15.581Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:29:41.830Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:29:03.858Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:28:26.856Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:27:48.894Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:27:12.025Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:26:33.881Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:25:56.871Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:25:18.684Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:24:41.832Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:24:03.796Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:23:26.858Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:22:48.368Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:22:11.997Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:21:33.400Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:20:56.903Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:20:18.394Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:19:41.851Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:19:03.552Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:18:26.796Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:17:48.349Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:17:11.854Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:16:33.686Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:15:56.984Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        },
+        {
+          "timestamp": "2026-10-28T05:15:18.348Z",
+          "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "botId": "bot_exposure",
+          "botName": "ExposureBot"
+        }
+      ],
+      "statusText": "WAITING_API_KEYS (Configure in Profile/Settings)",
+      "lastEvaluatedCandidate": null,
+      "createdAt": 1793156866390,
+      "updatedAt": 1793156866390
+    }
+  ],
+  "setFiles": [
+    {
+      "id": "set-conservative",
+      "fileName": "conservative_35bps_sniper.set",
+      "name": "Conservative 35bps Sniper",
+      "description": "Snipes within 60s of funding with strict 35 bps spread (clears 23 bps taker fees), 0.03% parity, $500 hard margin cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT",
+        "enableFlattenMemoryLock": true,
+        "allowAsymmetricFunding": true
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-10-28T03:08:24.729Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-aggressive",
+      "fileName": "aggressive_continuous_arbitrage.set",
+      "name": "Aggressive Continuous Arbitrage",
+      "description": "Continuous spread capture 24/7 without waiting for funding window. 35 bps spread (clears taker drag), 0.05% parity, $1,000 cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 5,
+        "maxMarginCapUsdt": 1000,
+        "maxAmountPerHedgeUsdt": 50,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.05,
+        "scanIntervalSeconds": 5,
+        "timingMode": "CONTINUOUS_SPREAD",
+        "executionCorridor": "COINDCX_BYBIT",
+        "enableFlattenMemoryLock": true,
+        "allowAsymmetricFunding": true
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-10-28T03:08:24.730Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-balanced",
+      "fileName": "balanced_institutional_harvest.set",
+      "name": "Balanced Institutional Harvest",
+      "description": "Funding Sniper mode with 35 bps spread threshold (clears taker drag), 0.03% parity, $750 hard cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 4,
+        "maxMarginCapUsdt": 750,
+        "maxAmountPerHedgeUsdt": 30,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT",
+        "enableFlattenMemoryLock": true,
+        "allowAsymmetricFunding": true
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-10-28T03:08:24.730Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-canary",
+      "fileName": "canary_micro_15usd.set",
+      "name": "Canary Micro-Staging 15USD",
+      "description": "Stage 3 Canary Micro-Staging preset: $15 max position, $100 margin ceiling, 1 concurrent hedge, 35 bps fee clearance, Asymmetric ON.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 35,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 15,
+        "leverageMode": "CUSTOM",
+        "customLeverage": 10,
+        "maxSimultaneousHedges": 1,
+        "maxMarginCapUsdt": 100,
+        "maxAmountPerHedgeUsdt": 15,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_5M",
+        "executionCorridor": "COINDCX_BYBIT",
+        "enableFlattenMemoryLock": true,
+        "allowAsymmetricFunding": true
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Canary Micro-Staging 15USD\n; Exported: 2026-10-28T03:08:24.730Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=15\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=1\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-10-28T07:34:55.185Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:34:03.703Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:33:15.624Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:32:25.474Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:31:34.183Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:30:44.611Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:29:55.900Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:29:04.532Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:28:14.521Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:27:25.089Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:26:34.141Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:25:45.392Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:24:55.210Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:24:03.579Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:23:14.689Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:22:19.157Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:21:29.715Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:20:40.967Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:19:48.923Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:19:00.492Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:18:10.680Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:17:19.340Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:16:12.776Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:15:24.847Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:14:35.425Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:13:42.773Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:12:54.699Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:12:05.214Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:11:12.799Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:10:25.736Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:09:39.807Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:08:50.366Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:07:57.529Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:07:09.550Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:06:24.613Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:05:34.998Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:04:42.850Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:03:57.333Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:03:09.682Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:02:20.170Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:01:27.794Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T07:00:39.797Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:59:50.096Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:58:57.478Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:58:09.833Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:57:20.189Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:56:27.800Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:55:42.396Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:54:54.684Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:54:05.169Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:53:20.089Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:52:27.597Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:51:39.415Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:50:54.801Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:50:10.192Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:49:20.281Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:48:27.889Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:47:39.656Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:46:50.176Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:45:59.905Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:45:10.452Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:44:24.650Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:43:34.808Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:42:50.158Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:41:58.021Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:41:12.272Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:40:24.541Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:39:42.825Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:38:55.026Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:38:05.895Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:37:12.830Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:36:24.582Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:35:35.025Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:34:42.909Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:33:54.613Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:33:04.591Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:32:12.612Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:31:24.700Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:30:34.152Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:29:42.458Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:28:54.220Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:28:04.043Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:27:12.806Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:26:23.785Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:25:34.056Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:24:42.636Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:23:54.401Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:23:04.292Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:22:12.729Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:21:23.644Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:20:34.569Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:19:42.659Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:18:54.061Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:18:03.965Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:17:12.627Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:16:23.261Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:15:33.826Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:14:42.281Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:13:52.842Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:13:03.618Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:12:12.577Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:11:22.907Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:10:33.078Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:09:47.336Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:09:07.789Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:08:27.335Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:07:37.676Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:06:48.116Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:05:57.770Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:05:07.579Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:04:18.043Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:03:38.378Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:02:52.583Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:02:02.503Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:01:12.565Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T06:00:22.739Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:59:32.604Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:58:42.379Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:57:52.413Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:57:02.194Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:56:13.131Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:55:22.915Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:54:44.208Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:54:07.644Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:53:34.755Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:52:52.613Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:52:13.847Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:51:48.836Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:51:23.584Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:50:58.624Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:50:33.865Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:50:06.444Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:49:41.765Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:49:13.730Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:48:48.634Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:48:23.998Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:47:58.839Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:47:33.996Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:47:08.708Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:46:43.545Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:46:18.614Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:45:53.676Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:45:28.857Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:45:04.230Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:44:38.577Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:44:13.827Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:43:48.828Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:43:23.727Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:42:58.531Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:42:33.524Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:42:08.546Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:41:43.575Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:41:16.596Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:40:51.364Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:40:26.089Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:39:56.268Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:39:24.107Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:38:49.151Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:38:19.021Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:37:48.864Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:37:23.878Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:36:58.552Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:36:33.484Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:36:06.027Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:35:40.880Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:35:15.670Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:34:50.648Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:34:25.541Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:34:00.848Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:33:25.578Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:32:55.469Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:32:23.507Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:31:54.580Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:31:15.859Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:30:45.615Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:30:15.581Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:29:41.830Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:29:03.858Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:28:26.856Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:27:48.894Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:27:12.025Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:26:33.881Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:25:56.871Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:25:18.684Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:24:41.832Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:24:03.796Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:23:26.858Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:22:48.368Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:22:11.997Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:21:33.400Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:20:56.903Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:20:18.394Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:19:41.851Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:19:03.552Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:18:26.796Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:17:48.349Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:17:11.854Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:16:33.686Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:15:56.984Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    },
+    {
+      "timestamp": "2026-10-28T05:15:18.348Z",
+      "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "botId": "bot_exposure",
+      "botName": "ExposureBot"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 35,
+    "maxPriceDivergencePct": 0.05,
+    "maxDivergenceSpreadRatioPct": 50,
+    "maxPriceDivergenceCapPct": 0.5,
+    "optimalPriceDivergencePct": 0.01,
+    "balanceAllocationPct": 20,
+    "leverageMode": "MAX_PER_COIN",
+    "customLeverage": 10,
+    "maxSimultaneousHedges": 3,
+    "maxMarginCapUsdt": 500,
+    "maxAmountPerHedgeUsdt": 30,
+    "postSettlementWaitSeconds": 120,
+    "closeMaxPriceDivergencePct": 0.25,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_5M",
+    "executionCorridor": "BINANCE_BITGET",
+    "enableFlattenMemoryLock": true,
+    "allowAsymmetricFunding": false,
+    "targetProfitSpreadBps": 20,
+    "stopLossSpreadBps": 60,
+    "maxHoldHours": 12
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "WAITING_API_KEYS (Configure in Profile/Settings)",
+  "lastEvaluatedCandidate": null
+}

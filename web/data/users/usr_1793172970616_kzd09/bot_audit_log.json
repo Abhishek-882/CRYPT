@@ -1,0 +1,856 @@
+[
+  {
+    "timestamp": "2026-11-05T13:14:22.556Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [142]",
+    "level": "warn",
+    "count": 142,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-05T12:01:34.381Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [265]",
+    "level": "warn",
+    "count": 265,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-05T09:00:23.029Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [1456]",
+    "level": "warn",
+    "count": 1456,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T16:09:34.283Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T16:08:28.744Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T16:07:11.967Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T16:06:02.486Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T16:03:52.912Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T16:02:36.792Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T16:01:04.757Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T15:59:58.172Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [14]",
+    "level": "warn",
+    "count": 14,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-04T15:48:03.198Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [193]",
+    "level": "warn",
+    "count": 193,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-03T16:57:35.323Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [56]",
+    "level": "warn",
+    "count": 56,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T15:03:27.648Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [604]",
+    "level": "warn",
+    "count": 604,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T06:59:39.046Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T06:58:33.678Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [3]",
+    "level": "warn",
+    "count": 3,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T06:55:52.057Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [535]",
+    "level": "warn",
+    "count": 535,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T00:12:44.243Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T00:11:39.624Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [10]",
+    "level": "warn",
+    "count": 10,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T00:04:04.439Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T00:02:52.839Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-02T00:00:51.908Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [959]",
+    "level": "warn",
+    "count": 959,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-01T12:02:51.012Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [1594]",
+    "level": "warn",
+    "count": 1594,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T16:13:30.369Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T16:09:37.572Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T16:08:32.989Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T16:07:25.145Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [395]",
+    "level": "warn",
+    "count": 395,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T11:31:38.945Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [220]",
+    "level": "warn",
+    "count": 220,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T08:32:30.196Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [358]",
+    "level": "warn",
+    "count": 358,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T03:59:51.963Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [59]",
+    "level": "warn",
+    "count": 59,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T03:11:21.598Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [198]",
+    "level": "warn",
+    "count": 198,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:31:46.996Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [24]",
+    "level": "warn",
+    "count": 24,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:12:22.244Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:10:28.328Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:09:26.162Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:08:23.127Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:07:22.215Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:06:19.270Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:04:57.629Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-31T00:03:42.189Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [208]",
+    "level": "warn",
+    "count": 208,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T21:19:51.344Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [16]",
+    "level": "warn",
+    "count": 16,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T21:06:06.523Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T21:04:35.664Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T21:03:31.329Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [8]",
+    "level": "warn",
+    "count": 8,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T20:56:37.652Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T20:55:36.152Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T20:53:36.529Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T20:49:50.599Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [13]",
+    "level": "warn",
+    "count": 13,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T20:38:08.430Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [260]",
+    "level": "warn",
+    "count": 260,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:26:21.663Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:22:35.369Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+    "level": "warn",
+    "count": 5,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:17:49.083Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:16:44.085Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:13:01.349Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:11:08.503Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:09:57.079Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:08:07.473Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T17:06:47.693Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [85]",
+    "level": "warn",
+    "count": 85,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T16:01:21.794Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [134]",
+    "level": "warn",
+    "count": 134,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-10-30T13:43:58.060Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-30T13:32:48.944Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-29T18:36:47.795Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [51]",
+    "level": "warn",
+    "count": 51,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-29T15:59:40.876Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2396]",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper",
+    "count": 2396
+  },
+  {
+    "timestamp": "2026-10-28T08:32:42.520Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:31:51.529Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:31:01.710Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:30:12.022Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:29:22.022Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:28:32.063Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:27:41.571Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:26:52.695Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:26:02.203Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:25:11.850Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:24:21.355Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:23:31.610Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:22:41.590Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:21:51.569Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:21:00.910Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:20:10.700Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:19:20.365Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:18:31.660Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:17:45.429Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:17:11.945Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:16:41.395Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:16:14.290Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:15:43.779Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:15:12.131Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:14:31.452Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:13:53.379Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:13:06.783Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:12:17.583Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:11:27.160Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:10:37.001Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:09:47.179Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:08:56.481Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:08:06.592Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:07:16.972Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:03:57.577Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T08:00:02.917Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:55:54.598Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:52:05.406Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:48:03.146Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:46:25.847Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:45:35.864Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:44:45.651Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:43:56.241Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:43:04.544Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:42:16.415Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:41:25.907Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:40:36.134Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:39:50.336Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:39:01.088Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  },
+  {
+    "timestamp": "2026-10-28T07:38:11.169Z",
+    "message": "[KEYS REQUIRED] User account regular_trader@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper"
+  }
+]

@@ -1,0 +1,3482 @@
+[
+  {
+    "timestamp": "2026-10-28T06:41:28.654Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:28.604Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:28.553Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:28.463Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:28.370Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:28.314Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:28.205Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:14.589Z",
+    "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+    "level": "success",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:14.553Z",
+    "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:14.487Z",
+    "message": "[HEDGE FILLED] Bot \"TestBot\": Successfully entered dual delta-neutral hedge on ETHUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg arrival delta: 109ms (Leg 1: 147ms, Leg 2: 61ms). CoinDCX #sim_coindcx_1793169674358 @ $2353.36 | Bitget #sim_coindcx_1793169674467 @ $2353.37.",
+    "level": "success"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:14.467Z",
+    "message": "[LEG 2 FILLED] Bot \"TestBot\": CoinDCX BUY ETHUSDT filled successfully! Order #sim_coindcx_1793169674467 @ $2353.37 (61ms, placedAt: 2026-10-28T06:41:14.467Z)",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:14.358Z",
+    "message": "[LEG 1 FILLED] Bot \"TestBot\": CoinDCX SELL ETHUSDT filled successfully! Order #sim_coindcx_1793169674358 @ $2353.36 (147ms, placedAt: 2026-10-28T06:41:14.358Z)",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:14.204Z",
+    "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for ETHUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:41:13.975Z",
+    "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for ETHUSDT | Notional: $275.00 USDT (0.11 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:40:42.602Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:40:42.566Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:40:42.525Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:40:42.462Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:40:42.384Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:40:42.335Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:40:42.260Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:35:32.782Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:35:32.557Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:35:32.458Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:35:32.345Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:35:32.238Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:35:32.150Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:35:31.956Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:33:56.900Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:33:56.847Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:33:56.789Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:33:56.730Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:33:56.658Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:33:56.604Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:33:56.521Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:32:57.425Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:32:57.367Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:32:57.313Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:32:57.232Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:32:57.156Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:32:57.109Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:32:57.017Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:53.055Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:52.996Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:52.942Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:52.860Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:52.771Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:52.709Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:52.616Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:01.360Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:01.308Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:01.267Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:01.204Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:01.119Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:01.067Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:31:00.983Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:30:19.713Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:30:19.608Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:30:19.423Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:30:19.164Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:30:19.089Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:30:18.989Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:30:18.732Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:42.729Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:42.537Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:42.316Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:42.155Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:41.926Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:41.587Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:41.328Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:26.814Z",
+    "message": "[BUFFER GUARD] Bot \"ExposureBot\": Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:19.134Z",
+    "message": "User varsha633@gmail.com activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+    "level": "success",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:19.079Z",
+    "message": "Autonomous Server Daemon paused by user varsha633@gmail.com.",
+    "level": "warn",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:18.973Z",
+    "message": "[HEDGE FILLED] Bot \"TestBot\": Successfully entered dual delta-neutral hedge on ETHUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg arrival delta: 131ms (Leg 1: 732ms, Leg 2: 72ms). CoinDCX #sim_coindcx_1793168958783 @ $2353 | Bitget #sim_coindcx_1793168958914 @ $2353.06.",
+    "level": "success"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:18.914Z",
+    "message": "[LEG 2 FILLED] Bot \"TestBot\": CoinDCX BUY ETHUSDT filled successfully! Order #sim_coindcx_1793168958914 @ $2353.06 (72ms, placedAt: 2026-10-28T06:29:18.914Z)",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:18.783Z",
+    "message": "[LEG 1 FILLED] Bot \"TestBot\": CoinDCX SELL ETHUSDT filled successfully! Order #sim_coindcx_1793168958783 @ $2353 (732ms, placedAt: 2026-10-28T06:29:18.783Z)",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:18.040Z",
+    "message": "[ORDER DISPATCH] Bot \"TestBot\": Initiating sequential zero-orphan execution for ETHUSDT (Leg 1: SELL CoinDCX first -> Leg 2: BUY Bitget on fill confirmation)...",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:29:17.663Z",
+    "message": "[ORDER PREPARE] Bot \"TestBot\": Sizing calculated for ETHUSDT | Notional: $275.00 USDT (0.11 units) | Lev: CoinDCX 20x / Bitget 50x | Direction: Short CoinDCX + Long Bitget",
+    "level": "info"
+  },
+  {
+    "timestamp": "2026-10-28T06:28:30.279Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:28:30.229Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:28:30.173Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:28:30.098Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:28:30.009Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:28:29.944Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:28:29.840Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:22:09.030Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:22:08.971Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:22:08.917Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:22:08.841Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:22:08.741Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:22:08.674Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:22:08.580Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:56.306Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:56.229Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:56.171Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:56.097Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:55.995Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:55.925Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:55.791Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:06.073Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:05.969Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:05.898Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:05.800Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:05.699Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:05.631Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:20:05.529Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:06:31.898Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:06:31.803Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:06:31.725Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:06:31.627Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:06:31.515Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:06:31.409Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:06:31.293Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:00:15.485Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:00:15.422Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:00:15.365Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:00:15.292Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:00:15.222Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:00:15.164Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T06:00:15.075Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:41.557Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:41.493Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:41.429Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:41.349Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:41.260Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:41.205Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:41.059Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:22.662Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:22.610Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:22.558Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:22.479Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:22.392Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:22.342Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:53:22.267Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:53.741Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:53.651Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:53.568Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:53.428Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:53.276Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:53.180Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:52.980Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:11.188Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:11.171Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:11.154Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:11.131Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:11.096Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:11.073Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:52:11.042Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:51:23.565Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:51:23.512Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:51:23.451Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:51:23.367Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:51:23.284Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:51:23.231Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:51:23.135Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:50:48.171Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:50:48.143Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:50:48.121Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:50:48.089Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:50:48.051Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:50:48.026Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:50:47.978Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:46:19.352Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:46:19.306Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:46:19.264Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:46:19.197Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:46:19.126Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:46:19.083Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:46:19.004Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:45:56.754Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:45:56.730Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:45:56.708Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:45:56.674Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:45:56.638Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:45:56.618Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:45:56.585Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:36:45.332Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:36:45.261Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:36:45.190Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:36:45.105Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:36:44.995Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:36:44.926Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:36:44.816Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:35:24.959Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:35:24.863Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:35:24.775Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:35:24.641Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:35:24.510Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:35:24.391Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:35:24.232Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:34:18.103Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:34:18.063Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:34:18.021Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:34:17.963Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:34:17.907Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:34:17.862Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:34:17.794Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:50.139Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:50.102Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:50.070Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:50.039Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.988Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.948Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.903Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.861Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.822Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.781Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.741Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.687Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.638Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.590Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.529Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.467Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.406Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.317Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.230Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.167Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.129Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.092Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.055Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:49.013Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.981Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.948Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.917Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.885Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.854Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.812Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.782Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.751Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.721Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.689Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.648Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.603Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.567Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.518Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.470Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.426Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.312Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.261Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.195Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.132Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.081Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:48.027Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.970Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.926Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.884Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.827Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.775Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.723Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.679Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.630Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.576Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.535Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.485Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.434Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.373Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.298Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.255Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.201Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.140Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.106Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.068Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:47.036Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.996Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.975Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.947Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.906Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.826Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.763Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.684Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:46.652Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:20.428Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:20.382Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:20.336Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:20.270Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:20.200Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:20.151Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:33:20.089Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.326Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.283Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.242Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.197Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.159Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.120Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.082Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.052Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:55.016Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.981Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.934Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.904Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.869Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.827Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.793Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.750Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.709Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.670Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.628Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.589Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.547Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.502Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.447Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.410Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.366Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.320Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.276Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.230Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.188Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.143Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.102Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.063Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:54.021Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.967Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.930Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.892Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.855Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.820Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.785Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.746Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.676Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.621Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.574Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.524Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.477Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.407Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.363Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.312Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.280Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.228Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.188Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.148Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.098Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:53.044Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.980Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.919Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.867Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.812Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.747Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.676Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.589Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.512Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.425Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.372Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.310Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.250Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.179Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.121Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:52.055Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:51.988Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:51.916Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:51.836Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:51.780Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:32:51.683Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.824Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.781Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.735Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.682Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.636Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.573Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.516Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.471Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.428Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.396Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.361Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.324Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.293Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.248Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.200Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.149Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.105Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.056Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:32.012Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.975Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.930Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.879Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.831Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.794Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.750Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.705Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.662Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.623Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.585Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.537Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.478Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.415Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.347Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.289Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.223Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.157Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.087Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:31.005Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.943Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.867Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.734Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.654Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.589Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.535Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.476Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.428Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.393Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.355Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.312Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.271Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.225Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.188Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.125Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.072Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:30.030Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.993Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.960Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.926Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.890Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.849Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.814Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.772Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.732Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.695Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.662Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.628Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.595Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.563Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.519Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:31:29.465Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.356Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.297Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.260Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.221Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.190Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.153Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.118Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.082Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.049Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:58.013Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.968Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.927Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.880Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.828Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.775Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.730Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.685Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.641Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.601Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.559Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.516Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.475Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.433Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.384Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.340Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.295Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.254Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.210Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.168Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.127Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.086Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.048Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:57.004Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.962Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.922Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.879Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.834Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=38bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.797Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.758Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=36bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.716Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.638Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.595Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.549Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.508Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.461Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.404Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.348Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.280Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.202Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.125Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.071Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:56.005Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.954Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.891Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.833Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.780Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.722Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.670Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.594Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.542Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.488Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.432Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.375Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.324Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.262Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.200Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.135Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:55.073Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:54.998Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:54.972Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=40bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:54.922Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:54.863Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:54.799Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:54.713Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:29.921Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=44bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:29.880Z",
+    "message": "Funding Interval Mode updated to Option 1: ALL ASYMMETRIC (All Vice-Versa Tradable) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:29.828Z",
+    "message": "Parameters updated for \"ExposureBot\": Corridor=BINANCE_BITGET, Mode=CUSTOM, Budget=$30 USDT, Min Spread=42bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  },
+  {
+    "timestamp": "2026-10-28T05:30:29.770Z",
+    "message": "Funding Interval Mode updated to Option 2: STRICT SYNC ONLY (1h=1h, 4h=4h, 8h=8h) for bot \"ExposureBot\".",
+    "level": "info",
+    "botId": "bot_exposure",
+    "botName": "ExposureBot"
+  }
+]

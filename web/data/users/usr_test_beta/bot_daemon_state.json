@@ -1,0 +1,689 @@
+{
+  "isRunning": true,
+  "runInBackgroundWhenClosed": true,
+  "mode": "AUTONOMOUS_SERVER_24_7",
+  "startedAt": 1791382174180,
+  "lastCycleAt": 1791728397225,
+  "cyclesCompleted": 3128,
+  "activeBotId": "bot-115141",
+  "bots": [
+    {
+      "id": "bot-1",
+      "name": "Conservative Funding Sniper",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 500,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 5,
+        "maxPriceDivergencePct": 0.01,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.01,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_1M"
+      },
+      "flattenedCoinsBlacklist": [],
+      "activeHedges": [],
+      "completedHedges": [],
+      "statusText": "SCANNING_OPPORTUNITIES",
+      "lastEvaluatedCandidate": null,
+      "createdAt": 1791382174180,
+      "updatedAt": 1791627281948
+    },
+    {
+      "id": "bot-403209",
+      "name": "Beta Conservative Sniper",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 300,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 5,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 300,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_1M"
+      },
+      "flattenedCoinsBlacklist": [],
+      "activeHedges": [],
+      "completedHedges": [],
+      "statusText": "READY",
+      "lastEvaluatedCandidate": null,
+      "createdAt": 1791728403209,
+      "updatedAt": 1791728403209
+    },
+    {
+      "id": "bot-115141",
+      "name": "Beta Conservative Sniper",
+      "activeSetFileName": "conservative_5bps_sniper.set",
+      "enabled": true,
+      "maxMarginCapUsdt": 300,
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 5,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 300,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_1M"
+      },
+      "flattenedCoinsBlacklist": [],
+      "activeHedges": [],
+      "completedHedges": [],
+      "statusText": "READY",
+      "lastEvaluatedCandidate": null,
+      "createdAt": 1791729115141,
+      "updatedAt": 1791729115141
+    }
+  ],
+  "setFiles": [
+    {
+      "id": "set-conservative",
+      "fileName": "conservative_5bps_sniper.set",
+      "name": "Conservative 5bps Sniper",
+      "description": "Snipes within 60s of funding with strict 5 bps spread, 0.03% parity, $500 hard margin cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 5,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 3,
+        "maxMarginCapUsdt": 500,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_1M"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 5bps Sniper\n; Exported: 2026-10-11T14:31:55.073Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=5\nMaxPriceDivergencePct=0.03\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_1M",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-aggressive",
+      "fileName": "aggressive_continuous_arbitrage.set",
+      "name": "Aggressive Continuous Arbitrage",
+      "description": "Continuous spread capture 24/7 without waiting for funding window. 3 bps spread, 0.05% parity, $1,000 cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 3,
+        "maxPriceDivergencePct": 0.05,
+        "balanceAllocationPct": 25,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 5,
+        "maxMarginCapUsdt": 1000,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.05,
+        "scanIntervalSeconds": 5,
+        "timingMode": "CONTINUOUS_SPREAD"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-10-11T14:31:55.074Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=3\nMaxPriceDivergencePct=0.05\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    },
+    {
+      "id": "set-balanced",
+      "fileName": "balanced_institutional_harvest.set",
+      "name": "Balanced Institutional Harvest",
+      "description": "Funding Sniper mode with 4 bps spread threshold, 0.03% parity, $750 hard cap.",
+      "config": {
+        "enabled": true,
+        "minSpreadBps": 4,
+        "maxPriceDivergencePct": 0.03,
+        "balanceAllocationPct": 20,
+        "leverageMode": "MAX_PER_COIN",
+        "customLeverage": 50,
+        "maxSimultaneousHedges": 4,
+        "maxMarginCapUsdt": 750,
+        "postSettlementWaitSeconds": 15,
+        "closeMaxPriceDivergencePct": 0.03,
+        "scanIntervalSeconds": 5,
+        "timingMode": "FUNDING_SNIPER_1M"
+      },
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-10-11T14:31:55.074Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=4\nMaxPriceDivergencePct=0.03\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_1M",
+      "isBuiltIn": true,
+      "createdAt": 1775000000000,
+      "updatedAt": 1775000000000
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-10-11T14:31:55.141Z",
+      "message": "[BOT CREATED] New bot \"Beta Conservative Sniper\" added with preset \"conservative_5bps_sniper.set\".",
+      "level": "success"
+    },
+    {
+      "timestamp": "2026-10-11T14:20:03.209Z",
+      "message": "[BOT CREATED] New bot \"Beta Conservative Sniper\" added with preset \"conservative_5bps_sniper.set\".",
+      "level": "success"
+    },
+    {
+      "timestamp": "2026-10-11T14:19:48.398Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:19:18.445Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:18:58.423Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:18:28.450Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:17:58.429Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:17:28.436Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:16:58.447Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:16:28.494Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:15:58.455Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:15:28.659Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:14:58.425Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:14:28.406Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:13:58.476Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:13:28.416Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:12:58.394Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:12:28.396Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:11:58.418Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:11:28.394Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:10:58.400Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:10:33.413Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T14:10:08.485Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:54:04.322Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:53:40.917Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:53:28.330Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:53:14.460Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:53:00.901Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:52:49.437Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:52:35.911Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:52:24.416Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:52:10.922Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:51:58.319Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:51:44.407Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:51:30.870Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:51:19.405Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:51:05.856Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:50:54.384Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:50:40.868Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:50:28.327Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:50:14.517Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:50:00.874Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:49:49.384Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:49:35.899Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:49:24.384Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:49:10.856Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:48:58.320Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:48:44.376Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:48:30.871Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:48:19.423Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:48:05.830Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:47:54.405Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:47:40.834Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:47:28.317Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:47:14.371Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:47:00.823Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:46:49.365Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:46:35.827Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:46:24.381Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:46:10.826Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:45:58.306Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:45:44.362Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:45:30.831Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:45:19.370Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:45:05.819Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:44:54.363Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:44:40.829Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:44:28.333Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:44:14.366Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:44:00.872Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:43:49.382Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:43:35.832Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:43:24.391Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:43:10.845Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:42:58.335Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:42:44.335Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:42:30.712Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:42:19.478Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:42:05.751Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:41:54.261Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:41:40.680Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:41:28.296Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:41:14.283Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:41:00.671Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:40:49.249Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:40:35.588Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:40:24.208Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:40:10.579Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:39:58.246Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:39:44.171Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:39:30.582Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:39:19.318Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:39:05.578Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:38:54.142Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:38:40.515Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:38:28.250Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:38:14.114Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:38:00.430Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:37:49.083Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    },
+    {
+      "timestamp": "2026-10-11T13:37:35.396Z",
+      "message": "[SCAN CHECK] Bot \"Conservative Funding Sniper\": No market opportunities returned from exchanges. Retrying...",
+      "level": "warn"
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "minSpreadBps": 5,
+    "maxPriceDivergencePct": 0.03,
+    "balanceAllocationPct": 20,
+    "leverageMode": "MAX_PER_COIN",
+    "customLeverage": 50,
+    "maxSimultaneousHedges": 3,
+    "maxMarginCapUsdt": 300,
+    "postSettlementWaitSeconds": 15,
+    "closeMaxPriceDivergencePct": 0.03,
+    "scanIntervalSeconds": 5,
+    "timingMode": "FUNDING_SNIPER_1M"
+  },
+  "activeHedges": [],
+  "completedHedges": [],
+  "statusText": "READY",
+  "lastEvaluatedCandidate": null
+}

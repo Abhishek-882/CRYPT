@@ -1,0 +1,6 @@
+{
+  "summary": "Comprehensive engineering implementation plan for the Zero-Orphan Asymmetric Close Remediation & Self-Healing Protocol. Solves the risk of one leg closing while the other fails (preventing naked directional exposure) through independent leg-state tracking, pre-flight position reconciliation, rapid autonomous remediation with route failover, and optional synthetic re-hedging.",
+  "updatedAt": "2026-10-25T08:45:08.586486800Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

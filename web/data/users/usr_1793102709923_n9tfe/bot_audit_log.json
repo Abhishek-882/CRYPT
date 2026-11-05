@@ -1,0 +1,9 @@
+[
+  {
+    "timestamp": "2026-10-27T12:05:41.090Z",
+    "message": "[DPDP COMPLIANCE] Autonomous exchange trading suspended for challenger_tester_std@safecoiner.test: Statutory consent for PURPOSE_EXCHANGE_DISPATCH is missing or revoked. Update consent in Profile/Privacy settings to resume.",
+    "level": "warn",
+    "botId": "bot-dryrun-1",
+    "botName": "Binance ⇄ Bybit Real USD Sniper"
+  }
+]

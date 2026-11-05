@@ -1,0 +1,2446 @@
+{
+  "isRunning": true,
+  "fsmState": "IDLE_MONITORING",
+  "startedAt": 1793380500000,
+  "cyclesCompleted": 6716,
+  "lastCycleAt": 1793408158163,
+  "config": {
+    "enabled": true,
+    "mode": "SPOT_FUTURES_BASIS",
+    "isLive": true,
+    "targetPairs": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "XRPUSDT",
+      "DOGEUSDT",
+      "SUIUSDT",
+      "AVAXUSDT",
+      "BNBUSDT",
+      "LINKUSDT",
+      "NEARUSDT"
+    ],
+    "minGrossBasisBps": 100,
+    "minNetBasisBps": 60,
+    "maxSpreadBps": 15,
+    "minDepthCushion": 3.5,
+    "minPersistenceMs": 250,
+    "targetNotionalPerTrade": 5,
+    "maxConcurrentPositions": 1,
+    "maxEntriesPerCoin": 2,
+    "maxLeverage": 2,
+    "maxAdverseBasisExcursionBps": 175,
+    "pollIntervalMs": 3000
+  },
+  "positions": [],
+  "closedPositions": [],
+  "recentSignals": {
+    "ETHUSDT": {
+      "symbol": "ETHUSDT",
+      "spotPrice": 2247.995,
+      "perpPrice": 2246.8050000000003,
+      "grossBasisBps": -5.3,
+      "netBasisBps": -48.3,
+      "spotSpreadBps": 0,
+      "perpSpreadBps": 0,
+      "combinedSpreadBps": 0.1,
+      "depthCushionRatio": 32894,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00020061,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-48.3 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158244
+    },
+    "SOLUSDT": {
+      "symbol": "SOLUSDT",
+      "spotPrice": 96.685,
+      "perpPrice": 96.66499999999999,
+      "grossBasisBps": -2.1,
+      "netBasisBps": -45.1,
+      "spotSpreadBps": 1,
+      "perpSpreadBps": 1,
+      "combinedSpreadBps": 2.1,
+      "depthCushionRatio": 174807.7,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00001068,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-45.1 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158247
+    },
+    "SUIUSDT": {
+      "symbol": "SUIUSDT",
+      "spotPrice": 0.9126,
+      "perpPrice": 0.91185,
+      "grossBasisBps": -8.2,
+      "netBasisBps": -51.2,
+      "spotSpreadBps": 2.2,
+      "perpSpreadBps": 1.1,
+      "combinedSpreadBps": 3.3,
+      "depthCushionRatio": 18154.6,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00026053,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-51.2 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158250
+    },
+    "BNBUSDT": {
+      "symbol": "BNBUSDT",
+      "spotPrice": 709.095,
+      "perpPrice": 708.705,
+      "grossBasisBps": -5.5,
+      "netBasisBps": -48.5,
+      "spotSpreadBps": 0.1,
+      "perpSpreadBps": 0.1,
+      "combinedSpreadBps": 0.3,
+      "depthCushionRatio": 735.5,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00027182,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-48.5 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158251
+    },
+    "AVAXUSDT": {
+      "symbol": "AVAXUSDT",
+      "spotPrice": 8.6025,
+      "perpPrice": 8.601500000000001,
+      "grossBasisBps": -1.2,
+      "netBasisBps": -44.2,
+      "spotSpreadBps": 1.2,
+      "perpSpreadBps": 1.2,
+      "combinedSpreadBps": 2.3,
+      "depthCushionRatio": 12115,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00035335,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-44.2 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158254
+    },
+    "DOGEUSDT": {
+      "symbol": "DOGEUSDT",
+      "spotPrice": 0.076225,
+      "perpPrice": 0.076185,
+      "grossBasisBps": -5.2,
+      "netBasisBps": -48.2,
+      "spotSpreadBps": 1.3,
+      "perpSpreadBps": 1.3,
+      "combinedSpreadBps": 2.6,
+      "depthCushionRatio": 98873.1,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00004441,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-48.2 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158254
+    },
+    "BTCUSDT": {
+      "symbol": "BTCUSDT",
+      "spotPrice": 77462.05,
+      "perpPrice": 77446.95,
+      "grossBasisBps": -1.9,
+      "netBasisBps": -44.9,
+      "spotSpreadBps": 0,
+      "perpSpreadBps": 0,
+      "combinedSpreadBps": 0,
+      "depthCushionRatio": 15664.6,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": 0.00004029,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-44.9 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158255
+    },
+    "NEARUSDT": {
+      "symbol": "NEARUSDT",
+      "spotPrice": 4.342499999999999,
+      "perpPrice": 4.342499999999999,
+      "grossBasisBps": 0,
+      "netBasisBps": -43,
+      "spotSpreadBps": 2.3,
+      "perpSpreadBps": 2.3,
+      "combinedSpreadBps": 4.6,
+      "depthCushionRatio": 26260.1,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00024912,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-43.0 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158303
+    },
+    "LINKUSDT": {
+      "symbol": "LINKUSDT",
+      "spotPrice": 11.6335,
+      "perpPrice": 11.631499999999999,
+      "grossBasisBps": -1.7,
+      "netBasisBps": -44.7,
+      "spotSpreadBps": 0.9,
+      "perpSpreadBps": 0.9,
+      "combinedSpreadBps": 1.7,
+      "depthCushionRatio": 6679.2,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": -0.00014989,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-44.7 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158304
+    },
+    "XRPUSDT": {
+      "symbol": "XRPUSDT",
+      "spotPrice": 1.25905,
+      "perpPrice": 1.2584499999999998,
+      "grossBasisBps": -4.8,
+      "netBasisBps": -47.8,
+      "spotSpreadBps": 0.8,
+      "perpSpreadBps": 0.8,
+      "combinedSpreadBps": 1.6,
+      "depthCushionRatio": 65268.5,
+      "persistenceMs": 0,
+      "consecutiveTicks": 0,
+      "bybitFundingRate8h": 0.00008125,
+      "nextFundingTime": 1793433600000,
+      "gates": {
+        "netHurdlePass": false,
+        "spotSpreadPass": true,
+        "perpSpreadPass": true,
+        "combinedSpreadPass": true,
+        "depthCushionPass": true,
+        "stablecoinPegPass": true,
+        "persistencePass": false,
+        "allGatesPass": false,
+        "failureReasons": [
+          "Net hurdle not met (-47.8 bps < 60 bps requirement)",
+          "Phantom spike filter: Persistence 0ms / 0 ticks < minimum threshold"
+        ]
+      },
+      "timestamp": 1793408158315
+    }
+  },
+  "coinEntryCounts": {},
+  "totalRealizedPnl": 0,
+  "totalFundingHarvested": 0,
+  "winCount": 0,
+  "lossCount": 0,
+  "logs": [
+    {
+      "id": "385ce400",
+      "timestamp": 1793407560506,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6567] Audited 10 High-Priority Coins: BTC:-2.1bps | ETH:-5.3bps | NEAR:-2.3bps | BNB:-6.9bps | LINK:-0.9bps | SUI:-6.6bps | SOL:-1.0bps | XRP:-4.0bps | DOGE:-5.2bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "052f65cc",
+      "timestamp": 1793407560506,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -6.9 bps | Net: -49.9 bps | Spreads: 0.3 bps | Depth: 3365.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "878c63e0",
+      "timestamp": 1793407564523,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6568] Audited 10 High-Priority Coins: ETH:-5.3bps | BTC:-2.1bps | XRP:-4.8bps | LINK:0.0bps | NEAR:-2.3bps | SOL:-1.0bps | DOGE:-5.2bps | SUI:-7.7bps | BNB:-6.9bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "985355d3",
+      "timestamp": 1793407564523,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17229.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "6b8537fd",
+      "timestamp": 1793407568530,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6569] Audited 10 High-Priority Coins: SUI:-7.7bps | ETH:-5.0bps | BNB:-7.8bps | SOL:-2.1bps | BTC:-1.6bps | DOGE:-5.2bps | XRP:-4.8bps | LINK:+0.4bps | NEAR:-2.3bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "4bb65a88",
+      "timestamp": 1793407568530,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -7.8 bps | Net: -50.8 bps | Spreads: 0.3 bps | Depth: 4894.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "2924a548",
+      "timestamp": 1793407572543,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6570] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-1.6bps | SUI:-6.6bps | ETH:-5.3bps | BNB:-6.9bps | LINK:-0.9bps | NEAR:0.0bps | XRP:-4.8bps | DOGE:-5.2bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "bb1eb1a2",
+      "timestamp": 1793407572543,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -6.9 bps | Net: -49.9 bps | Spreads: 0.3 bps | Depth: 3205.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "c19dd830",
+      "timestamp": 1793407576556,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6571] Audited 10 High-Priority Coins: ETH:-5.3bps | BTC:-1.6bps | SOL:-2.1bps | LINK:0.0bps | DOGE:-5.2bps | XRP:-4.8bps | SUI:-6.6bps | BNB:-6.5bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e5152492",
+      "timestamp": 1793407576556,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -6.6 bps | Net: -49.6 bps | Spreads: 2.2 bps | Depth: 16558.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "e2ec5b7a",
+      "timestamp": 1793407580565,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6572] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-5.2bps | SUI:-7.7bps | LINK:-0.9bps | BTC:-2.4bps | NEAR:-2.3bps | BNB:-6.4bps | DOGE:-5.2bps | XRP:-4.8bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "2f229055",
+      "timestamp": 1793407580565,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16653.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "0f59c4ce",
+      "timestamp": 1793407584587,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6573] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-7.7bps | BNB:-5.6bps | NEAR:-2.3bps | LINK:-0.9bps | ETH:-5.3bps | XRP:-4.8bps | BTC:-2.1bps | DOGE:-5.2bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "2c59b66d",
+      "timestamp": 1793407584587,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16999.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d6798706",
+      "timestamp": 1793407588596,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6574] Audited 10 High-Priority Coins: ETH:-5.3bps | BTC:-2.1bps | SOL:-2.1bps | DOGE:-5.2bps | BNB:-5.5bps | SUI:-7.7bps | NEAR:-2.3bps | LINK:-0.9bps | XRP:-4.8bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "26bff4e7",
+      "timestamp": 1793407588596,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17077.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "9fac087a",
+      "timestamp": 1793407592595,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6575] Audited 10 High-Priority Coins: SOL:-1.0bps | XRP:-5.6bps | BNB:-6.9bps | LINK:-0.9bps | NEAR:-1.2bps | BTC:-1.9bps | ETH:-4.9bps | DOGE:-5.2bps | SUI:-7.7bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "0fb4f57b",
+      "timestamp": 1793407592595,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 4.4 bps | Depth: 16923.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d42c6173",
+      "timestamp": 1793407596624,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6576] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-1.8bps | SUI:-7.7bps | BNB:-4.8bps | LINK:-0.9bps | ETH:-5.1bps | NEAR:0.0bps | DOGE:-5.2bps | XRP:-4.0bps | AVAX:-1.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "c560dd0b",
+      "timestamp": 1793407596624,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16652.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "8f9e540f",
+      "timestamp": 1793407600641,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6577] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-1.8bps | SUI:-7.7bps | BNB:-6.9bps | ETH:-5.7bps | XRP:-4.8bps | DOGE:-4.6bps | NEAR:0.0bps | LINK:-0.9bps | AVAX:-4.1bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "eb0b1ef1",
+      "timestamp": 1793407600641,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17335.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "a3f591a6",
+      "timestamp": 1793407604638,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6578] Audited 10 High-Priority Coins: BTC:-1.8bps | SOL:-1.0bps | BNB:-6.9bps | SUI:-7.7bps | ETH:-4.9bps | XRP:-4.8bps | NEAR:0.0bps | LINK:-0.9bps | DOGE:-4.6bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "0404c962",
+      "timestamp": 1793407604638,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16865.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "10b153d7",
+      "timestamp": 1793407608648,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6579] Audited 10 High-Priority Coins: BTC:-1.8bps | SOL:-1.0bps | SUI:-7.7bps | BNB:-6.9bps | ETH:-4.5bps | DOGE:-4.6bps | XRP:-4.0bps | NEAR:0.0bps | LINK:-0.9bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "645ecf4e",
+      "timestamp": 1793407608648,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17386.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "ce0e57d8",
+      "timestamp": 1793407612674,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6580] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-1.8bps | LINK:-0.9bps | SUI:-7.7bps | NEAR:0.0bps | ETH:-4.5bps | XRP:-4.8bps | DOGE:-4.6bps | BNB:-4.2bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "db907145",
+      "timestamp": 1793407612674,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17428.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "00a72a23",
+      "timestamp": 1793407616676,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6581] Audited 10 High-Priority Coins: SUI:-7.1bps | SOL:-1.0bps | ETH:-4.5bps | BTC:-1.8bps | BNB:-6.4bps | DOGE:-4.6bps | XRP:-4.8bps | LINK:-0.9bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "447d0dd0",
+      "timestamp": 1793407616676,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 3.3 bps | Depth: 16873.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "ae0bd345",
+      "timestamp": 1793407620693,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6582] Audited 10 High-Priority Coins: BTC:-1.5bps | SOL:-1.0bps | ETH:-4.5bps | SUI:-6.6bps | LINK:-0.9bps | XRP:-4.8bps | DOGE:-4.6bps | BNB:-5.8bps | NEAR:-2.3bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "21dd1017",
+      "timestamp": 1793407620693,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -6.6 bps | Net: -49.6 bps | Spreads: 2.2 bps | Depth: 16823.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f47f9bd8",
+      "timestamp": 1793407624697,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6583] Audited 10 High-Priority Coins: BTC:-1.5bps | SOL:-2.1bps | ETH:-4.5bps | NEAR:-2.3bps | LINK:-0.9bps | XRP:-4.8bps | DOGE:-5.2bps | SUI:-7.7bps | BNB:-7.2bps | AVAX:-2.9bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e29e15f9",
+      "timestamp": 1793407624697,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17180.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "2cfedb0d",
+      "timestamp": 1793407628872,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6584] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-4.5bps | BTC:-1.2bps | SUI:-7.1bps | BNB:-6.8bps | NEAR:-2.3bps | XRP:-5.6bps | DOGE:-3.9bps | LINK:0.0bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "9aa72ed1",
+      "timestamp": 1793407628872,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 3.3 bps | Depth: 16602.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "7862a4c1",
+      "timestamp": 1793407632722,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6585] Audited 10 High-Priority Coins: SUI:-6.6bps | BNB:-5.8bps | LINK:-1.7bps | ETH:-4.8bps | XRP:-4.8bps | NEAR:0.0bps | SOL:-1.0bps | BTC:-1.2bps | DOGE:-5.2bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "bb8632db",
+      "timestamp": 1793407632722,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -6.6 bps | Net: -49.6 bps | Spreads: 2.2 bps | Depth: 16464.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "47edfa1b",
+      "timestamp": 1793407636965,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6586] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-4.3bps | BNB:-6.1bps | NEAR:0.0bps | BTC:-1.6bps | DOGE:-5.2bps | XRP:-4.8bps | LINK:-0.9bps | SUI:-7.7bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e07f9d08",
+      "timestamp": 1793407636965,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16523.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "ac447755",
+      "timestamp": 1793407640760,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6587] Audited 10 High-Priority Coins: BTC:-1.4bps | ETH:-4.3bps | SUI:-7.7bps | BNB:-5.5bps | LINK:-0.9bps | NEAR:0.0bps | XRP:-4.8bps | SOL:-2.1bps | DOGE:-5.2bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "c76082f6",
+      "timestamp": 1793407640760,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16108.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "9db89f24",
+      "timestamp": 1793407644783,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6588] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-1.4bps | ETH:-4.3bps | SUI:-7.1bps | BNB:-6.1bps | LINK:0.0bps | XRP:-4.8bps | DOGE:-6.6bps | NEAR:+1.2bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "af6449df",
+      "timestamp": 1793407644783,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 3.3 bps | Depth: 16123.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "91080590",
+      "timestamp": 1793407648785,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6589] Audited 10 High-Priority Coins: ETH:-4.0bps | BTC:-1.9bps | BNB:-8.0bps | LINK:0.0bps | NEAR:0.0bps | DOGE:-5.2bps | SOL:-1.0bps | XRP:-4.8bps | SUI:-7.7bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "b2fcfa0f",
+      "timestamp": 1793407648785,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -8 bps | Net: -51 bps | Spreads: 0.3 bps | Depth: 4088.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "650ddafb",
+      "timestamp": 1793407652802,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6590] Audited 10 High-Priority Coins: BTC:-1.9bps | SOL:-1.0bps | ETH:-4.8bps | BNB:-7.5bps | LINK:-1.7bps | SUI:-7.7bps | DOGE:-5.2bps | XRP:-4.8bps | NEAR:-2.3bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "4e3bb7c8",
+      "timestamp": 1793407652802,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 4.4 bps | Depth: 15995.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "4aa7c97b",
+      "timestamp": 1793407656805,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6591] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-1.9bps | BNB:-7.6bps | NEAR:-2.3bps | ETH:-4.1bps | LINK:-0.9bps | XRP:-4.8bps | DOGE:-5.2bps | SUI:-7.7bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e3c3e813",
+      "timestamp": 1793407656805,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 15784.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "8b8901de",
+      "timestamp": 1793407660829,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6592] Audited 10 High-Priority Coins: SOL:-2.1bps | SUI:-6.6bps | BTC:-1.9bps | ETH:-4.0bps | DOGE:-6.6bps | XRP:-3.2bps | NEAR:0.0bps | BNB:-4.5bps | LINK:-0.4bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "66ccde71",
+      "timestamp": 1793407660829,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -6.6 bps | Net: -49.6 bps | Spreads: 2.2 bps | Depth: 15735.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "b613a987",
+      "timestamp": 1793407664831,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6593] Audited 10 High-Priority Coins: ETH:-4.6bps | SOL:-2.1bps | BTC:-1.9bps | XRP:-4.8bps | DOGE:-5.2bps | SUI:-7.1bps | BNB:-5.8bps | LINK:-0.9bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "9d906e45",
+      "timestamp": 1793407664831,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 3.3 bps | Depth: 16760.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f0099482",
+      "timestamp": 1793407668853,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6594] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-4.5bps | SUI:-7.7bps | LINK:-0.9bps | BTC:-1.7bps | BNB:-5.4bps | XRP:-4.8bps | DOGE:-5.2bps | NEAR:+2.3bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "3adda65d",
+      "timestamp": 1793407668853,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16414.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "2cca8f0d",
+      "timestamp": 1793407672869,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6595] Audited 10 High-Priority Coins: BTC:-1.7bps | SOL:-2.1bps | ETH:-4.4bps | BNB:-5.6bps | LINK:-0.9bps | DOGE:-5.2bps | XRP:-4.8bps | SUI:-7.7bps | NEAR:0.0bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "649c7afe",
+      "timestamp": 1793407672869,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16531.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "8f16ca9c",
+      "timestamp": 1793407676879,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6596] Audited 10 High-Priority Coins: BTC:-1.7bps | ETH:-3.9bps | SOL:-1.0bps | SUI:-7.1bps | BNB:-5.5bps | XRP:-4.8bps | NEAR:+2.3bps | LINK:0.0bps | DOGE:-6.5bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e623880f",
+      "timestamp": 1793407676879,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 3.3 bps | Depth: 17529.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "314f70a7",
+      "timestamp": 1793407680948,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6597] Audited 10 High-Priority Coins: SOL:-1.0bps | BNB:-5.8bps | ETH:-4.4bps | BTC:-1.7bps | SUI:-7.7bps | XRP:-4.8bps | DOGE:-6.5bps | LINK:-0.4bps | AVAX:-2.3bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "14f6169b",
+      "timestamp": 1793407680948,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 15871.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "941f7c9f",
+      "timestamp": 1793407684905,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6598] Audited 10 High-Priority Coins: BTC:-1.7bps | XRP:-4.8bps | SUI:-8.8bps | ETH:-4.4bps | SOL:-1.0bps | BNB:-6.9bps | LINK:0.0bps | NEAR:+2.3bps | DOGE:-5.2bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "b6fb4a5a",
+      "timestamp": 1793407684905,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 17112.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "fbf7769c",
+      "timestamp": 1793407688909,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6599] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-2.4bps | ETH:-4.4bps | LINK:-0.9bps | XRP:-4.8bps | DOGE:-5.2bps | SUI:-7.1bps | BNB:-7.3bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "02dfc50d",
+      "timestamp": 1793407688909,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -7.3 bps | Net: -50.3 bps | Spreads: 0.3 bps | Depth: 4546.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "17c81b51",
+      "timestamp": 1793407692946,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6600] Audited 10 High-Priority Coins: SOL:-2.1bps | LINK:0.0bps | NEAR:0.0bps | ETH:-4.4bps | DOGE:-5.2bps | XRP:-4.8bps | BNB:-6.6bps | SUI:-7.7bps | AVAX:-3.5bps | BTC:-1.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "0b6687d5",
+      "timestamp": 1793407692946,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 15927.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d5a38951",
+      "timestamp": 1793407696999,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6601] Audited 10 High-Priority Coins: BTC:-0.9bps | ETH:-5.2bps | XRP:-4.0bps | SOL:-2.1bps | BNB:-6.5bps | SUI:-7.7bps | DOGE:-5.2bps | NEAR:0.0bps | LINK:-0.4bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "f0c955a9",
+      "timestamp": 1793407696999,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17254.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "fa2491ba",
+      "timestamp": 1793407700954,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6602] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-1.4bps | SUI:-7.7bps | LINK:+0.4bps | ETH:-4.5bps | DOGE:-4.6bps | BNB:-6.5bps | XRP:-4.8bps | NEAR:0.0bps | AVAX:-2.9bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "6c26fa98",
+      "timestamp": 1793407700954,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17437.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "9c2d8c63",
+      "timestamp": 1793407704959,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6603] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-4.7bps | BTC:-2.0bps | BNB:-6.9bps | SUI:-7.7bps | LINK:-0.4bps | NEAR:0.0bps | XRP:-4.8bps | DOGE:-5.2bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "42e07b4b",
+      "timestamp": 1793407704959,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17302.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "958662db",
+      "timestamp": 1793407709039,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6604] Audited 10 High-Priority Coins: SOL:-2.1bps | SUI:-7.7bps | LINK:0.0bps | XRP:-4.8bps | DOGE:-5.2bps | BTC:-1.5bps | ETH:-4.7bps | BNB:-7.8bps | AVAX:-3.5bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "82227d9b",
+      "timestamp": 1793407709039,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -7.8 bps | Net: -50.8 bps | Spreads: 0.3 bps | Depth: 2953.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "c3e1897e",
+      "timestamp": 1793407712986,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6605] Audited 10 High-Priority Coins: BTC:-2.1bps | BNB:-6.8bps | SUI:-7.7bps | SOL:-2.1bps | XRP:-4.8bps | ETH:-4.9bps | DOGE:-2.6bps | LINK:+0.4bps | NEAR:0.0bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "b9284587",
+      "timestamp": 1793407712986,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17429.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "0f38c82e",
+      "timestamp": 1793407716999,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6606] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-2.1bps | ETH:-4.9bps | BNB:-6.8bps | SUI:-7.7bps | NEAR:0.0bps | LINK:0.0bps | DOGE:-2.6bps | XRP:-4.8bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "5a2bccf0",
+      "timestamp": 1793407716999,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17226x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "1cabb5c7",
+      "timestamp": 1793407721012,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6607] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-2.2bps | ETH:-4.8bps | BNB:-6.8bps | SUI:-7.7bps | LINK:0.0bps | NEAR:0.0bps | XRP:-4.8bps | DOGE:-2.6bps | AVAX:-3.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "21253d51",
+      "timestamp": 1793407721012,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16875.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "73debd8b",
+      "timestamp": 1793407725033,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6608] Audited 10 High-Priority Coins: SOL:-1.0bps | ETH:-5.1bps | BTC:-2.3bps | BNB:-5.1bps | SUI:-7.7bps | LINK:-0.4bps | XRP:-4.0bps | DOGE:-2.6bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e17f49f3",
+      "timestamp": 1793407725033,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16910.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "b799331b",
+      "timestamp": 1793407729033,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6609] Audited 10 High-Priority Coins: SOL:-1.0bps | ETH:-5.1bps | SUI:-8.2bps | BNB:-6.3bps | BTC:-1.9bps | LINK:-0.4bps | DOGE:-2.6bps | XRP:-4.8bps | NEAR:0.0bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "c0812292",
+      "timestamp": 1793407729033,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17118.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "e67a02ca",
+      "timestamp": 1793407733046,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6610] Audited 10 High-Priority Coins: ETH:-5.1bps | SOL:-1.0bps | SUI:-8.2bps | BNB:-6.3bps | LINK:0.0bps | NEAR:-2.3bps | XRP:-4.8bps | BTC:-1.6bps | DOGE:-3.9bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "c104a1d4",
+      "timestamp": 1793407733046,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17108.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "1bdc25fe",
+      "timestamp": 1793407737068,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6611] Audited 10 High-Priority Coins: BTC:-1.5bps | SOL:-2.1bps | SUI:-7.7bps | ETH:-5.1bps | LINK:-0.4bps | NEAR:0.0bps | DOGE:-3.9bps | XRP:-4.8bps | BNB:-6.3bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "bc0dadf1",
+      "timestamp": 1793407737068,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16790.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "11ac6462",
+      "timestamp": 1793407741080,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6612] Audited 10 High-Priority Coins: BTC:-2.0bps | BNB:-6.3bps | SOL:-2.1bps | NEAR:0.0bps | XRP:-4.8bps | ETH:-5.3bps | DOGE:-3.9bps | SUI:-7.7bps | LINK:-1.3bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "1d108c43",
+      "timestamp": 1793407741080,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17041.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "fd00a422",
+      "timestamp": 1793407745101,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6613] Audited 10 High-Priority Coins: ETH:-5.2bps | BTC:-2.0bps | BNB:-5.6bps | SUI:-8.2bps | DOGE:-5.2bps | SOL:-2.1bps | NEAR:0.0bps | XRP:-4.8bps | LINK:-0.9bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "4808103e",
+      "timestamp": 1793407745101,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17452x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "3ab9fd81",
+      "timestamp": 1793407749370,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6614] Audited 10 High-Priority Coins: BTC:-1.9bps | ETH:-4.8bps | SOL:-1.0bps | XRP:-4.8bps | DOGE:-3.9bps | SUI:-8.2bps | AVAX:-2.3bps | BNB:-5.9bps | NEAR:0.0bps | LINK:-0.4bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "098e4f89",
+      "timestamp": 1793407749370,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17213.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "1e75ccbf",
+      "timestamp": 1793407753208,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6615] Audited 10 High-Priority Coins: ETH:-4.8bps | BTC:-1.9bps | NEAR:0.0bps | LINK:-0.4bps | SOL:-1.0bps | XRP:-4.8bps | DOGE:-4.6bps | AVAX:-2.3bps | BNB:-5.9bps | SUI:-8.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "6c47638d",
+      "timestamp": 1793407753208,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 17877.8x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "3269982e",
+      "timestamp": 1793407757164,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6616] Audited 10 High-Priority Coins: SOL:-1.0bps | LINK:0.0bps | BNB:-7.1bps | XRP:-4.8bps | BTC:-1.9bps | ETH:-4.7bps | SUI:-8.8bps | DOGE:-4.6bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "18158ef1",
+      "timestamp": 1793407757164,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 17615.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d8a840ef",
+      "timestamp": 1793407761169,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6617] Audited 10 High-Priority Coins: ETH:-5.2bps | SUI:-8.8bps | BNB:-6.9bps | LINK:-0.4bps | BTC:-2.3bps | XRP:-4.0bps | DOGE:-5.2bps | SOL:-2.1bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "36bace41",
+      "timestamp": 1793407761169,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17143.8x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "fdf5264c",
+      "timestamp": 1793407765184,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6618] Audited 10 High-Priority Coins: ETH:-4.6bps | SOL:-1.0bps | SUI:-6.6bps | BNB:-6.9bps | BTC:-1.6bps | LINK:-0.9bps | NEAR:-1.2bps | DOGE:-5.9bps | XRP:-4.8bps | AVAX:-2.9bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "dffc1f84",
+      "timestamp": 1793407765184,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -6.9 bps | Net: -49.9 bps | Spreads: 0.3 bps | Depth: 2337.8x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d46c65c7",
+      "timestamp": 1793407769195,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6619] Audited 10 High-Priority Coins: ETH:-4.5bps | SOL:-2.1bps | SUI:-6.6bps | LINK:-0.4bps | BNB:-5.6bps | NEAR:-2.3bps | BTC:-1.8bps | XRP:-4.8bps | DOGE:-4.6bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e7e0fe69",
+      "timestamp": 1793407769195,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -6.6 bps | Net: -49.6 bps | Spreads: 2.2 bps | Depth: 17241.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "ed45640c",
+      "timestamp": 1793407773208,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6620] Audited 10 High-Priority Coins: BNB:-7.3bps | XRP:-4.0bps | DOGE:-5.2bps | SUI:-7.7bps | LINK:-0.9bps | NEAR:-2.3bps | ETH:-4.3bps | SOL:-1.0bps | BTC:-1.9bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "4246419f",
+      "timestamp": 1793407773208,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17275.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "005965e1",
+      "timestamp": 1793407777334,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6621] Audited 10 High-Priority Coins: BTC:-1.2bps | ETH:-4.1bps | SOL:-1.0bps | XRP:-4.0bps | DOGE:-3.9bps | SUI:-9.3bps | AVAX:-2.3bps | BNB:-7.3bps | LINK:+3.0bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "72d061b3",
+      "timestamp": 1793407777335,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -9.3 bps | Net: -52.3 bps | Spreads: 5.5 bps | Depth: 18410.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "bb62316e",
+      "timestamp": 1793407781252,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6622] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-3.9bps | SUI:-8.8bps | LINK:-0.9bps | BNB:-7.1bps | XRP:-4.0bps | DOGE:-5.2bps | BTC:-1.5bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "13a3ded1",
+      "timestamp": 1793407781252,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18175.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f3f76a6f",
+      "timestamp": 1793407785405,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6623] Audited 10 High-Priority Coins: BTC:-1.7bps | ETH:-5.0bps | SOL:-1.0bps | XRP:-4.8bps | DOGE:-5.2bps | AVAX:-2.3bps | SUI:-8.8bps | BNB:-6.2bps | NEAR:+2.3bps | LINK:-0.9bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "b9a4f742",
+      "timestamp": 1793407785405,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18020.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "3b7d6f30",
+      "timestamp": 1793407789296,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6624] Audited 10 High-Priority Coins: SOL:-1.0bps | ETH:-5.0bps | BTC:-1.7bps | LINK:-0.4bps | NEAR:-2.3bps | XRP:-4.8bps | SUI:-8.8bps | DOGE:-5.2bps | BNB:-6.1bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "7f40b8cb",
+      "timestamp": 1793407789296,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17915.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "800e1416",
+      "timestamp": 1793407793324,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6625] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-8.8bps | XRP:-4.8bps | LINK:0.0bps | ETH:-4.5bps | DOGE:-5.2bps | BTC:-1.7bps | NEAR:+2.3bps | BNB:-6.1bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "44781300",
+      "timestamp": 1793407793324,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18258.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "20e7425b",
+      "timestamp": 1793407797342,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6626] Audited 10 High-Priority Coins: ETH:-5.0bps | BTC:-2.0bps | SUI:-8.2bps | BNB:-5.9bps | LINK:0.0bps | NEAR:0.0bps | SOL:-1.0bps | DOGE:-5.2bps | XRP:-4.8bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "2a4740d1",
+      "timestamp": 1793407797342,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 16677.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d3403500",
+      "timestamp": 1793407801360,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6627] Audited 10 High-Priority Coins: SOL:-1.0bps | ETH:-4.4bps | SUI:-8.8bps | BTC:-2.1bps | XRP:-4.8bps | DOGE:-5.2bps | BNB:-6.5bps | NEAR:0.0bps | LINK:-0.9bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "995aa9a1",
+      "timestamp": 1793407801360,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17936.8x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "c5025657",
+      "timestamp": 1793407805404,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6628] Audited 10 High-Priority Coins: BTC:-2.1bps | NEAR:0.0bps | SUI:-8.8bps | XRP:-4.8bps | DOGE:-5.2bps | LINK:-0.4bps | BNB:-7.2bps | SOL:-1.0bps | AVAX:-2.3bps | ETH:-4.4bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "d0fcd589",
+      "timestamp": 1793407805404,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18167.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "8769622f",
+      "timestamp": 1793407809422,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6629] Audited 10 High-Priority Coins: SOL:-2.1bps | BNB:-6.6bps | XRP:-4.8bps | LINK:0.0bps | DOGE:-5.2bps | BTC:-1.7bps | SUI:-7.7bps | NEAR:0.0bps | AVAX:-2.9bps | ETH:-4.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "146f922a",
+      "timestamp": 1793407809422,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 18292.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "5b4b9668",
+      "timestamp": 1793407813433,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6630] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-2.3bps | XRP:-4.8bps | BNB:-7.6bps | SUI:-8.8bps | DOGE:-5.2bps | NEAR:-2.3bps | LINK:-0.9bps | AVAX:-2.3bps | ETH:-4.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "42cddd7f",
+      "timestamp": 1793407813433,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17954.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "60f50059",
+      "timestamp": 1793407817451,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6631] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-8.8bps | BTC:-2.6bps | LINK:-0.9bps | NEAR:0.0bps | BNB:-6.6bps | DOGE:-6.5bps | XRP:-4.8bps | AVAX:-1.7bps | ETH:-5.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "7aac3323",
+      "timestamp": 1793407817451,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 19848.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "600174e5",
+      "timestamp": 1793407821420,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6632] Audited 10 High-Priority Coins: ETH:-4.8bps | BTC:-1.8bps | SOL:-2.1bps | SUI:-7.7bps | NEAR:0.0bps | LINK:-0.9bps | DOGE:-5.2bps | XRP:-4.0bps | BNB:-6.6bps | AVAX:-1.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "309a59db",
+      "timestamp": 1793407821420,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 18505.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "48c3e4f0",
+      "timestamp": 1793407825432,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6633] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-8.2bps | BTC:-1.5bps | ETH:-4.2bps | LINK:-1.7bps | NEAR:-2.3bps | BNB:-6.1bps | XRP:-4.8bps | DOGE:-5.9bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "5e243d36",
+      "timestamp": 1793407825432,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 20112.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "a7aae660",
+      "timestamp": 1793407829474,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6634] Audited 10 High-Priority Coins: LINK:-0.9bps | SUI:-7.1bps | SOL:-1.0bps | BTC:-1.7bps | XRP:-5.6bps | DOGE:-3.9bps | ETH:-4.5bps | BNB:-6.1bps | NEAR:0.0bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "dd39af7d",
+      "timestamp": 1793407829474,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 3.3 bps | Depth: 18448.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "65424821",
+      "timestamp": 1793407833456,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6635] Audited 10 High-Priority Coins: ETH:-5.1bps | XRP:-4.8bps | SUI:-7.7bps | BNB:-6.9bps | SOL:-1.0bps | BTC:-2.2bps | DOGE:-2.6bps | LINK:-0.4bps | NEAR:0.0bps | AVAX:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "321ee009",
+      "timestamp": 1793407833456,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 15227.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "dc84148d",
+      "timestamp": 1793407837463,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6636] Audited 10 High-Priority Coins: ETH:-5.1bps | BTC:-2.2bps | SOL:-1.0bps | BNB:-6.3bps | SUI:-8.8bps | NEAR:0.0bps | LINK:-0.9bps | DOGE:-2.6bps | XRP:-4.0bps | AVAX:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "f29806f0",
+      "timestamp": 1793407837463,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18932.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "41b5aa05",
+      "timestamp": 1793407841487,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6637] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-8.2bps | BNB:-5.9bps | BTC:-2.5bps | NEAR:0.0bps | ETH:-5.1bps | LINK:-0.4bps | XRP:-4.0bps | DOGE:-2.6bps | AVAX:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "906de5d3",
+      "timestamp": 1793407841487,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18641.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f52d2b08",
+      "timestamp": 1793407845493,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6638] Audited 10 High-Priority Coins: ETH:-5.0bps | BTC:-2.6bps | SOL:-1.0bps | LINK:-0.9bps | NEAR:-1.1bps | BNB:-5.6bps | SUI:-8.2bps | DOGE:-2.6bps | XRP:-4.0bps | AVAX:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "3712652d",
+      "timestamp": 1793407845493,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18475.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d7737e54",
+      "timestamp": 1793407849503,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6639] Audited 10 High-Priority Coins: ETH:-5.0bps | SOL:-1.0bps | LINK:-0.4bps | BTC:-2.3bps | XRP:-4.8bps | DOGE:-2.6bps | BNB:-6.1bps | SUI:-7.7bps | NEAR:+1.1bps | AVAX:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "f7858eb4",
+      "timestamp": 1793407849503,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 18195.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "2db3f918",
+      "timestamp": 1793407853524,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6640] Audited 10 High-Priority Coins: ETH:-4.8bps | SUI:-7.1bps | LINK:0.0bps | NEAR:+2.3bps | SOL:-1.0bps | BNB:-6.8bps | XRP:-4.8bps | BTC:-2.1bps | DOGE:-3.9bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "9e9ea6c5",
+      "timestamp": 1793407853524,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 3.3 bps | Depth: 18497.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "95a42a0a",
+      "timestamp": 1793407857569,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6641] Audited 10 High-Priority Coins: BTC:-2.5bps | SOL:-2.1bps | BNB:-6.3bps | NEAR:+2.3bps | LINK:-0.4bps | XRP:-4.8bps | SUI:-8.8bps | DOGE:-3.9bps | AVAX:0.0bps | ETH:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "2dcb4beb",
+      "timestamp": 1793407857569,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17928.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "004edfdc",
+      "timestamp": 1793407861553,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6642] Audited 10 High-Priority Coins: BTC:-2.2bps | ETH:-4.4bps | SOL:-1.0bps | BNB:-5.5bps | LINK:-2.6bps | DOGE:-5.2bps | NEAR:+2.3bps | SUI:-8.8bps | XRP:-5.6bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "996149e9",
+      "timestamp": 1793407861553,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17440.8x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "2de6656c",
+      "timestamp": 1793407865748,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6643] Audited 10 High-Priority Coins: NEAR:0.0bps | LINK:+0.4bps | BNB:-5.9bps | DOGE:-4.6bps | SOL:-1.0bps | BTC:-2.2bps | AVAX:0.0bps | SUI:-8.2bps | ETH:-4.7bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "88695157",
+      "timestamp": 1793407865748,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17301.8x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "ebcd6c0a",
+      "timestamp": 1793407869478,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6644] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-1.8bps | ETH:-5.2bps | AVAX:-1.2bps | BNB:-6.6bps | LINK:0.0bps | DOGE:-5.2bps | SUI:-8.8bps | NEAR:0.0bps | XRP:-4.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e3ca6573",
+      "timestamp": 1793407869478,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17719.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "3009e5ff",
+      "timestamp": 1793407873372,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6645] Audited 10 High-Priority Coins: BTC:-2.1bps | SOL:-2.1bps | AVAX:0.0bps | ETH:-5.1bps | SUI:-9.9bps | NEAR:0.0bps | LINK:-0.9bps | XRP:-4.8bps | BNB:-6.4bps | DOGE:-5.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "22a239d8",
+      "timestamp": 1793407873372,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -9.9 bps | Net: -52.9 bps | Spreads: 2.2 bps | Depth: 17666.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "b17b7c90",
+      "timestamp": 1793407877502,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6646] Audited 10 High-Priority Coins: BTC:-1.9bps | SUI:-8.8bps | AVAX:0.0bps | BNB:-6.5bps | XRP:-4.8bps | ETH:-5.1bps | DOGE:-5.2bps | SOL:-1.0bps | LINK:0.0bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "213c04d2",
+      "timestamp": 1793407877502,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17736.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "bb338b10",
+      "timestamp": 1793407881428,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6647] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-1.9bps | SUI:-8.8bps | BNB:-7.3bps | ETH:-4.9bps | LINK:-0.4bps | AVAX:-0.6bps | DOGE:-5.2bps | XRP:-4.0bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "bafbaa9b",
+      "timestamp": 1793407881428,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18170.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "c9837dc4",
+      "timestamp": 1793407885488,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6648] Audited 10 High-Priority Coins: SOL:-1.0bps | ETH:-5.1bps | SUI:-6.6bps | BNB:-7.1bps | LINK:-0.4bps | NEAR:0.0bps | BTC:-1.9bps | XRP:-4.8bps | DOGE:-3.9bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "b8488759",
+      "timestamp": 1793407885488,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: BNBUSDT] Gross: -7.1 bps | Net: -50.1 bps | Spreads: 0.3 bps | Depth: 3776.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "856794cf",
+      "timestamp": 1793407889517,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6649] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-5.3bps | BTC:-2.3bps | BNB:-7.1bps | AVAX:-1.2bps | LINK:0.0bps | DOGE:-4.6bps | NEAR:-2.3bps | XRP:-4.8bps | SUI:-8.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "dc1c4eed",
+      "timestamp": 1793407889517,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 16152.8x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "8ff1ac17",
+      "timestamp": 1793407893434,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6650] Audited 10 High-Priority Coins: BTC:-1.5bps | ETH:-4.7bps | SOL:-2.1bps | AVAX:-1.2bps | SUI:-8.8bps | BNB:-7.3bps | LINK:-0.9bps | DOGE:-5.2bps | XRP:-4.8bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "3153de9c",
+      "timestamp": 1793407893434,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18126.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "3e3f28db",
+      "timestamp": 1793407897564,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6651] Audited 10 High-Priority Coins: SOL:-1.0bps | ETH:-5.3bps | LINK:0.0bps | XRP:-4.8bps | DOGE:-5.2bps | BNB:-5.9bps | NEAR:0.0bps | BTC:-2.2bps | SUI:-8.8bps | AVAX:-0.6bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "4f2c1c15",
+      "timestamp": 1793407897565,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17479x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "99e3ac7a",
+      "timestamp": 1793407901456,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6652] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-1.3bps | SUI:-8.8bps | NEAR:-2.3bps | LINK:-0.9bps | BNB:-6.9bps | AVAX:-1.7bps | ETH:-4.6bps | DOGE:-5.2bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "70eada0e",
+      "timestamp": 1793407901457,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17801.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "83c8e881",
+      "timestamp": 1793407905591,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6653] Audited 10 High-Priority Coins: SOL:-2.1bps | BNB:-7.2bps | XRP:-4.8bps | DOGE:-5.2bps | ETH:-4.8bps | BTC:-0.8bps | AVAX:-1.2bps | LINK:-0.9bps | SUI:-8.8bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "686b6e64",
+      "timestamp": 1793407905591,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17951.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "dfd9831a",
+      "timestamp": 1793407909476,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6654] Audited 10 High-Priority Coins: ETH:-5.2bps | SOL:-2.1bps | SUI:-8.2bps | BTC:-1.8bps | BNB:-7.2bps | LINK:0.0bps | AVAX:-1.2bps | NEAR:0.0bps | XRP:-5.6bps | DOGE:-5.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "9bef08a3",
+      "timestamp": 1793407909476,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18229.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "0444e521",
+      "timestamp": 1793407913608,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6655] Audited 10 High-Priority Coins: SOL:-2.1bps | XRP:-4.8bps | AVAX:-1.2bps | BTC:-2.1bps | ETH:-5.1bps | SUI:-9.9bps | BNB:-5.8bps | LINK:-0.9bps | DOGE:-5.2bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "d201a14e",
+      "timestamp": 1793407913608,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -9.9 bps | Net: -52.9 bps | Spreads: 2.2 bps | Depth: 18079.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "552418f5",
+      "timestamp": 1793407917647,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6656] Audited 10 High-Priority Coins: ETH:-4.3bps | BTC:-3.0bps | SOL:-2.1bps | AVAX:-0.6bps | DOGE:-5.2bps | XRP:-4.8bps | SUI:-8.8bps | LINK:0.0bps | BNB:-5.4bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "ac1d2cfa",
+      "timestamp": 1793407917647,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17800.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "3c91b391",
+      "timestamp": 1793407921640,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6657] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-2.7bps | ETH:-5.0bps | DOGE:-5.2bps | XRP:-4.8bps | SUI:-8.2bps | BNB:-5.2bps | AVAX:-1.2bps | NEAR:-2.3bps | LINK:-1.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "92600d13",
+      "timestamp": 1793407921640,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17959x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "a6688a25",
+      "timestamp": 1793407925563,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6658] Audited 10 High-Priority Coins: SOL:-2.1bps | AVAX:-1.2bps | BNB:-5.2bps | ETH:-4.9bps | BTC:-2.3bps | NEAR:-2.3bps | DOGE:-5.2bps | SUI:-8.2bps | LINK:-0.9bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "7e9f80a4",
+      "timestamp": 1793407925563,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18127.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "9f2eb590",
+      "timestamp": 1793407929570,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6659] Audited 10 High-Priority Coins: BTC:-2.4bps | SOL:-2.1bps | SUI:-8.8bps | AVAX:0.0bps | DOGE:-6.6bps | XRP:-4.8bps | BNB:-6.4bps | ETH:-4.3bps | LINK:-0.9bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "c45443dc",
+      "timestamp": 1793407929570,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 17855.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "59eaf98e",
+      "timestamp": 1793407933558,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6660] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-2.6bps | SUI:-8.8bps | BNB:-6.4bps | AVAX:-1.2bps | DOGE:-6.6bps | XRP:-5.6bps | LINK:+1.3bps | NEAR:-2.3bps | ETH:-4.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "f0ea1549",
+      "timestamp": 1793407933558,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17705.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "81ddc3e9",
+      "timestamp": 1793407937829,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6661] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-2.6bps | ETH:-4.4bps | BNB:-6.4bps | LINK:-0.4bps | SUI:-8.8bps | DOGE:-5.2bps | XRP:-4.8bps | NEAR:0.0bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "52aed485",
+      "timestamp": 1793407937829,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18816.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "46e8b6c2",
+      "timestamp": 1793407941585,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6662] Audited 10 High-Priority Coins: BTC:-2.6bps | SUI:-8.2bps | AVAX:-1.2bps | SOL:-2.1bps | LINK:-0.4bps | BNB:-6.4bps | NEAR:0.0bps | ETH:-4.4bps | DOGE:-5.2bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "87cbf1c1",
+      "timestamp": 1793407941585,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18714.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "eb6675d3",
+      "timestamp": 1793407945614,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6663] Audited 10 High-Priority Coins: SOL:-3.1bps | BNB:-6.2bps | AVAX:-1.2bps | ETH:-4.4bps | NEAR:0.0bps | LINK:+1.3bps | XRP:-4.8bps | DOGE:-5.2bps | BTC:-2.6bps | SUI:-7.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "996a209e",
+      "timestamp": 1793407945614,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 18051.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "fd71749f",
+      "timestamp": 1793407949664,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6664] Audited 10 High-Priority Coins: BTC:-1.9bps | SOL:-1.0bps | SUI:-8.8bps | ETH:-4.5bps | BNB:-6.9bps | DOGE:-5.9bps | LINK:-0.9bps | AVAX:-1.2bps | NEAR:0.0bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "55fd5b1c",
+      "timestamp": 1793407949664,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18042.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "8631597c",
+      "timestamp": 1793407953623,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6665] Audited 10 High-Priority Coins: BTC:-1.7bps | SOL:-1.0bps | SUI:-8.8bps | ETH:-4.0bps | AVAX:-1.2bps | BNB:-7.2bps | NEAR:0.0bps | LINK:-0.9bps | DOGE:-5.2bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "91dd5781",
+      "timestamp": 1793407953623,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18212.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f5f51e56",
+      "timestamp": 1793407957747,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6666] Audited 10 High-Priority Coins: ETH:-4.0bps | AVAX:-1.2bps | SUI:-8.8bps | BNB:-6.5bps | BTC:-1.9bps | NEAR:-1.2bps | SOL:-2.1bps | DOGE:-5.2bps | XRP:-4.8bps | LINK:-0.9bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "d464213c",
+      "timestamp": 1793407957747,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 18084x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "5643bc9e",
+      "timestamp": 1793407961651,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6667] Audited 10 High-Priority Coins: BTC:-2.3bps | SUI:-8.8bps | SOL:-2.1bps | BNB:-6.5bps | ETH:-4.0bps | NEAR:0.0bps | XRP:-4.8bps | DOGE:-5.2bps | LINK:-0.9bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "deb43e82",
+      "timestamp": 1793407961651,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18011.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "018c6356",
+      "timestamp": 1793407965660,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6668] Audited 10 High-Priority Coins: SUI:-8.8bps | AVAX:0.0bps | ETH:-5.0bps | BTC:-2.6bps | SOL:-2.1bps | NEAR:0.0bps | BNB:-6.5bps | XRP:-4.8bps | DOGE:-5.2bps | LINK:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "7fb0bdcd",
+      "timestamp": 1793407965660,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18733.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "c0e438a8",
+      "timestamp": 1793407969922,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6669] Audited 10 High-Priority Coins: BTC:-2.6bps | SUI:-8.8bps | BNB:-7.3bps | NEAR:-2.3bps | DOGE:-5.2bps | XRP:-4.8bps | LINK:+0.4bps | ETH:-5.0bps | SOL:-2.1bps | AVAX:-1.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "0cba558b",
+      "timestamp": 1793407969922,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17131.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "d50e6e5f",
+      "timestamp": 1793407973934,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6670] Audited 10 High-Priority Coins: SOL:-2.1bps | AVAX:-1.2bps | BNB:-5.4bps | NEAR:-1.2bps | BTC:-2.1bps | ETH:-5.0bps | XRP:-4.8bps | SUI:-8.8bps | LINK:+0.4bps | DOGE:-5.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "36ad33d4",
+      "timestamp": 1793407973934,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 18062.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "7790b1b9",
+      "timestamp": 1793407977694,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6671] Audited 10 High-Priority Coins: BTC:-2.4bps | ETH:-4.6bps | SOL:-2.1bps | LINK:+0.4bps | NEAR:-2.3bps | BNB:-6.3bps | AVAX:-1.2bps | DOGE:-6.6bps | XRP:-4.8bps | SUI:-8.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "aecc4b4f",
+      "timestamp": 1793407977694,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17094.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "e4a37eeb",
+      "timestamp": 1793407981703,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6672] Audited 10 High-Priority Coins: ETH:-4.8bps | BTC:-1.2bps | AVAX:-8.7bps | NEAR:-4.6bps | XRP:-3.2bps | BNB:-7.2bps | SUI:-8.8bps | LINK:0.0bps | SOL:-5.2bps | DOGE:-11.1bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "17251a06",
+      "timestamp": 1793407981703,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: DOGEUSDT] Gross: -11.1 bps | Net: -54.1 bps | Spreads: 3.9 bps | Depth: 95866.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "79391832",
+      "timestamp": 1793407985817,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6673] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-8.8bps | BTC:-1.6bps | ETH:-5.3bps | BNB:-7.2bps | NEAR:0.0bps | LINK:-0.4bps | DOGE:-5.2bps | XRP:-4.8bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "07cb67be",
+      "timestamp": 1793407985817,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 16991.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "ddf1d132",
+      "timestamp": 1793407989779,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6674] Audited 10 High-Priority Coins: SOL:-2.1bps | LINK:-0.4bps | NEAR:0.0bps | BNB:-7.2bps | ETH:-5.3bps | SUI:-8.8bps | BTC:-1.6bps | DOGE:-5.2bps | XRP:-4.8bps | AVAX:-4.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "d672c0bd",
+      "timestamp": 1793407989779,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17125.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "aa137a82",
+      "timestamp": 1793407993736,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6675] Audited 10 High-Priority Coins: AVAX:-3.5bps | SUI:-8.8bps | NEAR:0.0bps | LINK:+0.4bps | BNB:-6.9bps | XRP:-4.8bps | ETH:-4.3bps | SOL:-2.1bps | DOGE:-4.6bps | BTC:-1.6bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e388bc84",
+      "timestamp": 1793407993736,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17266.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "137e6a82",
+      "timestamp": 1793407997772,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6676] Audited 10 High-Priority Coins: BTC:-3.1bps | SOL:-2.1bps | SUI:-8.8bps | ETH:-5.3bps | NEAR:0.0bps | DOGE:-5.2bps | XRP:-4.8bps | AVAX:-1.7bps | LINK:+0.4bps | BNB:-6.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "53f02ad7",
+      "timestamp": 1793407997772,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17453.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f69768ef",
+      "timestamp": 1793408001757,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6677] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-2.7bps | BNB:-5.9bps | SUI:-8.2bps | LINK:0.0bps | AVAX:-2.3bps | XRP:-4.8bps | DOGE:-5.2bps | ETH:-5.1bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "9dea13d6",
+      "timestamp": 1793408001757,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18356x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "a38a3e1d",
+      "timestamp": 1793408005882,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6678] Audited 10 High-Priority Coins: SOL:-1.0bps | AVAX:-2.3bps | SUI:-7.7bps | LINK:0.0bps | BNB:-6.5bps | ETH:-4.8bps | DOGE:-5.2bps | XRP:-4.8bps | BTC:-2.8bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "bd083d5e",
+      "timestamp": 1793408005882,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17867.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "30383482",
+      "timestamp": 1793408009792,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6679] Audited 10 High-Priority Coins: ETH:-4.2bps | SOL:-2.1bps | LINK:+0.9bps | BTC:-2.7bps | BNB:-6.5bps | NEAR:0.0bps | AVAX:-1.2bps | DOGE:-5.2bps | XRP:-4.8bps | SUI:-8.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "7450ef29",
+      "timestamp": 1793408009792,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18478.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "db0ed912",
+      "timestamp": 1793408013803,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6680] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-2.7bps | SUI:-7.7bps | AVAX:-2.3bps | ETH:-4.2bps | BNB:-7.1bps | LINK:-0.9bps | NEAR:0.0bps | XRP:-4.0bps | DOGE:-4.6bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "d8b9a6cd",
+      "timestamp": 1793408013803,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17568.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "ab584faf",
+      "timestamp": 1793408017924,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6681] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-8.2bps | BNB:-7.1bps | ETH:-4.2bps | BTC:-2.7bps | XRP:-4.8bps | DOGE:-4.6bps | AVAX:-3.5bps | LINK:-0.9bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "bebed938",
+      "timestamp": 1793408017924,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17799.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "e0347f8b",
+      "timestamp": 1793408021814,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6682] Audited 10 High-Priority Coins: ETH:-4.2bps | SOL:-2.1bps | BTC:-2.8bps | SUI:-8.2bps | BNB:-5.9bps | LINK:-0.9bps | AVAX:-2.3bps | XRP:-4.8bps | DOGE:-4.6bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "586fef11",
+      "timestamp": 1793408021814,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17819.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f5fe0355",
+      "timestamp": 1793408026035,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6683] Audited 10 High-Priority Coins: ETH:-4.2bps | SOL:-3.1bps | AVAX:-2.3bps | BNB:-5.9bps | DOGE:-5.2bps | SUI:-8.8bps | XRP:-4.8bps | BTC:-2.8bps | LINK:0.0bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "74b57944",
+      "timestamp": 1793408026035,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 17915.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "7a344f76",
+      "timestamp": 1793408029961,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6684] Audited 10 High-Priority Coins: BTC:-2.8bps | SOL:-2.1bps | ETH:-4.3bps | BNB:-5.9bps | DOGE:-5.2bps | XRP:-4.8bps | AVAX:-1.2bps | NEAR:+2.3bps | SUI:-8.8bps | LINK:-0.4bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e2cc2ca9",
+      "timestamp": 1793408029961,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 4.4 bps | Depth: 19224.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "20cf2954",
+      "timestamp": 1793408033857,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6685] Audited 10 High-Priority Coins: BTC:-2.8bps | ETH:-4.3bps | SOL:-2.1bps | SUI:-8.2bps | AVAX:-1.2bps | BNB:-6.2bps | LINK:-0.9bps | DOGE:-5.2bps | NEAR:0.0bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "29ee6804",
+      "timestamp": 1793408033857,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 19216x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "5953e808",
+      "timestamp": 1793408037989,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6686] Audited 10 High-Priority Coins: ETH:-4.0bps | SOL:-2.1bps | AVAX:-2.3bps | NEAR:-2.3bps | LINK:-0.9bps | BTC:-2.8bps | DOGE:-5.2bps | BNB:-5.4bps | SUI:-8.2bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "63373a7f",
+      "timestamp": 1793408037989,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 19083.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "42d85c55",
+      "timestamp": 1793408041985,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6687] Audited 10 High-Priority Coins: XRP:-4.8bps | DOGE:-5.2bps | SUI:-7.7bps | ETH:-4.1bps | SOL:-2.1bps | BNB:-6.2bps | LINK:0.0bps | AVAX:-3.5bps | NEAR:0.0bps | BTC:-2.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "55601bc0",
+      "timestamp": 1793408041985,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 18719.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "9777894d",
+      "timestamp": 1793408046008,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6688] Audited 10 High-Priority Coins: BTC:-2.8bps | SUI:-8.8bps | XRP:-5.6bps | LINK:-0.9bps | AVAX:-4.7bps | SOL:-2.1bps | DOGE:-5.2bps | ETH:-3.9bps | BNB:-6.1bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "e388ee28",
+      "timestamp": 1793408046008,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17417.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "1cc1dcbf",
+      "timestamp": 1793408049926,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6689] Audited 10 High-Priority Coins: SOL:-2.1bps | DOGE:-5.2bps | BTC:-2.3bps | XRP:-5.6bps | ETH:-4.8bps | AVAX:-2.3bps | SUI:-8.8bps | BNB:-6.8bps | LINK:-0.9bps | NEAR:+2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "4c34122f",
+      "timestamp": 1793408049926,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17820.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "c76ad684",
+      "timestamp": 1793408053963,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6690] Audited 10 High-Priority Coins: SOL:-2.1bps | SUI:-8.2bps | BTC:-2.3bps | BNB:-6.8bps | LINK:-0.9bps | XRP:-5.6bps | AVAX:-3.5bps | ETH:-4.6bps | DOGE:-5.2bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "66b03134",
+      "timestamp": 1793408053963,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18213x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "83114704",
+      "timestamp": 1793408057892,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6691] Audited 10 High-Priority Coins: SOL:-1.0bps | SUI:-8.8bps | BTC:-2.2bps | ETH:-4.5bps | NEAR:-1.2bps | BNB:-4.5bps | DOGE:-5.9bps | XRP:-4.8bps | AVAX:-2.3bps | LINK:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "c22f2bf7",
+      "timestamp": 1793408057892,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17542.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "2b2d8718",
+      "timestamp": 1793408061977,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6692] Audited 10 High-Priority Coins: BTC:-1.7bps | SUI:-8.2bps | AVAX:-2.3bps | DOGE:-6.6bps | BNB:-5.6bps | LINK:-0.9bps | NEAR:0.0bps | SOL:-1.0bps | XRP:-4.8bps | ETH:-4.5bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "f6f66a9e",
+      "timestamp": 1793408061977,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17321.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "9b4d0aa6",
+      "timestamp": 1793408065974,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6693] Audited 10 High-Priority Coins: BTC:-1.7bps | BNB:-6.0bps | ETH:-4.5bps | AVAX:-2.3bps | DOGE:-5.2bps | SOL:-1.0bps | SUI:-8.8bps | XRP:-5.6bps | LINK:-0.9bps | NEAR:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "7f850b81",
+      "timestamp": 1793408065974,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17334.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "9eae83f4",
+      "timestamp": 1793408070003,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6694] Audited 10 High-Priority Coins: BTC:-1.7bps | SOL:-1.0bps | ETH:-4.5bps | DOGE:-5.2bps | AVAX:-2.9bps | XRP:-4.8bps | NEAR:-2.3bps | BNB:-5.7bps | LINK:-0.9bps | SUI:-7.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "821ebfe6",
+      "timestamp": 1793408070003,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17367.6x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "72a52977",
+      "timestamp": 1793408073934,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6695] Audited 10 High-Priority Coins: BTC:-2.3bps | XRP:-4.8bps | AVAX:-3.5bps | SUI:-7.7bps | LINK:-0.9bps | DOGE:-5.2bps | SOL:-1.0bps | ETH:-4.5bps | BNB:-6.1bps | NEAR:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "4b3090ab",
+      "timestamp": 1793408073934,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17065x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "cb404e6a",
+      "timestamp": 1793408077956,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6696] Audited 10 High-Priority Coins: AVAX:-2.3bps | SOL:-1.0bps | SUI:-7.7bps | BNB:-6.1bps | LINK:0.0bps | NEAR:0.0bps | BTC:-2.3bps | DOGE:-5.2bps | ETH:-4.5bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "ab3b6d48",
+      "timestamp": 1793408077956,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17173.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "91c93f63",
+      "timestamp": 1793408081960,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6697] Audited 10 High-Priority Coins: XRP:-4.8bps | BTC:-2.3bps | BNB:-6.6bps | SUI:-7.7bps | NEAR:-2.3bps | LINK:0.0bps | ETH:-4.3bps | DOGE:-5.2bps | SOL:-2.1bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "f87cb508",
+      "timestamp": 1793408081960,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17041.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "05e511be",
+      "timestamp": 1793408086140,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6698] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-2.3bps | XRP:-4.8bps | ETH:-4.0bps | SUI:-7.7bps | AVAX:-2.3bps | BNB:-5.7bps | DOGE:-3.9bps | LINK:-0.9bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "94ab242f",
+      "timestamp": 1793408086140,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17878.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f74eb8a8",
+      "timestamp": 1793408090091,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6699] Audited 10 High-Priority Coins: ETH:-4.0bps | XRP:-4.8bps | SOL:-1.0bps | BTC:-2.3bps | NEAR:0.0bps | LINK:-0.9bps | BNB:-5.8bps | DOGE:-2.6bps | SUI:-8.2bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "163ee1b0",
+      "timestamp": 1793408090091,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17729.9x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "fab0286d",
+      "timestamp": 1793408094098,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6700] Audited 10 High-Priority Coins: BTC:-2.3bps | DOGE:-3.9bps | XRP:-4.8bps | BNB:-5.6bps | ETH:-4.0bps | SUI:-7.7bps | NEAR:-2.3bps | LINK:-1.7bps | AVAX:-2.3bps | SOL:-1.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "dd85dc68",
+      "timestamp": 1793408094098,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17591.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "4eac4542",
+      "timestamp": 1793408098155,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6701] Audited 10 High-Priority Coins: SOL:-1.0bps | BTC:-2.3bps | ETH:-4.4bps | SUI:-7.7bps | DOGE:-5.2bps | NEAR:0.0bps | AVAX:-2.3bps | BNB:-5.6bps | XRP:-4.8bps | LINK:-0.9bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "2b4722b3",
+      "timestamp": 1793408098155,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17832.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "5d758e31",
+      "timestamp": 1793408102219,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6702] Audited 10 High-Priority Coins: BTC:-2.3bps | XRP:-4.8bps | ETH:-4.4bps | LINK:-0.9bps | SOL:0.0bps | SUI:-8.8bps | BNB:-5.6bps | AVAX:-2.3bps | NEAR:0.0bps | DOGE:-5.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "264ad631",
+      "timestamp": 1793408102219,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18412.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "e4eb00fe",
+      "timestamp": 1793408106085,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6703] Audited 10 High-Priority Coins: BTC:-2.0bps | SOL:-2.1bps | SUI:-7.7bps | BNB:-5.8bps | LINK:0.0bps | NEAR:-2.3bps | AVAX:-2.3bps | XRP:-4.8bps | DOGE:-3.9bps | ETH:-4.6bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "2d213dfc",
+      "timestamp": 1793408106085,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17482.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "54bd2d9f",
+      "timestamp": 1793408110226,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6704] Audited 10 High-Priority Coins: SUI:-7.7bps | XRP:-5.6bps | BTC:-2.1bps | DOGE:-5.2bps | ETH:-4.8bps | SOL:-1.0bps | NEAR:0.0bps | BNB:-6.6bps | LINK:-1.7bps | AVAX:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "401299d9",
+      "timestamp": 1793408110226,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17475.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "f20a5086",
+      "timestamp": 1793408114226,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6705] Audited 10 High-Priority Coins: XRP:-4.8bps | BTC:-1.8bps | SOL:0.0bps | LINK:-0.9bps | NEAR:-2.3bps | BNB:-6.9bps | SUI:-8.8bps | DOGE:-3.9bps | AVAX:-1.2bps | ETH:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "0b69ba9d",
+      "timestamp": 1793408114226,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17793.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "5130376a",
+      "timestamp": 1793408118245,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6706] Audited 10 High-Priority Coins: BTC:-2.0bps | DOGE:-5.2bps | BNB:-6.9bps | ETH:-5.3bps | SUI:-8.2bps | AVAX:-1.7bps | XRP:-4.8bps | LINK:0.0bps | SOL:-2.1bps | NEAR:-2.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "1b80eafe",
+      "timestamp": 1793408118246,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 17760.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "a415da27",
+      "timestamp": 1793408122284,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6707] Audited 10 High-Priority Coins: SUI:-7.7bps | ETH:-4.6bps | SOL:-2.1bps | DOGE:-3.9bps | XRP:-4.8bps | BTC:-2.3bps | NEAR:0.0bps | AVAX:-1.2bps | BNB:-6.8bps | LINK:-2.6bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "900c9822",
+      "timestamp": 1793408122284,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17311.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "fc57d17e",
+      "timestamp": 1793408126282,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6708] Audited 10 High-Priority Coins: BTC:-2.0bps | SOL:-2.1bps | DOGE:-3.9bps | ETH:-4.8bps | XRP:-4.8bps | SUI:-8.8bps | NEAR:0.0bps | AVAX:-1.2bps | LINK:-1.7bps | BNB:-3.4bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "8d0404ba",
+      "timestamp": 1793408126282,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 18864.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "6c27137b",
+      "timestamp": 1793408130292,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6709] Audited 10 High-Priority Coins: XRP:-4.8bps | SOL:-2.1bps | SUI:-7.7bps | BTC:-2.0bps | AVAX:-1.2bps | NEAR:0.0bps | ETH:-4.8bps | DOGE:-3.9bps | LINK:-1.7bps | BNB:-6.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "a7fb8d02",
+      "timestamp": 1793408130292,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 18798.1x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "74885f28",
+      "timestamp": 1793408134278,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6710] Audited 10 High-Priority Coins: BTC:-1.9bps | SOL:-2.1bps | DOGE:-3.9bps | ETH:-4.8bps | XRP:-4.8bps | AVAX:-1.2bps | SUI:-7.7bps | LINK:-1.7bps | NEAR:0.0bps | BNB:-6.3bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "a2038323",
+      "timestamp": 1793408134278,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 18000.3x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "44bdb64b",
+      "timestamp": 1793408138294,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6711] Audited 10 High-Priority Coins: SOL:-2.1bps | BTC:-2.4bps | SUI:-7.7bps | LINK:-0.9bps | XRP:-4.8bps | DOGE:-5.2bps | AVAX:-2.3bps | ETH:-5.5bps | BNB:-6.3bps | NEAR:0.0bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "3d200b2f",
+      "timestamp": 1793408138294,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 16627x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "cade8379",
+      "timestamp": 1793408142425,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6712] Audited 10 High-Priority Coins: ETH:-5.3bps | SOL:-1.0bps | DOGE:-5.2bps | AVAX:-0.6bps | NEAR:0.0bps | BTC:-2.4bps | XRP:-4.8bps | SUI:-7.7bps | LINK:-1.7bps | BNB:-5.6bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "a5a90b49",
+      "timestamp": 1793408142425,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17241.5x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "21712f2c",
+      "timestamp": 1793408146270,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6713] Audited 10 High-Priority Coins: AVAX:-1.2bps | SOL:-1.0bps | DOGE:-5.2bps | NEAR:0.0bps | ETH:-5.3bps | BNB:-5.6bps | BTC:-2.4bps | XRP:-4.8bps | SUI:-8.8bps | LINK:-1.7bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "0359975e",
+      "timestamp": 1793408146270,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17680.7x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "4a3a786a",
+      "timestamp": 1793408150298,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6714] Audited 10 High-Priority Coins: SOL:-2.1bps | ETH:-5.3bps | SUI:-8.8bps | AVAX:-1.7bps | XRP:-4.8bps | BTC:-2.4bps | NEAR:0.0bps | LINK:-1.7bps | BNB:-5.8bps | DOGE:-5.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "2d950f3b",
+      "timestamp": 1793408150298,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.8 bps | Net: -51.8 bps | Spreads: 2.2 bps | Depth: 17816.4x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "73def739",
+      "timestamp": 1793408154460,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6715] Audited 10 High-Priority Coins: SOL:-2.1bps | BNB:-5.1bps | LINK:0.0bps | ETH:-5.3bps | XRP:-4.8bps | BTC:-1.9bps | AVAX:-1.2bps | SUI:-7.7bps | NEAR:+2.3bps | DOGE:-5.2bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "ecf42ea1",
+      "timestamp": 1793408154460,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -7.7 bps | Net: -50.7 bps | Spreads: 2.2 bps | Depth: 17795.2x | Peg: PASS | Persistence: 0ms"
+    },
+    {
+      "id": "77e6f24f",
+      "timestamp": 1793408158315,
+      "level": "INFO",
+      "tag": "SCAN",
+      "message": "[CYCLE #6716] Audited 10 High-Priority Coins: ETH:-5.3bps | SOL:-2.1bps | SUI:-8.2bps | BNB:-5.5bps | AVAX:-1.2bps | DOGE:-5.2bps | BTC:-1.9bps | NEAR:0.0bps | LINK:-1.7bps | XRP:-4.8bps (Slot: 0/1 live, Capital: $5 USDT)"
+    },
+    {
+      "id": "f00d5016",
+      "timestamp": 1793408158315,
+      "level": "INFO",
+      "tag": "RADAR",
+      "message": "[PRIORITY LEADER: SUIUSDT] Gross: -8.2 bps | Net: -51.2 bps | Spreads: 3.3 bps | Depth: 18154.6x | Peg: PASS | Persistence: 0ms"
+    }
+  ]
+}
