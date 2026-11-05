@@ -21,3 +21,9 @@
 ## 4. Autonomous Daemon & Telemetry Operations
 - When running 24/7 autonomous loops, utilize background cron daemon schedules (`schedule` tool with `*/30 * * * *`) for 30-minute recurring audits and decouple health reporting into deterministic scripts (`generate_fleet_status_report.js`).
 - Preserve log hygiene: Gate background WebSocket reconnection loops behind valid user credentials to prevent auth spam in production server logs.
+
+## 5. Settlement Boundary & Post-Settlement API Freshness Invariants
+- **Post-Settlement Quarantine Gate**: Never permit trade entry within the first 90 seconds following any funding settlement tick (HH:00:00 to HH:01:30). Exchange REST endpoints lag by 15-90 seconds in recalculating TWAP rates and updating cached fields (`lastFundingRate`, `fundingRate`); entering within this window risks trading on stale prior-cycle rates whose payments have already settled.
+- **Pre-Settlement Freeze Gate**: Freeze candidate entries within 60 seconds prior to funding settlement (`secondsToFunding < 60`). Timing modes (including `CONTINUOUS_SPREAD`) must never bypass this boundary freeze.
+- **Cross-Venue Timestamp & Polarity Verification**: In `fetchLiveFundingSpread()` and pre-trade execution, verify that both venues' `nextFundingTime` belong to the upcoming cycle, are synchronized within 60 seconds, and that the live funding spread matches the trade direction polarity before order dispatch.
+- **Hard Divergence Safety Ceiling**: Absolute price divergence must never exceed `maxPriceDivergenceCapPct` (0.50%), regardless of whether directional basis is favorable. Favorable basis can reduce the divergence penalty, but large dislocations (> 0.50%) remain unconditionally blocked.

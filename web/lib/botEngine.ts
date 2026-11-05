@@ -2463,13 +2463,24 @@ export async function fetchLiveFundingSpread(
   intervalA: number = 8,
   intervalB: number = 8,
   timingMode?: string
-): Promise<{ liveSpreadBps: number; rateA: number; rateB: number; fresh: boolean }> {
+): Promise<{
+  liveSpreadBps: number;
+  rateA: number;
+  rateB: number;
+  fresh: boolean;
+  nextFundingTimeA?: number;
+  nextFundingTimeB?: number;
+  direction?: string;
+  reason?: string;
+}> {
   let rateA = 0;
   let rateB = 0;
+  let nextFundingTimeA = 0;
+  let nextFundingTimeB = 0;
   let freshA = false;
   let freshB = false;
 
-  async function fetchVenueRate(vName: string): Promise<{ rate: number; fresh: boolean }> {
+  async function fetchVenueRate(vName: string): Promise<{ rate: number; nextFundingTime: number; fresh: boolean }> {
     const v = vName.toLowerCase();
     try {
       if (v === "binance") {
@@ -2481,7 +2492,8 @@ export async function fetchLiveFundingSpread(
         if (res.ok) {
           const d = await res.json();
           const r = parseFloat(d.lastFundingRate || "0") * 100;
-          return { rate: r, fresh: true };
+          const nft = parseInt(d.nextFundingTime || "0", 10);
+          return { rate: r, nextFundingTime: nft, fresh: true };
         }
       } else if (v === "bybit") {
         const res = await fetch(`https://api.bybit.com/v5/market/tickers?category=linear&symbol=${symbol}`, {
@@ -2493,7 +2505,8 @@ export async function fetchLiveFundingSpread(
           const d = await res.json();
           const t = d?.result?.list?.[0];
           const r = parseFloat(t?.fundingRate || "0") * 100;
-          return { rate: r, fresh: true };
+          const nft = parseInt(t?.nextFundingTime || "0", 10);
+          return { rate: r, nextFundingTime: nft, fresh: true };
         }
       } else if (v === "bitget") {
         const res = await fetch(`https://api.bitget.com/api/v2/mix/market/ticker?symbol=${symbol}&productType=USDT-FUTURES`, {
@@ -2505,14 +2518,15 @@ export async function fetchLiveFundingSpread(
           const d = await res.json();
           const t = d?.data?.[0];
           const r = parseFloat(t?.fundingRate || "0") * 100;
-          return { rate: r, fresh: true };
+          const nft = parseInt(t?.nextFundingTime || "0", 10);
+          return { rate: r, nextFundingTime: nft, fresh: true };
         }
       } else if (v === "coindcx") {
         const bRes = await fetchVenueRate("binance");
-        return { rate: bRes.rate, fresh: bRes.fresh };
+        return { rate: bRes.rate, nextFundingTime: bRes.nextFundingTime, fresh: bRes.fresh };
       }
     } catch {}
-    return { rate: 0, fresh: false };
+    return { rate: 0, nextFundingTime: 0, fresh: false };
   }
 
   const [resA, resB] = await Promise.all([
@@ -2522,15 +2536,51 @@ export async function fetchLiveFundingSpread(
 
   rateA = resA.rate;
   rateB = resB.rate;
+  nextFundingTimeA = resA.nextFundingTime;
+  nextFundingTimeB = resB.nextFundingTime;
   freshA = resA.fresh;
   freshB = resB.fresh;
+
+  const now = Date.now();
+
+  // Invariant 1: Settlement Boundary Quarantine Gate (90s post-settlement freeze)
+  const elapsedPostSettlementSeconds = Math.floor((now % 3600000) / 1000);
+  if (elapsedPostSettlementSeconds < 90) {
+    return {
+      liveSpreadBps: 0,
+      rateA,
+      rateB,
+      nextFundingTimeA,
+      nextFundingTimeB,
+      fresh: false,
+      reason: `[POST-SETTLEMENT QUARANTINE] Funding settled ${elapsedPostSettlementSeconds}s ago (< 90s). Waiting for exchange API caches to publish verified new-cycle rates.`,
+    };
+  }
+
+  // Invariant 3: Synchronization & Horizon Assertion
+  if (nextFundingTimeA > 0 && nextFundingTimeB > 0) {
+    if (intervalA === intervalB && Math.abs(nextFundingTimeA - nextFundingTimeB) > 60000) {
+      return {
+        liveSpreadBps: 0,
+        rateA,
+        rateB,
+        nextFundingTimeA,
+        nextFundingTimeB,
+        fresh: false,
+        reason: `[DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (${new Date(nextFundingTimeA).toISOString()} vs ${new Date(nextFundingTimeB).toISOString()}).`,
+      };
+    }
+  }
 
   const asym = calculateAsymmetricMacroYield(rateA, intervalA, rateB, intervalB, timingMode);
   return {
     liveSpreadBps: asym.grossYieldBps,
     rateA,
     rateB,
+    nextFundingTimeA,
+    nextFundingTimeB,
     fresh: freshA && freshB,
+    direction: asym.bestDirection,
   };
 }
 
@@ -2782,10 +2832,11 @@ export function calculateRequiredPriceDivergencePct(
   spreadBps?: number
 ): {
   requiredDivergencePct: number;
-  stage: "EARLY_BREATHING_ROOM" | "MID_BREATHING_ROOM" | "FINAL_COUNTDOWN" | "PRE_SETTLEMENT_FREEZE" | "CONTINUOUS";
+  stage: "EARLY_BREATHING_ROOM" | "MID_BREATHING_ROOM" | "FINAL_COUNTDOWN" | "PRE_SETTLEMENT_FREEZE" | "POST_SETTLEMENT_QUARANTINE" | "CONTINUOUS";
   optimalTargetPct: number;
   hardCeilingPct: number;
   shouldFreeze: boolean;
+  freezeReason?: string;
 } {
   const baseCeilingPct = config.maxPriceDivergencePct || 0.10;
 
@@ -2806,6 +2857,37 @@ export function calculateRequiredPriceDivergencePct(
     ? config.optimalPriceDivergencePct
     : hardCeilingPct;
 
+  const now = Date.now();
+  const elapsedPostSettlementSeconds = Math.floor((now % 3600000) / 1000);
+
+  // Invariant 1: Universal 90-Second Post-Settlement Quarantine Gate
+  // Exchanges (Binance, Bybit) settle funding balances at HH:00:00.000Z.
+  // REST endpoints experience a 15-90s propagation and calculation delay.
+  // No bot may enter any new position within 90s after settlement to prevent trading on stale rates.
+  if (elapsedPostSettlementSeconds < 90) {
+    return {
+      requiredDivergencePct: 0,
+      stage: "POST_SETTLEMENT_QUARANTINE",
+      optimalTargetPct,
+      hardCeilingPct,
+      shouldFreeze: true,
+      freezeReason: `[POST-SETTLEMENT QUARANTINE] Funding settled ${elapsedPostSettlementSeconds}s ago (< 90s). Waiting for exchange API caches to publish verified new-cycle rates.`,
+    };
+  }
+
+  // Invariant 2: Universal 60-Second Pre-Settlement Freeze Gate
+  // Under 60 seconds to funding tick: freeze entry across ALL modes (including CONTINUOUS_SPREAD) to avoid cross-settlement desync.
+  if (secondsToFunding > 0 && secondsToFunding < 60) {
+    return {
+      requiredDivergencePct: 0,
+      stage: "PRE_SETTLEMENT_FREEZE",
+      optimalTargetPct,
+      hardCeilingPct,
+      shouldFreeze: true,
+      freezeReason: `[PRE-SETTLEMENT FREEZE] Within 60s of funding settlement (${secondsToFunding}s left). Entry locked to avoid cross-settlement desynchronization.`,
+    };
+  }
+
   if (config.timingMode === "CONTINUOUS_SPREAD" || secondsToFunding <= 0) {
     return {
       requiredDivergencePct: hardCeilingPct,
@@ -2813,17 +2895,6 @@ export function calculateRequiredPriceDivergencePct(
       optimalTargetPct,
       hardCeilingPct,
       shouldFreeze: false,
-    };
-  }
-
-  // Under 8 seconds: tick boundary freeze to prevent cross-settlement desynchronization
-  if (secondsToFunding < 8) {
-    return {
-      requiredDivergencePct: 0,
-      stage: "PRE_SETTLEMENT_FREEZE",
-      optimalTargetPct,
-      hardCeilingPct,
-      shouldFreeze: true,
     };
   }
 
@@ -6149,16 +6220,21 @@ export async function runTenantBotCycle(
 
         const timingEval = calculateRequiredPriceDivergencePct(config, secondsToFunding, corridorSpreadBps);
         const requiredDivergencePct = timingEval.requiredDivergencePct;
-        const adverseDivPct = candidateBasisFavorable ? 0 : divergencePct;
+        const divergenceSafe = divergencePct <= timingEval.hardCeilingPct;
+        const adverseDivPct = candidateBasisFavorable
+          ? (divergenceSafe ? 0 : divergencePct)
+          : divergencePct;
         const basisSafe = Math.abs(candidateSignedBasisBps) <= 250;
-        const isPriceParityStrict = adverseDivPct <= requiredDivergencePct && basisSafe;
+        const isPriceParityStrict = adverseDivPct <= requiredDivergencePct && basisSafe && divergenceSafe;
 
         const isQualified = isPriceParityStrict && !timingEval.shouldFreeze;
         const sniperWindowMinutesVal = config.sniperWindowMinutes || (config.timingMode === "FUNDING_SNIPER_1M" ? 1 : 5);
         const qualificationReason = timingEval.shouldFreeze
-          ? `[PRE-SETTLEMENT FREEZE] Only ${secondsToFunding}s left to funding tick. Pausing entry to avoid execution desynchronization.`
+          ? (timingEval.freezeReason || `[SETTLEMENT BOUNDARY FREEZE] Pausing entry during settlement window (${secondsToFunding}s left).`)
           : !basisSafe
           ? `[BASIS SAFETY CAP] Signed basis |${candidateSignedBasisBps}| bps exceeds 250 bps safety cap.`
+          : !divergenceSafe
+          ? `[PRICE DIFF GATE] Price diff ${divergencePct.toFixed(3)}% exceeds hard safety ceiling ${timingEval.hardCeilingPct.toFixed(3)}%.`
           : !isPriceParityStrict
           ? `[WAITING LOWER DIFF] Adverse diff ${adverseDivPct.toFixed(3)}% > stage target ${requiredDivergencePct.toFixed(3)}% (${timingEval.stage}, ${secondsToFunding}s left in ${sniperWindowMinutesVal}m window). Waiting for lower price diff.`
           : "QUALIFIED_FOR_ENTRY";
@@ -6345,8 +6421,19 @@ export async function runTenantBotCycle(
           cand.venueBIntervalHours || cand.intervalHours || 8,
           config.timingMode
         );
-        const liveCandSpreadBps = liveCandFunding.fresh ? liveCandFunding.liveSpreadBps : cand.spreadBps;
-        if (liveCandFunding.fresh && liveCandSpreadBps < (config.minSpreadBps || 35.0)) {
+
+        if (!liveCandFunding.fresh) {
+          appendBotLog(
+            state,
+            `[LIVE FUNDING UNVERIFIED] Bot "${bot.name}": Candidate ${cand.symbol} live funding unverified (${liveCandFunding.reason || "stale venue data"}). Cascading to next candidate...`,
+            "warn",
+            user.id
+          );
+          continue;
+        }
+
+        const liveCandSpreadBps = liveCandFunding.liveSpreadBps;
+        if (liveCandSpreadBps < (config.minSpreadBps || 35.0)) {
           appendBotLog(
             state,
             `[PRE-TRADE SPREAD COLLAPSE] Bot "${bot.name}": Candidate ${cand.symbol} live spread collapsed to ${liveCandSpreadBps.toFixed(1)} bps (scanner saw ${cand.spreadBps.toFixed(1)} bps). Cascading to next candidate...`,
@@ -6356,14 +6443,42 @@ export async function runTenantBotCycle(
           continue;
         }
 
+        // Invariant 3: Live Rate Polarity Verification
+        if (cand.direction && liveCandFunding.direction) {
+          const candIsShortA = cand.direction.includes("SHORT_A") || cand.direction.startsWith("SHORT_");
+          const liveIsShortA = liveCandFunding.direction.includes("SHORT_A") || liveCandFunding.direction.startsWith("SHORT_");
+          if (candIsShortA !== liveIsShortA) {
+            appendBotLog(
+              state,
+              `[PRE-TRADE POLARITY INVERSION] Bot "${bot.name}": Candidate ${cand.symbol} live spread direction inverted from ${cand.direction} to ${liveCandFunding.direction}. Skipping trade.`,
+              "warn",
+              user.id
+            );
+            continue;
+          }
+        }
+
         const freshReq = calculateRequiredPriceDivergencePct(config, cand.secondsToFunding || 0, liveCandSpreadBps);
+        if (freshReq.shouldFreeze) {
+          appendBotLog(
+            state,
+            `[SETTLEMENT BOUNDARY FREEZE] Bot "${bot.name}": Candidate ${cand.symbol} rejected by ${freshReq.stage} (${freshReq.freezeReason || "boundary freeze"}). Cascading...`,
+            "warn",
+            user.id
+          );
+          continue;
+        }
+
         const candIsShortA = cand.direction?.includes("SHORT_A") || cand.leg1Side === "SELL";
         const freshSignedBasisBps = freshCheck.signedBasisBps || 0;
         const freshBasisFavorable = candIsShortA ? freshSignedBasisBps > 0 : freshSignedBasisBps < 0;
-        const freshAdverseDivPct = freshBasisFavorable ? 0 : freshCheck.divergencePct;
+        const freshDivergenceSafe = freshCheck.divergencePct <= freshReq.hardCeilingPct;
+        const freshAdverseDivPct = freshBasisFavorable
+          ? (freshDivergenceSafe ? 0 : freshCheck.divergencePct)
+          : freshCheck.divergencePct;
         const freshBasisSafe = Math.abs(freshSignedBasisBps) <= 250;
 
-        if (freshAdverseDivPct <= freshReq.requiredDivergencePct && freshBasisSafe) {
+        if (freshAdverseDivPct <= freshReq.requiredDivergencePct && freshBasisSafe && freshDivergenceSafe) {
           // Pre-Trade Net-Yield & Slippage Gate: Evaluate true transaction friction, basis contribution, and orderbook depth
           const effectiveBasisContribution = candIsShortA ? freshSignedBasisBps : -freshSignedBasisBps;
           const configWithBasis: BotConfig = {
