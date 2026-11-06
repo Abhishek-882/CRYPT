@@ -474,3 +474,61 @@ export async function reconcileHedgeFunding(
 
   return hedge.fundingClaimedUsdt || 0;
 }
+
+/**
+ * Reconciles actual filled entry prices from open positions on the exchange.
+ * Overwrites pre-dispatch estimated ticker prices with ground-truth exchange fills.
+ */
+export async function reconcileHedgeEntryPrices(
+  hedge: ActiveBotHedge,
+  binanceCreds?: { apiKey: string; apiSecret: string },
+  bybitCreds?: any
+): Promise<void> {
+  // 1. Binance Ground-Truth Entry Price Sync
+  if (binanceCreds?.apiKey && binanceCreds?.apiSecret) {
+    try {
+      const { signAndFetchBinance } = await import("./binanceSigner");
+      const res = await signAndFetchBinance(
+        binanceCreds.apiKey,
+        binanceCreds.apiSecret,
+        "GET",
+        "/fapi/v2/positionRisk",
+        { symbol: hedge.symbol }
+      );
+      if (Array.isArray(res?.data)) {
+        const pos = res.data.find((p: any) => p.symbol === hedge.symbol && parseFloat(p.positionAmt) !== 0);
+        if (pos && parseFloat(pos.entryPrice) > 0) {
+          const trueEntry = parseFloat(pos.entryPrice);
+          if (Math.abs(hedge.entryBinancePrice - trueEntry) > 0.0000001) {
+            hedge.entryBinancePrice = trueEntry;
+          }
+        }
+      }
+    } catch {
+      // Best-effort non-blocking sync
+    }
+  }
+
+  // 2. Bybit Ground-Truth Entry Price Sync
+  if (bybitCreds?.apiKey && bybitCreds?.apiSecret) {
+    try {
+      const { sendBybitRequest } = await import("./bybitSigner");
+      const posRes = await sendBybitRequest("/v5/position/list", "GET", bybitCreds, {
+        category: "linear",
+        symbol: hedge.symbol,
+      });
+      if (Array.isArray(posRes?.result?.list)) {
+        const pos = posRes.result.list.find((p: any) => p.symbol === hedge.symbol && parseFloat(p.size) > 0);
+        if (pos && parseFloat(pos.avgPrice) > 0) {
+          const trueEntry = parseFloat(pos.avgPrice);
+          if (Math.abs(hedge.entryBitgetPrice - trueEntry) > 0.0000001) {
+            hedge.entryBitgetPrice = trueEntry;
+          }
+        }
+      }
+    } catch {
+      // Best-effort non-blocking sync
+    }
+  }
+}
+

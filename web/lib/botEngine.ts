@@ -5329,18 +5329,21 @@ export async function runTenantBotCycle(
           hedge.fundingSettlementTime = relevantLiveNextFunding;
         }
 
-        // 2b. RECONCILE FUNDING CASH FLOW UPON SETTLEMENT PASSING:
-        // Automatically fetches realized funding fees from exchange APIs or calculates accrued funding
-        if (now >= (hedge.fundingSettlementTime || 0)) {
+        // 2b. RECONCILE ENTRY PRICES & FUNDING CASH FLOW FROM EXCHANGE RECORDS
+        if (hedge.status === "ACTIVE" || hedge.status === "WAITING_PRICE_PARITY") {
           try {
-            const { reconcileHedgeFunding } = await import("./exitOptimizer");
+            const { reconcileHedgeFunding, reconcileHedgeEntryPrices } = await import("./exitOptimizer");
             const rawBnSec = creds?.binanceSecret || "";
             const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
             const rawBybSec = creds?.bybitSecret || "";
             const bybSec = rawBybSec && rawBybSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybSec) : rawBybSec;
             const bnCreds = (creds?.binanceKey && bnSec) ? { apiKey: creds.binanceKey, apiSecret: bnSec } : undefined;
             const bybCreds = (creds?.bybitKey && bybSec) ? { apiKey: creds.bybitKey, apiSecret: bybSec, proxyUrl: creds.bybitProxy, baseUrl: creds.bybitBaseUrl } : undefined;
-            await reconcileHedgeFunding(hedge, bnCreds, bybCreds);
+
+            await reconcileHedgeEntryPrices(hedge, bnCreds, bybCreds);
+            if (now >= (hedge.fundingSettlementTime || 0)) {
+              await reconcileHedgeFunding(hedge, bnCreds, bybCreds);
+            }
           } catch {
             // Best-effort non-blocking sync
           }
