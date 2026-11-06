@@ -19,6 +19,15 @@ declare global {
   var __statArbStore: StatArbStateStore | undefined;
   // eslint-disable-next-line no-var
   var __radarCache: { timestamp: number; data: unknown } | undefined;
+  // eslint-disable-next-line no-var
+  var __radarSpreadHistory: Map<string, number[]> | undefined;
+}
+
+function getRollingHistoryMap(): Map<string, number[]> {
+  if (!globalThis.__radarSpreadHistory) {
+    globalThis.__radarSpreadHistory = new Map<string, number[]>();
+  }
+  return globalThis.__radarSpreadHistory;
 }
 
 function getStore(): StatArbStateStore {
@@ -153,13 +162,24 @@ export async function GET(req: NextRequest) {
       // Gate Evaluations
       const gateResult = evaluateEntryGates(pair, ouParams, config.entryGate);
 
-      // Generate synthetic 30m divergence history for sticky check
-      const history30m = [
-        Math.abs(grossBasisBps) / 100,
-        Math.abs(grossBasisBps * 0.9) / 100,
-        0.008, // touched below 1.0%
-        Math.abs(grossBasisBps) / 100,
-      ];
+      // Maintain genuine rolling spread history (in % format) for Invariant 7 evaluation
+      const currentDivPct = parseFloat((Math.abs(grossBasisBps) / 100).toFixed(4));
+      const historyMap = getRollingHistoryMap();
+      let history30m = historyMap.get(item.canonical);
+      if (!history30m || history30m.length === 0) {
+        history30m = [
+          parseFloat((Math.abs(item.baseSpreadBps) / 100).toFixed(4)),
+          parseFloat((Math.abs(spreadOscillationBps) / 100).toFixed(4)),
+          currentDivPct,
+        ];
+      } else {
+        history30m.push(currentDivPct);
+        if (history30m.length > 30) {
+          history30m.shift();
+        }
+      }
+      historyMap.set(item.canonical, history30m);
+
       const stickyCheck = checkInvariant7StickyDecoupling(history30m);
 
       const zGatePassed = Math.abs(zScore) >= config.entryGate.minZScore;

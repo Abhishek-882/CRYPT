@@ -113,6 +113,9 @@ export function calibrateOrnsteinUhlenbeck(
     Math.max(DEFAULT_OU_PRIORS.betaFloor, rawBeta)
   );
 
+  // Recompute alpha using clamped beta to preserve internal consistency of discrete AR(1)
+  const alpha = rawBeta !== beta ? (meanY - beta * meanX) : rawAlpha;
+
   // Compute regression residuals and Sum of Squared Errors (SSE)
   let sse = 0;
   for (let i = 0; i < M; i++) {
@@ -136,9 +139,12 @@ export function calibrateOrnsteinUhlenbeck(
   // 2. Expected half-life: tau = ln(2) / theta
   const halfLifeMinutes = theta > 1e-6 ? Math.LN2 / theta : 120.0;
 
-  // 3. Equilibrium mean: mu = a / (1 - beta)
-  // Use clamped beta for numerical stability
-  const mu = rawAlpha / (1.0 - beta);
+  // 3. Equilibrium mean: mu = alpha / (1 - beta)
+  // When beta is clamped to betaCeil (0.999), bound mu to sample mean meanX to prevent divergence
+  let mu = alpha / (1.0 - beta);
+  if (beta >= DEFAULT_OU_PRIORS.betaCeil || !isFinite(mu)) {
+    mu = meanX;
+  }
 
   // 4. Continuous volatility / diffusion coefficient:
   // sigma = sigma_epsilon * sqrt(2 * theta / (1 - beta^2))
