@@ -44,6 +44,7 @@ export interface ExitDecision {
     | "TWAP_PASSIVE_EXIT"
     | "EMERGENCY_TAKER_EXIT"
     | "CATASTROPHIC_STOP"
+    | "STRUCTURAL_BASIS_DECOUPLING"
     | "HOLD_CARRY_FOR_PARITY"
     | "MAKER_POST_ONLY";
   expectedPnlUsd: number;
@@ -220,10 +221,17 @@ export function evaluateZeroLossExitGate(
   const currentRoiPct =
     initialMargin > 0 ? parseFloat(((netPnL / initialMargin) * 100).toFixed(2)) : 0;
 
+  const effectiveBasisSamples =
+    historicalBasisSamples && historicalBasisSamples.length >= 5
+      ? historicalBasisSamples
+      : hedge.divergenceHistory && hedge.divergenceHistory.length >= 5
+      ? hedge.divergenceHistory.map((s) => s.divPct * 100)
+      : historicalBasisSamples;
+
   const currentBasisBps = freshPrices.divergencePct * 100;
   const ouResult = estimateOrnsteinUhlenbeckStopping(
     currentBasisBps,
-    historicalBasisSamples
+    effectiveBasisSamples
   );
 
   // 1. CATASTROPHIC STOP-LOSS LIMIT (Emergency override)
@@ -262,6 +270,33 @@ export function evaluateZeroLossExitGate(
       zScore: ouResult.zScore,
       reason: `Adverse Carry Inversion Breaker triggered: Forward funding spread inverted to ${nextCyclePredictedSpreadBps.toFixed(1)} bps <= -20.0 bps. Overriding Net-Positive Gate to halt terminal fee bleed.`,
     };
+  }
+
+  // 1.7 30-MINUTE LOW-WATERMARK BASIS PERSISTENCE BREAKER (Invariant 6)
+  // If price divergence has stayed continuously >= 1.0% without visiting < 1.0% for 30 minutes,
+  // the mean-reversion assumption has failed. Trigger an orderly structural exit to eliminate endless carry bleed.
+  const divergenceHistory = hedge.divergenceHistory || [];
+  const thirtyMinutesAgo = now - 30 * 60 * 1000;
+  const recentDivergenceSamples = divergenceHistory.filter((s) => s.timestamp >= thirtyMinutesAgo);
+  const holdDurationMs = now - (hedge.entryTime || now);
+
+  if (holdDurationMs >= 30 * 60 * 1000 && recentDivergenceSamples.length >= 8) {
+    const minDivPctInWindow = Math.min(...recentDivergenceSamples.map((s) => s.divPct));
+    if (freshPrices.divergencePct >= 1.0 && minDivPctInWindow >= 1.0) {
+      return {
+        canExit: true,
+        exitType: "STRUCTURAL_BASIS_DECOUPLING",
+        expectedPnlUsd: netPnL,
+        netPnL,
+        grossBasisPnL,
+        fundingClaimed,
+        totalFeesUsdt,
+        currentRoiPct,
+        halfLifeMinutes: ouResult.halfLifeMinutes,
+        zScore: ouResult.zScore,
+        reason: `30-Minute Persistence Breaker triggered: Divergence remained >= 1.0% continuously for 30m without mean-reverting (Min diff: ${minDivPctInWindow.toFixed(3)}% >= 1.0%). Overriding Zero-Loss Gate to prevent structural lockup.`,
+      };
+    }
   }
 
   // 2. NET-POSITIVE INVARIANT CHECK

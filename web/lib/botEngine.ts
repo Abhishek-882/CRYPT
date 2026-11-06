@@ -143,6 +143,9 @@ export interface ActiveBotHedge {
   leg2CloseOrderId?: string | number;
   leg1ClosePrice?: number;
   leg2ClosePrice?: number;
+
+  // Invariant 6: Rolling Basis Divergence Sample History for Low-Watermark Persistence
+  divergenceHistory?: Array<{ timestamp: number; divPct: number }>;
   orphanLeg?: "LEG1" | "LEG2" | null;
   orphanSince?: number;
   orphanAttempts?: number;
@@ -1381,6 +1384,10 @@ export function pruneUntradedLogsFor8hCycle(state: BotEngineState, userId?: stri
 
 // Scanner warning throttle to prevent intra-cycle duplicate calls within a single tick
 const scannerWarningThrottle = new Map<string, number>();
+
+// Invariant 7: Upstream Sticky Decoupling Persistence Tracker
+// Tracks rolling divergence samples across 30 minutes to filter out permanently dislocated pairs
+const scannerDivergenceHistory = new Map<string, Array<{ timestamp: number; divPct: number }>>();
 
 export function shouldLogScannerWarning(key: string, cooldownMs = 4500): boolean {
   const now = Date.now();
@@ -5451,6 +5458,12 @@ export async function runTenantBotCycle(
 
             if (liveSpreadBps < collapseThresholdBps) {
               const freshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
+              if (!hedge.divergenceHistory) hedge.divergenceHistory = [];
+              hedge.divergenceHistory.push({ timestamp: now, divPct: freshPrices.divergencePct });
+              if (hedge.divergenceHistory.length > 100) {
+                hedge.divergenceHistory = hedge.divergenceHistory.filter((s) => s.timestamp >= now - 45 * 60 * 1000);
+              }
+
               const { evaluateZeroLossExitGate } = await import("./exitOptimizer");
               const exitDecision = evaluateZeroLossExitGate(hedge, freshPrices);
 
@@ -5679,6 +5692,12 @@ export async function runTenantBotCycle(
 
         // Step 2: Zero-Loss Dynamic Exit Engine Evaluation
         const postFreshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
+        if (!hedge.divergenceHistory) hedge.divergenceHistory = [];
+        hedge.divergenceHistory.push({ timestamp: now, divPct: postFreshPrices.divergencePct });
+        if (hedge.divergenceHistory.length > 100) {
+          hedge.divergenceHistory = hedge.divergenceHistory.filter((s) => s.timestamp >= now - 45 * 60 * 1000);
+        }
+
         const { evaluateZeroLossExitGate } = await import("./exitOptimizer");
         const postSettlementHoldMinutes = Math.max(0, (now - (hedge.lastHarvestedSettlementTime || hedge.fundingSettlementTime)) / 60000);
 
@@ -5686,17 +5705,18 @@ export async function runTenantBotCycle(
         const forwardSpreadBps = (enableContinuation && currentOppForContinuation) ? nextYieldBps : undefined;
         const exitDecision = evaluateZeroLossExitGate(hedge, postFreshPrices, undefined, forwardSpreadBps);
 
-        // Catastrophic stop loss override: emergency close
-        if (exitDecision.exitType === "CATASTROPHIC_STOP") {
+        // Catastrophic stop loss or 30-min structural basis decoupling override: emergency close
+        if (exitDecision.exitType === "CATASTROPHIC_STOP" || exitDecision.exitType === "STRUCTURAL_BASIS_DECOUPLING") {
+          const isStructural = exitDecision.exitType === "STRUCTURAL_BASIS_DECOUPLING";
           appendBotLog(
             state,
-            `[CATASTROPHIC STOP LOSS] Bot "${bot.name}": ${hedge.symbol} ${exitDecision.reason}. Executing emergency close!`,
-            "error",
+            `[${isStructural ? "STRUCTURAL BASIS RISK EXIT" : "CATASTROPHIC STOP LOSS"}] Bot "${bot.name}": ${hedge.symbol} ${exitDecision.reason}. Executing emergency close!`,
+            isStructural ? "warn" : "error",
             user.id,
             bot.id
           );
           hedge.status = "CLOSING";
-          hedge.unwindReason = "CATASTROPHIC_STOP_LOSS";
+          hedge.unwindReason = isStructural ? "STRUCTURAL_BASIS_DECOUPLING_30M" : "CATASTROPHIC_STOP_LOSS";
           const closeRes = await executeDualHedgeClose(hedge, postFreshPrices, bot.name, state, creds, user.id, bot.id);
           if (closeRes.success) {
             hedge.status = "CLOSED";
@@ -5707,7 +5727,7 @@ export async function runTenantBotCycle(
             hedge.pnl = closeRes.pnl;
             bot.completedHedges.unshift(hedge);
             if (bot.completedHedges.length > 50) bot.completedHedges = bot.completedHedges.slice(0, 50);
-            quarantineBotSymbol(bot, hedge.symbol, 3600, "Catastrophic stop-loss exit", state, user.id);
+            quarantineBotSymbol(bot, hedge.symbol, isStructural ? 1800 : 3600, isStructural ? "Structural basis decoupling 30m cutoff" : "Catastrophic stop-loss exit", state, user.id);
           } else {
             survivingHedges.push(hedge);
           }
@@ -6240,9 +6260,30 @@ export async function runTenantBotCycle(
         const basisSafe = Math.abs(candidateSignedBasisBps) <= 250;
         const isPriceParityStrict = adverseDivPct <= requiredDivergencePct && basisSafe && divergenceSafe;
 
-        const isQualified = isPriceParityStrict && !timingEval.shouldFreeze;
+        // Invariant 7: Upstream Sticky Decoupling Persistence Tracker
+        let symHistory = scannerDivergenceHistory.get(coin.symbol);
+        if (!symHistory) {
+          symHistory = [];
+          scannerDivergenceHistory.set(coin.symbol, symHistory);
+        }
+        symHistory.push({ timestamp: now, divPct: divergencePct });
+        if (symHistory.length > 60) {
+          const thirtyMinCutoff = now - 30 * 60 * 1000;
+          symHistory = symHistory.filter((s) => s.timestamp >= thirtyMinCutoff);
+          scannerDivergenceHistory.set(coin.symbol, symHistory);
+        }
+
+        // If tracked over 30m window (>= 8 samples) and divergence NEVER dropped below 1.0%
+        const isStickyDecoupled =
+          symHistory.length >= 8 &&
+          divergencePct >= 1.0 &&
+          Math.min(...symHistory.map((s) => s.divPct)) >= 1.0;
+
+        const isQualified = isPriceParityStrict && !timingEval.shouldFreeze && !isStickyDecoupled;
         const sniperWindowMinutesVal = config.sniperWindowMinutes || (config.timingMode === "FUNDING_SNIPER_1M" ? 1 : 5);
-        const qualificationReason = timingEval.shouldFreeze
+        const qualificationReason = isStickyDecoupled
+          ? `[STRUCTURAL DISLOCATION EXCLUSION] Price diff persistently >= 1.0% over 30m window (min: ${Math.min(...symHistory.map((s) => s.divPct)).toFixed(3)}% >= 1.0%). Excluded as decoupled market.`
+          : timingEval.shouldFreeze
           ? (timingEval.freezeReason || `[SETTLEMENT BOUNDARY FREEZE] Pausing entry during settlement window (${secondsToFunding}s left).`)
           : !basisSafe
           ? `[BASIS SAFETY CAP] Signed basis |${candidateSignedBasisBps}| bps exceeds 250 bps safety cap.`
@@ -6368,9 +6409,18 @@ export async function runTenantBotCycle(
         const oppSec = topPair?.secondsToFunding ?? topOpp.secondsToFunding ?? 0;
         const botMinGross = Math.max(config.minSpreadBps || MIN_GROSS_SPREAD_BPS, MIN_GROSS_SPREAD_BPS);
         const oppTiming = calculateRequiredPriceDivergencePct(config, oppSec, oppSpread);
+        const oppSymHistory = scannerDivergenceHistory.get(topOpp.symbol);
+        const oppSticky =
+          oppSymHistory &&
+          oppSymHistory.length >= 8 &&
+          oppDiv >= 1.0 &&
+          Math.min(...oppSymHistory.map((s) => s.divPct)) >= 1.0;
+
         let fallbackReason = `[MONITORING] Waiting for optimal entry convergence`;
         if (ContractIdentityResolver.isTradFiOrEquity(topOpp.symbol)) {
           fallbackReason = `[TRADFI EXCLUDED] Stock/TradFi contract excluded from crypto arbitrage`;
+        } else if (oppSticky) {
+          fallbackReason = `[STRUCTURAL DISLOCATION EXCLUSION] Price diff persistently >= 1.0% over 30m window (min: ${Math.min(...oppSymHistory!.map((s) => s.divPct)).toFixed(3)}% >= 1.0%). Decoupled market.`;
         } else if (oppSpread < botMinGross) {
           fallbackReason = `[FEE CLEARANCE FILTER] Spread (${oppSpread} bps) < Min Gross (${botMinGross} bps)`;
         } else if (Math.abs(oppSignedBasisBps) > 250) {

@@ -27,3 +27,8 @@
 - **Pre-Settlement Freeze Gate**: Freeze candidate entries within 60 seconds prior to funding settlement (`secondsToFunding < 60`). Timing modes (including `CONTINUOUS_SPREAD`) must never bypass this boundary freeze.
 - **Cross-Venue Timestamp & Polarity Verification**: In `fetchLiveFundingSpread()` and pre-trade execution, verify that both venues' `nextFundingTime` belong to the upcoming cycle, are synchronized within 60 seconds, and that the live funding spread matches the trade direction polarity before order dispatch.
 - **Hard Divergence Safety Ceiling**: Absolute price divergence must never exceed `maxPriceDivergenceCapPct` (0.50%), regardless of whether directional basis is favorable. Favorable basis can reduce the divergence penalty, but large dislocations (> 0.50%) remain unconditionally blocked.
+
+## 6. Basis Persistence & Transient Volatility Invariants
+- **30-Minute Low-Watermark Persistence Filter**: Distinguish transient basis spikes from structural market decoupling using a rolling 30-minute observation window. If an active hedge's price divergence remains continuously >= 1.0% without visiting < 1.0% at least once in 30 minutes (min_{30m}(div) >= 1.0%), the mean-reversion assumption is invalidated; trigger an orderly structural exit to eliminate endless carry bleed and capital lockup.
+- **Transient Spike Tolerance**: Allow in-flight basis dislocations (0.50% - 1.50%) to mean-revert without triggering premature snapshot stops, provided the rolling low-watermark confirms historical reversion within the 30-minute window.
+- **Upstream Sticky Decoupling Gating**: Scanner pipelines must reject any candidate whose price divergence has failed to visit < 1.0% within the prior 30 minutes, preventing entry into structurally broken corridors.
