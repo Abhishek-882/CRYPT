@@ -5202,6 +5202,16 @@ export async function runTenantBotCycle(
       const survivingHedges: ActiveBotHedge[] = [];
 
       for (const hedge of bot.activeHedges) {
+        // CLEANUP GUARD: If both legs are already closed, ensure moved to completedHedges and do not survive
+        if (hedge.status === "CLOSED" || (hedge.leg1Closed && hedge.leg2Closed)) {
+          hedge.status = "CLOSED";
+          if (!bot.completedHedges.some((h) => h.id === hedge.id)) {
+            bot.completedHedges.unshift(hedge);
+            if (bot.completedHedges.length > 50) bot.completedHedges = bot.completedHedges.slice(0, 50);
+          }
+          continue;
+        }
+
         // STRICT DELTA-NEUTRAL FREEZE AUTO-RECOVERY:
         if (hedge.status === "FROZEN_PROXY_DOWN") {
           const isBybit = hedge.venueB === "Bybit" || hedge.direction.includes("BYBIT");
