@@ -188,7 +188,7 @@ export default function ConvergenceRadarTable({
                 className="py-2.5 px-3 font-semibold text-right cursor-pointer hover:text-accent-amber transition-colors"
               >
                 <div className="flex items-center justify-end space-x-1">
-                  <span>Gross Basis (bps)</span>
+                  <span>Gross Basis (%)</span>
                   <ArrowUpDown className="w-3 h-3" />
                 </div>
               </th>
@@ -287,7 +287,9 @@ export default function ConvergenceRadarTable({
                             : "text-zinc-300"
                         }`}
                       >
-                        {p.grossBasisBps > 0 ? `+${p.grossBasisBps.toFixed(1)}` : p.grossBasisBps.toFixed(1)}
+                        {p.grossBasisBps > 0
+                          ? `+${(p.grossBasisBps / 100).toFixed(3)}%`
+                          : `${(p.grossBasisBps / 100).toFixed(3)}%`}
                       </span>
                     </td>
 
@@ -339,10 +341,10 @@ export default function ConvergenceRadarTable({
                               ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
                               : "bg-zinc-900 text-zinc-600 border-zinc-800"
                           }`}
-                          title={p.gateBadges.basis ? "Gross Basis Gate Passed (≥28 bps)" : "Basis Below 28 bps"}
+                          title={p.gateBadges.basis ? "Gross Basis Gate Passed (≥0.280%)" : "Basis Below 0.280%"}
                         >
                           {p.gateBadges.basis ? <Check className="w-2.5 h-2.5" /> : <X className="w-2.5 h-2.5" />}
-                          <span>B≥28</span>
+                          <span>B≥0.28%</span>
                         </span>
 
                         {/* Gate 3: Depth >= 4x */}
@@ -365,10 +367,10 @@ export default function ConvergenceRadarTable({
                               ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
                               : "bg-zinc-900 text-zinc-600 border-zinc-800"
                           }`}
-                          title={p.gateBadges.spread ? "Spread Filter Passed (≤8 bps)" : "Spread Exceeds 8 bps"}
+                          title={p.gateBadges.spread ? "Spread Filter Passed (≤0.080%)" : "Spread Exceeds 0.080%"}
                         >
                           {p.gateBadges.spread ? <Check className="w-2.5 h-2.5" /> : <X className="w-2.5 h-2.5" />}
-                          <span>S≤8</span>
+                          <span>S≤0.08%</span>
                         </span>
 
                         {/* Gate 5: Invariant 7 Passed */}

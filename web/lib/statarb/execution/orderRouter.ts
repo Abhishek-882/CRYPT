@@ -16,6 +16,8 @@
 
 import { StatArbDirection, StatArbPair, StatArbPosition } from '../types';
 import { checkZeroOrphanInvariant } from './invariantGuard';
+import { normalizeQuantity } from '../utils/contractMapper';
+import { getSymbolFilter, roundQuantity } from '../utils/exchangeFilterRegistry';
 
 export type OrderSide = 'BUY' | 'SELL';
 export type ExchangeVenue = 'BINANCE' | 'BYBIT';
@@ -529,6 +531,16 @@ export class MakerTakerOrderRouter {
     let leg2Result: { orderId: string; executedQty: number; avgPrice: number; feeUsdt: number; latencyMs: number } | null = null;
     let transportUsed: 'WEBSOCKET' | 'REST' = 'WEBSOCKET';
 
+    // Normalize Leg 2 quantity to match Leg 1 base unit exposure across contract multipliers
+    const leg2Filter = getSymbolFilter(leg2Venue, request.leg2Symbol);
+    const leg2TargetQty = normalizeQuantity(
+      leg1ExecutedQty,
+      leg1Venue,
+      leg2Venue,
+      request.pair.canonicalSymbol,
+      leg2Filter?.stepSize
+    );
+
     // Attempt Sub-35ms WebSocket IOC first
     try {
       // 500ms watchdog circuit breaker for WebSocket ACK
@@ -536,7 +548,7 @@ export class MakerTakerOrderRouter {
         leg2Venue,
         request.leg2Symbol,
         request.leg2Side,
-        leg1ExecutedQty,
+        leg2TargetQty,
         clientOrderIdLeg2,
         true, // useWebSocket
         request.leg2InitialPrice
@@ -555,7 +567,7 @@ export class MakerTakerOrderRouter {
           leg2Venue,
           request.leg2Symbol,
           request.leg2Side,
-          leg1ExecutedQty,
+          leg2TargetQty,
           clientOrderIdLeg2,
           false, // REST fallback
           request.leg2InitialPrice
@@ -603,8 +615,15 @@ export class MakerTakerOrderRouter {
       feeUsdt: leg2Result.feeUsdt,
     };
 
-    // Assert Zero-Orphan 1:1 Delta Neutrality (|Delta_net| < 0.001)
-    const orphanCheck = checkZeroOrphanInvariant(leg1ExecutedQty, leg2Result.executedQty, 0.001);
+    // Assert Zero-Orphan 1:1 Delta Neutrality (|Delta_net| < 0.001) across multiplier ratios
+    const orphanCheck = checkZeroOrphanInvariant(
+      leg1ExecutedQty,
+      leg2Result.executedQty,
+      0.001,
+      request.pair.canonicalSymbol,
+      leg1Venue,
+      leg2Venue
+    );
 
     return {
       success: true,

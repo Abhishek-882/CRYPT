@@ -209,7 +209,7 @@ export default function ConvergenceExecutionAuditTable({
 
                       {/* Entry Basis */}
                       <td className="py-3 px-3 text-right font-medium text-zinc-400">
-                        {pos.entryBasisBps > 0 ? `+${pos.entryBasisBps.toFixed(1)}` : pos.entryBasisBps.toFixed(1)} bps
+                        {pos.entryBasisBps > 0 ? `+${(pos.entryBasisBps / 100).toFixed(3)}%` : `${(pos.entryBasisBps / 100).toFixed(3)}%`}
                       </td>
 
                       {/* Current Basis */}
@@ -221,7 +221,7 @@ export default function ConvergenceExecutionAuditTable({
                               : "text-zinc-200"
                           }`}
                         >
-                          {pos.currentBasisBps > 0 ? `+${pos.currentBasisBps.toFixed(1)}` : pos.currentBasisBps.toFixed(1)} bps
+                          {pos.currentBasisBps > 0 ? `+${(pos.currentBasisBps / 100).toFixed(3)}%` : `${(pos.currentBasisBps / 100).toFixed(3)}%`}
                         </span>
                       </td>
 

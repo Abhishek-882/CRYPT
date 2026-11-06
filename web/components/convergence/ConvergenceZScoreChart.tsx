@@ -261,7 +261,7 @@ export default function ConvergenceZScoreChart({
                   : "text-zinc-400 hover:text-zinc-200"
               }`}
             >
-              Basis (bps)
+              Basis (%)
             </button>
           </div>
         </div>
@@ -303,7 +303,7 @@ export default function ConvergenceZScoreChart({
               <span className="flex items-center space-x-1">
                 <span className="text-zinc-500">Gross Basis:</span>
                 <span className="text-emerald-400 font-bold">
-                  +{activePoint.grossBasisBps.toFixed(1)} bps
+                  +{((activePoint.grossBasisBps || 0) / 100).toFixed(3)}%
                 </span>
               </span>
             </div>

@@ -20,103 +20,9 @@ function getStore(): StatArbStateStore {
   return globalThis.__statArbStore;
 }
 
-// Seed realistic operational trade executions if state is fresh
-function ensureInitialSeedData(store: StatArbStateStore) {
-  const state = store.getState();
-  if (state.closedPositions.length === 0) {
-    const now = Date.now();
-    const seedPositions: StatArbPosition[] = [
-      {
-        id: "arb_pepe_fill_101",
-        canonicalSymbol: "PEPE",
-        binanceSymbol: "1000PEPEUSDT",
-        bybitSymbol: "1000PEPEUSDT",
-        direction: "SHORT_BINANCE_LONG_BYBIT",
-        status: "CLOSED",
-        entryTimestamp: now - 35 * 60 * 1000,
-        exitTimestamp: now - 18 * 60 * 1000,
-        entryBasisBps: 34.5,
-        currentBasisBps: 6.8,
-        entryBinancePrice: 0.009845,
-        entryBybitPrice: 0.009811,
-        currentBinancePrice: 0.009825,
-        currentBybitPrice: 0.009818,
-        quantity: 1523.6,
-        notionalUsdt: 15.0,
-        currentZScore: 0.31,
-        realizedPnlUsdt: 4.15,
-        unrealizedPnlUsdt: 0.0,
-        totalFeesUsdt: 0.0112,
-        netPnlUsdt: 4.1388,
-        exitReason: "BASIS_COMPRESSION_75",
-        holdDurationMinutes: 17.0,
-        divergenceHistory30m: [0.34, 0.28, 0.18, 0.08, 0.06],
-      },
-      {
-        id: "arb_btc_fill_102",
-        canonicalSymbol: "BTC",
-        binanceSymbol: "BTCUSDT",
-        bybitSymbol: "BTCUSDT",
-        direction: "SHORT_BYBIT_LONG_BINANCE",
-        status: "CLOSED",
-        entryTimestamp: now - 95 * 60 * 1000,
-        exitTimestamp: now - 72 * 60 * 1000,
-        entryBasisBps: -29.2,
-        currentBasisBps: -4.5,
-        entryBinancePrice: 68420.0,
-        entryBybitPrice: 68620.0,
-        currentBinancePrice: 68510.0,
-        currentBybitPrice: 68540.0,
-        quantity: 0.0003,
-        notionalUsdt: 20.5,
-        currentZScore: -0.28,
-        realizedPnlUsdt: 5.82,
-        unrealizedPnlUsdt: 0.0,
-        totalFeesUsdt: 0.0154,
-        netPnlUsdt: 5.8046,
-        exitReason: "Z_SCORE_REVERSION_0.35",
-        holdDurationMinutes: 23.0,
-        divergenceHistory30m: [0.29, 0.22, 0.12, 0.05],
-      },
-      {
-        id: "arb_sats_fill_103",
-        canonicalSymbol: "SATS",
-        binanceSymbol: "1000SATSUSDT",
-        bybitSymbol: "10000SATSUSDT",
-        direction: "SHORT_BINANCE_LONG_BYBIT",
-        status: "CLOSED",
-        entryTimestamp: now - 180 * 60 * 1000,
-        exitTimestamp: now - 158 * 60 * 1000,
-        entryBasisBps: 31.8,
-        currentBasisBps: 7.2,
-        entryBinancePrice: 0.000285,
-        entryBybitPrice: 0.000284,
-        currentBinancePrice: 0.0002845,
-        currentBybitPrice: 0.0002843,
-        quantity: 52631.5,
-        notionalUsdt: 15.0,
-        currentZScore: 0.33,
-        realizedPnlUsdt: 4.34,
-        unrealizedPnlUsdt: 0.0,
-        totalFeesUsdt: 0.0112,
-        netPnlUsdt: 4.3288,
-        exitReason: "BASIS_COMPRESSION_75",
-        holdDurationMinutes: 22.0,
-        divergenceHistory30m: [0.31, 0.25, 0.15, 0.07],
-      },
-    ];
-
-    for (const pos of seedPositions) {
-      store.addPosition(pos);
-      store.closePosition(pos.id, pos.exitReason || "EXIT", pos.realizedPnlUsdt, pos.currentBasisBps);
-    }
-  }
-}
-
 export async function GET(req: NextRequest) {
   try {
     const store = getStore();
-    ensureInitialSeedData(store);
 
     const activePositions = store.getActivePositions();
     const closedPositions = store.getClosedPositions();
@@ -157,10 +63,8 @@ export async function GET(req: NextRequest) {
     });
 
     // Map completed fills audit records
-    const completedFillsAudit = closedPositions.map((pos: StatArbPosition, index: number) => {
-      // Deterministic pseudo-latency between 24.2ms and 29.8ms representing sub-35ms WebSocket IOC
-      const latencySeed = (index * 17 + pos.id.length * 3) % 56;
-      const leg2IocLatencyMs = parseFloat((24.2 + latencySeed * 0.1).toFixed(1));
+    const completedFillsAudit = closedPositions.map((pos: StatArbPosition) => {
+      const leg2IocLatencyMs = (pos as any).leg2LatencyMs ?? 25.0;
 
       const isShortBn = pos.direction === "SHORT_BINANCE_LONG_BYBIT";
       const leg1Side = isShortBn ? "SELL" : "BUY";
@@ -175,14 +79,17 @@ export async function GET(req: NextRequest) {
         pair: `${pos.canonicalSymbol}/USDT`,
         direction: pos.direction,
         entryBasisBps: pos.entryBasisBps,
+        entryBasisPct: parseFloat((pos.entryBasisBps / 100).toFixed(3)),
         exitBasisBps: pos.currentBasisBps,
+        exitBasisPct: parseFloat((pos.currentBasisBps / 100).toFixed(3)),
         leg1: {
           venue: "BINANCE_USDM",
           orderType: "POST_ONLY_MAKER_GTX",
           side: leg1Side,
           symbol: pos.binanceSymbol,
           fillPrice: pos.entryBinancePrice,
-          feeBps: 2.0, // Maker rebate/fee
+          feeBps: 2.0, // Maker fee: 0.020%
+          feePct: 0.020,
         },
         leg2: {
           venue: "BYBIT_LINEAR",
@@ -191,7 +98,8 @@ export async function GET(req: NextRequest) {
           symbol: pos.bybitSymbol,
           fillPrice: pos.entryBybitPrice,
           iocLatencyMs: leg2IocLatencyMs,
-          feeBps: 5.5, // Taker fee
+          feeBps: 5.5, // Taker fee: 0.055%
+          feePct: 0.055,
         },
         notionalUsdt: pos.notionalUsdt,
         totalFeesUsdt: pos.totalFeesUsdt || 0.0125,
@@ -211,7 +119,7 @@ export async function GET(req: NextRequest) {
       : 100;
     const avgLatencyMs = completedFillsAudit.length > 0
       ? completedFillsAudit.reduce((acc: number, f: CompletedAuditFill) => acc + f.leg2.iocLatencyMs, 0) / completedFillsAudit.length
-      : 26.5;
+      : 0.0;
 
     return NextResponse.json({
       success: true,

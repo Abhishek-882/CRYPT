@@ -32,6 +32,8 @@ export const DEFAULT_ENTRY_GATE_CONFIG: EntryGateConfig = {
   minGrossBasisBps: 28.0,
   minDepthRatio: 4.0,
   maxSpreadBps: 8.0,
+  minNetEdgeBps: 8.0,
+  roundtripFrictionBps: 17.0,
 };
 
 /**

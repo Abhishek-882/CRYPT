@@ -30,6 +30,9 @@ import {
   checkInvariant7StickyDecoupling,
   evaluateExit,
   MakerTakerOrderRouter,
+  SimulatedExecutionAdapter,
+  LiveExchangeAdapter,
+  ExchangeExecutionAdapter,
   ExecutionResult,
 } from '../execution';
 import { StatArbStateStore, StatArbEngineState } from './statArbStateStore';
@@ -61,7 +64,34 @@ export class StatArbEngine {
 
   constructor(customStore?: StatArbStateStore, customRouter?: MakerTakerOrderRouter) {
     this.store = customStore || new StatArbStateStore();
-    this.router = customRouter || new MakerTakerOrderRouter();
+    if (customRouter) {
+      this.router = customRouter;
+    } else {
+      const isDryRun = this.store.getState().config.dryRun ?? true;
+      const adapter = isDryRun ? new SimulatedExecutionAdapter() : new LiveExchangeAdapter();
+      this.router = new MakerTakerOrderRouter(adapter);
+    }
+  }
+
+  /**
+   * Sets custom router
+   */
+  public setRouter(router: MakerTakerOrderRouter): void {
+    this.router = router;
+  }
+
+  /**
+   * Returns active router
+   */
+  public getRouter(): MakerTakerOrderRouter {
+    return this.router;
+  }
+
+  /**
+   * Sets execution adapter on active router
+   */
+  public setAdapter(adapter: ExchangeExecutionAdapter): void {
+    this.router.setAdapter(adapter);
   }
 
   /**
@@ -144,6 +174,13 @@ export class StatArbEngine {
    */
   public updateConfig(updates: Partial<StatArbConfig>): void {
     this.store.updateConfig(updates);
+    if (updates.dryRun !== undefined) {
+      if (updates.dryRun === false) {
+        this.router.setAdapter(new LiveExchangeAdapter());
+      } else {
+        this.router.setAdapter(new SimulatedExecutionAdapter());
+      }
+    }
   }
 
   /**

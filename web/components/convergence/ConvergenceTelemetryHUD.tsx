@@ -47,7 +47,7 @@ export default function ConvergenceTelemetryHUD({
   bestGrossBasisPair = "1000PEPE/USDT",
   iocLatencyMs = 26.4,
   isWebSocketConnected = true,
-  totalRealizedPnlUsdt = 14.28,
+  totalRealizedPnlUsdt = 0.0,
   winRatePct = 100.0,
   activePositionsCount = 0,
 }: ConvergenceTelemetryHUDProps) {
@@ -123,7 +123,7 @@ export default function ConvergenceTelemetryHUD({
 
         <div className="my-1">
           <div className="text-xl sm:text-2xl font-black text-cyan-300 tracking-tight flex items-baseline space-x-2">
-            <span>+{Math.abs(bestGrossBasisBps).toFixed(1)} bps</span>
+            <span>+{((Math.abs(bestGrossBasisBps) || 0) / 100).toFixed(3)}%</span>
             <span className="text-xs font-normal text-zinc-400 truncate max-w-[130px]">
               ({bestGrossBasisPair})
             </span>
@@ -135,7 +135,7 @@ export default function ConvergenceTelemetryHUD({
 
         <div className="mt-3 pt-2.5 border-t border-zinc-800/80 flex items-center justify-between text-[10px]">
           <span className="text-zinc-500">Min Entry Hurdle:</span>
-          <span className="text-zinc-300 font-semibold">≥ 28.0 bps Gross</span>
+          <span className="text-zinc-300 font-semibold">≥ 0.280% Gross</span>
         </div>
       </div>
 

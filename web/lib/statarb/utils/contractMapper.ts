@@ -316,6 +316,18 @@ export function normalizePrice(
 }
 
 /**
+ * Extracts multiplier prefix from symbol if present (e.g. 1000PEPE -> 1000, 10000SATS -> 10000, 1MBABYDOGE -> 1000000)
+ */
+function extractMultiplierPrefix(symbol: string): number {
+  if (!symbol) return 1;
+  const upper = symbol.toUpperCase().trim();
+  if (upper.startsWith('1000000') || upper.startsWith('1M')) return 1000000;
+  if (upper.startsWith('10000')) return 10000;
+  if (upper.startsWith('1000')) return 1000;
+  return 1;
+}
+
+/**
  * Translates execution fill quantity from one venue to the counterpart venue
  * to maintain strict 1:1 delta neutrality across differing contract multipliers.
  * 
@@ -327,31 +339,64 @@ export function normalizePrice(
  * @param fromVenue Source exchange ('BINANCE' | 'BYBIT')
  * @param toVenue Target exchange ('BINANCE' | 'BYBIT')
  * @param canonicalOrSymbol Instrument symbol
+ * @param targetStepSize Optional step size on target venue for discrete quantum alignment
  * @returns Scaled contract quantity for target venue
  */
 export function normalizeQuantity(
   quantity: number,
   fromVenue: 'BINANCE' | 'BYBIT',
   toVenue: 'BINANCE' | 'BYBIT',
-  canonicalOrSymbol: string
+  canonicalOrSymbol: string,
+  targetStepSize?: number
 ): number {
   if (quantity <= 0 || !Number.isFinite(quantity) || fromVenue === toVenue) {
+    if (targetStepSize && targetStepSize > 0) {
+      let decimals = 0;
+      const stepStr = targetStepSize.toString();
+      if (stepStr.includes('e-')) {
+        decimals = parseInt(stepStr.split('e-')[1], 10);
+      } else if (stepStr.includes('.')) {
+        decimals = stepStr.split('.')[1].length;
+      }
+      const precision = Math.min(12, Math.max(0, decimals));
+      const quantized = Math.floor(quantity / targetStepSize + 1e-12) * targetStepSize;
+      return parseFloat(quantized.toFixed(precision));
+    }
     return quantity;
   }
 
   const clean = canonicalOrSymbol.toUpperCase().trim();
   const special = SYMBOL_TO_CONFIG.get(clean) || CANONICAL_MAP.get(clean);
 
-  if (!special) {
-    return quantity;
-  }
+  let fromMultiplier = 1;
+  let toMultiplier = 1;
 
-  const fromMultiplier =
-    fromVenue === 'BINANCE' ? special.binanceMultiplier : special.bybitMultiplier;
-  const toMultiplier =
-    toVenue === 'BINANCE' ? special.binanceMultiplier : special.bybitMultiplier;
+  if (special) {
+    fromMultiplier =
+      fromVenue === 'BINANCE' ? special.binanceMultiplier : special.bybitMultiplier;
+    toMultiplier =
+      toVenue === 'BINANCE' ? special.binanceMultiplier : special.bybitMultiplier;
+  } else {
+    fromMultiplier = extractMultiplierPrefix(clean);
+    toMultiplier = 1;
+  }
 
   // Total base units = quantity * fromMultiplier
   // Target contracts = total base units / toMultiplier
-  return (quantity * fromMultiplier) / toMultiplier;
+  const scaled = (quantity * fromMultiplier) / toMultiplier;
+
+  if (targetStepSize !== undefined && targetStepSize > 0) {
+    let decimals = 0;
+    const stepStr = targetStepSize.toString();
+    if (stepStr.includes('e-')) {
+      decimals = parseInt(stepStr.split('e-')[1], 10);
+    } else if (stepStr.includes('.')) {
+      decimals = stepStr.split('.')[1].length;
+    }
+    const precision = Math.min(12, Math.max(0, decimals));
+    const quantized = Math.floor(scaled / targetStepSize + 1e-12) * targetStepSize;
+    return parseFloat(quantized.toFixed(precision));
+  }
+
+  return scaled;
 }

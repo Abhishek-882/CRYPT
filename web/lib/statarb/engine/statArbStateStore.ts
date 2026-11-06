@@ -42,6 +42,8 @@ export const DEFAULT_STATARB_CONFIG: StatArbConfig = {
     minGrossBasisBps: 28.0,
     minDepthRatio: 4.0,
     maxSpreadBps: 8.0,
+    minNetEdgeBps: 8.0,
+    roundtripFrictionBps: 17.0,
   },
   exitConvergenceCompression: 0.75,
   exitZScoreThreshold: 0.35,

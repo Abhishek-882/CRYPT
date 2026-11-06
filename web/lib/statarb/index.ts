@@ -29,3 +29,6 @@ export * from './engine';
 
 // Instrument Mapping & TradFi Exclusion Normalizer
 export * from './utils/contractMapper';
+
+// Exchange Filter Registry & Lot Sizing Reconciler
+export * from './utils/exchangeFilterRegistry';

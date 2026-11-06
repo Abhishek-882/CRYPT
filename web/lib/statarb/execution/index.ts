@@ -56,3 +56,9 @@ export {
   type LegExecutionDetail,
   type ExchangeExecutionAdapter,
 } from './orderRouter';
+
+export {
+  LiveExchangeAdapter,
+  type LiveCredentialsConfig,
+} from './liveExchangeAdapter';
+

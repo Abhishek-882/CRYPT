@@ -11,6 +11,8 @@
  * 100% standalone with zero legacy dependencies.
  */
 
+import { normalizeQuantity } from '../utils/contractMapper';
+
 export const DEFAULT_PERSISTENCE_THRESHOLD_PCT = 1.0;
 export const DEFAULT_PERSISTENCE_MINUTES = 30;
 export const DEFAULT_CATASTROPHIC_ROI_PCT = -20.0;
@@ -253,14 +255,21 @@ export function checkInvariant5AdverseCarryInversion(
  * Invariant 0: Zero-Orphan 1:1 Delta Neutrality Assertion
  * 
  * Rules:
- * - Sizing between Leg 1 and Leg 2 must match within strict tolerance (|Delta_net| < 0.001).
+ * - Sizing between Leg 1 and Leg 2 must match within strict tolerance (|Delta_net| < 0.001)
+ *   after normalizing across differing exchange contract multipliers.
  */
 export function checkZeroOrphanInvariant(
   leg1Qty: number,
   leg2Qty: number,
-  maxNetDelta: number = 0.001
+  maxNetDelta: number = 0.001,
+  canonicalOrSymbol?: string,
+  leg1Venue: 'BINANCE' | 'BYBIT' = 'BINANCE',
+  leg2Venue: 'BINANCE' | 'BYBIT' = 'BYBIT'
 ): ZeroOrphanResult {
-  const deltaNet = Math.abs(leg1Qty - leg2Qty);
+  const leg2Equivalent = canonicalOrSymbol
+    ? normalizeQuantity(leg2Qty, leg2Venue, leg1Venue, canonicalOrSymbol)
+    : leg2Qty;
+  const deltaNet = Math.abs(leg1Qty - leg2Equivalent);
   const isNeutral = deltaNet <= maxNetDelta;
 
   return {
@@ -271,6 +280,6 @@ export function checkZeroOrphanInvariant(
     maxNetDelta,
     reason: isNeutral
       ? `Delta neutrality verified: |Delta_net| = ${deltaNet.toFixed(6)} <= ${maxNetDelta}.`
-      : `Zero-Orphan Invariant violated: Leg 1 qty (${leg1Qty}) does not match Leg 2 qty (${leg2Qty}), |Delta_net| = ${deltaNet.toFixed(6)} > ${maxNetDelta}.`,
+      : `Zero-Orphan Invariant violated: Leg 1 qty (${leg1Qty}) does not match Leg 2 normalized qty (${leg2Equivalent.toFixed(4)}), |Delta_net| = ${deltaNet.toFixed(6)} > ${maxNetDelta}.`,
   };
 }

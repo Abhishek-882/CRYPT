@@ -115,7 +115,14 @@ export async function POST(req: NextRequest) {
     const engine = getEngine();
     const store = getStore();
 
+    if (body.dryRun !== undefined) {
+      engine.updateConfig({ dryRun: body.dryRun === true });
+    }
+
     if (action === "start") {
+      if (body.dryRun !== undefined) {
+        engine.updateConfig({ dryRun: body.dryRun === true });
+      }
       engine.start();
       globalThis.__statArbStartTime = Date.now();
       if (store.getState().isKillSwitchEngaged) {

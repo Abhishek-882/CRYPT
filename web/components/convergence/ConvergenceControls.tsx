@@ -281,9 +281,9 @@ export default function ConvergenceControls({
                       onChange={(e) => setMinGrossBasisBps(parseFloat(e.target.value))}
                       className="w-full bg-zinc-950 border border-zinc-700 rounded px-2.5 py-1.5 text-cyan-400 font-bold focus:outline-none focus:border-cyan-400"
                     />
-                    <span className="text-zinc-500 font-bold">bps</span>
+                    <span className="text-zinc-500 font-bold">%</span>
                   </div>
-                  <span className="text-[10px] text-zinc-500 mt-1 block">Default: 28.0 bps</span>
+                  <span className="text-[10px] text-zinc-500 mt-1 block">Default: 0.280% ({(minGrossBasisBps / 100).toFixed(3)}%)</span>
                 </div>
               </div>
 
@@ -305,7 +305,7 @@ export default function ConvergenceControls({
                     />
                     <span className="text-zinc-500 font-bold">x</span>
                   </div>
-                  <span className="text-[10px] text-zinc-500 mt-1 block">Depth within 10 bps ≥ 4.0x</span>
+                  <span className="text-[10px] text-zinc-500 mt-1 block">Depth within 0.100% ≥ 4.0x</span>
                 </div>
 
                 <div className="bg-zinc-900/80 p-3 rounded-lg border border-zinc-800">
@@ -322,9 +322,9 @@ export default function ConvergenceControls({
                       onChange={(e) => setMaxSpreadBps(parseFloat(e.target.value))}
                       className="w-full bg-zinc-950 border border-zinc-700 rounded px-2.5 py-1.5 text-zinc-200 font-bold focus:outline-none focus:border-zinc-400"
                     />
-                    <span className="text-zinc-500 font-bold">bps</span>
+                    <span className="text-zinc-500 font-bold">%</span>
                   </div>
-                  <span className="text-[10px] text-zinc-500 mt-1 block">Max allowable spread: 8.0 bps</span>
+                  <span className="text-[10px] text-zinc-500 mt-1 block">Max allowable spread: 0.080% ({(maxSpreadBps / 100).toFixed(3)}%)</span>
                 </div>
               </div>
 

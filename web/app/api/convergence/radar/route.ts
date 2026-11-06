@@ -189,13 +189,17 @@ export async function GET(req: NextRequest) {
         binanceSpreadBps <= config.entryGate.maxSpreadBps &&
         bybitSpreadBps <= config.entryGate.maxSpreadBps;
       const inv7GatePassed = stickyCheck.passed;
+      const netEdgeGatePassed = config.entryGate.minNetEdgeBps !== undefined
+        ? (gateResult.netExpectedEdgeBps ?? 0) >= config.entryGate.minNetEdgeBps
+        : true;
 
       const allGatesPassed =
         zGatePassed &&
         basisGatePassed &&
         depthGatePassed &&
         spreadGatePassed &&
-        inv7GatePassed;
+        inv7GatePassed &&
+        netEdgeGatePassed;
 
       const direction = grossBasisBps >= 0 ? "SHORT_BINANCE_LONG_BYBIT" : "SHORT_BYBIT_LONG_BINANCE";
 
@@ -222,6 +226,7 @@ export async function GET(req: NextRequest) {
           depth: depthGatePassed,
           spread: spreadGatePassed,
           invariant7: inv7GatePassed,
+          netEdge: netEdgeGatePassed,
           allPassed: allGatesPassed,
         },
         reasons: gateResult.reasons,
