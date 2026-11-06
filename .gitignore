@@ -43,6 +43,7 @@ scripts/measure_*
 *.bak
 *.log
 logs/
+.agents/
 web/data/reports/*.log
 
 # Operating System Files

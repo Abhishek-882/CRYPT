@@ -58,6 +58,7 @@ export default function Navbar() {
     { href: "/terminal", label: "Terminal", icon: Terminal },
     { href: "/bot", label: "Auto-Bot", icon: Bot },
     { href: "/basis-bot", label: "Basis Bot", icon: Zap, adminOnly: true },
+    { href: "/convergence", label: "Convergence", icon: Activity },
     { href: "/history", label: "History", icon: History },
     { href: "/profile", label: "Profile", icon: User },
   ];
