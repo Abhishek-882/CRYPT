@@ -104,6 +104,10 @@ export interface EntryGateConfig {
   minDepthRatio: number;
   /** Maximum allowable bid-ask spread on either venue in bps (default: 8.0 bps) */
   maxSpreadBps: number;
+  /** Minimum post-fee net edge required after all 4 execution legs (default: 12.0 bps) */
+  minNetEdgeBps?: number;
+  /** Estimated 4-leg roundtrip trading fee & slippage friction in bps (default: 17.0 bps) */
+  roundtripFrictionBps?: number;
 }
 
 /**
@@ -113,6 +117,7 @@ export interface EntryGateResult {
   passed: boolean;
   zScore: number;
   grossBasisBps: number;
+  netExpectedEdgeBps?: number;
   depthRatio: number;
   binanceSpreadBps: number;
   bybitSpreadBps: number;

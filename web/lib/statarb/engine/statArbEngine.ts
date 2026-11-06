@@ -367,8 +367,14 @@ export class StatArbEngine {
       const bnDir = isShortBn ? -1 : 1;
       const bybDir = -bnDir;
 
+      let entryBybit = position.entryBybitPrice;
+      if (Math.abs(entryBybit - 1.0) < 1e-6 && position.entryBinancePrice < 0.9) {
+        entryBybit = parseFloat((position.entryBinancePrice / (1 + (position.entryBasisBps || 0) / 10000)).toFixed(6));
+        position.entryBybitPrice = entryBybit;
+      }
+
       const bnPnl = bnDir * (prices.binancePrice - position.entryBinancePrice) * position.quantity;
-      const bybPnl = bybDir * (prices.bybitPrice - position.entryBybitPrice) * position.quantity;
+      const bybPnl = bybDir * (prices.bybitPrice - entryBybit) * position.quantity;
       const grossBasisPnl = parseFloat((bnPnl + bybPnl).toFixed(4));
       const notional = position.notionalUsdt || 15.0;
       const currentRoiPct = parseFloat(((grossBasisPnl / notional) * 100).toFixed(2));

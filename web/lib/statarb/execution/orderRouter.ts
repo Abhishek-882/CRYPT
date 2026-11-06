@@ -130,7 +130,8 @@ export interface ExchangeExecutionAdapter {
     side: OrderSide,
     qty: number,
     clientOrderId: string,
-    useWebSocket: boolean
+    useWebSocket: boolean,
+    expectedPrice?: number
   ): Promise<{ orderId: string; executedQty: number; avgPrice: number; feeUsdt: number; latencyMs: number }>;
 
   emergencyMarketUnwind(
@@ -215,7 +216,8 @@ export class SimulatedExecutionAdapter implements ExchangeExecutionAdapter {
     side: OrderSide,
     qty: number,
     clientOrderId: string,
-    useWebSocket: boolean
+    useWebSocket: boolean,
+    expectedPrice?: number
   ): Promise<{ orderId: string; executedQty: number; avgPrice: number; feeUsdt: number; latencyMs: number }> {
     if (this.simulatedShouldFailLeg2Completely) {
       throw new Error('Simulated catastrophic failure on both WS and REST');
@@ -227,12 +229,13 @@ export class SimulatedExecutionAdapter implements ExchangeExecutionAdapter {
 
     const latency = useWebSocket ? this.simulatedWsLatencyMs : 65;
     const feeRate = venue === 'BYBIT' ? 0.00055 : 0.00050;
+    const fillPrice = expectedPrice && expectedPrice > 0 ? expectedPrice : 1.0;
 
     return {
       orderId: `sim_taker_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
       executedQty: qty,
-      avgPrice: 1.0,
-      feeUsdt: parseFloat((qty * 1.0 * feeRate).toFixed(4)),
+      avgPrice: fillPrice,
+      feeUsdt: parseFloat((qty * fillPrice * feeRate).toFixed(4)),
       latencyMs: latency,
     };
   }
@@ -535,7 +538,8 @@ export class MakerTakerOrderRouter {
         request.leg2Side,
         leg1ExecutedQty,
         clientOrderIdLeg2,
-        true // useWebSocket
+        true, // useWebSocket
+        request.leg2InitialPrice
       );
 
       const timeoutPromise = new Promise<never>((_, reject) =>
@@ -553,7 +557,8 @@ export class MakerTakerOrderRouter {
           request.leg2Side,
           leg1ExecutedQty,
           clientOrderIdLeg2,
-          false // REST fallback
+          false, // REST fallback
+          request.leg2InitialPrice
         );
       } catch (restErr) {
         // Catastrophic failure: Both WS and REST failed on Leg 2!

@@ -152,17 +152,37 @@ export function evaluateEntryGates(
     reasons.push(`Direction: Inconclusive (directional alignment criteria not met)`);
   }
 
+  // Gate 5: Pre-Flight Net-Edge Hurdle (Gross Basis - 4-Leg Friction >= minNetEdge)
+  const frictionBps = config.roundtripFrictionBps ?? 17.0;
+  const minNetEdge = config.minNetEdgeBps;
+  const netExpectedEdgeBps = parseFloat((absBasis - frictionBps).toFixed(2));
+  let gate5Passed = true;
+  if (minNetEdge !== undefined) {
+    gate5Passed = netExpectedEdgeBps >= minNetEdge;
+    if (gate5Passed) {
+      reasons.push(
+        `Gate 5 (Net-Edge): Net ${netExpectedEdgeBps.toFixed(1)} bps (Gross ${absBasis.toFixed(1)} - Friction ${frictionBps.toFixed(1)}) >= ${minNetEdge.toFixed(1)} bps [PASS]`
+      );
+    } else {
+      reasons.push(
+        `Gate 5 (Net-Edge): Net ${netExpectedEdgeBps.toFixed(1)} bps (Gross ${absBasis.toFixed(1)} - Friction ${frictionBps.toFixed(1)}) < ${minNetEdge.toFixed(1)} bps [FAIL]`
+      );
+    }
+  }
+
   const passed =
     gate1Passed &&
     gate2Passed &&
     gate3Passed &&
     gate4Passed &&
+    gate5Passed &&
     direction !== undefined;
 
   return {
     passed,
     zScore,
     grossBasisBps: pair.grossBasisBps,
+    netExpectedEdgeBps,
     depthRatio: pair.orderBookDepthRatio,
     binanceSpreadBps: pair.binanceSpreadBps,
     bybitSpreadBps: pair.bybitSpreadBps,

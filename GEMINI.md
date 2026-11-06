@@ -32,3 +32,13 @@
 - **30-Minute Low-Watermark Persistence Filter**: Distinguish transient basis spikes from structural market decoupling using a rolling 30-minute observation window. If an active hedge's price divergence remains continuously >= 1.0% without visiting < 1.0% at least once in 30 minutes (min_{30m}(div) >= 1.0%), the mean-reversion assumption is invalidated; trigger an orderly structural exit to eliminate endless carry bleed and capital lockup.
 - **Transient Spike Tolerance**: Allow in-flight basis dislocations (0.50% - 1.50%) to mean-revert without triggering premature snapshot stops, provided the rolling low-watermark confirms historical reversion within the 30-minute window.
 - **Upstream Sticky Decoupling Gating**: Scanner pipelines must reject any candidate whose price divergence has failed to visit < 1.0% within the prior 30 minutes, preventing entry into structurally broken corridors.
+
+## 7. Fee-Friction Invariant & Dynamic Net-Edge Entry Gating (`FEE-FRICTION-GUARD`)
+- **Pre-Flight Net-Edge Hurdle (Invariant 9)**: Never dispatch Leg 1 on any corridor based solely on gross price spread or raw $z$-score. The engine must compute the post-fee net spread upfront:
+  $$\text{Net Expected Edge (bps)} = \text{Gross Basis (bps)} - \sum_{i=1}^{4} \text{Fee}_i(\text{bps}) - \text{Slippage Buffer (bps)}$$
+  Where standard 4-leg friction is 15.0 bps (Maker 2.0 bps + Taker 5.5 bps roundtrip) plus a minimum 2.0 bps slippage buffer (17.0 bps total hurdle). The entry gate strictly requires:
+  $$\text{Net Expected Edge} \ge +12.0\text{ bps} \quad (\text{Gross Basis} \ge 29.0\text{ bps})$$
+  Any candidate whose expected gross yield fails to cover total roundtrip fees plus a 12.0 bps net profit margin is unconditionally aborted pre-flight.
+- **Zero-Loss Fee Shield Invariant**: Exits are strictly prohibited unless the gross convergence price gain completely covers all actual realized exchange fees from entry plus projected exit taker fees, plus a guaranteed minimum net profit of $\ge +\$0.0100\text{ USDT}$:
+  $$\text{Gross Convergence PnL} \ge \text{Realized Entry Fees} + \text{Estimated Exit Fees} + \$0.0100\text{ USDT}$$
+- **Prohibition of Hardcoded Adapter Pricing & Notional Distortions**: All simulated and live execution adapters (`SimulatedExchangeAdapter`, `OrderRouter`) must dynamically resolve executed fill prices directly from live orderbook top-of-book depth or counterpart mid-prices (`leg2InitialPrice`). Hardcoding unit prices (e.g. `1.0`) is strictly prohibited, as it distorts fill prices, inflates fee calculations, and creates false floating losses on non-dollar unit coins.

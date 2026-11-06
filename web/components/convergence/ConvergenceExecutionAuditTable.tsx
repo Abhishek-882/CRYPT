@@ -267,7 +267,7 @@ export default function ConvergenceExecutionAuditTable({
                           {pos.unrealizedPnlUsdt >= 0 ? `+$${pos.unrealizedPnlUsdt.toFixed(4)}` : `-$${Math.abs(pos.unrealizedPnlUsdt).toFixed(4)}`}
                         </span>
                         <div className="text-[10px] text-zinc-500">
-                          Net fees: ${(pos.unrealizedPnlUsdt - pos.totalFeesUsdt).toFixed(4)}
+                          Fees: -${pos.totalFeesUsdt.toFixed(4)} &bull; Net: ${(pos.unrealizedPnlUsdt - pos.totalFeesUsdt).toFixed(4)}
                         </div>
                       </td>
 
