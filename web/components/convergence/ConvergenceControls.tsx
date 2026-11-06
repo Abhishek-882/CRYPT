@@ -49,6 +49,7 @@ export default function ConvergenceControls({
   const [minGrossBasisBps, setMinGrossBasisBps] = useState<number>(config?.entryGate?.minGrossBasisBps ?? 28.0);
   const [minDepthRatio, setMinDepthRatio] = useState<number>(config?.entryGate?.minDepthRatio ?? 4.0);
   const [maxSpreadBps, setMaxSpreadBps] = useState<number>(config?.entryGate?.maxSpreadBps ?? 8.0);
+  const [minNetEdgeBps, setMinNetEdgeBps] = useState<number>(config?.entryGate?.minNetEdgeBps ?? 8.0);
   const [minNetProfitUsdt, setMinNetProfitUsdt] = useState<number>(config?.minNetProfitUsdt ?? 0.01);
   const [exitConvergenceCompression, setExitConvergenceCompression] = useState<number>(
     config?.exitConvergenceCompression ? config.exitConvergenceCompression * 100 : 75
@@ -65,6 +66,7 @@ export default function ConvergenceControls({
       setMinGrossBasisBps(config.entryGate?.minGrossBasisBps ?? 28.0);
       setMinDepthRatio(config.entryGate?.minDepthRatio ?? 4.0);
       setMaxSpreadBps(config.entryGate?.maxSpreadBps ?? 8.0);
+      setMinNetEdgeBps(config.entryGate?.minNetEdgeBps ?? 8.0);
       setMinNetProfitUsdt(config.minNetProfitUsdt ?? 0.01);
       setExitConvergenceCompression(
         config.exitConvergenceCompression ? config.exitConvergenceCompression * 100 : 75
@@ -84,6 +86,7 @@ export default function ConvergenceControls({
           minGrossBasisBps: Number(minGrossBasisBps),
           minDepthRatio: Number(minDepthRatio),
           maxSpreadBps: Number(maxSpreadBps),
+          minNetEdgeBps: Number(minNetEdgeBps),
         },
         minNetProfitUsdt: Number(minNetProfitUsdt),
         exitConvergenceCompression: Number(exitConvergenceCompression) / 100,
@@ -105,6 +108,7 @@ export default function ConvergenceControls({
     setMinGrossBasisBps(28.0);
     setMinDepthRatio(4.0);
     setMaxSpreadBps(8.0);
+    setMinNetEdgeBps(8.0);
     setMinNetProfitUsdt(0.01);
     setExitConvergenceCompression(75);
     setExitZScoreThreshold(0.35);
@@ -274,16 +278,16 @@ export default function ConvergenceControls({
                   <div className="flex items-center space-x-2">
                     <input
                       type="number"
-                      step="1.0"
-                      min="10.0"
-                      max="60.0"
-                      value={minGrossBasisBps}
-                      onChange={(e) => setMinGrossBasisBps(parseFloat(e.target.value))}
+                      step="0.010"
+                      min="0.050"
+                      max="1.000"
+                      value={parseFloat((minGrossBasisBps / 100).toFixed(3))}
+                      onChange={(e) => setMinGrossBasisBps(parseFloat((parseFloat(e.target.value) * 100).toFixed(1)))}
                       className="w-full bg-zinc-950 border border-zinc-700 rounded px-2.5 py-1.5 text-cyan-400 font-bold focus:outline-none focus:border-cyan-400"
                     />
                     <span className="text-zinc-500 font-bold">%</span>
                   </div>
-                  <span className="text-[10px] text-zinc-500 mt-1 block">Default: 0.280% ({(minGrossBasisBps / 100).toFixed(3)}%)</span>
+                  <span className="text-[10px] text-zinc-500 mt-1 block">Default: 0.280%</span>
                 </div>
               </div>
 
@@ -315,24 +319,43 @@ export default function ConvergenceControls({
                   <div className="flex items-center space-x-2">
                     <input
                       type="number"
-                      step="0.5"
-                      min="2.0"
-                      max="15.0"
-                      value={maxSpreadBps}
-                      onChange={(e) => setMaxSpreadBps(parseFloat(e.target.value))}
+                      step="0.005"
+                      min="0.010"
+                      max="0.200"
+                      value={parseFloat((maxSpreadBps / 100).toFixed(3))}
+                      onChange={(e) => setMaxSpreadBps(parseFloat((parseFloat(e.target.value) * 100).toFixed(1)))}
                       className="w-full bg-zinc-950 border border-zinc-700 rounded px-2.5 py-1.5 text-zinc-200 font-bold focus:outline-none focus:border-zinc-400"
                     />
                     <span className="text-zinc-500 font-bold">%</span>
                   </div>
-                  <span className="text-[10px] text-zinc-500 mt-1 block">Max allowable spread: 0.080% ({(maxSpreadBps / 100).toFixed(3)}%)</span>
+                  <span className="text-[10px] text-zinc-500 mt-1 block">Max allowable spread: 0.080%</span>
                 </div>
               </div>
 
-              {/* Row 3: Zero-Loss Net Hurdle & Order Notional */}
+              {/* Row 3: Gate 5 Net-Edge Hurdle & Zero-Loss Net Hurdle */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="bg-zinc-900/80 p-3 rounded-lg border border-zinc-800">
                   <label className="block text-zinc-400 font-semibold mb-1">
-                    Zero-Loss Net Hurdle
+                    Gate 5: Min Net-Edge Hurdle
+                  </label>
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="number"
+                      step="0.005"
+                      min="0.010"
+                      max="0.500"
+                      value={parseFloat((minNetEdgeBps / 100).toFixed(3))}
+                      onChange={(e) => setMinNetEdgeBps(parseFloat((parseFloat(e.target.value) * 100).toFixed(1)))}
+                      className="w-full bg-zinc-950 border border-zinc-700 rounded px-2.5 py-1.5 text-emerald-400 font-bold focus:outline-none focus:border-emerald-400"
+                    />
+                    <span className="text-zinc-500 font-bold">%</span>
+                  </div>
+                  <span className="text-[10px] text-zinc-500 mt-1 block">Default: 0.080% net edge (Gross - 0.170% friction)</span>
+                </div>
+
+                <div className="bg-zinc-900/80 p-3 rounded-lg border border-zinc-800">
+                  <label className="block text-zinc-400 font-semibold mb-1">
+                    Zero-Loss Exit Net Hurdle
                   </label>
                   <div className="flex items-center space-x-2">
                     <input
@@ -348,7 +371,10 @@ export default function ConvergenceControls({
                   </div>
                   <span className="text-[10px] text-zinc-500 mt-1 block">Strict floor: +$0.0100 net of all fees</span>
                 </div>
+              </div>
 
+              {/* Row 4: Trade Notional Per Leg */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="bg-zinc-900/80 p-3 rounded-lg border border-zinc-800">
                   <label className="block text-zinc-400 font-semibold mb-1">
                     Trade Notional Per Leg

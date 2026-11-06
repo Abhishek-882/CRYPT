@@ -20,6 +20,7 @@ export interface RadarGateBadges {
   depth: boolean;
   spread: boolean;
   invariant7: boolean;
+  netEdge?: boolean;
   allPassed: boolean;
 }
 
@@ -212,7 +213,7 @@ export default function ConvergenceRadarTable({
                 </div>
               </th>
               <th className="py-2.5 px-3 font-semibold text-center">
-                5 Entry Gate Badges
+                Gate Badges (6)
               </th>
               <th className="py-2.5 px-3 font-semibold text-right">Action</th>
             </tr>
@@ -276,7 +277,7 @@ export default function ConvergenceRadarTable({
                       {formatPrice(p.bybitMid)}
                     </td>
 
-                    {/* Gross Basis (bps) */}
+                    {/* Gross Basis (%) */}
                     <td className="py-2.5 px-3 text-right">
                       <span
                         className={`font-bold ${
@@ -373,7 +374,20 @@ export default function ConvergenceRadarTable({
                           <span>S≤0.08%</span>
                         </span>
 
-                        {/* Gate 5: Invariant 7 Passed */}
+                        {/* Gate 5: Net-Edge >= 0.080% */}
+                        <span
+                          className={`px-1 py-0.5 rounded font-bold border flex items-center space-x-0.5 ${
+                            p.gateBadges.netEdge !== false
+                              ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                              : "bg-zinc-900 text-zinc-600 border-zinc-800"
+                          }`}
+                          title={p.gateBadges.netEdge !== false ? "Net-Edge Gate Passed (≥0.080%)" : "Net-Edge Below 0.080%"}
+                        >
+                          {p.gateBadges.netEdge !== false ? <Check className="w-2.5 h-2.5" /> : <X className="w-2.5 h-2.5" />}
+                          <span>E≥0.08%</span>
+                        </span>
+
+                        {/* Invariant 7: Sticky Decoupling Filter */}
                         <span
                           className={`px-1 py-0.5 rounded font-bold border flex items-center space-x-0.5 ${
                             p.gateBadges.invariant7

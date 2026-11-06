@@ -9,6 +9,7 @@
  * Gate 2: |b_t| >= minGrossBasisBps (28.0 bps)
  * Gate 3: orderBookDepthRatio >= minDepthRatio (4.0x)
  * Gate 4: binanceSpreadBps <= maxSpreadBps (8.0 bps) AND bybitSpreadBps <= maxSpreadBps (8.0 bps)
+ * Gate 5: netExpectedEdgeBps >= minNetEdgeBps (8.0 bps = 0.080% net edge hurdle covering Binance 0.020% Maker + Bybit 0.055% Taker + slippage buffer)
  * 
  * Assigns deterministic delta-neutral execution direction:
  * b_t >= +28.0 and z_t >= +2.20 -> SHORT_BINANCE_LONG_BYBIT
@@ -155,21 +156,19 @@ export function evaluateEntryGates(
   }
 
   // Gate 5: Pre-Flight Net-Edge Hurdle (Gross Basis - 4-Leg Friction >= minNetEdge)
+  // minNetEdgeBps defaults to 8.0 bps (0.080% net edge hurdle covering Binance 0.020% Maker + Bybit 0.055% Taker + buffer)
   const frictionBps = config.roundtripFrictionBps ?? 17.0;
-  const minNetEdge = config.minNetEdgeBps;
+  const minNetEdge = config.minNetEdgeBps !== undefined ? config.minNetEdgeBps : 8.0;
   const netExpectedEdgeBps = parseFloat((absBasis - frictionBps).toFixed(2));
-  let gate5Passed = true;
-  if (minNetEdge !== undefined) {
-    gate5Passed = netExpectedEdgeBps >= minNetEdge;
-    if (gate5Passed) {
-      reasons.push(
-        `Gate 5 (Net-Edge): Net ${netExpectedEdgeBps.toFixed(1)} bps (Gross ${absBasis.toFixed(1)} - Friction ${frictionBps.toFixed(1)}) >= ${minNetEdge.toFixed(1)} bps [PASS]`
-      );
-    } else {
-      reasons.push(
-        `Gate 5 (Net-Edge): Net ${netExpectedEdgeBps.toFixed(1)} bps (Gross ${absBasis.toFixed(1)} - Friction ${frictionBps.toFixed(1)}) < ${minNetEdge.toFixed(1)} bps [FAIL]`
-      );
-    }
+  const gate5Passed = netExpectedEdgeBps >= minNetEdge;
+  if (gate5Passed) {
+    reasons.push(
+      `Gate 5 (Net-Edge): Net ${(netExpectedEdgeBps / 100).toFixed(3)}% (${netExpectedEdgeBps.toFixed(1)} bps) [Gross ${(absBasis / 100).toFixed(3)}% - Friction ${(frictionBps / 100).toFixed(3)}%] >= ${(minNetEdge / 100).toFixed(3)}% [PASS]`
+    );
+  } else {
+    reasons.push(
+      `Gate 5 (Net-Edge): Net ${(netExpectedEdgeBps / 100).toFixed(3)}% (${netExpectedEdgeBps.toFixed(1)} bps) [Gross ${(absBasis / 100).toFixed(3)}% - Friction ${(frictionBps / 100).toFixed(3)}%] < ${(minNetEdge / 100).toFixed(3)}% [FAIL]`
+    );
   }
 
   const passed =

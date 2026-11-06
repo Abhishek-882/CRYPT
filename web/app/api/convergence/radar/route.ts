@@ -189,9 +189,8 @@ export async function GET(req: NextRequest) {
         binanceSpreadBps <= config.entryGate.maxSpreadBps &&
         bybitSpreadBps <= config.entryGate.maxSpreadBps;
       const inv7GatePassed = stickyCheck.passed;
-      const netEdgeGatePassed = config.entryGate.minNetEdgeBps !== undefined
-        ? (gateResult.netExpectedEdgeBps ?? 0) >= config.entryGate.minNetEdgeBps
-        : true;
+      const minNetEdgeBps = config.entryGate.minNetEdgeBps !== undefined ? config.entryGate.minNetEdgeBps : 8.0;
+      const netEdgeGatePassed = (gateResult.netExpectedEdgeBps ?? 0) >= minNetEdgeBps;
 
       const allGatesPassed =
         zGatePassed &&

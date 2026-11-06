@@ -64,7 +64,7 @@ export async function GET(req: NextRequest) {
 
     // Map completed fills audit records
     const completedFillsAudit = closedPositions.map((pos: StatArbPosition) => {
-      const leg2IocLatencyMs = (pos as any).leg2LatencyMs ?? 25.0;
+      const leg2IocLatencyMs = (pos as any).leg2LatencyMs ?? 0.0;
 
       const isShortBn = pos.direction === "SHORT_BINANCE_LONG_BYBIT";
       const leg1Side = isShortBn ? "SELL" : "BUY";
@@ -102,7 +102,7 @@ export async function GET(req: NextRequest) {
           feePct: 0.055,
         },
         notionalUsdt: pos.notionalUsdt,
-        totalFeesUsdt: pos.totalFeesUsdt || 0.0125,
+        totalFeesUsdt: pos.totalFeesUsdt ?? 0.0,
         netRealizedPnlUsdt: pos.realizedPnlUsdt || 0.0,
         exitReason: pos.exitReason || "BASIS_COMPRESSION_75",
         status: (pos.realizedPnlUsdt || 0) >= MIN_ZERO_LOSS_PROFIT_USDT ? "CONFIRMED_ZERO_LOSS" : "CLOSED",

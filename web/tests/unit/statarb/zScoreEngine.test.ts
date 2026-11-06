@@ -337,6 +337,110 @@ describe('Z-Score Engine & Entry Gating (zScoreEngine.ts)', () => {
         expect(result.passed).toBe(true);
       });
     });
+
+    // -------------------------------------------------------------------------
+    // Gate 5: Pre-Flight Net-Edge Hurdle (>= 8.0 bps = 0.080%)
+    // -------------------------------------------------------------------------
+    describe('Gate 5: Pre-Flight Net-Edge Hurdle (minNetEdge >= 0.080% / 8.0 bps)', () => {
+      it('strictly enforces Gate 5 pre-flight net-edge hurdle of >= 8.0 bps (0.080%)', () => {
+        const params = createMockOUParams({ mu: 0, equilibriumSigma: 10.0 });
+
+        // Gross basis 28.0 bps with default friction 17.0 bps -> Net edge = 11.0 bps >= 8.0 bps -> PASS
+        const passPair = createMockPair({
+          grossBasisBps: 28.0,
+          orderBookDepthRatio: 5.0,
+          binanceSpreadBps: 3.0,
+          bybitSpreadBps: 3.0,
+        });
+        const passResult = evaluateEntryGates(passPair, params);
+        expect(passResult.passed).toBe(true);
+        expect(passResult.netExpectedEdgeBps).toBe(11.0);
+        expect(passResult.reasons.some((r) => r.includes('Gate 5 (Net-Edge)') && r.includes('[PASS]'))).toBe(true);
+      });
+
+      it('rejects candidate when net expected edge is below 8.0 bps boundary', () => {
+        const params = createMockOUParams({ mu: 0, equilibriumSigma: 8.0 });
+
+        // Gross basis 28.0 bps passes Gate 2, but with custom friction of 21.0 bps:
+        // Net edge = 28.0 - 21.0 = 7.0 bps < 8.0 bps hurdle -> FAIL
+        const pair = createMockPair({
+          grossBasisBps: 28.0,
+          orderBookDepthRatio: 5.0,
+          binanceSpreadBps: 3.0,
+          bybitSpreadBps: 3.0,
+        });
+        const result = evaluateEntryGates(pair, params, {
+          ...DEFAULT_ENTRY_GATE_CONFIG,
+          roundtripFrictionBps: 21.0,
+          minNetEdgeBps: 8.0,
+        });
+
+        expect(result.passed).toBe(false);
+        expect(result.netExpectedEdgeBps).toBe(7.0);
+        expect(result.reasons.some((r) => r.includes('Gate 5 (Net-Edge)') && r.includes('[FAIL]'))).toBe(true);
+      });
+
+      it('strictly verifies Gate 5 boundary at exactly 8.00 bps vs 7.99 bps', () => {
+        const params = createMockOUParams({ mu: 0, equilibriumSigma: 8.0 });
+
+        // 7.99 bps net edge: Gross 24.99 bps - Friction 17.0 bps = 7.99 bps < 8.0 bps
+        const failPair = createMockPair({
+          grossBasisBps: 24.99,
+          orderBookDepthRatio: 5.0,
+          binanceSpreadBps: 3.0,
+          bybitSpreadBps: 3.0,
+        });
+        const failResult = evaluateEntryGates(failPair, params, {
+          ...DEFAULT_ENTRY_GATE_CONFIG,
+          minGrossBasisBps: 20.0, // lower gate 2 to isolate Gate 5
+          minNetEdgeBps: 8.0,
+        });
+        expect(failResult.passed).toBe(false);
+        expect(failResult.netExpectedEdgeBps).toBe(7.99);
+        expect(failResult.reasons.some((r) => r.includes('Gate 5') && r.includes('[FAIL]'))).toBe(true);
+
+        // 8.00 bps net edge: Gross 25.00 bps - Friction 17.0 bps = 8.00 bps >= 8.0 bps
+        const passPair = createMockPair({
+          grossBasisBps: 25.00,
+          orderBookDepthRatio: 5.0,
+          binanceSpreadBps: 3.0,
+          bybitSpreadBps: 3.0,
+        });
+        const passResult = evaluateEntryGates(passPair, params, {
+          ...DEFAULT_ENTRY_GATE_CONFIG,
+          minGrossBasisBps: 20.0,
+          minNetEdgeBps: 8.0,
+        });
+        expect(passResult.passed).toBe(true);
+        expect(passResult.netExpectedEdgeBps).toBe(8.00);
+        expect(passResult.reasons.some((r) => r.includes('Gate 5') && r.includes('[PASS]'))).toBe(true);
+      });
+
+      it('enforces Gate 5 with default 8.0 bps even if caller config omits minNetEdgeBps', () => {
+        const params = createMockOUParams({ mu: 0, equilibriumSigma: 8.0 });
+
+        // Config with minNetEdgeBps explicitly undefined
+        const sparseConfig = {
+          minZScore: 2.2,
+          minGrossBasisBps: 20.0,
+          minDepthRatio: 4.0,
+          maxSpreadBps: 8.0,
+          roundtripFrictionBps: 17.0,
+          minNetEdgeBps: undefined,
+        };
+
+        // Gross 24.0 bps - 17.0 bps friction = 7.0 bps < default 8.0 bps hurdle -> MUST FAIL
+        const pair = createMockPair({
+          grossBasisBps: 24.0,
+          orderBookDepthRatio: 5.0,
+          binanceSpreadBps: 3.0,
+          bybitSpreadBps: 3.0,
+        });
+        const result = evaluateEntryGates(pair, params, sparseConfig);
+        expect(result.passed).toBe(false);
+        expect(result.reasons.some((r) => r.includes('Gate 5') && r.includes('[FAIL]'))).toBe(true);
+      });
+    });
   });
 
   // =========================================================================
