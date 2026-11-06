@@ -34,9 +34,12 @@ import {
   LiveExchangeAdapter,
   ExchangeExecutionAdapter,
   ExecutionResult,
+  ExecutionRequest,
 } from '../execution';
 import { StatArbStateStore, StatArbEngineState } from './statArbStateStore';
 import { checkConcurrentPositionsLimit, evaluateSystemSafety } from './safetyBreakers';
+
+export type OrderRoutingRequest = ExecutionRequest;
 
 export interface ScanResult {
   timestamp: number;
@@ -56,20 +59,39 @@ export interface PositionManagementResult {
 export class StatArbEngine {
   private store: StatArbStateStore;
   private router: MakerTakerOrderRouter;
+  private activeAdapter: ExchangeExecutionAdapter;
   private isRunning: boolean = false;
   private scanTimer: NodeJS.Timeout | null = null;
   private positionTimer: NodeJS.Timeout | null = null;
   private scanIntervalMs: number = 3000;
   private positionIntervalMs: number = 2000;
 
-  constructor(customStore?: StatArbStateStore, customRouter?: MakerTakerOrderRouter) {
+  constructor(
+    customStore?: StatArbStateStore,
+    customRouter?: MakerTakerOrderRouter | ExchangeExecutionAdapter,
+    executionAdapter?: ExchangeExecutionAdapter
+  ) {
     this.store = customStore || new StatArbStateStore();
-    if (customRouter) {
+    const config = this.store.getState().config;
+    const isDryRun = config.dryRun ?? true;
+
+    if (customRouter instanceof MakerTakerOrderRouter) {
       this.router = customRouter;
+      if (executionAdapter) {
+        this.activeAdapter = executionAdapter;
+        this.router.setAdapter(executionAdapter);
+      } else {
+        this.activeAdapter = (customRouter as any).adapter || (isDryRun ? new SimulatedExecutionAdapter() : new LiveExchangeAdapter());
+      }
+    } else if (customRouter && typeof (customRouter as any).placeMakerLimit === 'function') {
+      this.activeAdapter = customRouter as ExchangeExecutionAdapter;
+      this.router = new MakerTakerOrderRouter(this.activeAdapter);
+    } else if (executionAdapter) {
+      this.activeAdapter = executionAdapter;
+      this.router = new MakerTakerOrderRouter(this.activeAdapter);
     } else {
-      const isDryRun = this.store.getState().config.dryRun ?? true;
-      const adapter = isDryRun ? new SimulatedExecutionAdapter() : new LiveExchangeAdapter();
-      this.router = new MakerTakerOrderRouter(adapter);
+      this.activeAdapter = !isDryRun ? new LiveExchangeAdapter() : new SimulatedExecutionAdapter();
+      this.router = new MakerTakerOrderRouter(this.activeAdapter);
     }
   }
 
@@ -78,6 +100,9 @@ export class StatArbEngine {
    */
   public setRouter(router: MakerTakerOrderRouter): void {
     this.router = router;
+    if ((router as any).adapter) {
+      this.activeAdapter = (router as any).adapter;
+    }
   }
 
   /**
@@ -88,10 +113,32 @@ export class StatArbEngine {
   }
 
   /**
-   * Sets execution adapter on active router
+   * Order router getter (synonym for router)
+   */
+  public get orderRouter(): MakerTakerOrderRouter {
+    return this.router;
+  }
+
+  /**
+   * Order router setter
+   */
+  public set orderRouter(router: MakerTakerOrderRouter) {
+    this.setRouter(router);
+  }
+
+  /**
+   * Sets execution adapter on active router and tracks it
    */
   public setAdapter(adapter: ExchangeExecutionAdapter): void {
+    this.activeAdapter = adapter;
     this.router.setAdapter(adapter);
+  }
+
+  /**
+   * Returns current active execution adapter
+   */
+  public getAdapter(): ExchangeExecutionAdapter {
+    return this.activeAdapter;
   }
 
   /**
@@ -176,9 +223,11 @@ export class StatArbEngine {
     this.store.updateConfig(updates);
     if (updates.dryRun !== undefined) {
       if (updates.dryRun === false) {
-        this.router.setAdapter(new LiveExchangeAdapter());
+        this.setAdapter(new LiveExchangeAdapter());
+        console.log('[STATARB-ENGINE] Switched to LIVE real-exchange execution adapter (dryRun: false).');
       } else {
-        this.router.setAdapter(new SimulatedExecutionAdapter());
+        this.setAdapter(new SimulatedExecutionAdapter());
+        console.log('[STATARB-ENGINE] Switched to SIMULATED execution adapter (dryRun: true).');
       }
     }
   }
@@ -302,24 +351,28 @@ export class StatArbEngine {
             const isShortBn = signal.direction === 'SHORT_BINANCE_LONG_BYBIT';
             const leg1Side = isShortBn ? 'SELL' : 'BUY';
             const leg2Side = isShortBn ? 'BUY' : 'SELL';
+            const isDryRun = config.dryRun ?? true;
 
-          const execResult: ExecutionResult = await this.router.executeEntry({
-            pair,
-            direction: signal.direction,
-            notionalUsdt: notional,
-            quantity,
-            leg1Venue: 'BINANCE',
-            leg2Venue: 'BYBIT',
-            leg1Symbol: pair.binanceSymbol,
-            leg2Symbol: pair.bybitSymbol,
-            leg1Side,
-            leg2Side,
-            leg1BestBid: pair.binanceMid * 0.9999,
-            leg1BestAsk: pair.binanceMid * 1.0001,
-            leg2InitialPrice: pair.bybitMid,
-            timeoutMs: config.makerTimeoutMs || 8000,
-            maxAdverseDriftBps: config.adverseDriftThresholdBps || 8.0,
-          });
+            const orderRoutingRequest: OrderRoutingRequest = {
+              pair,
+              direction: signal.direction,
+              notionalUsdt: notional,
+              quantity,
+              leg1Venue: 'BINANCE',
+              leg2Venue: 'BYBIT',
+              leg1Symbol: pair.binanceSymbol,
+              leg2Symbol: pair.bybitSymbol,
+              leg1Side,
+              leg2Side,
+              leg1BestBid: pair.binanceMid * 0.9999,
+              leg1BestAsk: pair.binanceMid * 1.0001,
+              leg2InitialPrice: pair.bybitMid,
+              timeoutMs: config.makerTimeoutMs || 8000,
+              maxAdverseDriftBps: config.adverseDriftThresholdBps || 8.0,
+              isDryRun,
+            };
+
+            const execResult: ExecutionResult = await this.orderRouter.executeEntry(orderRoutingRequest);
 
           if (execResult.success && execResult.executedQty > 0) {
             const newPosition: StatArbPosition = {
