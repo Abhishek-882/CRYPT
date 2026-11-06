@@ -1,65 +1,69 @@
-# BRIEFING — 2026-11-05T07:32:00Z
+# BRIEFING — 2026-11-06T15:43:00Z
 
 ## Mission
-Adversarial empirical and mathematical stress-testing of AI Hedge Cockpit Profit Upgrade specifications, formulations, and test suites.
+Adversarially verify and stress-test the STATARB-OU-PERP implementation, continuous OU calibration, boundary conditions, zero-loss exit, 30m breaker persistence, and sticky decoupling filters.
 
 ## 🔒 My Identity
-- Archetype: empirical challenger
+- Archetype: teamwork_challenger
 - Roles: critic, specialist
-- Working directory: C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\.agents\teamwork\challenger_1\
-- Original parent: ebc83250-5b77-48fd-89ba-0c0e8d584d07
-- Milestone: Math & Empirical Audit Challenge
+- Working directory: C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\.agents\teamwork\challenger_1
+- Original parent: c57762ae-f90e-4917-9e74-d8c563f89ec2
+- Milestone: STATARB-OU-PERP Empirical Challenge & Stress Verification
 - Instance: 1 of 1
 
 ## 🔒 Key Constraints
-- Review-only — do NOT modify implementation code in web/ or active execution scripts
-- Write only to your folder (.agents/teamwork/challenger_1/)
-- Provide explicit verdict (APPROVE / REQUEST_CHANGES)
-- Empirical verification: write and run verify_math_models.js
+- Review-only — do NOT modify implementation code directly
+- Must run empirical verification code and Vitest suites
+- Document all findings, boundary comparisons, and clear verdict (APPROVE / REQUEST_CHANGES) in handoff.md
 
 ## Current Parent
-- Conversation ID: ebc83250-5b77-48fd-89ba-0c0e8d584d07
-- Updated: 2026-11-05T07:32:00Z
+- Conversation ID: c57762ae-f90e-4917-9e74-d8c563f89ec2
+- Updated: 2026-11-06T15:43:00Z
 
 ## Review Scope
 - **Files to review**:
-  - `C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\.agents\teamwork\ORIGINAL_REQUEST.md`
-  - `C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\docs\PROFIT_UPGRADE_RESEARCH_AUDIT.md`
-  - `C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\docs\UPGRADE_ARCHITECTURE_SPECIFICATIONS.md`
-- **Execution scripts run**:
-  - `node scripts/generate_fleet_status_report.js` (PASSED)
-  - `node scripts/test_leverage_and_margin_calculator.js` (PASSED, 5/5)
-  - `cd web && npx vitest run tests/unit/adversarialOption2StrictSync.test.ts tests/unit/adversarialMacroYieldChallenge.test.ts tests/unit/makerTakerExecution.test.ts` (PASSED, 51/51)
-- **Review criteria**: Mathematical correctness, stability at boundary conditions, realistic execution economics, risk containment, test coverage.
+  - `web/lib/statarb/math/ouCalibrator.ts` (Continuous Ornstein-Uhlenbeck parameter calibration)
+  - `web/lib/statarb/math/zScoreEngine.ts` (Real-time z-score & 4 entry gates)
+  - `web/lib/statarb/math/bookDepthAnalyzer.ts` (10 bps book depth cushion)
+  - `web/lib/statarb/execution/invariantGuard.ts` (Invariant 6 & Invariant 7)
+  - `web/lib/statarb/execution/exitOptimizer.ts` (Guaranteed Zero-Loss Exit & 75% compression)
+  - `web/lib/statarb/execution/orderRouter.ts` (Maker-Taker dual leg execution & watchdog)
+  - `web/lib/statarb/engine/statArbEngine.ts` (Standalone scan & management loop)
+  - `web/lib/statarb/engine/statArbStateStore.ts` (Isolated atomic persistence)
+  - `web/tests/unit/statarb/` (Automated Vitest test suite)
+- **Interface contracts**:
+  - `ORIGINAL_REQUEST.md` (R1-R4, Invariants 6 & 7, Zero-Loss >= +$0.01)
+  - `PROJECT.md` (Milestones M1-M5, discrete AR(1) OLS SDE calibration)
+- **Review criteria**:
+  - Exact continuous OU parameter mathematics
+  - Boundary stress tests (2.19 vs 2.20, 27.9 vs 28.0 bps, 3.99x vs 4.00x, 8.01 vs 8.00 bps)
+  - Zero-Loss Exit exact boundary (+$0.0099 BLOCKED vs +$0.0100 APPROVED)
+  - Invariant 6 30m persistence breaker & minute-28 reset
+  - Invariant 7 sticky decoupling 30m window filter
 
 ## Attack Surface
 - **Hypotheses tested**:
-  - Fractional Kelly sizing with clamped bounds under zero variance, high variance, and negative edge.
-  - Ornstein-Uhlenbeck stopping time estimation under unit-root drift, zero variance, and directional PnL.
-  - Deterministic cumulative VWAP sweep across single vs. multi-level order books and depth exhaustion.
-  - Predictive TWAP funding rate confidence intervals at asymptotic countdown boundaries (t -> T).
-  - ATR dynamic leverage formula vs. isolated margin liquidation distance feasibility.
-  - Fee savings economics (+6 to +40 bps) across institutional perps vs. retail altcoins.
+  - continuous OU math SDE mapping -> CONFIRMED EXACT
+  - entry gates boundaries (2.19 vs 2.20, 27.9 vs 28.0 bps, 3.99x vs 4.00x, 8.01 vs 8.00 bps) -> CONFIRMED STRICT
+  - zero-loss floor (+0.0099 blocked vs +0.0100 approved) -> CONFIRMED STRICT
+  - Invariant 6 persistence & minute-28 reset -> CONFIRMED ACCURATE
+  - Invariant 7 sticky decoupling 30m screener -> CONFIRMED ACCURATE
 - **Vulnerabilities found**:
-  1. Spec line 173 formula for TWAP confidence interval divides by sqrt(N_remaining), blowing up to Infinity at settlement.
-  2. Fractional Kelly clamp [0.10, 0.35] forces 10% capital into negative-expectation trades unless zero-edge guard is added.
-  3. ATR dynamic leverage formula yields 4x on BTC despite claiming 30x-50x; 5.0% buffer impossible at 50x (max buffer 1.6%).
-  4. Ornstein-Uhlenbeck exit utility formula subtracts -|X_t|, inappropriately penalizing profitable basis convergence.
-  5. The +40 bps maker savings claim is invalid for perpetual futures majors (strictly +6.0 to +7.4 bps).
+  - None in core statarb math, invariants, or execution engines.
+  - Runtime Next.js build clean (`npm run build` exits with code 0).
 - **Untested angles**:
-  - Real-world REST proxy latency jitter during Binance/Bybit high-load matching engine freeze.
+  - All requested boundary, stress, and mathematical angles fully covered by empirical tests.
 
 ## Loaded Skills
-- None specified in dispatch
+- None specified by dispatch
 
 ## Key Decisions Made
-- Executed all existing baseline scripts; verified 100% operational pass.
-- Implemented comprehensive 20-test empirical test harness in `verify_math_models.js`.
-- Evaluated all mathematical formulations under boundary conditions; issued `REQUEST_CHANGES` verdict with turnkey mathematical fixes.
+- Authored dedicated adversarial stress harness `web/tests/unit/statarb/adversarialStress.test.ts` with 29 comprehensive test cases.
+- Validated all 7 Vitest test suites (150 tests total) with 100% pass rate.
+- Verified Next.js production build (`npm run build`) passing with code 0.
+- Explicit verdict: APPROVE.
 
 ## Artifact Index
-- DISPATCH.md — Initial dispatch message
-- progress.md — Liveness heartbeat and milestone tracking
-- BRIEFING.md — Situational awareness working memory
-- verify_math_models.js — 20-test stress harness (100% passing after empirical calibration)
-- handoff.md — Final 5-component handoff report with verdict REQUEST_CHANGES
+- `DISPATCH.md` — Initial instructions from orchestrator
+- `progress.md` — Liveness and execution milestones
+- `handoff.md` — Final 5-component empirical challenge report and verdict

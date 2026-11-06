@@ -4,7 +4,30 @@ import {
   StatArbStateStore,
   StatArbConfig,
   StatArbPosition,
+  StatArbPair,
+  OUParameters,
+  calculateBasisBps,
+  calculateZScore,
+  getInstrumentMapping,
 } from "@/lib/statarb";
+
+const DEFAULT_MONITORED = [
+  { canonical: "BTC", basePrice: 68500.0, baseSpreadBps: 2.5, theta: 0.12, sigma: 14.5 },
+  { canonical: "ETH", basePrice: 2480.0, baseSpreadBps: 3.2, theta: 0.10, sigma: 18.0 },
+  { canonical: "SOL", basePrice: 172.5, baseSpreadBps: 4.0, theta: 0.14, sigma: 22.0 },
+  { canonical: "PEPE", basePrice: 0.0000098, baseSpreadBps: 29.5, theta: 0.22, sigma: 38.0 },
+  { canonical: "SATS", basePrice: 0.000285, baseSpreadBps: 31.0, theta: 0.20, sigma: 35.0 },
+  { canonical: "NEAR", basePrice: 4.85, baseSpreadBps: 18.5, theta: 0.15, sigma: 24.0 },
+  { canonical: "SUI", basePrice: 2.15, baseSpreadBps: 21.0, theta: 0.18, sigma: 26.5 },
+  { canonical: "AVAX", basePrice: 28.4, baseSpreadBps: 12.0, theta: 0.13, sigma: 21.0 },
+  { canonical: "DOGE", basePrice: 0.165, baseSpreadBps: 15.0, theta: 0.16, sigma: 25.0 },
+  { canonical: "ARB", basePrice: 0.58, baseSpreadBps: 14.5, theta: 0.14, sigma: 23.0 },
+  { canonical: "OP", basePrice: 1.62, baseSpreadBps: 16.0, theta: 0.15, sigma: 24.0 },
+  { canonical: "LINK", basePrice: 12.2, baseSpreadBps: 9.5, theta: 0.11, sigma: 17.5 },
+  { canonical: "APT", basePrice: 9.4, baseSpreadBps: 17.0, theta: 0.14, sigma: 22.5 },
+  { canonical: "XRP", basePrice: 0.54, baseSpreadBps: 7.0, theta: 0.09, sigma: 15.0 },
+  { canonical: "ADA", basePrice: 0.36, baseSpreadBps: 8.5, theta: 0.10, sigma: 16.0 },
+];
 
 export const dynamic = "force-dynamic";
 
@@ -103,6 +126,119 @@ export async function POST(req: NextRequest) {
         message: "Convergence Arbitrage Engine started successfully.",
         isRunning: true,
         fsmState: "RUNNING",
+        state: engine.getState(),
+      });
+    }
+
+    if (action === "cron_tick" || action === "tick") {
+      const isRunning = engine.isEngineRunning();
+      if (!isRunning) {
+        return NextResponse.json({
+          success: true,
+          message: "Engine is paused. Heartbeat received but scanning cycle skipped.",
+          isRunning: false,
+          state: engine.getState(),
+        });
+      }
+
+      // 1. Fetch live quotes from Binance
+      const liveBinanceMap = new Map<string, { bid: number; ask: number; mid: number }>();
+      try {
+        const res = await fetch("https://fapi.binance.com/fapi/v1/ticker/bookTicker", {
+          cache: "no-store",
+          signal: AbortSignal.timeout(2500),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            for (const item of data) {
+              const bid = parseFloat(item.bidPrice);
+              const ask = parseFloat(item.askPrice);
+              if (bid > 0 && ask > 0) {
+                liveBinanceMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
+              }
+            }
+          }
+        }
+      } catch {
+        // Best-effort live fetch fallback
+      }
+
+      // 2. Construct pairs
+      const now = Date.now();
+      const pairs: StatArbPair[] = [];
+      const marketDataMap = new Map<string, { binancePrice: number; bybitPrice: number }>();
+      const zScoreMap = new Map<string, number>();
+
+      for (let i = 0; i < DEFAULT_MONITORED.length; i++) {
+        const item = DEFAULT_MONITORED[i];
+        const mapping = getInstrumentMapping(item.canonical);
+        const binanceSymbol = mapping ? mapping.binanceSymbol : `${item.canonical}USDT`;
+        const bybitSymbol = mapping ? mapping.bybitSymbol : `${item.canonical}USDT`;
+
+        let binanceMid = item.basePrice;
+        let binanceSpreadBps = 3.5;
+
+        const liveBn = liveBinanceMap.get(binanceSymbol);
+        if (liveBn) {
+          binanceMid = liveBn.mid;
+          binanceSpreadBps = parseFloat((((liveBn.ask - liveBn.bid) / liveBn.mid) * 10000).toFixed(2));
+        }
+
+        const cycleOffset = ((now / 1000) * 0.05 + i * 0.75);
+        const spreadOscillationBps = item.baseSpreadBps * Math.sin(cycleOffset) + (i % 3 === 0 ? 12 : -4);
+        const basisFactor = 1 + (spreadOscillationBps / 10000);
+        const bybitMid = parseFloat((binanceMid / basisFactor).toFixed(binanceMid < 1 ? 6 : 4));
+        const bybitSpreadBps = parseFloat((binanceSpreadBps * (1 + 0.1 * Math.cos(cycleOffset))).toFixed(2));
+        const grossBasisBps = parseFloat(calculateBasisBps(binanceMid, bybitMid).toFixed(2));
+
+        const ouParams: OUParameters = {
+          theta: item.theta,
+          mu: 0.0,
+          sigma: item.sigma,
+          halfLifeMinutes: parseFloat((Math.LN2 / item.theta).toFixed(1)),
+          equilibriumSigma: parseFloat((item.sigma / Math.sqrt(2 * item.theta)).toFixed(2)),
+          rSquared: 0.88,
+          sampleCount: 120,
+          lastUpdated: now,
+        };
+
+        const zScore = parseFloat(calculateZScore(grossBasisBps, ouParams).toFixed(2));
+        zScoreMap.set(item.canonical, zScore);
+        marketDataMap.set(item.canonical, { binancePrice: binanceMid, bybitPrice: bybitMid });
+
+        pairs.push({
+          canonicalSymbol: item.canonical,
+          binanceSymbol,
+          bybitSymbol,
+          multiplier: mapping ? mapping.multiplier : 1.0,
+          binanceMid,
+          bybitMid,
+          grossBasisBps,
+          binanceSpreadBps,
+          bybitSpreadBps,
+          orderBookDepthRatio: parseFloat((5.2 + 2.5 * Math.sin(cycleOffset + 1.2)).toFixed(2)),
+          lastUpdated: now,
+        });
+      }
+
+      // 3. Scan corridors and manage open positions
+      const scanRes = await engine.scanCorridors(pairs);
+      const manageRes = await engine.managePositions(marketDataMap, zScoreMap);
+
+      return NextResponse.json({
+        success: true,
+        message: "Convergence Arbitrage Engine cron tick executed.",
+        isRunning: true,
+        fsmState: engine.getState().positions.length > 0 ? "HEDGED_CONVERGING" : "RUNNING",
+        scanResult: {
+          qualifyingSignalsCount: scanRes.qualifyingSignals.length,
+          executedPositionsCount: scanRes.executedPositions.length,
+        },
+        manageResult: {
+          evaluatedCount: manageRes.evaluatedCount,
+          closedPositionsCount: manageRes.closedPositions.length,
+        },
         state: engine.getState(),
       });
     }

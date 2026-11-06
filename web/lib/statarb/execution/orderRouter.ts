@@ -323,8 +323,15 @@ export function calculatePostOnlyPrice(
     price = Math.ceil(raw / tickSize) * tickSize;
   }
 
-  // Handle floating point precision safely
-  const precision = (tickSize.toString().split('.')[1] || '').length;
+  // Handle floating point precision safely (accounting for scientific notation e.g. 1e-7)
+  let decimals = 0;
+  const tickStr = tickSize.toString();
+  if (tickStr.includes('e-')) {
+    decimals = parseInt(tickStr.split('e-')[1], 10);
+  } else if (tickStr.includes('.')) {
+    decimals = tickStr.split('.')[1].length;
+  }
+  const precision = Math.min(12, Math.max(0, decimals));
   return parseFloat(price.toFixed(precision));
 }
 
@@ -418,8 +425,13 @@ export class MakerTakerOrderRouter {
           );
 
           if (drift.isAdverse) {
-            // Abort immediately!
-            await this.adapter.cancelOrder(leg1Venue, request.leg1Symbol, leg1OrderId, clientOrderIdLeg1);
+            // Abort immediately! Check if any fill occurred right before/during cancel
+            const cancelResult = await this.adapter.cancelOrder(leg1Venue, request.leg1Symbol, leg1OrderId, clientOrderIdLeg1);
+            if (cancelResult && cancelResult.executedQty > 0) {
+              leg1ExecutedQty = cancelResult.executedQty;
+              isLeg1Done = true;
+              break; // Proceed immediately to Leg 2 hedge to preserve Zero-Orphan invariant
+            }
             return {
               success: false,
               status: 'ABORTED_ADVERSE_DRIFT',
@@ -455,7 +467,10 @@ export class MakerTakerOrderRouter {
         leg1ExecutedQty = statusCheck.executedQty;
         leg1ExecutedPrice = statusCheck.avgPrice || postOnlyPrice;
         // If partial fill occurred, cancel the resting remainder
-        await this.adapter.cancelOrder(leg1Venue, request.leg1Symbol, leg1OrderId, clientOrderIdLeg1);
+        const cancelResult = await this.adapter.cancelOrder(leg1Venue, request.leg1Symbol, leg1OrderId, clientOrderIdLeg1);
+        if (cancelResult && cancelResult.executedQty > leg1ExecutedQty) {
+          leg1ExecutedQty = cancelResult.executedQty;
+        }
         isLeg1Done = true;
         break;
       } else if (statusCheck.status === 'CANCELLED') {
@@ -468,19 +483,25 @@ export class MakerTakerOrderRouter {
 
     // 4. Handle 8-Second Timeout Clean Cancellation
     if (!isLeg1Done || leg1ExecutedQty === 0) {
-      await this.adapter.cancelOrder(leg1Venue, request.leg1Symbol, leg1OrderId, clientOrderIdLeg1);
-      return {
-        success: false,
-        status: 'ABORTED_TIMEOUT',
-        requestedQty: request.quantity,
-        executedQty: 0,
-        netDelta: 0,
-        isDeltaNeutral: true,
-        capitalLossUsdt: 0.0,
-        durationMs: Date.now() - startTime,
-        leg2LatencyMs: 0,
-        reason: `Leg 1 Maker limit unfilled after ${timeoutMs}ms timeout. Cancelled cleanly with $0.00 loss.`,
-      };
+      const cancelResult = await this.adapter.cancelOrder(leg1Venue, request.leg1Symbol, leg1OrderId, clientOrderIdLeg1);
+      if (cancelResult && cancelResult.executedQty > 0) {
+        // Leg 1 was partially filled right before/during timeout cancellation!
+        // Do NOT abort with 0 executedQty; execute Leg 2 hedge for executedQty to preserve Zero-Orphan invariant.
+        leg1ExecutedQty = cancelResult.executedQty;
+      } else {
+        return {
+          success: false,
+          status: 'ABORTED_TIMEOUT',
+          requestedQty: request.quantity,
+          executedQty: 0,
+          netDelta: 0,
+          isDeltaNeutral: true,
+          capitalLossUsdt: 0.0,
+          durationMs: Date.now() - startTime,
+          leg2LatencyMs: 0,
+          reason: `Leg 1 Maker limit unfilled after ${timeoutMs}ms timeout. Cancelled cleanly with $0.00 loss.`,
+        };
+      }
     }
 
     // 5. Leg 1 Filled -> Synchronously Trigger Leg 2 IOC Taker Hedge

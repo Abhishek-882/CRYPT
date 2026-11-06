@@ -123,16 +123,18 @@ export function evaluateEntryGates(
   }
 
   // Gate 4: Bid-Ask spread cap (Spread_BN <= maxSpread AND Spread_BYB <= maxSpread)
+  const bnSpread = pair.binanceSpreadBps ?? 0;
+  const bybSpread = pair.bybitSpreadBps ?? 0;
   const gate4Passed =
-    pair.binanceSpreadBps <= config.maxSpreadBps &&
-    pair.bybitSpreadBps <= config.maxSpreadBps;
+    bnSpread <= config.maxSpreadBps &&
+    bybSpread <= config.maxSpreadBps;
   if (gate4Passed) {
     reasons.push(
-      `Gate 4 (Spread Cap): BN=${pair.binanceSpreadBps.toFixed(2)} bps, BYB=${pair.bybitSpreadBps.toFixed(2)} bps <= ${config.maxSpreadBps} bps [PASS]`
+      `Gate 4 (Spread Cap): BN=${bnSpread.toFixed(2)} bps, BYB=${bybSpread.toFixed(2)} bps <= ${config.maxSpreadBps} bps [PASS]`
     );
   } else {
     reasons.push(
-      `Gate 4 (Spread Cap): BN=${pair.binanceSpreadBps.toFixed(2)} bps, BYB=${pair.bybitSpreadBps.toFixed(2)} bps exceeds ${config.maxSpreadBps} bps cap [FAIL]`
+      `Gate 4 (Spread Cap): BN=${bnSpread.toFixed(2)} bps, BYB=${bybSpread.toFixed(2)} bps exceeds ${config.maxSpreadBps} bps cap [FAIL]`
     );
   }
 

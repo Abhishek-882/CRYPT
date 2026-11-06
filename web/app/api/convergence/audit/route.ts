@@ -157,7 +157,7 @@ export async function GET(req: NextRequest) {
     });
 
     // Map completed fills audit records
-    const completedFillsAudit = closedPositions.map((pos, index) => {
+    const completedFillsAudit = closedPositions.map((pos: StatArbPosition, index: number) => {
       // Deterministic pseudo-latency between 24.2ms and 29.8ms representing sub-35ms WebSocket IOC
       const latencySeed = (index * 17 + pos.id.length * 3) % 56;
       const leg2IocLatencyMs = parseFloat((24.2 + latencySeed * 0.1).toFixed(1));
@@ -202,13 +202,15 @@ export async function GET(req: NextRequest) {
       };
     });
 
+    type CompletedAuditFill = (typeof completedFillsAudit)[number];
+
     // Calculate aggregate metrics
-    const totalRealizedPnlUsdt = completedFillsAudit.reduce((acc, f) => acc + f.netRealizedPnlUsdt, 0);
+    const totalRealizedPnlUsdt = completedFillsAudit.reduce((acc: number, f: CompletedAuditFill) => acc + f.netRealizedPnlUsdt, 0);
     const winRate = completedFillsAudit.length > 0
-      ? (completedFillsAudit.filter((f) => f.netRealizedPnlUsdt > 0).length / completedFillsAudit.length) * 100
+      ? (completedFillsAudit.filter((f: CompletedAuditFill) => f.netRealizedPnlUsdt > 0).length / completedFillsAudit.length) * 100
       : 100;
     const avgLatencyMs = completedFillsAudit.length > 0
-      ? completedFillsAudit.reduce((acc, f) => acc + f.leg2.iocLatencyMs, 0) / completedFillsAudit.length
+      ? completedFillsAudit.reduce((acc: number, f: CompletedAuditFill) => acc + f.leg2.iocLatencyMs, 0) / completedFillsAudit.length
       : 26.5;
 
     return NextResponse.json({

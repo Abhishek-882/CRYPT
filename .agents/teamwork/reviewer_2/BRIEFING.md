@@ -1,72 +1,78 @@
-# BRIEFING — 2026-11-05T07:23:30Z
+# BRIEFING — 2026-11-06T15:37:30Z
 
 ## Mission
-Comprehensive adversarial and quality review of the upgraded architecture and planning artifacts: `UPGRADE_TASK_PROMPT_TEMPLATES.md`, `PHASED_TEAM_EXECUTION_PLAN.md`, and `PROJECT.md`, verifying integrity, adherence to `ORIGINAL_REQUEST.md`, runnable verification scripts, dependency graphs, and safety gates.
+Conduct objective and adversarial review of STATARB-OU-PERP Next.js Cockpit page, UI components, API routes, Navbar integration, and Safety Invariants (6 & 7).
 
 ## 🔒 My Identity
 - Archetype: teamwork_reviewer
 - Roles: reviewer, critic
-- Working directory: C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\.agents\teamwork\reviewer_2\
-- Original parent: ebc83250-5b77-48fd-89ba-0c0e8d584d07
-- Milestone: Planning & Architecture Artifact Review
-- Instance: 2 of 2
+- Working directory: C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\.agents\teamwork\reviewer_2
+- Original parent: c57762ae-f90e-4917-9e74-d8c563f89ec2
+- Milestone: STATARB-OU-PERP Cockpit & Safety Invariants Review
+- Instance: 1 of 1
 
 ## 🔒 Key Constraints
-- Review-only — do NOT modify implementation code or active trading code in web/
-- Zero tolerance for integrity violations (hardcoded test facades, dummy logic, shortcuts, fabricated verifications)
-- Must read and adhere strictly to ORIGINAL_REQUEST.md
-- All files written must stay within working directory C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\.agents\teamwork\reviewer_2\
+- Review-only — do NOT modify implementation code
+- Check for integrity violations (hardcoded test results, facade implementations, shortcuts, fabricated verification)
+- Verify App Router typing and Next.js compliance
+- Validate Safety Invariants 6 and 7 in `invariantGuard.ts`
+- Execute build & vitest test suites directly and record verbatim results
 
 ## Current Parent
-- Conversation ID: ebc83250-5b77-48fd-89ba-0c0e8d584d07
-- Updated: 2026-11-05T07:23:30Z
+- Conversation ID: c57762ae-f90e-4917-9e74-d8c563f89ec2
+- Updated: not yet
 
 ## Review Scope
 - **Files to review**:
-  - `C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\.agents\teamwork\ORIGINAL_REQUEST.md` (baseline requirements)
-  - `C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\plans\UPGRADE_TASK_PROMPT_TEMPLATES.md`
-  - `C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\plans\PHASED_TEAM_EXECUTION_PLAN.md`
-  - `C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\PROJECT.md`
-- **Verification Scripts**:
-  - `scripts/generate_fleet_status_report.js`
-  - `scripts/test_leverage_and_margin_calculator.js`
-  - Vitest Unit Suites in `web/tests/unit/`
-- **Review criteria**:
-  - Technical completeness & correctness against user requirements
-  - Standalone capability of task prompt templates
-  - Phased dependency graphs, pre-flight gates, rollback procedures
-  - Active execution script integration
-  - Integrity and absence of facade/dummy shortcuts
+  - `web/app/convergence/page.tsx`
+  - `web/components/convergence/ConvergenceTelemetryHUD.tsx`
+  - `web/components/convergence/ConvergenceZScoreChart.tsx`
+  - `web/components/convergence/ConvergenceControls.tsx`
+  - `web/components/convergence/ConvergenceRadarTable.tsx`
+  - `web/components/convergence/ConvergenceExecutionAuditTable.tsx`
+  - `web/app/api/convergence/` (daemon, radar, audit)
+  - `web/components/Navbar.tsx`
+  - `web/lib/statarb/execution/invariantGuard.ts` (Invariant 6 & 7)
+- **Interface contracts**: `PROJECT.md`, `ORIGINAL_REQUEST.md`
+- **Review criteria**: correctness, style, App Router typing conformance, invariant logic, adversarial robustness
+
+## Key Decisions Made
+- Verdict: REQUEST_CHANGES
+- Flagged Critical runtime method missing in `audit/route.ts` (`store.getClosedPositions()` throws TypeError 500).
+- Flagged Major synthetic Invariant 7 bypass in `radar/route.ts` (`0.008` hardcoded touch).
+- Verified production build generates `/convergence` cleanly.
+- Verified all 121 unit tests in `web/tests/unit/statarb/` pass.
+
+## Artifact Index
+- `DISPATCH.md` — Received dispatch prompt
+- `progress.md` — Heartbeat tracker
+- `BRIEFING.md` — Situational awareness
+- `handoff.md` — Comprehensive review & adversarial report
 
 ## Review Checklist
 - **Items reviewed**:
-  - `ORIGINAL_REQUEST.md`: Read and verified all acceptance criteria.
-  - `plans/UPGRADE_TASK_PROMPT_TEMPLATES.md`: 10 modular prompt templates verified with line-number precision.
-  - `plans/PHASED_TEAM_EXECUTION_PLAN.md`: 4 sequential phases, 10 milestones, Mermaid DAG, rollback procedures verified.
-  - `PROJECT.md`: Master project index v2.0.0, architecture diagram, feature inventory, verification tests verified.
-  - Codebase integrity: Checked via PowerShell; zero `.ts`/`.js` code files modified in `web/` or `scripts/`.
-  - Platform verification scripts: `generate_fleet_status_report.js` (exit code 0), `test_leverage_and_margin_calculator.js` (5/5 passed, exit code 0).
-  - Unit test suite: 51 tests across 3 files passed (100%).
-- **Verdict**: APPROVE
-- **Unverified claims**: None; all claims verified against repository state and live executions.
+  - `web/app/convergence/page.tsx` (Reviewed - Good)
+  - `web/components/convergence/ConvergenceTelemetryHUD.tsx` (Reviewed - Good)
+  - `web/components/convergence/ConvergenceZScoreChart.tsx` (Reviewed - Good)
+  - `web/components/convergence/ConvergenceControls.tsx` (Reviewed - Good)
+  - `web/components/convergence/ConvergenceRadarTable.tsx` (Reviewed - Good)
+  - `web/components/convergence/ConvergenceExecutionAuditTable.tsx` (Reviewed - Good)
+  - `web/app/api/convergence/daemon/route.ts` (Reviewed - Good)
+  - `web/app/api/convergence/radar/route.ts` (Reviewed - Major Finding: synthetic Invariant 7 bypass)
+  - `web/app/api/convergence/audit/route.ts` (Reviewed - Critical Defect: `store.getClosedPositions()` missing method)
+  - `web/components/Navbar.tsx` (Reviewed - Good)
+  - `web/lib/statarb/execution/invariantGuard.ts` (Reviewed - Verified)
+- **Verdict**: REQUEST_CHANGES
+- **Unverified claims**: Addressed and verified against codebase and runtime AST.
 
 ## Attack Surface
 - **Hypotheses tested**:
-  - Leg 1 partial fills in maker limit execution: potential risk if $q_{\text{exec}} < \text{minNotional}_{\text{Leg2}}$.
-  - Post-only order rejection on crossed book: verified clean abort with $0.00 loss.
-  - WebSocket authentication credential injection: verified exact defect at `bybitTradeStream.ts:150`.
-  - Dynamic leverage ATR window: highlighted need for fallback when historical k-lines are unavailable.
-  - Hyperliquid private key handling: highlighted recommendation for agent wallet key delegation.
-- **Vulnerabilities found**: No blocking defects; surfaced 3 edge-case recommendations for execution agents.
-- **Untested angles**: Live exchange order execution of new features (out of scope for planning phase; deferred to execution phase).
-
-## Key Decisions Made
-- Confirmed zero code tampering across production trading code.
-- Confirmed total adherence to `ORIGINAL_REQUEST.md`.
-- Formulated explicit verdict: `APPROVE` with structured adversarial insights.
-
-## Artifact Index
-- `DISPATCH.md` — Inbound instructions log
-- `BRIEFING.md` — Persistent identity and review memory
-- `progress.md` — Real-time progress and liveness heartbeat
-- `handoff.md` — Final 5-component review deliverable
+  - Missing method invocation in App Router routes -> Confirmed (`getClosedPositions`)
+  - Type checking under strict tsc -> Confirmed 8 TS errors in `audit/route.ts`
+  - Hardcoded or facade invariant evaluations -> Confirmed in `radar/route.ts`
+  - 5-gate radar evaluation and sorting -> Verified
+  - Next.js App Router route handler exports -> Verified
+- **Vulnerabilities found**:
+  - `audit/route.ts` uncaught TypeError returning HTTP 500
+  - `radar/route.ts` Invariant 7 false negative rate (always passes)
+- **Untested angles**: Live exchange WebSocket streaming over persistent network sessions (scheduled for Milestone 5).

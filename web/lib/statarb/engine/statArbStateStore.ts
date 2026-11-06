@@ -192,6 +192,13 @@ export class StatArbStateStore {
   }
 
   /**
+   * Returns all closed positions history
+   */
+  public getClosedPositions(): StatArbPosition[] {
+    return [...this.state.closedPositions];
+  }
+
+  /**
    * Returns active position by ID
    */
   public getPositionById(id: string): StatArbPosition | undefined {

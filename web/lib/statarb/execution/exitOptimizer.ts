@@ -201,20 +201,7 @@ export function evaluateZeroLossExitGate(
     currentBybitPrice
   );
 
-  let netPnL: number;
-  if (
-    position.netPnlUsdt !== undefined &&
-    position.netPnlUsdt !== 0.030 &&
-    position.netPnlUsdt !== 0
-  ) {
-    // Scenario fixture override
-    netPnL = position.netPnlUsdt;
-    if (position.unrealizedPnlUsdt !== undefined && position.unrealizedPnlUsdt !== 0.045) {
-      grossBasisPnL = position.unrealizedPnlUsdt;
-    }
-  } else {
-    netPnL = parseFloat((grossBasisPnL + fundingEarned - totalFees).toFixed(4));
-  }
+  const netPnL = parseFloat((grossBasisPnL + fundingEarned - totalFees).toFixed(4));
 
   if (netPnL < MIN_ZERO_LOSS_PROFIT_USDT) {
     return {

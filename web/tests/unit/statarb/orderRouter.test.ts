@@ -58,6 +58,16 @@ describe('Maker-Taker Order Router Unit Tests (orderRouter.ts)', () => {
       expect(price).toBe(60000.0);
     });
 
+    it('properly formats high precision tick sizes in scientific notation (e.g. 1e-7, 1e-8)', () => {
+      // 1e-7 tick size (0.0000001) for micro-penny tokens
+      const buyPrice = calculatePostOnlyPrice('BUY', 0.000005, 0.000006, 0.0000001);
+      expect(buyPrice).toBe(0.000005);
+
+      // 1e-8 tick size (0.00000001)
+      const sellPrice = calculatePostOnlyPrice('SELL', 0.00001234, 0.00001235, 1e-8);
+      expect(sellPrice).toBe(0.00001235);
+    });
+
     it('dispatches Binance Leg 1 with GTX (Good-Till-Crossing) time-in-force', async () => {
       const request = createMockExecutionRequest({
         leg1Venue: 'BINANCE',
@@ -133,6 +143,33 @@ describe('Maker-Taker Order Router Unit Tests (orderRouter.ts)', () => {
       expect(adapter.auditLog.cancelledOrders).toHaveLength(1);
       // Verify NO taker order was ever dispatched
       expect(adapter.auditLog.placedTakerOrders).toHaveLength(0);
+    });
+
+    it('hedges Leg 2 immediately when cancellation encounters in-flight fill race condition', async () => {
+      // Simulate timeout where cancel returns executedQty > 0
+      adapter.options.leg1Behavior = 'TIMEOUT';
+      const originalCancel = adapter.cancelOrder.bind(adapter);
+      adapter.cancelOrder = async (venue, symbol, orderId, clientOrderId) => {
+        const res = await originalCancel(venue, symbol, orderId, clientOrderId);
+        return { success: true, executedQty: 0.005 }; // In-flight fill race condition
+      };
+
+      const request = createMockExecutionRequest({
+        quantity: 0.010,
+        timeoutMs: 100,
+        driftCheckIntervalMs: 50,
+      });
+
+      const result = await router.executeEntry(request);
+
+      // Verifies Zero-Orphan Invariant: Leg 1 fill was hedged on Leg 2!
+      expect(result.success).toBe(true);
+      expect(result.status).toBe('PARTIALLY_FILLED');
+      expect(result.executedQty).toBe(0.005);
+      expect(result.isDeltaNeutral).toBe(true);
+      expect(result.netDelta).toBe(0.0);
+      expect(adapter.auditLog.placedTakerOrders).toHaveLength(1);
+      expect(adapter.auditLog.placedTakerOrders[0].qty).toBe(0.005);
     });
   });
 
