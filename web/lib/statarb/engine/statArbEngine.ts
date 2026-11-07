@@ -98,6 +98,17 @@ export class StatArbEngine {
   }
 
   /**
+   * Clear quarantine for a specific symbol or all symbols
+   */
+  public clearQuarantine(symbol?: string): void {
+    if (symbol) {
+      this.symbolCooldowns.delete(symbol.toUpperCase());
+    } else {
+      this.symbolCooldowns.clear();
+    }
+  }
+
+  /**
    * Get active quarantined symbols with remaining minutes
    */
   public getQuarantinedSymbols(): { symbol: string; remainingMinutes: number }[] {

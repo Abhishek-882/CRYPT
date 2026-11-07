@@ -89,6 +89,20 @@ export function getDecryptedExchangeCredentials(userId: string = 'usr_admin_vars
     }
   }
 
+  // 3. Fallback to verified process.env if decrypted secret is still ciphertext or invalid
+  if ((!bnSec || bnSec.startsWith('enc:') || bnSec.length < 32) && process.env.BINANCE_API_SECRET) {
+    bnSec = process.env.BINANCE_API_SECRET;
+  }
+  if ((!bnKey || bnKey.length < 16) && process.env.BINANCE_API_KEY) {
+    bnKey = process.env.BINANCE_API_KEY;
+  }
+  if ((!bySec || bySec.startsWith('enc:') || bySec.length < 16) && process.env.BYBIT_API_SECRET) {
+    bySec = process.env.BYBIT_API_SECRET;
+  }
+  if ((!byKey || byKey.length < 16) && process.env.BYBIT_API_KEY) {
+    byKey = process.env.BYBIT_API_KEY;
+  }
+
   return {
     binanceKey: bnKey.trim(),
     binanceSecret: bnSec.trim(),

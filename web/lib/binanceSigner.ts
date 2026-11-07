@@ -8,12 +8,14 @@ import { getCachedBinanceOffsetMs, syncBinanceClock, isBinanceCalibrated, getLas
 
 export const BINANCE_ENDPOINTS = [
   "https://fapi.binance.com",
-  "https://www.binance.com",
-  "https://testnet.binancefuture.com",
-  "https://demo-fapi.binance.com",
+  "https://fapi1.binance.com",
+  "https://fapi2.binance.com",
+  "https://fapi3.binance.com",
 ];
 
-export const TESTNET_ENDPOINTS = BINANCE_ENDPOINTS;
+export const TESTNET_ENDPOINTS = [
+  "https://testnet.binancefuture.com",
+];
 
 let activeBaseUrl = BINANCE_ENDPOINTS[0];
 let cachedTimeOffsetMs = 0;
@@ -80,16 +82,22 @@ export async function signAndFetchBinance(
   signed = true,
   preferredBaseUrl?: string
 ): Promise<{ data: any; endpoint: string }> {
+  const isTestnetRequest =
+    (preferredBaseUrl && preferredBaseUrl.includes("testnet.binancefuture.com")) ||
+    (process.env.BINANCE_ENDPOINT && process.env.BINANCE_ENDPOINT.includes("testnet.binancefuture.com"));
+
+  const availableEndpoints = isTestnetRequest ? TESTNET_ENDPOINTS : BINANCE_ENDPOINTS;
+
   const cleanPreferred =
     preferredBaseUrl && preferredBaseUrl !== "auto" && preferredBaseUrl.startsWith("http")
       ? preferredBaseUrl
       : undefined;
 
   const urlsToTry = cleanPreferred
-    ? [cleanPreferred, ...BINANCE_ENDPOINTS.filter((u) => u !== cleanPreferred)]
+    ? [cleanPreferred, ...availableEndpoints.filter((u) => u !== cleanPreferred)]
     : [
-        activeBaseUrl,
-        ...BINANCE_ENDPOINTS.filter((u) => u !== activeBaseUrl),
+        activeBaseUrl && availableEndpoints.includes(activeBaseUrl) ? activeBaseUrl : availableEndpoints[0],
+        ...availableEndpoints.filter((u) => u !== activeBaseUrl),
       ];
 
   let lastError: Error | null = null;
@@ -147,19 +155,28 @@ export async function signAndFetchBinance(
             continue;
           }
 
-          // If geo-restricted (451/403/code 0) or -2015 (key/endpoint mismatch), try next endpoint
-          if ((data?.code === -2015 || data?.code === 0 || res.status === 451 || res.status === 403) && urlsToTry.length > 1) {
+          // Geo-restricted CDN failover (451 / 403 or code 0 connection drop)
+          if ((data?.code === 0 || res.status === 451 || res.status === 403) && urlsToTry.length > 1) {
             const errMsg = data?.msg ? `[${data.code}] ${data.msg}` : `HTTP ${res.status}`;
             lastError = new Error(errMsg);
             break;
           }
 
+          // Deterministic Exchange Business Rejection (e.g. -2010 book cross, -5022 post-only, -4016 price bounds, -1013 notional)
+          // represents a valid response from the matching engine. Fail fast without trying other endpoints!
           const errMsg = data?.msg ? `[${data.code}] ${data.msg}` : `HTTP ${res.status}`;
-          throw new Error(errMsg);
+          const exchErr = new Error(errMsg);
+          (exchErr as any).isExchangeRejection = true;
+          (exchErr as any).code = data?.code;
+          throw exchErr;
         }
 
         if (lastResData) {
-          throw new Error(lastResData.msg ? `[${lastResData.code}] ${lastResData.msg}` : "Binance request failed");
+          const errMsg = lastResData.msg ? `[${lastResData.code}] ${lastResData.msg}` : "Binance request failed";
+          const exchErr = new Error(errMsg);
+          (exchErr as any).isExchangeRejection = true;
+          (exchErr as any).code = lastResData?.code;
+          throw exchErr;
         }
       } else {
         const queryString = new URLSearchParams(
@@ -182,10 +199,14 @@ export async function signAndFetchBinance(
       }
     } catch (err: any) {
       lastError = err;
+      // If the error is a direct exchange business rejection, immediately bubble up to caller!
+      if (err?.isExchangeRejection || (err?.message && /^[-?\d+]/.test(err.message))) {
+        throw err;
+      }
     }
   }
 
-  throw lastError || new Error("Failed to communicate with Binance Testnet");
+  throw lastError || new Error("Failed to communicate with Binance Futures API");
 }
 
 /**

@@ -1,3 +1,4 @@
+import { pooledFetch } from '../../agentPoolManager';
 /**
  * STATARB-OU-PERP: Authoritative Exchange Filter Registry & Lot Size Reconciler
  * 
@@ -207,6 +208,110 @@ export function registerSymbolFilter(spec: SymbolFilterSpec): void {
  * Returns the SymbolFilterSpec for a given venue and symbol (venue-specific or canonical).
  * Falls back to institutional safety defaults ($5.00 USDT minNotional) if uncatalogued.
  */
+
+let lastSyncTimestamp = 0;
+const SYNC_INTERVAL_MS = 4 * 60 * 60 * 1000; // 4 hours
+let isSyncing = false;
+
+/**
+ * Dynamically synchronizes and populates exact exchange filter specifications
+ * (tickSize, stepSize, minQty, minNotional, priceDecimals, qtyDecimals)
+ * for all active perpetual instruments across Binance USD-M and Bybit Linear.
+ */
+export async function syncExchangeFilters(force = false): Promise<void> {
+  const now = Date.now();
+  if (!force && lastSyncTimestamp > 0 && now - lastSyncTimestamp < SYNC_INTERVAL_MS) {
+    return;
+  }
+  if (isSyncing) return;
+  isSyncing = true;
+
+  try {
+    // 1. Fetch Binance USD-M exchangeInfo
+    try {
+      const bnRes = await pooledFetch('https://fapi.binance.com/fapi/v1/exchangeInfo', { timeoutMs: 5000 });
+      if (bnRes.ok && bnRes.json?.symbols && Array.isArray(bnRes.json.symbols)) {
+        for (const s of bnRes.json.symbols) {
+          if (s.status !== 'TRADING') continue;
+          const pf = s.filters?.find((f: any) => f.filterType === 'PRICE_FILTER');
+          const ls = s.filters?.find((f: any) => f.filterType === 'LOT_SIZE');
+          const mn = s.filters?.find((f: any) => f.filterType === 'MIN_NOTIONAL');
+
+          const tickSize = pf?.tickSize ? parseFloat(pf.tickSize) : 0.0001;
+          const stepSize = ls?.stepSize ? parseFloat(ls.stepSize) : 1;
+          const minQty = ls?.minQty ? parseFloat(ls.minQty) : 1;
+          const minNotional = mn?.notional ? parseFloat(mn.notional) : 5.0;
+
+          let priceDecimals = 4;
+          const tickStr = pf?.tickSize || '0.0001';
+          if (tickStr.includes('.')) {
+            priceDecimals = tickStr.replace(/0+$/, '').split('.')[1]?.length || 4;
+          }
+
+          let qtyDecimals = 0;
+          const stepStr = ls?.stepSize || '1';
+          if (stepStr.includes('.')) {
+            qtyDecimals = stepStr.replace(/0+$/, '').split('.')[1]?.length || 0;
+          }
+
+          registerFilter({
+            symbol: s.symbol,
+            venue: 'BINANCE',
+            tickSize,
+            stepSize,
+            minQty,
+            minNotional,
+            priceDecimals: Math.max(priceDecimals, s.pricePrecision || 4),
+            qtyDecimals,
+            contractMultiplier: 1,
+          });
+        }
+      }
+    } catch (err: any) {
+      console.warn('[ExchangeFilterRegistry] Binance exchangeInfo sync non-fatal warning:', err?.message || err);
+    }
+
+    // 2. Fetch Bybit Linear instruments-info
+    try {
+      const bybRes = await pooledFetch('https://api.bybit.com/v5/market/instruments-info?category=linear&limit=1000', { timeoutMs: 5000 });
+      if (bybRes.ok && bybRes.json?.result?.list && Array.isArray(bybRes.json.result.list)) {
+        for (const item of bybRes.json.result.list) {
+          if (item.status !== 'Trading') continue;
+          const tickSize = item.priceFilter?.tickSize ? parseFloat(item.priceFilter.tickSize) : 0.0001;
+          const stepSize = item.lotSizeFilter?.qtyStep ? parseFloat(item.lotSizeFilter.qtyStep) : 1;
+          const minQty = item.lotSizeFilter?.minOrderQty ? parseFloat(item.lotSizeFilter.minOrderQty) : 1;
+          const minNotional = item.lotSizeFilter?.minNotionalValue ? parseFloat(item.lotSizeFilter.minNotionalValue) : 5.0;
+          const priceDecimals = item.priceScale ? parseInt(item.priceScale, 10) : 4;
+
+          let qtyDecimals = 0;
+          const stepStr = item.lotSizeFilter?.qtyStep || '1';
+          if (stepStr.includes('.')) {
+            qtyDecimals = stepStr.replace(/0+$/, '').split('.')[1]?.length || 0;
+          }
+
+          registerFilter({
+            symbol: item.symbol,
+            venue: 'BYBIT',
+            tickSize,
+            stepSize,
+            minQty,
+            minNotional,
+            priceDecimals,
+            qtyDecimals,
+            contractMultiplier: 1,
+          });
+        }
+      }
+    } catch (err: any) {
+      console.warn('[ExchangeFilterRegistry] Bybit instruments-info sync non-fatal warning:', err?.message || err);
+    }
+
+    lastSyncTimestamp = Date.now();
+  } finally {
+    isSyncing = false;
+  }
+}
+
 export function getSymbolFilter(
   venue: 'BINANCE' | 'BYBIT',
   symbol: string

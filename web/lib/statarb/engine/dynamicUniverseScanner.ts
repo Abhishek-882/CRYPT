@@ -1,3 +1,4 @@
+import { syncExchangeFilters } from '../utils/exchangeFilterRegistry';
 /**
  * STATARB-OU-PERP: Dynamic Universe Scanner & 3-Tier Corridor Discovery Engine
  * 
@@ -138,6 +139,7 @@ export class DynamicUniverseScanner {
     }
 
     this.isScanning = true;
+      syncExchangeFilters().catch(() => {});
     const now = Date.now();
 
     try {
@@ -331,12 +333,14 @@ export class DynamicUniverseScanner {
         });
 
         // Institutional Pre-Filter Verification
+        // Institutional Pre-Filter Verification
         const passesLiquidity = turnoverVol >= this.config.min24hVolumeUsdt;
         const passesSpread =
           bnSpreadBps <= this.config.maxSpreadPct * 100.0 &&
           bybSpreadBps <= this.config.maxSpreadPct * 100.0;
+        const isLiveMutual = !!(bnData && bybData);
 
-        if (passesLiquidity && passesSpread && bnData && bybData) {
+        if (passesLiquidity && passesSpread && isLiveMutual) {
           liquidPassingPairsCount++;
         }
 
@@ -346,7 +350,7 @@ export class DynamicUniverseScanner {
 
         // Active Position Lock: open positions ALWAYS pass gating
         const isActivePosition = openPositionSymbols.has(canonical);
-        const passesGating = isActivePosition || (passesLiquidity && passesSpread);
+        const passesGating = isActivePosition || (isLiveMutual && passesLiquidity && passesSpread);
 
         // Alpha Conviction Score
         const basisRatio = absBasisPct / this.config.minGrossBasisPct;

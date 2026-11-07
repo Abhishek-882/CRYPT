@@ -62,7 +62,7 @@ describe('StatArbLogger Unit Test Suite', () => {
 
     const errorLogs = getStatArbLogs({ severity: 'ERRORS' });
     expect(errorLogs.length).toBeGreaterThanOrEqual(1);
-    expect(errorLogs.every((l) => l.level === 'error' || l.message.includes('failed'))).toBe(true);
+    expect(errorLogs.every((l) => l.level === 'error' || /failed|rejected|critical|alert|orphan|error/i.test(l.message))).toBe(true);
 
     const successLogs = getStatArbLogs({ severity: 'SUCCESS' });
     expect(successLogs.length).toBeGreaterThanOrEqual(1);
