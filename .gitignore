@@ -18,6 +18,7 @@ cloudflared.exe
 # Chrome profiles & Automation caches
 chrome_automation_profile/
 chrome_temp_profile/
+chrome_hourly_profile/
 screenshots/
 
 # Secrets & Environment Variables (Security Invariant)

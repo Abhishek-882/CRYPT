@@ -120,6 +120,11 @@ export function appendStatArbLog(
     }
   }
 
+  // Do not write mock incidents or mock logs to disk during Jest unit tests
+  if (process.env.NODE_ENV === "test" || process.env.JEST_WORKER_ID !== undefined) {
+    return logToPersist;
+  }
+
   // Permanent JSONL Trade Audit Stream
   const isPermanentEvent =
     level === "success" ||
