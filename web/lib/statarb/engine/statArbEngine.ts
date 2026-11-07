@@ -449,6 +449,16 @@ export class StatArbEngine {
             }
 
             if (execResult.success && execResult.executedQty > 0) {
+              const leg1OrderId = execResult.leg1OrderId || execResult.leg1?.orderId;
+              const leg2OrderId = execResult.leg2OrderId || execResult.leg2?.orderId;
+              const leg1ClientOrderId = execResult.leg1ClientOrderId || execResult.leg1?.clientOrderId;
+              const leg2ClientOrderId = execResult.leg2ClientOrderId || execResult.leg2?.clientOrderId;
+              const executionHash =
+                execResult.executionHash ||
+                (leg1OrderId && leg2OrderId
+                  ? `0x${Buffer.from(`${leg1OrderId}:${leg2OrderId}:${timestamp}`).toString('hex').slice(0, 32)}`
+                  : undefined);
+
               const newPosition: StatArbPosition = {
                 id: `pos_${pair.canonicalSymbol}_${timestamp}`,
                 canonicalSymbol: pair.canonicalSymbol,
@@ -472,6 +482,11 @@ export class StatArbEngine {
                 netPnlUsdt: 0.0,
                 holdDurationMinutes: 0.0,
                 divergenceHistory30m: [...divergenceHistory],
+                leg1OrderId,
+                leg2OrderId,
+                leg1ClientOrderId,
+                leg2ClientOrderId,
+                executionHash,
               };
 
               this.store.addPosition(newPosition);

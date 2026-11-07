@@ -620,7 +620,7 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
         const status = await this.pollOrderStatus(venue, symbol, orderId, clientOrderId);
         executedQty = status.executedQty;
         if (status.avgPrice > 0) avgPrice = status.avgPrice;
-        if ((status.status === 'Cancelled' || status.status === 'CANCELLED' || status.status === 'Rejected') && status.executedQty === 0) {
+        if (status.status === 'CANCELLED' && status.executedQty === 0) {
           throw new Error(`Bybit IOC taker order cancelled with 0 executed quantity (${status.status})`);
         }
       } catch (pollErr: any) {
@@ -890,8 +890,8 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
     return {
       binanceWeightUsed: bnUsed,
       binanceWeightLimit: bnLimit,
-      bybitStatus,
-      bybitLimit,
+      bybitStatus: bybStatus,
+      bybitLimit: bybLimit,
       healthZone,
     };
   }

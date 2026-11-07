@@ -59,6 +59,11 @@ export async function GET(req: NextRequest) {
           ? `HURDLE MET (+${(pos.unrealizedPnlUsdt || 0).toFixed(4)} USDT)`
           : `ACCUMULATING (+${(pos.unrealizedPnlUsdt || 0).toFixed(4)} USDT)`,
         persistenceBreakerMinutesRemaining: Math.max(0, 30.0 - holdMinutes),
+        leg1OrderId: pos.leg1OrderId || null,
+        leg2OrderId: pos.leg2OrderId || null,
+        leg1ClientOrderId: pos.leg1ClientOrderId || null,
+        leg2ClientOrderId: pos.leg2ClientOrderId || null,
+        executionHash: pos.executionHash || null,
       };
     });
 
@@ -88,6 +93,8 @@ export async function GET(req: NextRequest) {
           side: leg1Side,
           symbol: pos.binanceSymbol,
           fillPrice: pos.entryBinancePrice,
+          orderId: pos.leg1OrderId || null,
+          clientOrderId: pos.leg1ClientOrderId || null,
           feeBps: 2.0, // Maker fee: 0.020%
           feePct: 0.020,
         },
@@ -97,10 +104,17 @@ export async function GET(req: NextRequest) {
           side: leg2Side,
           symbol: pos.bybitSymbol,
           fillPrice: pos.entryBybitPrice,
+          orderId: pos.leg2OrderId || null,
+          clientOrderId: pos.leg2ClientOrderId || null,
           iocLatencyMs: leg2IocLatencyMs,
           feeBps: 5.5, // Taker fee: 0.055%
           feePct: 0.055,
         },
+        leg1OrderId: pos.leg1OrderId || null,
+        leg2OrderId: pos.leg2OrderId || null,
+        leg1ClientOrderId: pos.leg1ClientOrderId || null,
+        leg2ClientOrderId: pos.leg2ClientOrderId || null,
+        executionHash: pos.executionHash || null,
         notionalUsdt: pos.notionalUsdt,
         totalFeesUsdt: pos.totalFeesUsdt ?? 0.0,
         netRealizedPnlUsdt: pos.realizedPnlUsdt || 0.0,
@@ -129,7 +143,7 @@ export async function GET(req: NextRequest) {
       bybitAvailableQuota: 9,
       bybitTotalQuota: 10,
       healthZone: "GREEN" as const,
-      decommissionedRoutes: ["/terminal", "/basis-bot", "/history"],
+      decommissionedRoutes: ["/terminal", "/history"],
       isolationStatus: "100% Dedicated to STATARB-OU-PERP",
     };
 

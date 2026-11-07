@@ -89,6 +89,11 @@ export interface ExecutionResult {
   status: ExecutionStatus;
   leg1?: LegExecutionDetail;
   leg2?: LegExecutionDetail;
+  leg1OrderId?: string;
+  leg2OrderId?: string;
+  leg1ClientOrderId?: string;
+  leg2ClientOrderId?: string;
+  executionHash?: string;
   requestedQty: number;
   executedQty: number;
   netDelta: number;
@@ -746,11 +751,18 @@ export class MakerTakerOrderRouter {
       request.pair.canonicalSymbol
     );
 
+    const executionHash = `0x${Buffer.from(`${leg1OrderId}:${leg2Result.orderId}:${startTime}`).toString('hex').slice(0, 32)}`;
+
     return {
       success: true,
       status: leg1ExecutedQty === request.quantity ? 'FILLED' : 'PARTIALLY_FILLED',
       leg1: leg1Detail,
       leg2: leg2Detail,
+      leg1OrderId,
+      leg2OrderId: leg2Result.orderId,
+      leg1ClientOrderId: clientOrderIdLeg1,
+      leg2ClientOrderId: clientOrderIdLeg2,
+      executionHash,
       requestedQty: request.quantity,
       executedQty: leg1ExecutedQty,
       netDelta: orphanCheck.deltaNet,

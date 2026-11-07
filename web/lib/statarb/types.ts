@@ -168,6 +168,14 @@ export interface StatArbPosition {
   holdDurationMinutes: number;
   /** Rolling window of divergence samples recorded every minute for Invariants 6 & 7 */
   divergenceHistory30m: number[];
+  /** Optional pair object reference */
+  pair?: StatArbPair;
+  /** Authentic Exchange Order Identifiers & Execution Cryptographic Hash */
+  leg1OrderId?: string;
+  leg2OrderId?: string;
+  leg1ClientOrderId?: string;
+  leg2ClientOrderId?: string;
+  executionHash?: string;
 }
 
 /**

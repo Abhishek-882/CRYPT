@@ -61,6 +61,27 @@ describe('Empirical Adversarial Challenge Suite #2: STATARB-OU-PERP Live Transit
   describe('Focus 1: Invariant 4, 6, 7 & Zero-Loss Exit Hurdle', () => {
     const mockPosition: StatArbPosition = {
       id: 'pos_stress_001',
+      canonicalSymbol: 'ETH',
+      binanceSymbol: 'ETHUSDT',
+      bybitSymbol: 'ETHUSDT',
+      direction: 'SHORT_BINANCE_LONG_BYBIT',
+      entryTimestamp: Date.now() - 35 * 60 * 1000, // 35 minutes ago
+      entryBinancePrice: 2500.0,
+      entryBybitPrice: 2492.5,
+      entryBasisBps: 30.0, // 0.30%
+      quantity: 0.1,
+      notionalUsdt: 250.0,
+      status: 'OPEN',
+      currentBasisBps: 35.0, // 0.35% (diverging!)
+      currentBinancePrice: 2500.0,
+      currentBybitPrice: 2492.5,
+      currentZScore: 2.5,
+      realizedPnlUsdt: 0,
+      unrealizedPnlUsdt: -2.5,
+      totalFeesUsdt: 0,
+      netPnlUsdt: -2.5,
+      holdDurationMinutes: 35,
+      divergenceHistory30m: [1.2, 1.3, 1.4, 1.25, 1.35, 1.5, 1.45, 1.3], // All >= 1.0%
       pair: {
         canonicalSymbol: 'ETH',
         binanceSymbol: 'ETHUSDT',
@@ -73,25 +94,6 @@ describe('Empirical Adversarial Challenge Suite #2: STATARB-OU-PERP Live Transit
         bybitSpreadBps: 3.0, // 0.03%
         orderBookDepthRatio: 4.5,
         lastUpdated: Date.now(),
-      },
-      direction: 'SHORT_BINANCE_LONG_BYBIT',
-      entryTimestamp: Date.now() - 35 * 60 * 1000, // 35 minutes ago
-      entryBinancePrice: 2500.0,
-      entryBybitPrice: 2492.5,
-      entryBasisBps: 30.0, // 0.30%
-      quantity: 0.1,
-      notionalUsdt: 250.0,
-      status: 'OPEN',
-      currentBasisBps: 35.0, // 0.35% (diverging!)
-      unrealizedPnlUsdt: -2.5,
-      holdDurationMinutes: 35,
-      divergenceHistory30m: [1.2, 1.3, 1.4, 1.25, 1.35, 1.5, 1.45, 1.3], // All >= 1.0%
-      telemetry: {
-        leg1LatencyMs: 12,
-        leg2LatencyMs: 24,
-        slippageBps: 0.5,
-        roundtripCostBps: 15.0, // 0.15%
-        exitAttempts: 0,
       },
     };
 
@@ -349,8 +351,8 @@ describe('Empirical Adversarial Challenge Suite #2: STATARB-OU-PERP Live Transit
       expect(satsResult.isDeltaNeutral).toBe(true);
       expect(satsResult.netDelta).toBeLessThan(0.001);
       expect(satsResult.netDelta).toBe(0);
-      expect(satsResult.leg1.executedQty).toBe(10000);
-      expect(satsResult.leg2.executedQty).toBe(1000); // Normalized 10x ratio!
+      expect(satsResult.leg1!.executedQty).toBe(10000);
+      expect(satsResult.leg2!.executedQty).toBe(1000); // Normalized 10x ratio!
 
       // Test TURBO routing: 50,000 Binance contracts -> should hedge 50 Bybit contracts
       const turboPair: StatArbPair = {
@@ -369,7 +371,7 @@ describe('Empirical Adversarial Challenge Suite #2: STATARB-OU-PERP Live Transit
 
       const turboRequest: ExecutionRequest = {
         pair: turboPair,
-        direction: 'LONG_BINANCE_SHORT_BYBIT',
+        direction: 'SHORT_BYBIT_LONG_BINANCE',
         notionalUsdt: 250.0,
         quantity: 50000,
         leg1Venue: 'BINANCE',
@@ -391,8 +393,8 @@ describe('Empirical Adversarial Challenge Suite #2: STATARB-OU-PERP Live Transit
       expect(turboResult.isDeltaNeutral).toBe(true);
       expect(turboResult.netDelta).toBeLessThan(0.001);
       expect(turboResult.netDelta).toBe(0);
-      expect(turboResult.leg1.executedQty).toBe(50000);
-      expect(turboResult.leg2.executedQty).toBe(50); // Normalized 1000x ratio!
+      expect(turboResult.leg1!.executedQty).toBe(50000);
+      expect(turboResult.leg2!.executedQty).toBe(50); // Normalized 1000x ratio!
     });
 
     it('empirically handles partial fill on SATS and verifies delta-neutral sizing', async () => {
@@ -439,8 +441,8 @@ describe('Empirical Adversarial Challenge Suite #2: STATARB-OU-PERP Live Transit
       const result = await router.executeEntry(partialRequest);
       expect(result.success).toBe(true);
       expect(result.status).toBe('PARTIALLY_FILLED');
-      expect(result.leg1.executedQty).toBe(4000);
-      expect(result.leg2.executedQty).toBe(400); // 4000 * (1000 / 10000) = 400
+      expect(result.leg1!.executedQty).toBe(4000);
+      expect(result.leg2!.executedQty).toBe(400); // 4000 * (1000 / 10000) = 400
       expect(result.isDeltaNeutral).toBe(true);
       expect(result.netDelta).toBeLessThan(0.001);
       expect(result.netDelta).toBe(0);

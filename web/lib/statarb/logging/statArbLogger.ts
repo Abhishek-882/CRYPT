@@ -32,6 +32,7 @@ const FIVE_MINUTES_MS = 5 * 60 * 1000;
 
 // In-memory ring buffer (last 1,000 logs)
 let memoryLogs: StatArbLog[] = [];
+let memoryIncidents: ActiveIncident[] = [];
 
 /**
  * Normalizes log message for deduplication (strips trailing counts and transient numbers)
@@ -120,6 +121,40 @@ export function appendStatArbLog(
     }
   }
 
+  // Autonomous Error Incident Registration & Wakeup Alert
+  if (level === "error") {
+    try {
+      const incident: ActiveIncident = {
+        id: `inc_${now}_${Math.random().toString(36).substring(2, 7)}`,
+        timestamp: isoTime,
+        errorType: extractErrorType(cleanMessage),
+        symbol,
+        details: cleanMessage,
+        urgency: "CRITICAL",
+        resolved: false,
+      };
+
+      memoryIncidents.unshift(incident);
+      if (memoryIncidents.length > 100) memoryIncidents = memoryIncidents.slice(0, 100);
+
+      // Guard disk write during unit tests
+      if (process.env.NODE_ENV !== "test" && process.env.JEST_WORKER_ID === undefined) {
+        let incidents = readDataFile<ActiveIncident[]>(INCIDENTS_FILE, []);
+        if (!Array.isArray(incidents)) incidents = [];
+        incidents.unshift(incident);
+        if (incidents.length > 100) incidents = incidents.slice(0, 100);
+        saveDataFile(INCIDENTS_FILE, incidents);
+
+        // Surface high-priority wakeup alert to system console
+        console.error(
+          `\n🚨 [CRITICAL ALERT: CONVERGENCE ERROR DETECTED] Wakeup Triggered: ${incident.errorType} on ${symbol || "SYSTEM"} - ${cleanMessage}\n`
+        );
+      }
+    } catch (incErr: any) {
+      console.warn(`[STATARB-LOG] Could not register incident:`, incErr.message);
+    }
+  }
+
   // Do not write mock incidents or mock logs to disk during Jest unit tests
   if (process.env.NODE_ENV === "test" || process.env.JEST_WORKER_ID !== undefined) {
     return logToPersist;
@@ -182,34 +217,6 @@ export function appendStatArbLog(
     console.warn(`[STATARB-LOG] Auto-save error:`, err.message);
   }
 
-  // Autonomous Error Incident Registration & Wakeup Alert
-  if (level === "error") {
-    try {
-      const incident: ActiveIncident = {
-        id: `inc_${now}_${Math.random().toString(36).substring(2, 7)}`,
-        timestamp: isoTime,
-        errorType: extractErrorType(cleanMessage),
-        symbol,
-        details: cleanMessage,
-        urgency: "CRITICAL",
-        resolved: false,
-      };
-
-      let incidents = readDataFile<ActiveIncident[]>(INCIDENTS_FILE, []);
-      if (!Array.isArray(incidents)) incidents = [];
-      incidents.unshift(incident);
-      if (incidents.length > 100) incidents = incidents.slice(0, 100);
-      saveDataFile(INCIDENTS_FILE, incidents);
-
-      // Surface high-priority wakeup alert to system console
-      console.error(
-        `\n🚨 [CRITICAL ALERT: CONVERGENCE ERROR DETECTED] Wakeup Triggered: ${incident.errorType} on ${symbol || "SYSTEM"} - ${cleanMessage}\n`
-      );
-    } catch (incErr: any) {
-      console.warn(`[STATARB-LOG] Could not register incident:`, incErr.message);
-    }
-  }
-
   return logToPersist;
 }
 
@@ -268,15 +275,24 @@ export function getStatArbLogs(filter?: {
  */
 export function clearStatArbLogs(): void {
   memoryLogs = [];
-  saveDataFile(AUDIT_LOG_FILE, []);
+  memoryIncidents = [];
+  if (process.env.NODE_ENV !== "test" && process.env.JEST_WORKER_ID === undefined) {
+    saveDataFile(AUDIT_LOG_FILE, []);
+    saveDataFile(INCIDENTS_FILE, []);
+  }
 }
 
 /**
  * Get active unresolved incidents
  */
 export function getActiveIncidents(onlyUnresolved = true): ActiveIncident[] {
-  const incidents = readDataFile<ActiveIncident[]>(INCIDENTS_FILE, []);
-  if (!Array.isArray(incidents)) return [];
+  let incidents = memoryIncidents;
+  if (incidents.length === 0) {
+    const diskIncidents = readDataFile<ActiveIncident[]>(INCIDENTS_FILE, []);
+    if (Array.isArray(diskIncidents)) {
+      incidents = diskIncidents;
+    }
+  }
   if (onlyUnresolved) {
     return incidents.filter((i) => !i.resolved);
   }
@@ -288,19 +304,32 @@ export function getActiveIncidents(onlyUnresolved = true): ActiveIncident[] {
  */
 export function resolveIncident(incidentId: string, remediationAction: string): boolean {
   try {
-    let incidents = readDataFile<ActiveIncident[]>(INCIDENTS_FILE, []);
-    if (!Array.isArray(incidents)) return false;
+    let incident = memoryIncidents.find((i) => i.id === incidentId);
+    let diskIncidents: ActiveIncident[] = [];
+    try {
+      diskIncidents = readDataFile<ActiveIncident[]>(INCIDENTS_FILE, []);
+    } catch {}
+    const diskMatch = Array.isArray(diskIncidents) ? diskIncidents.find((i) => i.id === incidentId) : undefined;
+    const target = incident || diskMatch;
 
-    const incident = incidents.find((i) => i.id === incidentId);
-    if (incident) {
-      incident.resolved = true;
-      incident.resolvedAt = new Date().toISOString();
-      incident.remediationAction = remediationAction;
-      saveDataFile(INCIDENTS_FILE, incidents);
+    if (target) {
+      target.resolved = true;
+      target.resolvedAt = new Date().toISOString();
+      target.remediationAction = remediationAction;
+
+      if (diskMatch && diskMatch !== target) {
+        diskMatch.resolved = true;
+        diskMatch.resolvedAt = target.resolvedAt;
+        diskMatch.remediationAction = remediationAction;
+      }
+
+      if (process.env.NODE_ENV !== "test" && process.env.JEST_WORKER_ID === undefined) {
+        saveDataFile(INCIDENTS_FILE, diskIncidents);
+      }
       appendStatArbLog(
         `[SUCCESS] [AUTO-REMEDIATION COMPLETE] Incident ${incidentId} resolved: ${remediationAction}`,
         "success",
-        incident.symbol
+        target.symbol
       );
       return true;
     }

@@ -1,5 +1,97 @@
 [
   {
+    "id": "inc_1794014776651_4a8oh",
+    "timestamp": "2026-11-07T01:26:16.651Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014776632_5u3pc",
+    "timestamp": "2026-11-07T01:26:16.632Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:26:16.638Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794014775952_dl3xp",
+    "timestamp": "2026-11-07T01:26:15.952Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014775190_9epha",
+    "timestamp": "2026-11-07T01:26:15.190Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014775029_ipc8i",
+    "timestamp": "2026-11-07T01:26:15.029Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014767202_xpcc3",
+    "timestamp": "2026-11-07T01:26:07.202Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766985_bn3zn",
+    "timestamp": "2026-11-07T01:26:06.985Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766713_vu40r",
+    "timestamp": "2026-11-07T01:26:06.713Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766559_vqunk",
+    "timestamp": "2026-11-07T01:26:06.559Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766545_jwcky",
+    "timestamp": "2026-11-07T01:26:06.545Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:26:06.551Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
     "id": "inc_1794014604395_wux5a",
     "timestamp": "2026-11-07T01:23:24.395Z",
     "errorType": "EXECUTION_ERROR",

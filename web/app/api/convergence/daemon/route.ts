@@ -272,15 +272,23 @@ export async function POST(req: NextRequest) {
         engine.setAdapter(new SimulatedExecutionAdapter());
       }
 
-      // 1. Fetch live quotes from Binance
+      // 1. Fetch live quotes from Binance and Bybit in parallel
       const liveBinanceMap = new Map<string, { bid: number; ask: number; mid: number }>();
+      const liveBybitMap = new Map<string, { bid: number; ask: number; mid: number }>();
       try {
-        const res = await fetch("https://fapi.binance.com/fapi/v1/ticker/bookTicker", {
-          cache: "no-store",
-          signal: AbortSignal.timeout(2500),
-        });
-        if (res.ok) {
-          const data = await res.json();
+        const [bnRes, bybRes] = await Promise.all([
+          fetch("https://fapi.binance.com/fapi/v1/ticker/bookTicker", {
+            cache: "no-store",
+            signal: AbortSignal.timeout(2500),
+          }).catch(() => null),
+          fetch("https://api.bybit.com/v5/market/tickers?category=linear", {
+            cache: "no-store",
+            signal: AbortSignal.timeout(2500),
+          }).catch(() => null),
+        ]);
+
+        if (bnRes && bnRes.ok) {
+          const data = await bnRes.json();
           if (Array.isArray(data)) {
             for (const item of data) {
               const bid = parseFloat(item.bidPrice);
@@ -288,6 +296,18 @@ export async function POST(req: NextRequest) {
               if (bid > 0 && ask > 0) {
                 liveBinanceMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
               }
+            }
+          }
+        }
+
+        if (bybRes && bybRes.ok) {
+          const data = await bybRes.json();
+          const list = Array.isArray(data?.result?.list) ? data.result.list : [];
+          for (const item of list) {
+            const bid = parseFloat(item.bid1Price || "0");
+            const ask = parseFloat(item.ask1Price || "0");
+            if (bid > 0 && ask > 0) {
+              liveBybitMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
             }
           }
         }
@@ -316,11 +336,19 @@ export async function POST(req: NextRequest) {
           binanceSpreadBps = parseFloat((((liveBn.ask - liveBn.bid) / liveBn.mid) * 10000).toFixed(2));
         }
 
-        const cycleOffset = ((now / 1000) * 0.05 + i * 0.75);
-        const spreadOscillationBps = item.baseSpreadBps * Math.sin(cycleOffset) + (i % 3 === 0 ? 12 : -4);
-        const basisFactor = 1 + (spreadOscillationBps / 10000);
-        const bybitMid = parseFloat((binanceMid / basisFactor).toFixed(binanceMid < 1 ? 6 : 4));
-        const bybitSpreadBps = parseFloat((binanceSpreadBps * (1 + 0.1 * Math.cos(cycleOffset))).toFixed(2));
+        // Wire authentic Bybit live telemetry directly from liveBybitMap
+        let bybitMid = item.basePrice;
+        let bybitSpreadBps = 3.5;
+
+        const liveByb = liveBybitMap.get(bybitSymbol);
+        if (liveByb) {
+          bybitMid = liveByb.mid;
+          bybitSpreadBps = parseFloat((((liveByb.ask - liveByb.bid) / liveByb.mid) * 10000).toFixed(2));
+        } else if (liveBn) {
+          bybitMid = liveBn.mid;
+          bybitSpreadBps = binanceSpreadBps;
+        }
+
         const grossBasisBps = parseFloat(calculateBasisBps(binanceMid, bybitMid).toFixed(2));
 
         const ouParams: OUParameters = {
@@ -348,7 +376,7 @@ export async function POST(req: NextRequest) {
           grossBasisBps,
           binanceSpreadBps,
           bybitSpreadBps,
-          orderBookDepthRatio: parseFloat((5.2 + 2.5 * Math.sin(cycleOffset + 1.2)).toFixed(2)),
+          orderBookDepthRatio: 5.2,
           lastUpdated: now,
         });
       }

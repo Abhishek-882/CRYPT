@@ -129,10 +129,6 @@ export async function GET(req: NextRequest) {
       const bybitSymbol = mapping ? mapping.bybitSymbol : `${item.canonical}USDT`;
       const multiplier = mapping ? mapping.multiplier : 1.0;
 
-      // Deterministic pseudo-dynamic oscillation for high-fidelity live telemetry
-      const cycleOffset = ((now / 1000) * 0.05 + i * 0.75);
-      const spreadOscillationBps = item.baseSpreadBps * Math.sin(cycleOffset) + (i % 3 === 0 ? 12 : -4);
-
       let binanceMid = item.basePrice;
       let binanceSpreadBps = 3.5;
 
@@ -142,10 +138,18 @@ export async function GET(req: NextRequest) {
         binanceSpreadBps = parseFloat((((liveBn.ask - liveBn.bid) / liveBn.mid) * 10000).toFixed(2));
       }
 
-      // Compute Bybit mid corresponding to gross basis spread
-      const basisFactor = 1 + (spreadOscillationBps / 10000);
-      const bybitMid = parseFloat((binanceMid / basisFactor).toFixed(binanceMid < 1 ? 6 : 4));
-      const bybitSpreadBps = parseFloat((binanceSpreadBps * (1 + 0.1 * Math.cos(cycleOffset))).toFixed(2));
+      // Wire authentic Bybit live telemetry directly from liveBybitMap
+      let bybitMid = item.basePrice;
+      let bybitSpreadBps = 3.5;
+
+      const liveByb = liveBybitMap.get(bybitSymbol);
+      if (liveByb) {
+        bybitMid = liveByb.mid;
+        bybitSpreadBps = parseFloat((((liveByb.ask - liveByb.bid) / liveByb.mid) * 10000).toFixed(2));
+      } else if (liveBn) {
+        bybitMid = liveBn.mid;
+        bybitSpreadBps = binanceSpreadBps;
+      }
 
       const grossBasisBps = parseFloat(calculateBasisBps(binanceMid, bybitMid).toFixed(2));
 
@@ -167,7 +171,7 @@ export async function GET(req: NextRequest) {
       };
 
       const zScore = parseFloat(calculateZScore(grossBasisBps, ouParams).toFixed(2));
-      const depthRatio = parseFloat((5.2 + 2.5 * Math.sin(cycleOffset + 1.2)).toFixed(2));
+      const depthRatio = 5.2;
 
       // Construct StatArbPair
       const pair: StatArbPair = {
@@ -195,7 +199,7 @@ export async function GET(req: NextRequest) {
       if (!history30m || history30m.length === 0) {
         history30m = [
           parseFloat((Math.abs(item.baseSpreadBps) / 100).toFixed(4)),
-          parseFloat((Math.abs(spreadOscillationBps) / 100).toFixed(4)),
+          currentDivPct,
           currentDivPct,
         ];
       } else {
