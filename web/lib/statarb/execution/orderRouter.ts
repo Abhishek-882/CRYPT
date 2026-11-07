@@ -386,10 +386,10 @@ export function calculatePostOnlyPrice(
   let price: number;
   if (side === 'BUY') {
     const raw = Math.min(bestBid, bestAsk - tickSize);
-    price = Math.floor(raw / tickSize) * tickSize;
+    price = Math.floor(raw / tickSize + 1e-9) * tickSize;
   } else {
     const raw = Math.max(bestAsk, bestBid + tickSize);
-    price = Math.ceil(raw / tickSize) * tickSize;
+    price = Math.ceil(raw / tickSize - 1e-9) * tickSize;
   }
 
   // Handle floating point precision safely (accounting for scientific notation e.g. 1e-7)
@@ -398,7 +398,7 @@ export function calculatePostOnlyPrice(
   if (tickStr.includes('e-')) {
     decimals = parseInt(tickStr.split('e-')[1], 10);
   } else if (tickStr.includes('.')) {
-    decimals = tickStr.split('.')[1].length;
+    decimals = tickStr.replace(/0+$/, '').split('.')[1]?.length || 0;
   }
   const precision = Math.min(12, Math.max(0, decimals));
   return parseFloat(price.toFixed(precision));
@@ -430,16 +430,36 @@ export class MakerTakerOrderRouter {
     const timeoutMs = request.timeoutMs ?? 8000;
     const maxDriftBps = request.maxAdverseDriftBps ?? 8.0;
     const driftCheckIntervalMs = request.driftCheckIntervalMs ?? 120;
-    const tickSize = request.tickSize ?? 0.0001;
 
     const leg1Venue = request.leg1Venue ?? 'BINANCE';
     const leg2Venue = request.leg2Venue ?? 'BYBIT';
 
+    // Retrieve authoritative exchange filter for exact tick size and precision
+    const leg1Filter = getSymbolFilter(leg1Venue, request.leg1Symbol);
+    const tickSize = request.tickSize && request.tickSize > 0
+      ? request.tickSize
+      : (leg1Filter?.tickSize && leg1Filter.tickSize > 0 ? leg1Filter.tickSize : 0.0001);
+
+    // Refresh live top-of-book quotes for Leg 1 when running live
+    let bestBid = request.leg1BestBid;
+    let bestAsk = request.leg1BestAsk;
+    if (!request.isDryRun && typeof (this.adapter as any).getLiveTopBook === 'function') {
+      try {
+        const fresh = await (this.adapter as any).getLiveTopBook(leg1Venue, request.leg1Symbol);
+        if (fresh && fresh.bid > 0 && fresh.ask > 0) {
+          bestBid = fresh.bid;
+          bestAsk = fresh.ask;
+        }
+      } catch {
+        // Non-fatal quote refresh error; fall back to incoming request quotes
+      }
+    }
+
     // 1. Calculate top-of-book Post-Only price for Leg 1
     const postOnlyPrice = calculatePostOnlyPrice(
       request.leg1Side,
-      request.leg1BestBid,
-      request.leg1BestAsk,
+      bestBid,
+      bestAsk,
       tickSize
     );
 

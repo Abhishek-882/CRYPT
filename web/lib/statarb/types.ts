@@ -80,6 +80,14 @@ export interface StatArbPair {
   binanceMid: number;
   /** Live midpoint price on Bybit Linear */
   bybitMid: number;
+  /** Top-of-book best bid on Binance USD-M */
+  binanceBid?: number;
+  /** Top-of-book best ask on Binance USD-M */
+  binanceAsk?: number;
+  /** Top-of-book best bid on Bybit Linear */
+  bybitBid?: number;
+  /** Top-of-book best ask on Bybit Linear */
+  bybitAsk?: number;
   /** Instantaneous cross-exchange gross basis in basis points: ((P_bn - P_byb) / P_byb) * 10000 */
   grossBasisBps: number;
   /** Available L2 liquidity ratio within 10 bps relative to target notional */

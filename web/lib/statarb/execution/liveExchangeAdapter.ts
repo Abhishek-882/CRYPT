@@ -167,6 +167,50 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
   }
 
   /**
+   * Retrieves fresh, live top-of-book quotes directly from the exchange matching engine
+   */
+  public async getLiveTopBook(
+    venue: ExchangeVenue,
+    symbol: string
+  ): Promise<{ bid: number; ask: number; mid: number } | null> {
+    try {
+      if (venue === 'BINANCE') {
+        const res = await fetch(`https://fapi.binance.com/fapi/v1/ticker/bookTicker?symbol=${symbol.toUpperCase()}`, {
+          cache: 'no-store',
+          signal: AbortSignal.timeout(1500),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const bid = parseFloat(data.bidPrice);
+          const ask = parseFloat(data.askPrice);
+          if (Number.isFinite(bid) && Number.isFinite(ask) && bid > 0 && ask > 0) {
+            return { bid, ask, mid: (bid + ask) / 2 };
+          }
+        }
+      } else {
+        const res = await fetch(`https://api.bybit.com/v5/market/tickers?category=linear&symbol=${symbol.toUpperCase()}`, {
+          cache: 'no-store',
+          signal: AbortSignal.timeout(1500),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const item = data?.result?.list?.[0];
+          if (item) {
+            const bid = parseFloat(item.bid1Price);
+            const ask = parseFloat(item.ask1Price);
+            if (Number.isFinite(bid) && Number.isFinite(ask) && bid > 0 && ask > 0) {
+              return { bid, ask, mid: (bid + ask) / 2 };
+            }
+          }
+        }
+      }
+    } catch {
+      // Non-fatal quote refresh error; fall back to incoming request quotes
+    }
+    return null;
+  }
+
+  /**
    * Places a Post-Only Maker limit order with micro-repricing retries upon book-cross rejection.
    * - Binance USD-M: POST /fapi/v1/order with type: 'LIMIT', timeInForce: 'GTX'
    * - Bybit Linear: POST /v5/order/create with orderFilter: 'Order', orderType: 'Limit', timeInForce: 'PostOnly'

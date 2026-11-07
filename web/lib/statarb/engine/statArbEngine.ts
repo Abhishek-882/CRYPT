@@ -439,6 +439,10 @@ export class StatArbEngine {
             const leg2Side = isShortBn ? 'BUY' : 'SELL';
             const isDryRun = config.dryRun ?? true;
 
+            const leg1BestBid = (pair.binanceBid && pair.binanceBid > 0) ? pair.binanceBid : pair.binanceMid;
+            const leg1BestAsk = (pair.binanceAsk && pair.binanceAsk > 0) ? pair.binanceAsk : pair.binanceMid;
+            const leg1TickSize = filter.tickSize > 0 ? filter.tickSize : 0.0001;
+
             const orderRoutingRequest: OrderRoutingRequest = {
               pair,
               direction: signal.direction,
@@ -450,9 +454,10 @@ export class StatArbEngine {
               leg2Symbol: pair.bybitSymbol,
               leg1Side,
               leg2Side,
-              leg1BestBid: pair.binanceMid * 0.9999,
-              leg1BestAsk: pair.binanceMid * 1.0001,
+              leg1BestBid,
+              leg1BestAsk,
               leg2InitialPrice: pair.bybitMid,
+              tickSize: leg1TickSize,
               timeoutMs: config.makerTimeoutMs || 8000,
               maxAdverseDriftBps: config.adverseDriftThresholdBps || 8.0,
               isDryRun,

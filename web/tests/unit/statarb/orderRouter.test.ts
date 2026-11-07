@@ -68,6 +68,16 @@ describe('Maker-Taker Order Router Unit Tests (orderRouter.ts)', () => {
       expect(sellPrice).toBe(0.00001235);
     });
 
+    it('accurately pegs Post-Only price to exact top-of-book for micro-cap assets without decimal truncation', () => {
+      // ACTUSDT: bestBid = 0.011539, bestAsk = 0.011548, tickSize = 0.000001
+      const actSell = calculatePostOnlyPrice('SELL', 0.011539, 0.011548, 0.000001);
+      expect(actSell).toBe(0.011548); // Pegs exactly to best ask, not rounded to 0.011800!
+
+      // AKEUSDT: bestBid = 0.005901, bestAsk = 0.005902, tickSize = 0.000001
+      const akeBuy = calculatePostOnlyPrice('BUY', 0.005901, 0.005902, 0.000001);
+      expect(akeBuy).toBe(0.005901); // Pegs exactly to best bid, not rounded to 0.005800!
+    });
+
     it('dispatches Binance Leg 1 with GTX (Good-Till-Crossing) time-in-force', async () => {
       const request = createMockExecutionRequest({
         leg1Venue: 'BINANCE',
