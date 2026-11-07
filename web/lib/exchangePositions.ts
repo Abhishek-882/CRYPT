@@ -4,6 +4,8 @@ import { getCoinDcxAccount, fromCoinDcxPair } from "./coindcxSigner";
 import { fetchBybitPositions } from "./bybitSigner";
 import { UserApiKeys } from "./userStore";
 import { decryptVaultSecret } from "./cryptoVault";
+import fs from "fs";
+import path from "path";
 
 export interface VenuePositionsSnapshot {
   timestamp: number;
@@ -252,6 +254,44 @@ export async function getLivePositionsForVenues(
   return snapshot;
 }
 
+let lastConvergenceSymbolsCache: { timestamp: number; symbols: Set<string>; directions: Map<string, string> } = {
+  timestamp: 0,
+  symbols: new Set(),
+  directions: new Map(),
+};
+
+/**
+ * Returns active positions held by STATARB-OU-PERP convergence engine
+ */
+export function getConvergenceActivePositions(): { symbols: Set<string>; directions: Map<string, string> } {
+  const now = Date.now();
+  if (now - lastConvergenceSymbolsCache.timestamp < 3000) {
+    return lastConvergenceSymbolsCache;
+  }
+
+  try {
+    const statePath = path.resolve(process.cwd(), "data/statarb_state.json");
+    if (fs.existsSync(statePath)) {
+      const data = JSON.parse(fs.readFileSync(statePath, "utf8"));
+      const symbols = new Set<string>();
+      const directions = new Map<string, string>();
+      if (Array.isArray(data.positions)) {
+        for (const p of data.positions) {
+          if (p.canonicalSymbol) {
+            const norm = normalizeExchangeSymbol(p.canonicalSymbol);
+            symbols.add(norm);
+            directions.set(norm, p.direction || "");
+          }
+        }
+      }
+      lastConvergenceSymbolsCache = { timestamp: now, symbols, directions };
+      return lastConvergenceSymbolsCache;
+    }
+  } catch {}
+
+  return lastConvergenceSymbolsCache;
+}
+
 /**
  * Check if a coin has an open position on either corridor venue
  */
@@ -259,10 +299,23 @@ export function hasCorridorLivePosition(
   symbol: string,
   venueA: string,
   venueB: string,
-  snapshot: VenuePositionsSnapshot
-): { hasPosition: boolean; blockingVenues: string[] } {
+  snapshot: VenuePositionsSnapshot,
+  ignoreConvergencePositions: boolean = false
+): { hasPosition: boolean; blockingVenues: string[]; isConvergencePosition?: boolean; convergenceDirection?: string } {
   const normSym = normalizeExchangeSymbol(symbol);
   const blockingVenues: string[] = [];
+
+  const conv = getConvergenceActivePositions();
+  const isConvergence = conv.symbols.has(normSym);
+
+  if (ignoreConvergencePositions && isConvergence) {
+    return {
+      hasPosition: false,
+      blockingVenues: [],
+      isConvergencePosition: true,
+      convergenceDirection: conv.directions.get(normSym),
+    };
+  }
 
   const setA = snapshot.venueOpenSymbols.get(venueA.toLowerCase());
   if (setA && setA.has(normSym)) {
@@ -277,5 +330,7 @@ export function hasCorridorLivePosition(
   return {
     hasPosition: blockingVenues.length > 0,
     blockingVenues,
+    isConvergencePosition: isConvergence,
+    convergenceDirection: conv.directions.get(normSym),
   };
 }

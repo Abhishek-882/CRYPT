@@ -6052,12 +6052,24 @@ export async function runTenantBotCycle(
         }
 
         // CORRIDOR LIVE POSITION GUARD: Block re-entry if coin has an open position on either corridor venue
-        const livePosCheck = hasCorridorLivePosition(coin.symbol, expectedVA, expectedVB, corridorLiveSnapshot);
+        // Allow candidate evaluation if position belongs to STATARB-OU-PERP convergence fleet and coexistence is permitted
+        const allowConvergence = bot.config.allowConvergenceCoexistence ?? true;
+        const livePosCheck = hasCorridorLivePosition(
+          coin.symbol,
+          expectedVA,
+          expectedVB,
+          corridorLiveSnapshot,
+          allowConvergence
+        );
+
         if (livePosCheck.hasPosition) {
           if (state.cyclesCompleted % 6 === 0) {
+            const isConv = livePosCheck.isConvergencePosition;
             appendBotLog(
               state,
-              `[RE-ENTRY GUARD] Bot "${bot.name}": Candidate ${coin.symbol} skipped — active open position detected on ${livePosCheck.blockingVenues.join(", ")} in Live Positions.`,
+              isConv
+                ? `[STRATEGY ALLOCATION] Bot "${bot.name}": Candidate ${coin.symbol} active in STATARB-OU-PERP convergence fleet (${livePosCheck.convergenceDirection}). Re-entry skipped to preserve dedicated basis carry.`
+                : `[RE-ENTRY GUARD] Bot "${bot.name}": Candidate ${coin.symbol} skipped — active open position detected on ${livePosCheck.blockingVenues.join(", ")} in Live Positions.`,
               "info",
               user.id,
               bot.id
