@@ -9,44 +9,13 @@
  */
 
 import { InstrumentMapping } from '../types';
+import { ALL_TRADFI_TOKENS } from './tradfiExclusions';
 
 /**
  * TradFi Equities, Commodities, and Index ETFs listed on Binance or Bybit
  * that must be excluded from crypto statistical arbitrage.
  */
-export const TRADFI_EXCLUSION_SET: ReadonlySet<string> = new Set([
-  'CATUSDT', // Caterpillar Inc. Stock (Binance) - Distinct from 1000CATUSDT Simon's Cat!
-  'EBAYUSDT',
-  'AMCUSDT',
-  'PFEUSDT',
-  'SKHYNIXUSDT',
-  'HYUNDAIUSDT',
-  'SAMSUNGUSDT',
-  'TSLAUSDT',
-  'NVDAUSDT',
-  'AAPLUSDT',
-  'MSFTUSDT',
-  'AMZNUSDT',
-  'GOOGLUSDT',
-  'METAUSDT',
-  'COINUSDT',
-  'MSTRUSDT',
-  'SPYUSDT',
-  'QQQUSDT',
-  'BXUSDT',
-  'EQTUSDT',
-  'CIENUSDT',
-  'DDOGUSDT',
-  'BONDUSDT',
-  'XAUUSDT', // Gold
-  'XAGUSDT', // Silver
-  'COPPERUSDT',
-  'CLUSDT', // Crude Oil
-  'BZUSDT', // Brent Crude Oil
-  'NATGASUSDT',
-  'XPTUSDT',
-  'XPDUSDT',
-]);
+export const TRADFI_EXCLUSION_SET: ReadonlySet<string> = new Set(ALL_TRADFI_TOKENS);
 
 /**
  * Detailed specification of special-multiplier meme coins and high-volume crypto pairs

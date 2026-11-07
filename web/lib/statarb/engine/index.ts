@@ -30,3 +30,11 @@ export {
   type DrawdownBreakerResult,
   type SafetyCheckResult,
 } from './safetyBreakers';
+
+export {
+  DynamicUniverseScanner,
+  getDynamicUniverseScanner,
+  DEFAULT_UNIVERSE_CONFIG,
+  type UniverseScanOutput,
+  type UniverseScannerConfig,
+} from './dynamicUniverseScanner';

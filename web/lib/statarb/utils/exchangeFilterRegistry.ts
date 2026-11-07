@@ -141,6 +141,35 @@ const AUTHORITATIVE_FILTERS: SymbolFilterSpec[] = [
   // SIMONS_CAT (1000CAT on both)
   { symbol: '1000CATUSDT', venue: 'BINANCE', tickSize: 0.000001, stepSize: 10, minQty: 10, minNotional: 5.0, priceDecimals: 6, qtyDecimals: 0, contractMultiplier: 1000 },
   { symbol: '1000CATUSDT', venue: 'BYBIT', tickSize: 0.000001, stepSize: 10, minQty: 10, minNotional: 5.0, priceDecimals: 6, qtyDecimals: 0, contractMultiplier: 1000 },
+
+  // Dislocated Altcoins (Empirically Calibrated)
+  // ERA
+  { symbol: 'ERAUSDT', venue: 'BINANCE', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+  { symbol: 'ERAUSDT', venue: 'BYBIT', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+
+  // LSK
+  { symbol: 'LSKUSDT', venue: 'BINANCE', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+  { symbol: 'LSKUSDT', venue: 'BYBIT', tickSize: 0.00001, stepSize: 0.1, minQty: 0.1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 1, contractMultiplier: 1 },
+
+  // HUMA
+  { symbol: 'HUMAUSDT', venue: 'BINANCE', tickSize: 0.000001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 6, qtyDecimals: 0, contractMultiplier: 1 },
+  { symbol: 'HUMAUSDT', venue: 'BYBIT', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+
+  // BIRB
+  { symbol: 'BIRBUSDT', venue: 'BINANCE', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+  { symbol: 'BIRBUSDT', venue: 'BYBIT', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+
+  // WLFI
+  { symbol: 'WLFIUSDT', venue: 'BINANCE', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+  { symbol: 'WLFIUSDT', venue: 'BYBIT', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+
+  // SOPH
+  { symbol: 'SOPHUSDT', venue: 'BINANCE', tickSize: 0.000001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 6, qtyDecimals: 0, contractMultiplier: 1 },
+  { symbol: 'SOPHUSDT', venue: 'BYBIT', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+
+  // BMT
+  { symbol: 'BMTUSDT', venue: 'BINANCE', tickSize: 0.00001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 5, qtyDecimals: 0, contractMultiplier: 1 },
+  { symbol: 'BMTUSDT', venue: 'BYBIT', tickSize: 0.000001, stepSize: 1, minQty: 1, minNotional: 5.0, priceDecimals: 6, qtyDecimals: 0, contractMultiplier: 1 },
 ];
 
 /**
@@ -164,6 +193,13 @@ function registerFilter(filter: SymbolFilterSpec): void {
 
 // Populate the lookup index
 for (const spec of AUTHORITATIVE_FILTERS) {
+  registerFilter(spec);
+}
+
+/**
+ * Public function to register or override a SymbolFilterSpec dynamically.
+ */
+export function registerSymbolFilter(spec: SymbolFilterSpec): void {
   registerFilter(spec);
 }
 

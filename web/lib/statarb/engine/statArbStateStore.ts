@@ -39,11 +39,11 @@ export const DEFAULT_STATARB_CONFIG: StatArbConfig = {
   dryRun: true,
   entryGate: {
     minZScore: 2.20,
-    minGrossBasisBps: 28.0,
+    minGrossBasisBps: 24.0, // 0.240% calibrated hurdle (1.60x of 0.150% roundtrip friction)
     minDepthRatio: 4.0,
-    maxSpreadBps: 8.0,
-    minNetEdgeBps: 8.0,
-    roundtripFrictionBps: 17.0,
+    maxSpreadBps: 8.0, // 0.080% max bid-ask spread
+    minNetEdgeBps: 8.0, // 0.080% min post-friction net edge
+    roundtripFrictionBps: 15.0, // 0.150% roundtrip trading fee friction (0.020% maker + 0.055% taker x 2)
   },
   exitConvergenceCompression: 0.75,
   exitZScoreThreshold: 0.35,

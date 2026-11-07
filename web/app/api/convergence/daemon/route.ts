@@ -12,6 +12,7 @@ import {
   MakerTakerOrderRouter,
   SimulatedExecutionAdapter,
   LiveExchangeAdapter,
+  getDynamicUniverseScanner,
 } from "@/lib/statarb";
 
 function parseDryRunFlag(val: unknown): boolean | undefined {
@@ -272,118 +273,18 @@ export async function POST(req: NextRequest) {
         engine.setAdapter(new SimulatedExecutionAdapter());
       }
 
-      // 1. Fetch live quotes from Binance and Bybit in parallel
-      const liveBinanceMap = new Map<string, { bid: number; ask: number; mid: number }>();
-      const liveBybitMap = new Map<string, { bid: number; ask: number; mid: number }>();
-      try {
-        const [bnRes, bybRes] = await Promise.all([
-          fetch("https://fapi.binance.com/fapi/v1/ticker/bookTicker", {
-            cache: "no-store",
-            signal: AbortSignal.timeout(2500),
-          }).catch(() => null),
-          fetch("https://api.bybit.com/v5/market/tickers?category=linear", {
-            cache: "no-store",
-            signal: AbortSignal.timeout(2500),
-          }).catch(() => null),
-        ]);
+      // 1. Dynamic Universe Discovery across all mutual Binance & Bybit perpetuals
+      const scanner = getDynamicUniverseScanner();
+      const universeOutput = await scanner.scanUniverse(engine.getState().positions);
 
-        if (bnRes && bnRes.ok) {
-          const data = await bnRes.json();
-          if (Array.isArray(data)) {
-            for (const item of data) {
-              const bid = parseFloat(item.bidPrice);
-              const ask = parseFloat(item.askPrice);
-              if (bid > 0 && ask > 0) {
-                liveBinanceMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
-              }
-            }
-          }
-        }
+      const pairs = universeOutput.tier1Pairs;
+      const marketDataMap = universeOutput.marketDataMap;
+      const zScoreMap = universeOutput.zScoreMap;
+      const rollingHistoryMap = universeOutput.rollingHistoryMap;
+      const ouParamsMap = universeOutput.ouParamsMap;
 
-        if (bybRes && bybRes.ok) {
-          const data = await bybRes.json();
-          const list = Array.isArray(data?.result?.list) ? data.result.list : [];
-          for (const item of list) {
-            const bid = parseFloat(item.bid1Price || "0");
-            const ask = parseFloat(item.ask1Price || "0");
-            if (bid > 0 && ask > 0) {
-              liveBybitMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
-            }
-          }
-        }
-      } catch {
-        // Best-effort live fetch fallback
-      }
-
-      // 2. Construct pairs
-      const now = Date.now();
-      const pairs: StatArbPair[] = [];
-      const marketDataMap = new Map<string, { binancePrice: number; bybitPrice: number }>();
-      const zScoreMap = new Map<string, number>();
-
-      for (let i = 0; i < DEFAULT_MONITORED.length; i++) {
-        const item = DEFAULT_MONITORED[i];
-        const mapping = getInstrumentMapping(item.canonical);
-        const binanceSymbol = mapping ? mapping.binanceSymbol : `${item.canonical}USDT`;
-        const bybitSymbol = mapping ? mapping.bybitSymbol : `${item.canonical}USDT`;
-        const multiplier = mapping ? mapping.multiplier : 1.0;
-
-        let binanceMid = item.basePrice;
-        let binanceSpreadBps = 3.5;
-
-        const liveBn = liveBinanceMap.get(binanceSymbol);
-        if (liveBn) {
-          binanceMid = liveBn.mid;
-          binanceSpreadBps = parseFloat((((liveBn.ask - liveBn.bid) / liveBn.mid) * 10000).toFixed(2));
-        }
-
-        // Wire authentic Bybit live telemetry directly from liveBybitMap
-        let bybitMid = item.basePrice;
-        let bybitSpreadBps = 3.5;
-
-        const liveByb = liveBybitMap.get(bybitSymbol);
-        if (liveByb) {
-          bybitMid = multiplier > 0 ? liveByb.mid / multiplier : liveByb.mid;
-          bybitSpreadBps = parseFloat((((liveByb.ask - liveByb.bid) / liveByb.mid) * 10000).toFixed(2));
-        } else if (liveBn) {
-          bybitMid = liveBn.mid;
-          bybitSpreadBps = binanceSpreadBps;
-        }
-
-        const grossBasisBps = parseFloat(calculateBasisBps(binanceMid, bybitMid).toFixed(2));
-
-        const ouParams: OUParameters = {
-          theta: item.theta,
-          mu: 0.0,
-          sigma: item.sigma,
-          halfLifeMinutes: parseFloat((Math.LN2 / item.theta).toFixed(1)),
-          equilibriumSigma: parseFloat((item.sigma / Math.sqrt(2 * item.theta)).toFixed(2)),
-          rSquared: 0.88,
-          sampleCount: 120,
-          lastUpdated: now,
-        };
-
-        const zScore = parseFloat(calculateZScore(grossBasisBps, ouParams).toFixed(2));
-        zScoreMap.set(item.canonical, zScore);
-        marketDataMap.set(item.canonical, { binancePrice: binanceMid, bybitPrice: bybitMid });
-
-        pairs.push({
-          canonicalSymbol: item.canonical,
-          binanceSymbol,
-          bybitSymbol,
-          multiplier: mapping ? mapping.multiplier : 1.0,
-          binanceMid,
-          bybitMid,
-          grossBasisBps,
-          binanceSpreadBps,
-          bybitSpreadBps,
-          orderBookDepthRatio: 5.2,
-          lastUpdated: now,
-        });
-      }
-
-      // 3. Scan corridors and manage open positions
-      const scanRes = await engine.scanCorridors(pairs);
+      // 2. Scan corridors and manage open positions
+      const scanRes = await engine.scanCorridors(pairs, rollingHistoryMap, ouParamsMap);
       const manageRes = await engine.managePositions(marketDataMap, zScoreMap);
 
       return NextResponse.json({
@@ -396,6 +297,12 @@ export async function POST(req: NextRequest) {
         scanResult: {
           qualifyingSignalsCount: scanRes.qualifyingSignals.length,
           executedPositionsCount: scanRes.executedPositions.length,
+        },
+        universeMetrics: {
+          totalMutualPairsCount: universeOutput.totalMutualPairsCount,
+          liquidPassingPairsCount: universeOutput.liquidPassingPairsCount,
+          dislocatedPairsCount: universeOutput.dislocatedPairsCount,
+          tier1PairsCount: pairs.length,
         },
         manageResult: {
           evaluatedCount: manageRes.evaluatedCount,

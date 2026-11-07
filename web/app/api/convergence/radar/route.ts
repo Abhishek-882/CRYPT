@@ -10,6 +10,7 @@ import {
   OUParameters,
   DEFAULT_OU_PRIORS,
   StatArbStateStore,
+  getDynamicUniverseScanner,
 } from "@/lib/statarb";
 
 export const dynamic = "force-dynamic";
@@ -75,149 +76,39 @@ export async function GET(req: NextRequest) {
       return NextResponse.json(globalThis.__radarCache.data);
     }
 
-    // Consolidated single bulk endpoints for Binance and Bybit (1 request each for ALL symbols)
-    const liveBinanceMap = new Map<string, { bid: number; ask: number; mid: number }>();
-    const liveBybitMap = new Map<string, { bid: number; ask: number; mid: number }>();
-
-    try {
-      const [bnRes, bybRes] = await Promise.all([
-        fetch("https://fapi.binance.com/fapi/v1/ticker/bookTicker", {
-          cache: "no-store",
-          signal: AbortSignal.timeout(2500),
-        }).catch(() => null),
-        fetch("https://api.bybit.com/v5/market/tickers?category=linear", {
-          cache: "no-store",
-          signal: AbortSignal.timeout(2500),
-        }).catch(() => null),
-      ]);
-
-      if (bnRes && bnRes.ok) {
-        const data = await bnRes.json();
-        if (Array.isArray(data)) {
-          for (const item of data) {
-            const bid = parseFloat(item.bidPrice);
-            const ask = parseFloat(item.askPrice);
-            if (bid > 0 && ask > 0) {
-              liveBinanceMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
-            }
-          }
-        }
-      }
-
-      if (bybRes && bybRes.ok) {
-        const data = await bybRes.json();
-        const list = Array.isArray(data?.result?.list) ? data.result.list : [];
-        for (const item of list) {
-          const bid = parseFloat(item.bid1Price || "0");
-          const ask = parseFloat(item.ask1Price || "0");
-          if (bid > 0 && ask > 0) {
-            liveBybitMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
-          }
-        }
-      }
-    } catch {
-      // Best-effort live fetch; fallback cleanly if offline
-    }
+    // Dynamic Universe Discovery across all mutual Binance & Bybit perpetuals
+    const scanner = getDynamicUniverseScanner();
+    const universeOutput = await scanner.scanUniverse(store.getState().positions);
 
     const radarItems = [];
     const statArbPairs: StatArbPair[] = [];
 
-    for (let i = 0; i < DEFAULT_MONITORED.length; i++) {
-      const item = DEFAULT_MONITORED[i];
-      const mapping = getInstrumentMapping(item.canonical);
-      const binanceSymbol = mapping ? mapping.binanceSymbol : `${item.canonical}USDT`;
-      const bybitSymbol = mapping ? mapping.bybitSymbol : `${item.canonical}USDT`;
-      const multiplier = mapping ? mapping.multiplier : 1.0;
-
-      let binanceMid = item.basePrice;
-      let binanceSpreadBps = 3.5;
-
-      const liveBn = liveBinanceMap.get(binanceSymbol);
-      if (liveBn) {
-        binanceMid = liveBn.mid;
-        binanceSpreadBps = parseFloat((((liveBn.ask - liveBn.bid) / liveBn.mid) * 10000).toFixed(2));
-      }
-
-      // Wire authentic Bybit live telemetry directly from liveBybitMap
-      let bybitMid = item.basePrice;
-      let bybitSpreadBps = 3.5;
-
-      const liveByb = liveBybitMap.get(bybitSymbol);
-      if (liveByb) {
-        bybitMid = multiplier > 0 ? liveByb.mid / multiplier : liveByb.mid;
-        bybitSpreadBps = parseFloat((((liveByb.ask - liveByb.bid) / liveByb.mid) * 10000).toFixed(2));
-      } else if (liveBn) {
-        bybitMid = liveBn.mid;
-        bybitSpreadBps = binanceSpreadBps;
-      }
-
-      const grossBasisBps = parseFloat(calculateBasisBps(binanceMid, bybitMid).toFixed(2));
-
-      // Continuous Ornstein-Uhlenbeck Parameters
-      const theta = item.theta;
-      const sigma = item.sigma;
-      const halfLifeMinutes = parseFloat((Math.LN2 / theta).toFixed(1));
-      const equilibriumSigma = parseFloat((sigma / Math.sqrt(2 * theta)).toFixed(2));
-
-      const ouParams: OUParameters = {
-        theta,
+    for (const pair of universeOutput.tier1Pairs) {
+      statArbPairs.push(pair);
+      const ouParams = universeOutput.ouParamsMap.get(pair.canonicalSymbol) || {
+        theta: 0.12,
         mu: 0.0,
-        sigma,
-        halfLifeMinutes,
-        equilibriumSigma,
+        sigma: 15.0,
+        halfLifeMinutes: 5.8,
+        equilibriumSigma: 21.65,
         rSquared: 0.88,
         sampleCount: 120,
         lastUpdated: now,
       };
 
-      const zScore = parseFloat(calculateZScore(grossBasisBps, ouParams).toFixed(2));
-      const depthRatio = 5.2;
-
-      // Construct StatArbPair
-      const pair: StatArbPair = {
-        canonicalSymbol: item.canonical,
-        binanceSymbol,
-        bybitSymbol,
-        multiplier,
-        binanceMid,
-        bybitMid,
-        grossBasisBps,
-        orderBookDepthRatio: depthRatio,
-        binanceSpreadBps,
-        bybitSpreadBps,
-        lastUpdated: now,
-      };
-      statArbPairs.push(pair);
-
-      // Gate Evaluations
+      const zScore = universeOutput.zScoreMap.get(pair.canonicalSymbol) ?? calculateZScore(pair.grossBasisBps, ouParams);
       const gateResult = evaluateEntryGates(pair, ouParams, config.entryGate);
 
-      // Maintain genuine rolling spread history (in % format) for Invariant 7 evaluation
-      const currentDivPct = parseFloat((Math.abs(grossBasisBps) / 100).toFixed(4));
-      const historyMap = getRollingHistoryMap();
-      let history30m = historyMap.get(item.canonical);
-      if (!history30m || history30m.length === 0) {
-        history30m = [
-          parseFloat((Math.abs(item.baseSpreadBps) / 100).toFixed(4)),
-          currentDivPct,
-          currentDivPct,
-        ];
-      } else {
-        history30m.push(currentDivPct);
-        if (history30m.length > 30) {
-          history30m.shift();
-        }
-      }
-      historyMap.set(item.canonical, history30m);
-
+      // Invariant 7 evaluation from rolling divergence history
+      const history30m = universeOutput.rollingHistoryMap.get(pair.canonicalSymbol) || [];
       const stickyCheck = checkInvariant7StickyDecoupling(history30m);
 
       const zGatePassed = Math.abs(zScore) >= config.entryGate.minZScore;
-      const basisGatePassed = Math.abs(grossBasisBps) >= config.entryGate.minGrossBasisBps;
-      const depthGatePassed = depthRatio >= config.entryGate.minDepthRatio;
+      const basisGatePassed = Math.abs(pair.grossBasisBps) >= config.entryGate.minGrossBasisBps;
+      const depthGatePassed = pair.orderBookDepthRatio >= config.entryGate.minDepthRatio;
       const spreadGatePassed =
-        binanceSpreadBps <= config.entryGate.maxSpreadBps &&
-        bybitSpreadBps <= config.entryGate.maxSpreadBps;
+        pair.binanceSpreadBps <= config.entryGate.maxSpreadBps &&
+        pair.bybitSpreadBps <= config.entryGate.maxSpreadBps;
       const inv7GatePassed = stickyCheck.passed;
       const minNetEdgeBps = config.entryGate.minNetEdgeBps !== undefined ? config.entryGate.minNetEdgeBps : 8.0;
       const netEdgeGatePassed = (gateResult.netExpectedEdgeBps ?? 0) >= minNetEdgeBps;
@@ -230,24 +121,24 @@ export async function GET(req: NextRequest) {
         inv7GatePassed &&
         netEdgeGatePassed;
 
-      const direction = grossBasisBps >= 0 ? "SHORT_BINANCE_LONG_BYBIT" : "SHORT_BYBIT_LONG_BINANCE";
+      const direction = pair.grossBasisBps >= 0 ? "SHORT_BINANCE_LONG_BYBIT" : "SHORT_BYBIT_LONG_BINANCE";
 
       radarItems.push({
-        canonicalSymbol: item.canonical,
-        binanceSymbol,
-        bybitSymbol,
-        multiplier,
-        tier: item.tier,
-        binanceMid,
-        bybitMid,
-        grossBasisBps,
-        ouTheta: theta,
-        halfLifeMinutes,
-        equilibriumSigma,
+        canonicalSymbol: pair.canonicalSymbol,
+        binanceSymbol: pair.binanceSymbol,
+        bybitSymbol: pair.bybitSymbol,
+        multiplier: pair.multiplier,
+        tier: Math.abs(pair.grossBasisBps) >= 24.0 ? "DISLOCATED" : "CORRIDOR",
+        binanceMid: pair.binanceMid,
+        bybitMid: pair.bybitMid,
+        grossBasisBps: pair.grossBasisBps,
+        ouTheta: ouParams.theta,
+        halfLifeMinutes: ouParams.halfLifeMinutes,
+        equilibriumSigma: ouParams.equilibriumSigma,
         zScore,
-        depthRatio,
-        binanceSpreadBps,
-        bybitSpreadBps,
+        depthRatio: pair.orderBookDepthRatio,
+        binanceSpreadBps: pair.binanceSpreadBps,
+        bybitSpreadBps: pair.bybitSpreadBps,
         direction,
         gateBadges: {
           zScore: zGatePassed,
