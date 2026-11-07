@@ -2,56 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>STATARB-OU-PERP — Verified Trade & Fee Ledger with ROI & Average Percentage</title>
+  <title>STATARB-OU-PERP — Verified Trade, Fee & ROI Ledger</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    body { background-color: #0b0f19; color: #f1f5f9; padding: 24px; min-width: 1480px; }
-    .card { background: #111827; border: 1px solid #1f2937; border-radius: 12px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+    body { background-color: #0b0f19; color: #f1f5f9; padding: 26px; min-width: 1420px; }
+    .card { background: #111827; border: 1px solid #1f2937; border-radius: 12px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
     
-    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid #1f2937; padding-bottom: 16px; }
-    .title-box h1 { font-size: 21px; font-weight: 700; color: #38bdf8; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; border-bottom: 1px solid #1f2937; padding-bottom: 18px; }
+    .title-box h1 { font-size: 22px; font-weight: 700; color: #38bdf8; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
     .badge-live { background: #059669; color: #ecfdf5; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
     .badge-venue { background: #1e293b; color: #94a3b8; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 600; border: 1px solid #334155; }
     .title-box p { font-size: 12px; color: #94a3b8; margin-top: 5px; }
 
-    .hud-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 20px; }
-    .hud-stat { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px 14px; }
-    .hud-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
-    .hud-val { font-size: 20px; font-weight: 700; margin-top: 4px; }
+    .hud-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 24px; }
+    .hud-stat { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 14px 16px; }
+    .hud-label { font-size: 10.5px; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+    .hud-val { font-size: 22px; font-weight: 700; margin-top: 5px; }
     .val-green { color: #34d399; }
     .val-cyan { color: #38bdf8; }
     .val-amber { color: #facc15; }
-    .val-rose { color: #f43f5e; }
-    .val-purple { color: #c084fc; }
-    .val-sub { font-size: 10.5px; color: #94a3b8; font-weight: normal; margin-top: 3px; }
+    .val-sub { font-size: 11px; color: #94a3b8; font-weight: normal; margin-top: 3px; }
 
-    .info-banner { background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 11.5px; color: #bae6fd; line-height: 1.5; }
-    .info-banner strong { color: #f0f9ff; }
-
-    .section-title { font-size: 12.5px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+    .section-title { font-size: 13px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
     
     table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
-    th { text-align: left; padding: 10px 8px; background: #1e293b; color: #94a3b8; font-weight: 600; font-size: 10px; text-transform: uppercase; border-bottom: 1px solid #334155; white-space: nowrap; }
-    td { padding: 9px 8px; border-bottom: 1px solid #1e293b; white-space: nowrap; }
+    th { text-align: left; padding: 11px 9px; background: #1e293b; color: #94a3b8; font-weight: 600; font-size: 10px; text-transform: uppercase; border-bottom: 1px solid #334155; white-space: nowrap; }
+    td { padding: 10px 9px; border-bottom: 1px solid #1e293b; white-space: nowrap; }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: rgba(255,255,255,0.02); }
 
-    .badge-pair { background: #0f172a; border: 1px solid #334155; font-weight: 700; color: #f8fafc; padding: 2px 6px; border-radius: 4px; font-size: 10.5px; }
-    .badge-dir { background: #1e293b; border: 1px solid #334155; font-size: 9.5px; font-weight: 600; padding: 2px 5px; border-radius: 4px; color: #cbd5e1; }
-    .badge-gate { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 9.5px; padding: 2px 5px; border-radius: 4px; font-weight: 600; }
+    .badge-pair { background: #0f172a; border: 1px solid #334155; font-weight: 700; color: #f8fafc; padding: 2px 7px; border-radius: 4px; font-size: 11px; }
+    .badge-dir { background: #1e293b; border: 1px solid #334155; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; color: #cbd5e1; }
+    .badge-gate { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
     
-    .price-num { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #e2e8f0; font-size: 10.5px; }
+    .price-num { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #e2e8f0; font-size: 11px; }
     .spread-col { font-weight: 700; color: #38bdf8; font-family: ui-monospace, SFMono-Regular, monospace; }
     .pnl-gross { color: #60a5fa; font-weight: 600; font-family: ui-monospace, SFMono-Regular, monospace; }
     .fee-col { color: #f87171; font-weight: 600; font-family: ui-monospace, SFMono-Regular, monospace; }
-    .pnl-net { color: #34d399; font-weight: 700; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11.5px; }
+    .pnl-net { color: #34d399; font-weight: 700; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; }
     
-    .roi-col { color: #34d399; font-weight: 700; font-family: ui-monospace, SFMono-Regular, monospace; background: rgba(16, 185, 129, 0.08); padding: 2px 6px; border-radius: 4px; }
-    .roi-margin { color: #c084fc; font-weight: 700; font-family: ui-monospace, SFMono-Regular, monospace; background: rgba(192, 132, 252, 0.08); padding: 2px 6px; border-radius: 4px; }
+    .roi-col { color: #34d399; font-weight: 700; font-family: ui-monospace, SFMono-Regular, monospace; background: rgba(16, 185, 129, 0.1); padding: 3px 8px; border-radius: 4px; font-size: 11.5px; border: 1px solid rgba(16, 185, 129, 0.25); }
 
-    .tfoot-row td { background: #1e293b; font-weight: 700; font-size: 11.5px; border-top: 2px solid #334155; padding: 12px 8px; }
+    .tfoot-row td { background: #1e293b; font-weight: 700; font-size: 12px; border-top: 2px solid #334155; padding: 13px 9px; }
 
-    .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; padding-top: 12px; border-top: 1px solid #1f2937; font-size: 10.5px; color: #64748b; }
+    .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 14px; border-top: 1px solid #1f2937; font-size: 11px; color: #64748b; }
   </style>
 </head>
 <body>
@@ -66,7 +60,7 @@
       </div>
       <div style="text-align: right;">
         <span class="badge-venue">VENUE FEES: 0.020% MAKER / 0.055% TAKER (~0.075% TOTAL)</span>
-        <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Zero BPS Notation • All Spreads, Yields & ROI in %</div>
+        <div style="font-size: 11px; color: #94a3b8; margin-top: 5px;">Zero BPS Notation • All Spreads, Yields & ROI in %</div>
       </div>
     </div>
 
@@ -77,19 +71,14 @@
         <div class="val-sub">Win Rate: 100.0% (Zero-Loss Guard)</div>
       </div>
       <div class="hud-stat">
-        <div class="hud-label">Average Trade Net Return</div>
+        <div class="hud-label">Average Trade Percentage</div>
         <div class="hud-val val-cyan">+0.225%</div>
-        <div class="val-sub">Per Trade on $15.00 Notional Sizing</div>
-      </div>
-      <div class="hud-stat">
-        <div class="hud-label">Average Margin ROI</div>
-        <div class="hud-val val-purple">+1.12%</div>
-        <div class="val-sub">Per Trade on $3.00 Initial Margin (5x)</div>
+        <div class="val-sub">Average Net ROI per Trade on $15.00 Notional</div>
       </div>
       <div class="hud-stat">
         <div class="hud-label">Cumulative Net Profit</div>
-        <div class="hud-val val-green">+$0.4041</div>
-        <div class="val-sub">Gross: +$0.5374 • Fees: -$0.1333</div>
+        <div class="hud-val val-green">+$0.4041 USDT</div>
+        <div class="val-sub">Gross: +$0.5374 • Total Fees: -$0.1333</div>
       </div>
       <div class="hud-stat">
         <div class="hud-label">Portfolio NAV ROI</div>
@@ -103,16 +92,9 @@
       </div>
     </div>
 
-    <div class="info-banner">
-      <strong>ROI & Trade Percentage Methodology:</strong> 
-      • <strong>Trade Net Return (%)</strong> = <code>(Net Realized PnL / $15.00 Notional) × 100</code>. Average = <strong>+0.225% net</strong> per cycle.<br>
-      • <strong>Margin ROI (%)</strong> = <code>(Net Realized PnL / $3.00 Margin @ 5x) × 100</code>. Average = <strong>+1.12%</strong> per cycle (Cumulative Margin ROI: <strong>+6.74%</strong>).<br>
-      • <strong>Exchange Fees Verified</strong>: Binance Maker (0.020% = $0.0030) + Bybit IOC Taker (0.055% = $0.00825) = -$0.0111 to -$0.0112 USDT. All trades strictly profitable net of fees.
-    </div>
-
     <div class="section-title">
-      <span>On-Exchange Execution Table with Trade ROI & Net Yields</span>
-      <span style="font-size: 11px; font-weight: normal; color: #94a3b8;">12 Completed Arbitrage Cycles</span>
+      <span>On-Exchange Execution Table with Verified Trade ROI</span>
+      <span style="font-size: 11px; font-weight: normal; color: #94a3b8;">12 Completed Arbitrage Cycles • Zero-Loss Invariant Enforced</span>
     </div>
 
     <table>
@@ -130,9 +112,8 @@
           <th>Hold Time</th>
           <th>Gross Profit</th>
           <th>Exchange Fees</th>
-          <th>Net PnL (USDT)</th>
-          <th>Trade Return (%)</th>
-          <th>Margin ROI (5x)</th>
+          <th>Net Realized PnL</th>
+          <th>Trade ROI (%)</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -152,7 +133,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0258</td>
           <td><span class="roi-col">+0.172%</span></td>
-          <td><span class="roi-margin">+0.86%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -170,7 +150,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0307</td>
           <td><span class="roi-col">+0.205%</span></td>
-          <td><span class="roi-margin">+1.02%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -188,7 +167,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0356</td>
           <td><span class="roi-col">+0.237%</span></td>
-          <td><span class="roi-margin">+1.19%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -206,7 +184,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0367</td>
           <td><span class="roi-col">+0.245%</span></td>
-          <td><span class="roi-margin">+1.22%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -224,7 +201,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0270</td>
           <td><span class="roi-col">+0.180%</span></td>
-          <td><span class="roi-margin">+0.90%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -242,7 +218,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0422</td>
           <td><span class="roi-col">+0.281%</span></td>
-          <td><span class="roi-margin">+1.41%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -260,7 +235,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0232</td>
           <td><span class="roi-col">+0.155%</span></td>
-          <td><span class="roi-margin">+0.77%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -278,7 +252,6 @@
           <td class="fee-col">-$0.0112</td>
           <td class="pnl-net">+$0.0321</td>
           <td><span class="roi-col">+0.214%</span></td>
-          <td><span class="roi-margin">+1.07%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -296,7 +269,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0425</td>
           <td><span class="roi-col">+0.283%</span></td>
-          <td><span class="roi-margin">+1.42%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -314,7 +286,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0378</td>
           <td><span class="roi-col">+0.252%</span></td>
-          <td><span class="roi-margin">+1.26%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -332,7 +303,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0285</td>
           <td><span class="roi-col">+0.190%</span></td>
-          <td><span class="roi-margin">+0.95%</span></td>
           <td><span class="badge-gate">CONVERGED</span></td>
         </tr>
         <tr>
@@ -350,7 +320,6 @@
           <td class="fee-col">-$0.0111</td>
           <td class="pnl-net">+$0.0420</td>
           <td><span class="roi-col">+0.280%</span></td>
-          <td><span class="roi-margin">+1.40%</span></td>
           <td><span class="badge-gate">MANUAL CLOSE</span></td>
         </tr>
       </tbody>
@@ -358,13 +327,12 @@
         <tr class="tfoot-row">
           <td colspan="4">PORTFOLIO AGGREGATE / TOTALS</td>
           <td class="spread-col">Avg: +0.306%</td>
-          <td colspan="4" style="color: #94a3b8; font-size: 10.5px;">100% Zero-Loss Invariant Enforced</td>
+          <td colspan="4" style="color: #94a3b8; font-size: 11px;">100% Zero-Loss Invariant Enforced</td>
           <td style="color: #facc15;">Avg: 15.6m</td>
-          <td class="pnl-gross" style="font-size: 12px;">+$0.5374</td>
-          <td class="fee-col" style="font-size: 12px;">-$0.1333</td>
-          <td class="pnl-net" style="font-size: 13px;">+$0.4041 USDT</td>
-          <td style="color: #34d399; font-size: 12.5px;">Avg: +0.225%</td>
-          <td style="color: #c084fc; font-size: 12.5px;">Avg: +1.12%</td>
+          <td class="pnl-gross" style="font-size: 12.5px;">+$0.5374</td>
+          <td class="fee-col" style="font-size: 12.5px;">-$0.1333</td>
+          <td class="pnl-net" style="font-size: 13.5px;">+$0.4041 USDT</td>
+          <td style="color: #34d399; font-size: 13px;">Avg: +0.225%</td>
           <td style="color: #34d399;">12 / 12 WINS</td>
         </tr>
       </tfoot>
