@@ -49,7 +49,7 @@ export const DEFAULT_STATARB_CONFIG: StatArbConfig = {
   exitZScoreThreshold: 0.35,
   minNetProfitUsdt: 0.01,
   maxPositionHoldMinutes: 30,
-  maxConcurrentPositions: 5,
+  maxConcurrentPositions: 4,
   orderNotionalUsdt: 15.0,
   makerTimeoutMs: 8000,
   adverseDriftThresholdBps: 8.0,

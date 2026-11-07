@@ -69,6 +69,7 @@ export class StatArbEngine {
   private positionIntervalMs: number = 2000;
   private symbolCooldowns: Map<string, number> = new Map();
   private inFlightEntries: Set<string> = new Set();
+  private inFlightExits: Set<string> = new Set();
 
   /**
    * Check if a symbol is in the 60-minute rejection quarantine
@@ -667,65 +668,86 @@ export class StatArbEngine {
       });
 
       if (exitEval.canExit && exitEval.exitAllowed) {
-        // Execute exit via order router
-        const isEmergency =
-          exitEval.exitType === 'CATASTROPHIC_STOP' ||
-          exitEval.exitType === 'STRUCTURAL_BASIS_DECOUPLING';
+        if (this.inFlightExits.has(position.id)) continue;
+        this.inFlightExits.add(position.id);
 
-        const exitExec = await this.router.executeExit(
-          position,
-          prices.binancePrice,
-          prices.bybitPrice,
-          isEmergency
-        );
+        try {
+          // Execute exit via order router
+          const isEmergency =
+            exitEval.exitType === 'CATASTROPHIC_STOP' ||
+            exitEval.exitType === 'STRUCTURAL_BASIS_DECOUPLING';
 
-        if (exitExec.success) {
-          let realNetPnl = exitEval.netPnLUsdt;
-          let realTotalFees = (position.totalFeesUsdt || 0) + (exitExec.leg1?.feeUsdt || 0) + (exitExec.leg2?.feeUsdt || 0);
+          const exitExec = await this.router.executeExit(
+            position,
+            prices.binancePrice,
+            prices.bybitPrice,
+            isEmergency
+          );
 
-          if (!isDryRun && typeof (this.activeAdapter as any).fetchRealExecutionReceipts === 'function') {
-            try {
-              const leg1ExitSide = isShortBn ? 'BUY' : 'SELL';
-              const leg2ExitSide = isShortBn ? 'SELL' : 'BUY';
+          if (exitExec.success) {
+            let realNetPnl = exitEval.netPnLUsdt;
+            let realTotalFees = (position.totalFeesUsdt || 0) + (exitExec.leg1?.feeUsdt || 0) + (exitExec.leg2?.feeUsdt || 0);
 
-              const bnReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
-                'BINANCE',
-                position.binanceSymbol,
-                exitExec.leg1?.orderId || '',
-                position.entryBinancePrice,
-                leg1ExitSide
-              );
-              const bybReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
-                'BYBIT',
-                position.bybitSymbol,
-                exitExec.leg2?.orderId || '',
-                position.entryBybitPrice,
-                leg2ExitSide
-              );
-              const netPnl = (bnReceipt?.realizedPnlUsdt || 0) + (bybReceipt?.realizedPnlUsdt || 0);
-              const exitFees = (bnReceipt?.feeUsdt || 0) + (bybReceipt?.feeUsdt || 0);
-              realTotalFees = parseFloat(((position.totalFeesUsdt || 0) + exitFees).toFixed(4));
-              realNetPnl = parseFloat((netPnl - exitFees).toFixed(4));
-            } catch (receiptErr: any) {
-              console.warn('[StatArbEngine] Receipt fetch error:', receiptErr.message);
+            if (!isDryRun && typeof (this.activeAdapter as any).fetchRealExecutionReceipts === 'function') {
+              try {
+                const leg1ExitSide = isShortBn ? 'BUY' : 'SELL';
+                const leg2ExitSide = isShortBn ? 'SELL' : 'BUY';
+
+                const bnReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
+                  'BINANCE',
+                  position.binanceSymbol,
+                  exitExec.leg1?.orderId || '',
+                  position.entryBinancePrice,
+                  leg1ExitSide
+                );
+                const bybReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
+                  'BYBIT',
+                  position.bybitSymbol,
+                  exitExec.leg2?.orderId || '',
+                  position.entryBybitPrice,
+                  leg2ExitSide
+                );
+
+                // Exact real fill prices from exchange receipts
+                const bnExitPrice = bnReceipt?.avgPrice > 0 ? bnReceipt.avgPrice : prices.binancePrice;
+                const bybExitPrice = bybReceipt?.avgPrice > 0 ? bybReceipt.avgPrice : prices.bybitPrice;
+                const bnQty = bnReceipt?.executedQty > 0 ? bnReceipt.executedQty : position.quantity;
+                const bybQty = bybReceipt?.executedQty > 0 ? bybReceipt.executedQty : position.quantity;
+
+                const bnDir = isShortBn ? -1 : 1;
+                const bybDir = -bnDir;
+
+                const bnGrossPnl = bnDir * (bnExitPrice - position.entryBinancePrice) * bnQty;
+                const bybGrossPnl = bybDir * (bybExitPrice - position.entryBybitPrice) * bybQty;
+                const totalGrossPnl = bnGrossPnl + bybGrossPnl;
+
+                const entryFees = position.totalFeesUsdt || 0;
+                const exitFees = (bnReceipt?.feeUsdt || 0) + (bybReceipt?.feeUsdt || 0);
+                realTotalFees = parseFloat((entryFees + exitFees).toFixed(4));
+                realNetPnl = parseFloat((totalGrossPnl - realTotalFees).toFixed(4));
+              } catch (receiptErr: any) {
+                console.warn('[StatArbEngine] Receipt fetch error:', receiptErr.message);
+              }
             }
+
+            const closed = this.store.closePosition(
+              position.id,
+              exitEval.exitType,
+              realNetPnl,
+              currentBasisBps,
+              realTotalFees
+            );
+            if (closed) closedPositions.push(closed);
+
+            appendStatArbLog(
+              `[SUCCESS] [REAL LEDGER SETTLEMENT] Position closed for ${position.canonicalSymbol} (${exitEval.exitType}): Real Net PnL: $${realNetPnl.toFixed(4)} USDT | Total Fees: $${realTotalFees.toFixed(4)} USDT.`,
+              'success',
+              position.canonicalSymbol,
+              { realNetPnl, realTotalFees, exitType: exitEval.exitType, executionHash: exitExec.executionHash }
+            );
           }
-
-          const closed = this.store.closePosition(
-            position.id,
-            exitEval.exitType,
-            realNetPnl,
-            currentBasisBps,
-            realTotalFees
-          );
-          if (closed) closedPositions.push(closed);
-
-          appendStatArbLog(
-            `[SUCCESS] [REAL LEDGER SETTLEMENT] Position closed for ${position.canonicalSymbol} (${exitEval.exitType}): Real Net PnL: $${realNetPnl.toFixed(4)} USDT | Total Fees: $${realTotalFees.toFixed(4)} USDT.`,
-            'success',
-            position.canonicalSymbol,
-            { realNetPnl, realTotalFees, exitType: exitEval.exitType, executionHash: exitExec.executionHash }
-          );
+        } finally {
+          this.inFlightExits.delete(position.id);
         }
       }
     }

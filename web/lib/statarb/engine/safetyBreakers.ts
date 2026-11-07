@@ -12,7 +12,7 @@
 
 import { SystemHealthStatus } from '../types';
 
-export const DEFAULT_MAX_CONCURRENT_POSITIONS = 5;
+export const DEFAULT_MAX_CONCURRENT_POSITIONS = 4;
 export const DEFAULT_MAX_DRAWDOWN_PCT = 15.0;
 
 export interface PositionCapacityResult {
