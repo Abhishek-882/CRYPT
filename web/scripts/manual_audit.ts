@@ -203,10 +203,19 @@ ${coinAnalysis.map((c: any) => `| **${c.symbol}** | $${c.binanceClosedPnl.toFixe
 ---
 
 ## 3. Mathematical Execution & Zero-Loss Invariant Status
-- **Pre-Flight Gating**: 5-Gate Entry Filter Active (OU theta, 2.20z hurdle, $0.240\%$ basis hurdle, $4.0\\times$ depth, $0.080\%$ max spread).
+- **Pre-Flight Gating**: 6-Gate Quantitative Pre-Dispatch Filter Active:
+  1. OU Mean Reversion Speed (theta > 0.05)
+  2. Statistical Z-Score Threshold (|z| >= 2.20)
+  3. Spread Discrepancy Hurdle (>= 0.240%)
+  4. Order Book Liquidity Depth (>= 4.0x order size)
+  5. Maximum Bid-Ask Spread Limit (<= 0.080%)
+  6. Gate 6 Adverse Funding Rate Guard: Carry hurdle (<= 0.030% carry deficit)
+- **Portfolio Limits**:
+  - Max Concurrent Positions: Strictly capped at 4 live orders portfolio-wide.
+  - Max Repeated Trades: Strictly capped at 2 concurrent trades per symbol across all bots.
 - **In-Flight Lock**: Active to prevent concurrent duplicate fills on the same instrument.
 - **Exit Optimizer**: Liquidation valuation using authoritative live Top-of-Book Bid/Ask quotes.
-- **Zero-Loss Gate**: Enforces $\\text{Net PnL} \\ge +\\$0.0100$ USDT before dispatch.
+- **Zero-Loss Gate**: Enforces Net PnL >= +$0.0100 USDT before dispatch.
 `;
   try {
     fs.writeFileSync(artifactPath, mdReport, 'utf8');

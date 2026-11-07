@@ -684,6 +684,7 @@ export class StatArbEngine {
         minNetProfitUsdt: this.store.getState().config.minNetProfitUsdt ?? 0.01,
         enableEarlyTakeProfit: this.store.getState().config.enableEarlyTakeProfit ?? true,
         topBook,
+        requireAuthoritativeTopBook: !isDryRun,
       });
 
       if (exitEval.canExit && exitEval.exitAllowed) {

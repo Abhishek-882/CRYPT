@@ -318,6 +318,7 @@ export function evaluateExit(
     minNetProfitUsdt?: number;
     enableEarlyTakeProfit?: boolean;
     topBook?: TopOfBookQuotes;
+    requireAuthoritativeTopBook?: boolean;
   } = {}
 ): ExitEvaluationResult {
   const {
@@ -333,6 +334,7 @@ export function evaluateExit(
     minNetProfitUsdt = MIN_ZERO_LOSS_PROFIT_USDT,
     enableEarlyTakeProfit = false,
     topBook,
+    requireAuthoritativeTopBook = false,
   } = options;
 
   const grossBasisPnL = calculateGrossBasisPnL(
@@ -416,6 +418,24 @@ export function evaluateExit(
         reason: stagnancyCheck.reason,
       };
     }
+  }
+
+  // If authoritative top-of-book is required (live execution), hold until fresh book quotes arrive
+  if (requireAuthoritativeTopBook && !topBook) {
+    return {
+      canExit: false,
+      exitAllowed: false,
+      exitType: 'HOLD_CARRY_FOR_PARITY',
+      basisCompression,
+      isCompressed,
+      isNormalized,
+      currentZScore: zScore,
+      currentBasisBps,
+      netPnLUsdt: 0,
+      grossBasisPnLUsdt: 0,
+      totalFeesUsdt: totalFees,
+      reason: 'HOLD_FOR_TOP_BOOK: Authoritative live top-of-book bid/ask quotes required for exit verification.',
+    };
   }
 
   // 3. Early Take-Profit Banking Rule (High Capital Velocity)
