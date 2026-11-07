@@ -381,6 +381,20 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    if (action === "sync_positions") {
+      const positions = body.positions as StatArbPosition[];
+      if (Array.isArray(positions)) {
+        store.setPositions(positions);
+        console.log(`[STATARB-DAEMON] Reconciled and synchronized ${positions.length} active positions in state store.`);
+      }
+      return NextResponse.json({
+        success: true,
+        message: `Synchronized ${positions?.length || 0} active positions.`,
+        positions: store.getActivePositions(),
+        state: engine.getState(),
+      });
+    }
+
     if (action === "clear_quarantine") {
       const symbol = body.symbol as string | undefined;
       engine.clearQuarantine(symbol);

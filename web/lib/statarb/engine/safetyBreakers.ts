@@ -13,6 +13,7 @@
 import { SystemHealthStatus } from '../types';
 
 export const DEFAULT_MAX_CONCURRENT_POSITIONS = 4;
+export const DEFAULT_MAX_POSITIONS_PER_SYMBOL = 2;
 export const DEFAULT_MAX_DRAWDOWN_PCT = 15.0;
 
 export interface PositionCapacityResult {
@@ -59,6 +60,24 @@ export function checkConcurrentPositionsLimit(
     reason: allowed
       ? `Slot capacity available: ${activeCount}/${maxAllowed} active positions (${remainingCapacity} slots free).`
       : `Max concurrent positions limit reached: ${activeCount}/${maxAllowed} active slots full. New entries blocked.`,
+  };
+}
+
+/**
+ * Evaluates whether repeated position slots for a single symbol are available (max 2 repeated trades).
+ */
+export function checkSymbolPositionLimit(
+  activeForSymbolCount: number,
+  maxAllowedPerSymbol: number = DEFAULT_MAX_POSITIONS_PER_SYMBOL
+): { allowed: boolean; activeCount: number; maxAllowed: number; reason: string } {
+  const allowed = activeForSymbolCount < maxAllowedPerSymbol;
+  return {
+    allowed,
+    activeCount: activeForSymbolCount,
+    maxAllowed: maxAllowedPerSymbol,
+    reason: allowed
+      ? `Symbol slot available: ${activeForSymbolCount}/${maxAllowedPerSymbol} active trades for symbol.`
+      : `Max repeated trades cap reached for symbol: ${activeForSymbolCount}/${maxAllowedPerSymbol} active positions. Additional re-entry blocked.`,
   };
 }
 

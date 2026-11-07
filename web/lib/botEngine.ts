@@ -45,7 +45,7 @@ import {
   ROUNDTRIP_TAKER_FEE_BPS,
   MIN_GROSS_SPREAD_BPS,
 } from "./spreadCalculation";
-import { getLivePositionsForVenues, hasCorridorLivePosition } from "./exchangePositions";
+import { getLivePositionsForVenues, hasCorridorLivePosition, getConvergenceActivePositions } from "./exchangePositions";
 import { bybitTradeStream } from "./bybitTradeStream";
 import { binanceTradeStream } from "./binanceTradeStream";
 import { coindcxTradeStream } from "./coindcxTradeStream";
@@ -5891,6 +5891,26 @@ export async function runTenantBotCycle(
         continue;
       }
 
+      // STRICT RULE: Max orders that can run in live across Master Account is 4
+      const convActiveCount = getConvergenceActivePositions().totalActiveCount ?? 0;
+      const fleetActiveCount = state.bots.reduce((sum, b) => sum + (b.activeHedges?.length || 0), 0);
+      const totalLiveMasterOrders = fleetActiveCount + convActiveCount;
+      const MAX_MASTER_LIVE_ORDERS = 4;
+
+      if (totalLiveMasterOrders >= MAX_MASTER_LIVE_ORDERS) {
+        bot.statusText = `AT_MAX_CAPACITY (${totalLiveMasterOrders}/${MAX_MASTER_LIVE_ORDERS} LIVE ORDERS)`;
+        if (state.cyclesCompleted % 6 === 0) {
+          appendBotLog(
+            state,
+            `[CAPACITY CHECK] Bot "${bot.name}": Master account max orders cap reached (${totalLiveMasterOrders}/${MAX_MASTER_LIVE_ORDERS} live running orders). New entries blocked.`,
+            "info",
+            user.id,
+            bot.id
+          );
+        }
+        continue;
+      }
+
       const availableSlots = (config.maxSimultaneousHedges || 3) - bot.activeHedges.length;
       if (availableSlots <= 0) {
         bot.statusText = `AT_MAX_CAPACITY (${bot.activeHedges.length}/${config.maxSimultaneousHedges} ACTIVE)`;
@@ -6035,7 +6055,9 @@ export async function runTenantBotCycle(
       const qualifiedCandidates: any[] = [];
 
       for (const coin of opportunities) {
-        if (activeSymbolsInBot.has(coin.symbol)) continue;
+        // Check max repeated trades cap (max 2 repeated trades for any coin in this bot)
+        const symbolHedgesInBot = bot.activeHedges.filter((h) => h.symbol === coin.symbol).length;
+        if (symbolHedgesInBot >= 2) continue;
 
         // CORRIDOR FLEET GUARD (Invariant 11): Prevent cross-bot collisions on same corridor
         if (fleetCorridorActiveSymbols.has(coin.symbol) || isCorridorSymbolLocked(corridor, coin.symbol)) {
@@ -6051,15 +6073,16 @@ export async function runTenantBotCycle(
           continue;
         }
 
-        // CORRIDOR LIVE POSITION GUARD: Block re-entry if coin has an open position on either corridor venue
-        // Allow candidate evaluation if position belongs to STATARB-OU-PERP convergence fleet and coexistence is permitted
+        // CORRIDOR LIVE POSITION GUARD: Block re-entry if coin has reached max repeated trades (2)
+        // Allow candidate evaluation if position belongs to STATARB-OU-PERP convergence fleet and coexistence is permitted under 2 repeated trades cap
         const allowConvergence = bot.config.allowConvergenceCoexistence ?? true;
         const livePosCheck = hasCorridorLivePosition(
           coin.symbol,
           expectedVA,
           expectedVB,
           corridorLiveSnapshot,
-          allowConvergence
+          allowConvergence,
+          2 // max repeated trades = 2
         );
 
         if (livePosCheck.hasPosition) {
@@ -6068,8 +6091,8 @@ export async function runTenantBotCycle(
             appendBotLog(
               state,
               isConv
-                ? `[STRATEGY ALLOCATION] Bot "${bot.name}": Candidate ${coin.symbol} active in STATARB-OU-PERP convergence fleet (${livePosCheck.convergenceDirection}). Re-entry skipped to preserve dedicated basis carry.`
-                : `[RE-ENTRY GUARD] Bot "${bot.name}": Candidate ${coin.symbol} skipped — active open position detected on ${livePosCheck.blockingVenues.join(", ")} in Live Positions.`,
+                ? `[STRATEGY ALLOCATION] Bot "${bot.name}": Candidate ${coin.symbol} active in STATARB-OU-PERP convergence fleet (${livePosCheck.convergenceDirection || "HEDGED"}). Max repeated trades cap reached.`
+                : `[RE-ENTRY GUARD] Bot "${bot.name}": Candidate ${coin.symbol} skipped — ${livePosCheck.reason || `active open position detected on ${livePosCheck.blockingVenues.join(", ")} in Live Positions.`}`,
               "info",
               user.id,
               bot.id

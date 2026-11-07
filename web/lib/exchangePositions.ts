@@ -254,16 +254,29 @@ export async function getLivePositionsForVenues(
   return snapshot;
 }
 
-let lastConvergenceSymbolsCache: { timestamp: number; symbols: Set<string>; directions: Map<string, string> } = {
+let lastConvergenceSymbolsCache: {
+  timestamp: number;
+  symbols: Set<string>;
+  symbolCounts: Map<string, number>;
+  directions: Map<string, string>;
+  totalActiveCount: number;
+} = {
   timestamp: 0,
   symbols: new Set(),
+  symbolCounts: new Map(),
   directions: new Map(),
+  totalActiveCount: 0,
 };
 
 /**
  * Returns active positions held by STATARB-OU-PERP convergence engine
  */
-export function getConvergenceActivePositions(): { symbols: Set<string>; directions: Map<string, string> } {
+export function getConvergenceActivePositions(): {
+  symbols: Set<string>;
+  symbolCounts: Map<string, number>;
+  directions: Map<string, string>;
+  totalActiveCount: number;
+} {
   const now = Date.now();
   if (now - lastConvergenceSymbolsCache.timestamp < 3000) {
     return lastConvergenceSymbolsCache;
@@ -274,17 +287,21 @@ export function getConvergenceActivePositions(): { symbols: Set<string>; directi
     if (fs.existsSync(statePath)) {
       const data = JSON.parse(fs.readFileSync(statePath, "utf8"));
       const symbols = new Set<string>();
+      const symbolCounts = new Map<string, number>();
       const directions = new Map<string, string>();
+      let totalActiveCount = 0;
       if (Array.isArray(data.positions)) {
         for (const p of data.positions) {
-          if (p.canonicalSymbol) {
+          if (p.canonicalSymbol && (p.status === "OPEN" || !p.status)) {
             const norm = normalizeExchangeSymbol(p.canonicalSymbol);
             symbols.add(norm);
+            symbolCounts.set(norm, (symbolCounts.get(norm) || 0) + 1);
             directions.set(norm, p.direction || "");
+            totalActiveCount++;
           }
         }
       }
-      lastConvergenceSymbolsCache = { timestamp: now, symbols, directions };
+      lastConvergenceSymbolsCache = { timestamp: now, symbols, symbolCounts, directions, totalActiveCount };
       return lastConvergenceSymbolsCache;
     }
   } catch {}
@@ -293,27 +310,52 @@ export function getConvergenceActivePositions(): { symbols: Set<string>; directi
 }
 
 /**
- * Check if a coin has an open position on either corridor venue
+ * Check if a coin has an open position on either corridor venue.
+ * Enforces strict max repeated trades cap (default: 2) across engine & fleet.
  */
 export function hasCorridorLivePosition(
   symbol: string,
   venueA: string,
   venueB: string,
   snapshot: VenuePositionsSnapshot,
-  ignoreConvergencePositions: boolean = false
-): { hasPosition: boolean; blockingVenues: string[]; isConvergencePosition?: boolean; convergenceDirection?: string } {
+  ignoreConvergencePositions: boolean = false,
+  maxRepeatedTrades: number = 2
+): {
+  hasPosition: boolean;
+  blockingVenues: string[];
+  isConvergencePosition?: boolean;
+  convergenceDirection?: string;
+  totalPositionsForSymbol?: number;
+  reason?: string;
+} {
   const normSym = normalizeExchangeSymbol(symbol);
   const blockingVenues: string[] = [];
 
   const conv = getConvergenceActivePositions();
-  const isConvergence = conv.symbols.has(normSym);
+  const convCount = conv.symbolCounts.get(normSym) || (conv.symbols.has(normSym) ? 1 : 0);
+  const isConvergence = convCount > 0;
 
+  // If this symbol already has reached or exceeded max repeated trades (e.g. 2 in convergence), strictly block!
+  if (convCount >= maxRepeatedTrades) {
+    return {
+      hasPosition: true,
+      blockingVenues: ["Convergence Engine (Max Repeated 2 Trades Active)"],
+      isConvergencePosition: true,
+      convergenceDirection: conv.directions.get(normSym),
+      totalPositionsForSymbol: convCount,
+      reason: `Max repeated trades cap (${maxRepeatedTrades}) reached in convergence engine.`,
+    };
+  }
+
+  // If under max repeated trades cap (< 2) and coexistence is allowed:
   if (ignoreConvergencePositions && isConvergence) {
     return {
       hasPosition: false,
       blockingVenues: [],
       isConvergencePosition: true,
       convergenceDirection: conv.directions.get(normSym),
+      totalPositionsForSymbol: convCount,
+      reason: `Repeated trade permitted: ${convCount}/${maxRepeatedTrades} active in convergence.`,
     };
   }
 
@@ -332,5 +374,6 @@ export function hasCorridorLivePosition(
     blockingVenues,
     isConvergencePosition: isConvergence,
     convergenceDirection: conv.directions.get(normSym),
+    totalPositionsForSymbol: convCount,
   };
 }

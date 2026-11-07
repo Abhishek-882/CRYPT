@@ -559,5 +559,50 @@ describe('Z-Score Engine & Entry Gating (zScoreEngine.ts)', () => {
       const signal = generateTradeSignal(failingPair, params);
       expect(signal).toBeNull();
     });
+
+    it('blocks entry when Gate 6 Adverse Funding Rate Guard trips within 45m', () => {
+      const adversePair = createMockPair({
+        canonicalSymbol: 'ETH',
+        grossBasisBps: 35.0, // Short Binance, Long Bybit
+        orderBookDepthRatio: 5.0,
+        binanceSpreadBps: 3.5,
+        bybitSpreadBps: 3.5,
+        nextFundingTime: Date.now() + 20 * 60 * 1000, // in 20 minutes
+        bybitFundingRate: 0.0005, // +0.05% (5 bps) -> Long Bybit pays 5 bps
+        binanceFundingRate: 0.0,
+      });
+      const params = createMockOUParams({
+        mu: 0.0,
+        equilibriumSigma: 12.0,
+      });
+
+      const gateRes = evaluateEntryGates(adversePair, params);
+      expect(gateRes.passed).toBe(false);
+      expect(gateRes.reasons.some((r) => r.includes('Gate 6 (Funding Rate Guard)'))).toBe(true);
+
+      const signal = generateTradeSignal(adversePair, params);
+      expect(signal).toBeNull();
+    });
+
+    it('approves entry when upcoming funding is favorable or within 3 bps tolerance', () => {
+      const favorablePair = createMockPair({
+        canonicalSymbol: 'ETH',
+        grossBasisBps: 35.0, // Short Binance, Long Bybit
+        orderBookDepthRatio: 5.0,
+        binanceSpreadBps: 3.5,
+        bybitSpreadBps: 3.5,
+        nextFundingTime: Date.now() + 20 * 60 * 1000, // in 20 minutes
+        bybitFundingRate: -0.0002, // Negative funding on Bybit -> Long Bybit RECEIVES 2 bps!
+        binanceFundingRate: 0.0001, // Positive on Binance -> Short Binance RECEIVES 1 bps!
+      });
+      const params = createMockOUParams({
+        mu: 0.0,
+        equilibriumSigma: 12.0,
+      });
+
+      const gateRes = evaluateEntryGates(favorablePair, params);
+      expect(gateRes.passed).toBe(true);
+      expect(gateRes.reasons.some((r) => r.includes('Gate 6 (Funding Rate Guard)') && r.includes('[PASS]'))).toBe(true);
+    });
   });
 });

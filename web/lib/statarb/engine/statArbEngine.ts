@@ -319,23 +319,28 @@ export class StatArbEngine {
     const executedPositions: StatArbPosition[] = [];
     const rejectedReasons: Record<string, string[]> = {};
 
-    // 1. Check System Safety & Capacity
+    // 1. Check System Safety & Capacity (Enforcing strict max 4 concurrent live positions cap)
+    const maxConcurrent = Math.min(4, config.maxConcurrentPositions ?? DEFAULT_MAX_CONCURRENT_POSITIONS);
     const safety = evaluateSystemSafety(
       state.positions.length,
       state.currentEquityUsdt,
       state.peakEquityUsdt,
       state.isKillSwitchEngaged,
-      config.maxConcurrentPositions
+      maxConcurrent
     );
 
-    if (!safety.canTrade || !config.enabled) {
+    if (!safety.canTrade || !config.enabled || state.positions.length >= maxConcurrent) {
       return {
         timestamp,
         monitoredPairsCount: pairs.length,
         qualifyingSignals: [],
         executedPositions: [],
         rejectedReasons: {
-          SYSTEM: safety.reasons.length > 0 ? safety.reasons : ['Strategy disabled in configuration'],
+          SYSTEM: safety.reasons.length > 0 ? safety.reasons : [
+            state.positions.length >= maxConcurrent
+              ? `Live order cap reached: ${state.positions.length}/${maxConcurrent} active slots filled. New entries strictly blocked.`
+              : 'Strategy disabled in configuration'
+          ],
         },
       };
     }
@@ -346,12 +351,18 @@ export class StatArbEngine {
     for (const pair of pairs) {
       const pairReasons: string[] = [];
 
-      // Avoid duplicate active positions or in-flight entries on the same canonical instrument
-      const isAlreadyActive = state.positions.some(
+      // Avoid exceeding max repeated trades cap (default: 2) on the same canonical instrument
+      const maxPerSymbol = Math.min(2, config.maxPositionsPerSymbol ?? 2);
+      const activeForSymbol = state.positions.filter(
         (p) => p.canonicalSymbol === pair.canonicalSymbol && p.status === 'OPEN'
-      );
-      if (isAlreadyActive || this.inFlightEntries.has(pair.canonicalSymbol)) {
-        rejectedReasons[pair.canonicalSymbol] = ['Active position or entry order already in-flight for this instrument'];
+      ).length;
+
+      if (activeForSymbol >= maxPerSymbol || this.inFlightEntries.has(pair.canonicalSymbol)) {
+        rejectedReasons[pair.canonicalSymbol] = [
+          activeForSymbol >= maxPerSymbol
+            ? `Max repeated trades cap reached for ${pair.canonicalSymbol}: ${activeForSymbol}/${maxPerSymbol} active positions running`
+            : 'Entry order already in-flight for this instrument'
+        ];
         continue;
       }
 
@@ -644,15 +655,22 @@ export class StatArbEngine {
             (this.activeAdapter as any).getLiveTopBook('BINANCE', position.binanceSymbol),
             (this.activeAdapter as any).getLiveTopBook('BYBIT', position.bybitSymbol),
           ]);
-          if (bnBook && bybBook && bnBook.bestBid > 0 && bybBook.bestBid > 0) {
+          const bnBid = bnBook?.bid ?? bnBook?.bestBid ?? 0;
+          const bnAsk = bnBook?.ask ?? bnBook?.bestAsk ?? 0;
+          const bybBid = bybBook?.bid ?? bybBook?.bestBid ?? 0;
+          const bybAsk = bybBook?.ask ?? bybBook?.bestAsk ?? 0;
+
+          if (bnBid > 0 && bnAsk > 0 && bybBid > 0 && bybAsk > 0) {
             topBook = {
-              binanceBid: bnBook.bestBid,
-              binanceAsk: bnBook.bestAsk,
-              bybitBid: bybBook.bestBid,
-              bybitAsk: bybBook.bestAsk,
+              binanceBid: bnBid,
+              binanceAsk: bnAsk,
+              bybitBid: bybBid,
+              bybitAsk: bybAsk,
             };
           }
-        } catch {}
+        } catch (err: any) {
+          console.warn(`[StatArbEngine] Failed to refresh live top book for ${position.canonicalSymbol}:`, err.message);
+        }
       }
 
       // Evaluate Exit criteria via ExitOptimizer
@@ -662,6 +680,7 @@ export class StatArbEngine {
         currentRoiPct,
         holdMinutes: holdDurationMinutes,
         divergenceHistory30m: divergenceHistory,
+        fundingEarnedUsdt: position.fundingEarnedUsdt ?? 0,
         minNetProfitUsdt: this.store.getState().config.minNetProfitUsdt ?? 0.01,
         enableEarlyTakeProfit: this.store.getState().config.enableEarlyTakeProfit ?? true,
         topBook,

@@ -219,6 +219,14 @@ export class StatArbStateStore {
   }
 
   /**
+   * Overwrites active positions (used for live exchange position reconciliation)
+   */
+  public setPositions(positions: StatArbPosition[]): void {
+    this.state.positions = positions;
+    this.persistStateSync();
+  }
+
+  /**
    * Updates an existing active position
    */
   public updatePosition(id: string, updates: Partial<StatArbPosition>): boolean {

@@ -96,6 +96,12 @@ export interface StatArbPair {
   binanceSpreadBps: number;
   /** Top-of-book bid-ask spread on Bybit Linear in bps */
   bybitSpreadBps: number;
+  /** Current 8-hour funding rate on Binance USD-M (decimal, e.g. 0.0001 = 0.01%) */
+  binanceFundingRate?: number;
+  /** Current 8-hour funding rate on Bybit Linear (decimal, e.g. 0.0001 = 0.01%) */
+  bybitFundingRate?: number;
+  /** Milliseconds UTC epoch timestamp of next upcoming funding settlement */
+  nextFundingTime?: number;
   /** Timestamp of last telemetry update (UTC epoch ms) */
   lastUpdated: number;
 }
@@ -116,6 +122,10 @@ export interface EntryGateConfig {
   minNetEdgeBps?: number;
   /** Estimated 4-leg roundtrip trading fee & slippage friction in bps (default: 17.0 bps) */
   roundtripFrictionBps?: number;
+  /** Maximum allowable adverse funding carry in bps if next funding is < 45m (default: 3.0 bps = 0.03%) */
+  maxAdverseFundingRateBps?: number;
+  /** Lookahead window in minutes to evaluate upcoming funding settlement (default: 45 minutes) */
+  fundingWindowMinutes?: number;
 }
 
 /**
@@ -171,6 +181,8 @@ export interface StatArbPosition {
   unrealizedPnlUsdt: number;
   totalFeesUsdt: number;
   netPnlUsdt: number;
+  /** Realized accumulated funding cashflow paid (-) or received (+) in USDT */
+  fundingEarnedUsdt?: number;
   exitTimestamp?: number;
   exitReason?: string;
   holdDurationMinutes: number;
@@ -201,8 +213,10 @@ export interface StatArbConfig {
   minNetProfitUsdt: number;
   /** Invariant 6 Maximum hold duration before persistence breaker triggers (default: 30 minutes) */
   maxPositionHoldMinutes: number;
-  /** Maximum number of concurrent active positions across all corridors (default: 5) */
+  /** Maximum number of concurrent active positions across all corridors (default: 4) */
   maxConcurrentPositions: number;
+  /** Maximum number of repeated trades allowed on a single symbol/instrument (default: 2) */
+  maxPositionsPerSymbol?: number;
   /** Standard order notional per leg in USDT (default: 15.0 USDT) */
   orderNotionalUsdt: number;
   /** Leg 1 Maker limit order timeout in milliseconds (default: 8000 ms) */

@@ -35,6 +35,8 @@ export const DEFAULT_ENTRY_GATE_CONFIG: EntryGateConfig = {
   maxSpreadBps: 8.0,
   minNetEdgeBps: 8.0,
   roundtripFrictionBps: 17.0,
+  maxAdverseFundingRateBps: 3.0,
+  fundingWindowMinutes: 45,
 };
 
 /**
@@ -171,12 +173,54 @@ export function evaluateEntryGates(
     );
   }
 
+  // Gate 6: Adverse Funding Rate Guard
+  // If nextFundingTime is within 45 minutes, check projected adverse funding carry.
+  // Direction SHORT_BINANCE_LONG_BYBIT pays funding if (F_byb > 0) or (F_bn < 0).
+  // Direction SHORT_BYBIT_LONG_BINANCE pays funding if (F_bn > 0) or (F_byb < 0).
+  let gate6Passed = true;
+  if (
+    pair.nextFundingTime &&
+    pair.nextFundingTime > 0 &&
+    direction !== undefined
+  ) {
+    const msToFunding = pair.nextFundingTime - Date.now();
+    const minutesToFunding = msToFunding / (60 * 1000);
+
+    if (minutesToFunding > 0 && minutesToFunding <= (config.fundingWindowMinutes ?? 45)) {
+      const bnRate = pair.binanceFundingRate ?? 0;
+      const bybRate = pair.bybitFundingRate ?? 0;
+
+      // Calculate net carry cost in bps
+      let adverseCarryBps = 0;
+      if (direction === 'SHORT_BINANCE_LONG_BYBIT') {
+        // Long Bybit pays if bybRate > 0; Short Binance pays if bnRate < 0
+        adverseCarryBps = (Math.max(0, bybRate) + Math.max(0, -bnRate)) * 10000;
+      } else {
+        // Long Binance pays if bnRate > 0; Short Bybit pays if bybRate < 0
+        adverseCarryBps = (Math.max(0, bnRate) + Math.max(0, -bybRate)) * 10000;
+      }
+
+      const maxAdverseCarryBps = config.maxAdverseFundingRateBps ?? 3.0; // 0.030%
+      if (adverseCarryBps > maxAdverseCarryBps) {
+        gate6Passed = false;
+        reasons.push(
+          `Gate 6 (Funding Rate Guard): Adverse carry ${(adverseCarryBps / 100).toFixed(3)}% (${adverseCarryBps.toFixed(1)} bps) in next ${minutesToFunding.toFixed(0)}m exceeds ${maxAdverseCarryBps.toFixed(1)} bps cap [FAIL]`
+        );
+      } else {
+        reasons.push(
+          `Gate 6 (Funding Rate Guard): Adverse carry ${(adverseCarryBps / 100).toFixed(3)}% in next ${minutesToFunding.toFixed(0)}m within limits [PASS]`
+        );
+      }
+    }
+  }
+
   const passed =
     gate1Passed &&
     gate2Passed &&
     gate3Passed &&
     gate4Passed &&
     gate5Passed &&
+    gate6Passed &&
     direction !== undefined;
 
   return {

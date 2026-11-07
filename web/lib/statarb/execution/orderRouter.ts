@@ -170,6 +170,11 @@ export interface ExchangeExecutionAdapter {
     bybitLimit: number;
     healthZone: 'GREEN' | 'AMBER' | 'RED';
   };
+
+  getLiveTopBook?(
+    venue: ExchangeVenue,
+    symbol: string
+  ): Promise<{ bid: number; ask: number; mid: number; bestBid?: number; bestAsk?: number; spreadBps?: number } | null>;
 }
 
 /**
@@ -301,6 +306,13 @@ export class SimulatedExecutionAdapter implements ExchangeExecutionAdapter {
       avgPrice: 1.0,
       tradesCount: 1,
     };
+  }
+
+  async getLiveTopBook(
+    venue: ExchangeVenue,
+    symbol: string
+  ): Promise<{ bid: number; ask: number; mid: number; bestBid: number; bestAsk: number; spreadBps: number } | null> {
+    return { bid: 1.0, ask: 1.0001, mid: 1.00005, bestBid: 1.0, bestAsk: 1.0001, spreadBps: 1.0 };
   }
 
   getRateLimitHealth(): {
@@ -883,7 +895,9 @@ export class MakerTakerOrderRouter {
       counterpartPriceFetcher: async () => {
         try {
           const top = await (this.adapter as any).getLiveTopBook?.('BYBIT', position.bybitSymbol);
-          return top ? (leg2Side === 'BUY' ? top.bestAsk : top.bestBid) : currentPriceByb;
+          const ask = top ? (top.ask ?? top.bestAsk) : undefined;
+          const bid = top ? (top.bid ?? top.bestBid) : undefined;
+          return (top && ask && bid) ? (leg2Side === 'BUY' ? ask : bid) : currentPriceByb;
         } catch {
           return currentPriceByb;
         }

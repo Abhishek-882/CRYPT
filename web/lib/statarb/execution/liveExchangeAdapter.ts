@@ -172,7 +172,7 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
   public async getLiveTopBook(
     venue: ExchangeVenue,
     symbol: string
-  ): Promise<{ bid: number; ask: number; mid: number } | null> {
+  ): Promise<{ bid: number; ask: number; mid: number; bestBid: number; bestAsk: number; spreadBps: number } | null> {
     try {
       if (venue === 'BINANCE') {
         const res = await fetch(`https://fapi.binance.com/fapi/v1/ticker/bookTicker?symbol=${symbol.toUpperCase()}`, {
@@ -184,7 +184,9 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
           const bid = parseFloat(data.bidPrice);
           const ask = parseFloat(data.askPrice);
           if (Number.isFinite(bid) && Number.isFinite(ask) && bid > 0 && ask > 0) {
-            return { bid, ask, mid: (bid + ask) / 2 };
+            const mid = (bid + ask) / 2;
+            const spreadBps = ((ask - bid) / mid) * 10000;
+            return { bid, ask, mid, bestBid: bid, bestAsk: ask, spreadBps };
           }
         }
       } else {
@@ -199,7 +201,9 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
             const bid = parseFloat(item.bid1Price);
             const ask = parseFloat(item.ask1Price);
             if (Number.isFinite(bid) && Number.isFinite(ask) && bid > 0 && ask > 0) {
-              return { bid, ask, mid: (bid + ask) / 2 };
+              const mid = (bid + ask) / 2;
+              const spreadBps = ((ask - bid) / mid) * 10000;
+              return { bid, ask, mid, bestBid: bid, bestAsk: ask, spreadBps };
             }
           }
         }

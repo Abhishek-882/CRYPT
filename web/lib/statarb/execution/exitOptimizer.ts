@@ -149,7 +149,8 @@ export function calculateGrossBasisPnL(
   currentBasisBps: number,
   currentBinancePrice?: number,
   currentBybitPrice?: number,
-  topBook?: TopOfBookQuotes
+  topBook?: TopOfBookQuotes,
+  applySpreadHaircut: boolean = false
 ): number {
   const isShortBn = position.direction === 'SHORT_BINANCE_LONG_BYBIT';
 
@@ -178,7 +179,7 @@ export function calculateGrossBasisPnL(
     }
   }
 
-  // 2. Concrete Mid-Price Differentials
+  // 2. Concrete Mid-Price Differentials WITH Optional Taker Spread Haircut
   if (
     currentBinancePrice !== undefined &&
     currentBybitPrice !== undefined &&
@@ -193,7 +194,15 @@ export function calculateGrossBasisPnL(
     const bnPnl = bnDir * (currentBinancePrice - position.entryBinancePrice) * position.quantity;
     const bybPnl = bybDir * (currentBybitPrice - position.entryBybitPrice) * position.quantity;
 
-    return parseFloat((bnPnl + bybPnl).toFixed(4));
+    let gross = bnPnl + bybPnl;
+    if (applySpreadHaircut) {
+      // Conservative taker half-spread crossing haircut (4.0 bps per venue = 8.0 bps total notional)
+      // Ensures mid-price fluctuations do not trigger premature exits that become negative after crossing the book
+      const notional = position.notionalUsdt || position.quantity * position.entryBinancePrice || 15.0;
+      gross -= notional * (8.0 / 10000);
+    }
+
+    return parseFloat(gross.toFixed(4));
   }
 
   // 3. Theoretical Basis Compression & Notional Fallback
@@ -254,7 +263,8 @@ export function evaluateZeroLossExitGate(
     currentBasisBps,
     currentBinancePrice,
     currentBybitPrice,
-    topBook
+    topBook,
+    !topBook
   );
 
   const netPnL = parseFloat((grossBasisPnL + fundingEarned - totalFees).toFixed(4));
@@ -330,7 +340,8 @@ export function evaluateExit(
     currentBasisBps,
     currentBinancePrice,
     currentBybitPrice,
-    topBook
+    topBook,
+    !topBook
   );
   const totalFees = calculateRoundtripFees(position, feesConfig);
   const netPnL = parseFloat((grossBasisPnL + fundingEarnedUsdt - totalFees).toFixed(4));

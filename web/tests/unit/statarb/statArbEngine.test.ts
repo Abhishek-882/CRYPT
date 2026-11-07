@@ -368,5 +368,101 @@ describe('Standalone StatArbEngine Unit Tests (statArbEngine.ts)', () => {
       expect(result.closedPositions).toHaveLength(0);
       expect(store.getActivePositions()).toHaveLength(1);
     });
+
+    it('strictly caps max live running orders to 4 and blocks 5th entry', async () => {
+      // Add 4 active positions
+      for (let i = 1; i <= 4; i++) {
+        store.addPosition({
+          id: `pos_fill_${i}`,
+          canonicalSymbol: `COIN_${i}`,
+          binanceSymbol: `COIN_${i}USDT`,
+          bybitSymbol: `COIN_${i}USDT`,
+          direction: 'SHORT_BINANCE_LONG_BYBIT',
+          status: 'OPEN',
+          entryTimestamp: Date.now(),
+          entryBasisBps: 30.0,
+          entryBinancePrice: 10.0,
+          entryBybitPrice: 9.97,
+          quantity: 1.5,
+          notionalUsdt: 15.0,
+          currentBasisBps: 30.0,
+          currentBinancePrice: 10.0,
+          currentBybitPrice: 9.97,
+          currentZScore: 2.5,
+          realizedPnlUsdt: 0,
+          unrealizedPnlUsdt: 0,
+          totalFeesUsdt: 0.015,
+          netPnlUsdt: 0,
+          holdDurationMinutes: 1,
+          divergenceHistory30m: [],
+        });
+      }
+
+      const pairCandidate: StatArbPair = {
+        canonicalSymbol: 'NEW_COIN',
+        binanceSymbol: 'NEW_COINUSDT',
+        bybitSymbol: 'NEW_COINUSDT',
+        multiplier: 1.0,
+        binanceMid: 10.0,
+        bybitMid: 9.97,
+        grossBasisBps: 30.1,
+        orderBookDepthRatio: 5.0,
+        binanceSpreadBps: 4.0,
+        bybitSpreadBps: 4.0,
+        lastUpdated: Date.now(),
+      };
+
+      const scanResult = await engine.scanCorridors([pairCandidate], new Map(), new Map());
+      expect(scanResult.executedPositions).toHaveLength(0);
+      expect(scanResult.rejectedReasons.SYSTEM?.[0]).toContain('4/4 active slots full');
+    });
+
+    it('strictly caps max repeated trades on the same symbol to 2 and blocks 3rd entry', async () => {
+      // Add 2 active positions on the SAME symbol (CYBER)
+      for (let i = 1; i <= 2; i++) {
+        store.addPosition({
+          id: `pos_cyber_${i}`,
+          canonicalSymbol: 'CYBER',
+          binanceSymbol: 'CYBERUSDT',
+          bybitSymbol: 'CYBERUSDT',
+          direction: 'SHORT_BINANCE_LONG_BYBIT',
+          status: 'OPEN',
+          entryTimestamp: Date.now(),
+          entryBasisBps: 30.0,
+          entryBinancePrice: 10.0,
+          entryBybitPrice: 9.97,
+          quantity: 1.5,
+          notionalUsdt: 15.0,
+          currentBasisBps: 30.0,
+          currentBinancePrice: 10.0,
+          currentBybitPrice: 9.97,
+          currentZScore: 2.5,
+          realizedPnlUsdt: 0,
+          unrealizedPnlUsdt: 0,
+          totalFeesUsdt: 0.015,
+          netPnlUsdt: 0,
+          holdDurationMinutes: 1,
+          divergenceHistory30m: [],
+        });
+      }
+
+      const cyberCandidate: StatArbPair = {
+        canonicalSymbol: 'CYBER',
+        binanceSymbol: 'CYBERUSDT',
+        bybitSymbol: 'CYBERUSDT',
+        multiplier: 1.0,
+        binanceMid: 10.0,
+        bybitMid: 9.97,
+        grossBasisBps: 30.1,
+        orderBookDepthRatio: 5.0,
+        binanceSpreadBps: 4.0,
+        bybitSpreadBps: 4.0,
+        lastUpdated: Date.now(),
+      };
+
+      const scanResult = await engine.scanCorridors([cyberCandidate], new Map(), new Map());
+      expect(scanResult.executedPositions).toHaveLength(0);
+      expect(scanResult.rejectedReasons.CYBER?.[0]).toContain('Max repeated trades cap reached for CYBER: 2/2 active positions running');
+    });
   });
 });

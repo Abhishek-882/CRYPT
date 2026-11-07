@@ -177,7 +177,15 @@ export class DynamicUniverseScanner {
       }
 
       // 3. Parse Bybit Linear Feeds
-      const bybTickerMap = new Map<string, { bid: number; ask: number; mid: number; spreadPct: number; turnover24h: number }>();
+      const bybTickerMap = new Map<string, {
+        bid: number;
+        ask: number;
+        mid: number;
+        spreadPct: number;
+        turnover24h: number;
+        fundingRate: number;
+        nextFundingTime: number;
+      }>();
       if (bybRes && bybRes.ok) {
         try {
           const data = await bybRes.json();
@@ -186,10 +194,12 @@ export class DynamicUniverseScanner {
             const bid = parseFloat(item?.bid1Price || '0');
             const ask = parseFloat(item?.ask1Price || '0');
             const turnover24h = parseFloat(item?.turnover24h || '0');
+            const fundingRate = parseFloat(item?.fundingRate || '0');
+            const nextFundingTime = parseInt(item?.nextFundingTime || '0', 10);
             if (Number.isFinite(bid) && Number.isFinite(ask) && bid > 0 && ask > 0 && ask >= bid) {
               const mid = (bid + ask) / 2.0;
               const spreadPct = ((ask - bid) / mid) * 100.0;
-              bybTickerMap.set(item.symbol, { bid, ask, mid, spreadPct, turnover24h });
+              bybTickerMap.set(item.symbol, { bid, ask, mid, spreadPct, turnover24h, fundingRate, nextFundingTime });
             }
           }
         } catch {
@@ -364,6 +374,10 @@ export class DynamicUniverseScanner {
           convictionScore += 1_000_000;
         }
 
+        const bybFundingRate = bybData?.fundingRate ?? 0;
+        const bnFundingRate = bybFundingRate;
+        const nextFundingTime = bybData?.nextFundingTime || 0;
+
         const statArbPair: StatArbPair = {
           canonicalSymbol: canonical,
           binanceSymbol: bnSymbol,
@@ -379,6 +393,9 @@ export class DynamicUniverseScanner {
           orderBookDepthRatio: 5.2,
           binanceSpreadBps: bnSpreadBps,
           bybitSpreadBps: bybSpreadBps,
+          binanceFundingRate: bnFundingRate,
+          bybitFundingRate: bybFundingRate,
+          nextFundingTime,
           lastUpdated: now,
         };
 
