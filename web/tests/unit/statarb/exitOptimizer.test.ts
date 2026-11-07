@@ -259,6 +259,54 @@ describe('Exit Optimizer Unit Tests (exitOptimizer.ts)', () => {
       expect(result.reason).toContain('Convergence target met');
     });
 
+    it('banks profit early via PROFITABLE_CONVERGENCE_EXIT when Net PnL >= +$0.01 even with 0% compression and high z-score', () => {
+      // Position entered with 50.0 bps basis, notional $100
+      // Current basis 33.0 bps -> 34% compression (far below 75%), |z| = 2.1 (far above 0.35)
+      // Gross basis capture = 100 * (17.0 / 10000) = $0.1700
+      // Roundtrip fees = 100 * 0.0015 = $0.1500
+      // Net PnL = $0.1700 - $0.1500 = +$0.0200 >= +$0.0100 USDT hurdle!
+      const position = createMockPosition({
+        entryBasisBps: 50.0,
+        notionalUsdt: 100.0,
+      });
+
+      const result = evaluateExit(position, 33.0, 2.10, {
+        enableEarlyTakeProfit: true,
+      });
+
+      expect(result.canExit).toBe(true);
+      expect(result.exitAllowed).toBe(true);
+      expect(result.exitType).toBe('PROFITABLE_CONVERGENCE_EXIT');
+      expect(result.isCompressed).toBe(false);
+      expect(result.isNormalized).toBe(false);
+      expect(result.netPnLUsdt).toBe(0.02);
+      expect(result.reason).toContain('Early Take-Profit Banking');
+    });
+
+    it('respects custom minNetProfitUsdt hurdle in Early Take-Profit Banking', () => {
+      const position = createMockPosition({
+        entryBasisBps: 50.0,
+        notionalUsdt: 100.0,
+      });
+
+      // Net PnL is +$0.0200
+      // If minNetProfitUsdt = 0.0300, +$0.0200 is below hurdle -> HOLD_ACTIVE
+      const resultBlocked = evaluateExit(position, 33.0, 2.10, {
+        enableEarlyTakeProfit: true,
+        minNetProfitUsdt: 0.0300,
+      });
+      expect(resultBlocked.canExit).toBe(false);
+      expect(resultBlocked.exitType).toBe('HOLD_ACTIVE');
+
+      // If minNetProfitUsdt = 0.0150, +$0.0200 is above hurdle -> PROFITABLE_CONVERGENCE_EXIT
+      const resultAllowed = evaluateExit(position, 33.0, 2.10, {
+        enableEarlyTakeProfit: true,
+        minNetProfitUsdt: 0.0150,
+      });
+      expect(resultAllowed.canExit).toBe(true);
+      expect(resultAllowed.exitType).toBe('PROFITABLE_CONVERGENCE_EXIT');
+    });
+
     it('returns HOLD_CARRY_FOR_PARITY when 75% compression met but Net PnL < +$0.01', () => {
       const position = createMockPosition({
         entryBasisBps: 28.0,

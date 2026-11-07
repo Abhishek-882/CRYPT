@@ -268,6 +268,8 @@ export function evaluateExit(
     divergenceHistory30m?: number[];
     enableParityScratch?: boolean;
     enableStagnancyBreaker?: boolean;
+    minNetProfitUsdt?: number;
+    enableEarlyTakeProfit?: boolean;
   } = {}
 ): ExitEvaluationResult {
   const {
@@ -280,6 +282,8 @@ export function evaluateExit(
     divergenceHistory30m = position.divergenceHistory30m || [],
     enableParityScratch = false,
     enableStagnancyBreaker = false,
+    minNetProfitUsdt = MIN_ZERO_LOSS_PROFIT_USDT,
+    enableEarlyTakeProfit = false,
   } = options;
 
   const grossBasisPnL = calculateGrossBasisPnL(
@@ -363,7 +367,32 @@ export function evaluateExit(
     }
   }
 
-  // 3. Normal Convergence Exit Evaluation
+  // 3. Early Take-Profit Banking Rule (High Capital Velocity)
+  // When true Net PnL (Gross Basis PnL + Funding Earned - Roundtrip Fees) meets or exceeds the guaranteed profit hurdle,
+  // bank the profit immediately! Do NOT wait for 75% basis compression or z-score normalization.
+  // This eliminates spread giveback risk, locks in green ledger profit, and frees up capital slots immediately.
+  if (enableEarlyTakeProfit && netPnL >= minNetProfitUsdt) {
+    const reason = (isCompressed || isNormalized)
+      ? `Convergence target met (${isCompressed ? `Basis compression ${(basisCompression * 100).toFixed(1)}% >= 75%` : `|z| = ${Math.abs(zScore).toFixed(2)} <= 0.35`}) with guaranteed profit: Net PnL $${netPnL.toFixed(4)} >= +$${minNetProfitUsdt.toFixed(4)} USDT.`
+      : `Early Take-Profit Banking: Net PnL $${netPnL.toFixed(4)} >= +$${minNetProfitUsdt.toFixed(4)} USDT hurdle after roundtrip fees (compression: ${(basisCompression * 100).toFixed(1)}%, |z|: ${Math.abs(zScore).toFixed(2)}). Profit locked in immediately.`;
+
+    return {
+      canExit: true,
+      exitAllowed: true,
+      exitType: 'PROFITABLE_CONVERGENCE_EXIT',
+      basisCompression,
+      isCompressed,
+      isNormalized,
+      currentZScore: zScore,
+      currentBasisBps,
+      netPnLUsdt: netPnL,
+      grossBasisPnLUsdt: grossBasisPnL,
+      totalFeesUsdt: totalFees,
+      reason,
+    };
+  }
+
+  // 4. Normal Convergence Evaluation
   if (isCompressed || isNormalized) {
     const gateResult = evaluateZeroLossExitGate(
       position,
@@ -388,7 +417,7 @@ export function evaluateExit(
         netPnLUsdt: netPnL,
         grossBasisPnLUsdt: grossBasisPnL,
         totalFeesUsdt: totalFees,
-        reason: `Convergence target met (${isCompressed ? 'Basis compression >= 75%' : '|z| <= 0.35'}) with guaranteed profit: Net PnL $${netPnL.toFixed(4)} >= +$0.0100 USDT.`,
+        reason: `Convergence target met (${isCompressed ? `Basis compression ${(basisCompression * 100).toFixed(1)}% >= 75%` : `|z| = ${Math.abs(zScore).toFixed(2)} <= 0.35`}) with guaranteed profit: Net PnL $${netPnL.toFixed(4)} >= +$${minNetProfitUsdt.toFixed(4)} USDT.`,
       };
     }
 
@@ -465,6 +494,7 @@ export function evaluateMultiTierExitGate(
     divergenceHistory30m?: number[];
     enableParityScratch?: boolean;
     enableStagnancyBreaker?: boolean;
+    minNetProfitUsdt?: number;
   } = {}
 ): MultiTierExitResult {
   const result = evaluateExit(position, currentBasisBps, zScore, {

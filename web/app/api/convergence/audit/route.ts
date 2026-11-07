@@ -3,6 +3,7 @@ import {
   StatArbStateStore,
   StatArbPosition,
   calculateBasisCompression,
+  calculateRoundtripFees,
   MIN_ZERO_LOSS_PROFIT_USDT,
 } from "@/lib/statarb";
 
@@ -28,11 +29,26 @@ export async function GET(req: NextRequest) {
     const closedPositions = store.getClosedPositions();
     const now = Date.now();
 
+    const config = store.getState().config;
+    const minHurdleUsdt = config?.minNetProfitUsdt ?? MIN_ZERO_LOSS_PROFIT_USDT;
+
     // Map active positions with compression & gate status
     const enrichedActivePositions = activePositions.map((pos) => {
       const compression = calculateBasisCompression(pos.entryBasisBps, pos.currentBasisBps);
-      const isZeroLossHurdleMet = (pos.unrealizedPnlUsdt || 0) >= MIN_ZERO_LOSS_PROFIT_USDT;
+      const estRoundtripFees = calculateRoundtripFees(pos);
+      const grossPnl = pos.unrealizedPnlUsdt || 0;
+      const trueNetPnl = parseFloat((grossPnl - estRoundtripFees).toFixed(4));
+      const isZeroLossHurdleMet = trueNetPnl >= minHurdleUsdt;
       const holdMinutes = parseFloat(((now - pos.entryTimestamp) / (60 * 1000)).toFixed(1));
+
+      let zeroLossGateStatus: string;
+      if (isZeroLossHurdleMet) {
+        zeroLossGateStatus = `HURDLE MET (+${trueNetPnl.toFixed(4)} USDT)`;
+      } else if (trueNetPnl >= 0) {
+        zeroLossGateStatus = `ACCUMULATING (+${trueNetPnl.toFixed(4)} USDT)`;
+      } else {
+        zeroLossGateStatus = `ACCUMULATING (-$${Math.abs(trueNetPnl).toFixed(4)} USDT)`;
+      }
 
       return {
         id: pos.id,
@@ -49,15 +65,13 @@ export async function GET(req: NextRequest) {
         quantity: pos.quantity,
         notionalUsdt: pos.notionalUsdt,
         currentZScore: pos.currentZScore,
-        unrealizedPnlUsdt: pos.unrealizedPnlUsdt,
-        totalFeesUsdt: pos.totalFeesUsdt,
-        netPnlUsdt: pos.unrealizedPnlUsdt - pos.totalFeesUsdt,
+        unrealizedPnlUsdt: grossPnl,
+        totalFeesUsdt: estRoundtripFees,
+        netPnlUsdt: trueNetPnl,
         holdDurationMinutes: holdMinutes,
         basisCompressionPct: parseFloat((compression * 100).toFixed(1)),
         isZeroLossHurdleMet,
-        zeroLossGateStatus: isZeroLossHurdleMet
-          ? `HURDLE MET (+${(pos.unrealizedPnlUsdt || 0).toFixed(4)} USDT)`
-          : `ACCUMULATING (+${(pos.unrealizedPnlUsdt || 0).toFixed(4)} USDT)`,
+        zeroLossGateStatus,
         persistenceBreakerMinutesRemaining: Math.max(0, 30.0 - holdMinutes),
         leg1OrderId: pos.leg1OrderId || null,
         leg2OrderId: pos.leg2OrderId || null,

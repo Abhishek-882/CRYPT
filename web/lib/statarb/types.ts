@@ -213,6 +213,8 @@ export interface StatArbConfig {
   invariant6Enabled?: boolean;
   /** Invariant 7: Upstream Sticky Decoupling Filter enabled (default: true) */
   invariant7Enabled?: boolean;
+  /** Early Take-Profit Banking: Lock in profit immediately when netPnL >= minNetProfitUsdt without waiting for 75% compression (default: true) */
+  enableEarlyTakeProfit?: boolean;
 }
 
 /**

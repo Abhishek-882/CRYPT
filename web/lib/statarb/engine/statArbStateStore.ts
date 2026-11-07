@@ -55,6 +55,7 @@ export const DEFAULT_STATARB_CONFIG: StatArbConfig = {
   adverseDriftThresholdBps: 8.0,
   invariant6Enabled: true,
   invariant7Enabled: true,
+  enableEarlyTakeProfit: true,
 };
 
 export const DEFAULT_STATARB_TELEMETRY: StatArbTelemetry = {

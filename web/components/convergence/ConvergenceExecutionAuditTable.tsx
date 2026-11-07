@@ -267,7 +267,10 @@ export default function ConvergenceExecutionAuditTable({
                           {pos.unrealizedPnlUsdt >= 0 ? `+$${pos.unrealizedPnlUsdt.toFixed(4)}` : `-$${Math.abs(pos.unrealizedPnlUsdt).toFixed(4)}`}
                         </span>
                         <div className="text-[10px] text-zinc-500">
-                          Fees: -${pos.totalFeesUsdt.toFixed(4)} &bull; Net: ${(pos.unrealizedPnlUsdt - pos.totalFeesUsdt).toFixed(4)}
+                          Fees (R/T): -${pos.totalFeesUsdt.toFixed(4)} &bull; Net:{" "}
+                          <span className={pos.netPnlUsdt >= 0 ? "text-emerald-400 font-semibold" : "text-rose-400 font-semibold"}>
+                            {pos.netPnlUsdt >= 0 ? `+$${pos.netPnlUsdt.toFixed(4)}` : `-$${Math.abs(pos.netPnlUsdt).toFixed(4)}`}
+                          </span>
                         </div>
                       </td>
 

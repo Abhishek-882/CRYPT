@@ -624,6 +624,7 @@ export class StatArbEngine {
         currentRoiPct,
         holdMinutes: holdDurationMinutes,
         divergenceHistory30m: divergenceHistory,
+        minNetProfitUsdt: this.store.getState().config.minNetProfitUsdt ?? 0.01,
       });
 
       if (exitEval.canExit && exitEval.exitAllowed) {
