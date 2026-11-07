@@ -45,6 +45,14 @@ export const DEFAULT_FEE_STRUCTURE: FeeStructure = {
   roundtripFeeBps: 15.0, // (2.0 + 5.5) * 2 = 15.0 bps
 };
 
+export const LIVE_FEE_STRUCTURE: FeeStructure = {
+  binanceMakerBps: 2.0,
+  binanceTakerBps: 5.0,
+  bybitMakerBps: 2.0,
+  bybitTakerBps: 11.0,
+  roundtripFeeBps: 26.0, // (2.0 Binance Maker + 11.0 Bybit Taker) * 2 = 26.0 bps (0.260%)
+};
+
 export interface ZeroLossGateResult {
   exitAllowed: boolean;
   netPnLUsdt: number;

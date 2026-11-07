@@ -29,6 +29,7 @@ import {
   checkInvariant6PersistenceBreaker,
   checkInvariant7StickyDecoupling,
   evaluateExit,
+  LIVE_FEE_STRUCTURE,
   MakerTakerOrderRouter,
   SimulatedExecutionAdapter,
   LiveExchangeAdapter,
@@ -685,6 +686,7 @@ export class StatArbEngine {
         enableEarlyTakeProfit: this.store.getState().config.enableEarlyTakeProfit ?? true,
         topBook,
         requireAuthoritativeTopBook: !isDryRun,
+        feesConfig: !isDryRun ? LIVE_FEE_STRUCTURE : undefined,
       });
 
       if (exitEval.canExit && exitEval.exitAllowed) {

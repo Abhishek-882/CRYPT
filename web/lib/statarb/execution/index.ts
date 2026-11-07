@@ -39,6 +39,7 @@ export {
   DEFAULT_COMPRESSION_THRESHOLD,
   DEFAULT_Z_SCORE_EXIT_THRESHOLD,
   DEFAULT_FEE_STRUCTURE,
+  LIVE_FEE_STRUCTURE,
   type FeeStructure,
   type ZeroLossGateResult,
   type ExitDecisionType,
