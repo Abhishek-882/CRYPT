@@ -83,6 +83,11 @@ function getEngine(requestedDryRun?: boolean): StatArbEngine {
     }
 
     globalThis.__statArbEngine = new StatArbEngine(store, router);
+    if (storedConfig.enabled) {
+      globalThis.__statArbEngine.start();
+      globalThis.__statArbStartTime = Date.now();
+      console.log("[STATARB-DAEMON] Auto-resumed StatArbEngine because config.enabled is true.");
+    }
     console.log(
       `[STATARB-DAEMON] Instantiated StatArbEngine in ${
         effectiveDryRun ? "SIMULATED (dryRun: true)" : "LIVE ON-EXCHANGE (dryRun: false)"
@@ -248,6 +253,11 @@ export async function POST(req: NextRequest) {
     }
 
     if (action === "cron_tick" || action === "tick") {
+      if (!engine.isEngineRunning() && store.getState().config.enabled) {
+        engine.start();
+        globalThis.__statArbStartTime = Date.now();
+        console.log("[STATARB-DAEMON] Auto-resumed StatArbEngine on cron_tick because config.enabled is true.");
+      }
       const isRunning = engine.isEngineRunning();
       if (!isRunning) {
         return NextResponse.json({

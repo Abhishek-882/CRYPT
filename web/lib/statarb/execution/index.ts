@@ -44,6 +44,7 @@ export {
   type ExitDecisionType,
   type ExitEvaluationResult,
   type MultiTierExitResult,
+  type TopOfBookQuotes,
 } from './exitOptimizer';
 
 export {

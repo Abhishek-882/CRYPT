@@ -307,6 +307,37 @@ describe('Exit Optimizer Unit Tests (exitOptimizer.ts)', () => {
       expect(resultAllowed.exitType).toBe('PROFITABLE_CONVERGENCE_EXIT');
     });
 
+    it('accurately evaluates Executable Liquidation Value using Top-of-Book Bid/Ask quotes', () => {
+      // Short BN @ 0.1555, Long BYB @ 0.15503, qty 96
+      const position = createMockPosition({
+        direction: 'SHORT_BINANCE_LONG_BYBIT',
+        entryBinancePrice: 0.1555,
+        entryBybitPrice: 0.15503,
+        quantity: 96,
+        notionalUsdt: 15.0,
+      });
+
+      // Mid prices look converged (bnMid 0.1556, bybMid 0.1555)
+      // BUT live order book shows wide executable spread:
+      // Binance Ask = 0.1596 (we must BUY here), Bybit Bid = 0.1588 (we must SELL here)
+      const result = evaluateExit(position, 7.0, 0.20, {
+        currentBinancePrice: 0.1556,
+        currentBybitPrice: 0.1555,
+        topBook: {
+          binanceBid: 0.1555,
+          binanceAsk: 0.1596,
+          bybitBid: 0.1588,
+          bybitAsk: 0.1590,
+        },
+      });
+
+      // Even though mid-basis compressed, topBook crossing spread prevents exit into a loss!
+      expect(result.canExit).toBe(false);
+      expect(result.exitAllowed).toBe(false);
+      expect(result.exitType).toBe('HOLD_CARRY_FOR_PARITY');
+      expect(result.grossBasisPnLUsdt).toBeLessThan(0);
+    });
+
     it('returns HOLD_CARRY_FOR_PARITY when 75% compression met but Net PnL < +$0.01', () => {
       const position = createMockPosition({
         entryBasisBps: 28.0,

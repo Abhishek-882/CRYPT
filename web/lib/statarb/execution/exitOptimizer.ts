@@ -132,16 +132,53 @@ export function isZScoreNormalized(
   return Math.abs(zScore) <= threshold;
 }
 
+export interface TopOfBookQuotes {
+  binanceBid?: number;
+  binanceAsk?: number;
+  bybitBid?: number;
+  bybitAsk?: number;
+}
+
 /**
  * Computes exact Gross Basis PnL for a delta-neutral position.
+ * When executable top-of-book bid/ask quotes are available, calculates
+ * true liquidation PnL (crossing the spread to close).
  */
 export function calculateGrossBasisPnL(
   position: StatArbPosition,
   currentBasisBps: number,
   currentBinancePrice?: number,
-  currentBybitPrice?: number
+  currentBybitPrice?: number,
+  topBook?: TopOfBookQuotes
 ): number {
-  // If concrete prices are provided, use exact leg price differentials
+  const isShortBn = position.direction === 'SHORT_BINANCE_LONG_BYBIT';
+
+  // 1. High-Precision Executable Liquidation Value (Taker Spread Crossing)
+  // SHORT_BINANCE_LONG_BYBIT unwind requires: BUY Binance at Ask, SELL Bybit at Bid.
+  // SHORT_BYBIT_LONG_BINANCE unwind requires: SELL Binance at Bid, BUY Bybit at Ask.
+  if (topBook) {
+    const exitBnPrice = isShortBn ? topBook.binanceAsk : topBook.binanceBid;
+    const exitBybPrice = isShortBn ? topBook.bybitBid : topBook.bybitAsk;
+
+    if (
+      exitBnPrice !== undefined &&
+      exitBybPrice !== undefined &&
+      exitBnPrice > 0 &&
+      exitBybPrice > 0 &&
+      position.entryBinancePrice > 0 &&
+      position.entryBybitPrice > 0
+    ) {
+      const bnDir = isShortBn ? -1 : 1;
+      const bybDir = -bnDir;
+
+      const bnPnl = bnDir * (exitBnPrice - position.entryBinancePrice) * position.quantity;
+      const bybPnl = bybDir * (exitBybPrice - position.entryBybitPrice) * position.quantity;
+
+      return parseFloat((bnPnl + bybPnl).toFixed(4));
+    }
+  }
+
+  // 2. Concrete Mid-Price Differentials
   if (
     currentBinancePrice !== undefined &&
     currentBybitPrice !== undefined &&
@@ -150,7 +187,6 @@ export function calculateGrossBasisPnL(
     position.entryBinancePrice > 0 &&
     position.entryBybitPrice > 0
   ) {
-    const isShortBn = position.direction === 'SHORT_BINANCE_LONG_BYBIT';
     const bnDir = isShortBn ? -1 : 1;
     const bybDir = -bnDir;
 
@@ -160,8 +196,7 @@ export function calculateGrossBasisPnL(
     return parseFloat((bnPnl + bybPnl).toFixed(4));
   }
 
-  // Otherwise calculate from basis points compression and notional
-  // Basis captured in bps = |entryBasisBps| - |currentBasisBps|
+  // 3. Theoretical Basis Compression & Notional Fallback
   const absEntry = Math.abs(position.entryBasisBps);
   const absCurrent = Math.abs(currentBasisBps);
   const basisCapturedBps = absEntry - absCurrent;
@@ -209,7 +244,8 @@ export function evaluateZeroLossExitGate(
   feesConfig: FeeStructure = DEFAULT_FEE_STRUCTURE,
   fundingEarned: number = 0,
   currentBinancePrice?: number,
-  currentBybitPrice?: number
+  currentBybitPrice?: number,
+  topBook?: TopOfBookQuotes
 ): ZeroLossGateResult {
   const totalFees = calculateRoundtripFees(position, feesConfig);
 
@@ -217,7 +253,8 @@ export function evaluateZeroLossExitGate(
     position,
     currentBasisBps,
     currentBinancePrice,
-    currentBybitPrice
+    currentBybitPrice,
+    topBook
   );
 
   const netPnL = parseFloat((grossBasisPnL + fundingEarned - totalFees).toFixed(4));
@@ -270,6 +307,7 @@ export function evaluateExit(
     enableStagnancyBreaker?: boolean;
     minNetProfitUsdt?: number;
     enableEarlyTakeProfit?: boolean;
+    topBook?: TopOfBookQuotes;
   } = {}
 ): ExitEvaluationResult {
   const {
@@ -284,13 +322,15 @@ export function evaluateExit(
     enableStagnancyBreaker = false,
     minNetProfitUsdt = MIN_ZERO_LOSS_PROFIT_USDT,
     enableEarlyTakeProfit = false,
+    topBook,
   } = options;
 
   const grossBasisPnL = calculateGrossBasisPnL(
     position,
     currentBasisBps,
     currentBinancePrice,
-    currentBybitPrice
+    currentBybitPrice,
+    topBook
   );
   const totalFees = calculateRoundtripFees(position, feesConfig);
   const netPnL = parseFloat((grossBasisPnL + fundingEarnedUsdt - totalFees).toFixed(4));
@@ -401,7 +441,8 @@ export function evaluateExit(
       feesConfig,
       fundingEarnedUsdt,
       currentBinancePrice,
-      currentBybitPrice
+      currentBybitPrice,
+      topBook
     );
 
     if (gateResult.exitAllowed) {
@@ -495,6 +536,7 @@ export function evaluateMultiTierExitGate(
     enableParityScratch?: boolean;
     enableStagnancyBreaker?: boolean;
     minNetProfitUsdt?: number;
+    topBook?: TopOfBookQuotes;
   } = {}
 ): MultiTierExitResult {
   const result = evaluateExit(position, currentBasisBps, zScore, {

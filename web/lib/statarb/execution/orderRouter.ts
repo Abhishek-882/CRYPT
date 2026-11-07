@@ -878,8 +878,16 @@ export class MakerTakerOrderRouter {
       leg1BestBid: currentPriceBn * 0.9999,
       leg1BestAsk: currentPriceBn * 1.0001,
       leg2InitialPrice: currentPriceByb,
-      timeoutMs: 8000,
-      maxAdverseDriftBps: 8.0,
+      timeoutMs: 3000,
+      maxAdverseDriftBps: 4.0,
+      counterpartPriceFetcher: async () => {
+        try {
+          const top = await (this.adapter as any).getLiveTopBook?.('BYBIT', position.bybitSymbol);
+          return top ? (leg2Side === 'BUY' ? top.bestAsk : top.bestBid) : currentPriceByb;
+        } catch {
+          return currentPriceByb;
+        }
+      },
     });
   }
 }

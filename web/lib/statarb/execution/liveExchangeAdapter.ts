@@ -822,7 +822,9 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
   public async fetchRealExecutionReceipts(
     venue: ExchangeVenue,
     symbol: string,
-    orderId: string
+    orderId: string,
+    entryPrice?: number,
+    exitSide?: OrderSide
   ): Promise<{
     realizedPnlUsdt: number;
     feeUsdt: number;
@@ -901,26 +903,40 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
         }
 
         let realizedPnl = 0;
-        // Query closed PnL if available
-        try {
-          const pnlRes = await sendBybitRequest(
-            '/v5/position/closed-pnl',
-            'GET',
-            bybitCreds,
-            {
-              category: 'linear',
-              symbol: symbol.toUpperCase(),
-              limit: 5,
+        // Query closed PnL with retry to eliminate indexing race condition
+        for (let attempt = 0; attempt < 3; attempt++) {
+          try {
+            const pnlRes = await sendBybitRequest(
+              '/v5/position/closed-pnl',
+              'GET',
+              bybitCreds,
+              {
+                category: 'linear',
+                symbol: symbol.toUpperCase(),
+                limit: 10,
+              }
+            );
+            const closedList = Array.isArray(pnlRes?.result?.list) ? pnlRes.result.list : [];
+            const match = closedList.find((c: any) => c.orderId === orderId);
+            if (match) {
+              realizedPnl = parseFloat(match.closedPnl || '0');
+              break;
             }
-          );
-          const closedList = Array.isArray(pnlRes?.result?.list) ? pnlRes.result.list : [];
-          const match = closedList.find((c: any) => c.orderId === orderId);
-          if (match) {
-            realizedPnl = parseFloat(match.closedPnl || '0');
+          } catch {}
+          if (attempt < 2) {
+            await new Promise((r) => setTimeout(r, 600));
           }
-        } catch {}
+        }
 
         const avgPrice = totalQty > 0 ? (totalNotional / totalQty) : 0;
+
+        // Fallback: If closed-pnl endpoint still unindexed, calculate directly from executed prices
+        if (realizedPnl === 0 && avgPrice > 0 && entryPrice !== undefined && entryPrice > 0 && totalQty > 0) {
+          const isSellExit = exitSide === 'SELL' || (!exitSide && avgPrice > entryPrice);
+          const sideDir = isSellExit ? 1 : -1;
+          realizedPnl = parseFloat((sideDir * (avgPrice - entryPrice) * totalQty).toFixed(4));
+        }
+
         return {
           realizedPnlUsdt: parseFloat(realizedPnl.toFixed(4)),
           feeUsdt: parseFloat(totalFee.toFixed(4)),

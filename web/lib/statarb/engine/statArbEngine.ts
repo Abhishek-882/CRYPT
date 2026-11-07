@@ -38,7 +38,7 @@ import {
 } from '../execution';
 import { StatArbStateStore, StatArbEngineState } from './statArbStateStore';
 import { checkConcurrentPositionsLimit, evaluateSystemSafety } from './safetyBreakers';
-import { getSymbolFilter, roundQuantity } from '../utils/exchangeFilterRegistry';
+import { getSymbolFilter, roundQuantity, reconcileDualLegQuantities } from '../utils/exchangeFilterRegistry';
 import { appendStatArbLog } from '../logging';
 
 export type OrderRoutingRequest = ExecutionRequest;
@@ -68,6 +68,7 @@ export class StatArbEngine {
   private scanIntervalMs: number = 3000;
   private positionIntervalMs: number = 2000;
   private symbolCooldowns: Map<string, number> = new Map();
+  private inFlightEntries: Set<string> = new Set();
 
   /**
    * Check if a symbol is in the 60-minute rejection quarantine
@@ -344,12 +345,12 @@ export class StatArbEngine {
     for (const pair of pairs) {
       const pairReasons: string[] = [];
 
-      // Avoid duplicate active positions on the same canonical instrument
+      // Avoid duplicate active positions or in-flight entries on the same canonical instrument
       const isAlreadyActive = state.positions.some(
         (p) => p.canonicalSymbol === pair.canonicalSymbol && p.status === 'OPEN'
       );
-      if (isAlreadyActive) {
-        rejectedReasons[pair.canonicalSymbol] = ['Active position already open for this instrument'];
+      if (isAlreadyActive || this.inFlightEntries.has(pair.canonicalSymbol)) {
+        rejectedReasons[pair.canonicalSymbol] = ['Active position or entry order already in-flight for this instrument'];
         continue;
       }
 
@@ -418,21 +419,31 @@ export class StatArbEngine {
           // 2.5 Execute Entry if capacity permits and engine is active
           if (availableSlots > 0 && this.isRunning) {
             const targetNotional = config.orderNotionalUsdt || 15.0;
-            const notional = targetNotional;
+            const leg1Venue = 'BINANCE';
+            const leg2Venue = 'BYBIT';
             const leg1Price = pair.binanceMid;
-            const filter = getSymbolFilter((pair as any).binanceVenue ?? 'BINANCE', pair.binanceSymbol);
-            const rawQty = targetNotional / leg1Price;
-            const quantity = roundQuantity(rawQty, filter.stepSize);
+            const leg2Price = pair.bybitMid;
+            const filter = getSymbolFilter(leg1Venue, pair.binanceSymbol);
 
-            // Assert quantity satisfies exchange filter.minQty and filter.stepSize
-            const isStepValid = filter.stepSize > 0 && Math.abs(quantity - Math.round(quantity / filter.stepSize) * filter.stepSize) < 1e-8;
-            if (quantity < filter.minQty || quantity <= 0 || !isStepValid) {
+            const reconciled = reconcileDualLegQuantities(
+              targetNotional,
+              leg1Price,
+              leg2Price,
+              leg1Venue,
+              leg2Venue,
+              pair.canonicalSymbol
+            );
+
+            if (!reconciled.valid || reconciled.leg1Qty <= 0) {
               pairReasons.push(
-                `Leg 1 quantity ${quantity} fails filter requirements (minQty: ${filter.minQty}, stepSize: ${filter.stepSize}) for ${pair.binanceSymbol}`
+                `Dual-leg discrete lot reconciliation failed: ${reconciled.rejectionReason || 'Unknown sizing error'}`
               );
               rejectedReasons[pair.canonicalSymbol] = pairReasons;
               continue;
             }
+
+            const quantity = reconciled.leg1Qty;
+            const notional = reconciled.leg1Notional;
 
             const isShortBn = signal.direction === 'SHORT_BINANCE_LONG_BYBIT';
             const leg1Side = isShortBn ? 'SELL' : 'BUY';
@@ -463,7 +474,13 @@ export class StatArbEngine {
               isDryRun,
             };
 
-            const execResult: ExecutionResult = await this.orderRouter.executeEntry(orderRoutingRequest);
+            this.inFlightEntries.add(pair.canonicalSymbol);
+            let execResult: ExecutionResult;
+            try {
+              execResult = await this.orderRouter.executeEntry(orderRoutingRequest);
+            } finally {
+              this.inFlightEntries.delete(pair.canonicalSymbol);
+            }
 
             if (execResult.status === 'EMERGENCY_UNWOUND' || execResult.quarantineSymbol) {
               // Critical leg 2 hedge failure / emergency unwind -> 60-minute isolation quarantine
@@ -617,6 +634,26 @@ export class StatArbEngine {
         divergenceHistory30m: divergenceHistory,
       });
 
+      // Query authoritative top-of-book quotes for executable exit valuation
+      let topBook = undefined;
+      const isDryRun = this.store.getState().config.dryRun ?? true;
+      if (!isDryRun && typeof (this.activeAdapter as any).getLiveTopBook === 'function') {
+        try {
+          const [bnBook, bybBook] = await Promise.all([
+            (this.activeAdapter as any).getLiveTopBook('BINANCE', position.binanceSymbol),
+            (this.activeAdapter as any).getLiveTopBook('BYBIT', position.bybitSymbol),
+          ]);
+          if (bnBook && bybBook && bnBook.bestBid > 0 && bybBook.bestBid > 0) {
+            topBook = {
+              binanceBid: bnBook.bestBid,
+              binanceAsk: bnBook.bestAsk,
+              bybitBid: bybBook.bestBid,
+              bybitAsk: bybBook.bestAsk,
+            };
+          }
+        } catch {}
+      }
+
       // Evaluate Exit criteria via ExitOptimizer
       const exitEval = evaluateExit(position, currentBasisBps, currentZScore, {
         currentBinancePrice: prices.binancePrice,
@@ -625,6 +662,8 @@ export class StatArbEngine {
         holdMinutes: holdDurationMinutes,
         divergenceHistory30m: divergenceHistory,
         minNetProfitUsdt: this.store.getState().config.minNetProfitUsdt ?? 0.01,
+        enableEarlyTakeProfit: this.store.getState().config.enableEarlyTakeProfit ?? true,
+        topBook,
       });
 
       if (exitEval.canExit && exitEval.exitAllowed) {
@@ -644,18 +683,24 @@ export class StatArbEngine {
           let realNetPnl = exitEval.netPnLUsdt;
           let realTotalFees = (position.totalFeesUsdt || 0) + (exitExec.leg1?.feeUsdt || 0) + (exitExec.leg2?.feeUsdt || 0);
 
-          const isDryRun = this.store.getState().config.dryRun ?? true;
           if (!isDryRun && typeof (this.activeAdapter as any).fetchRealExecutionReceipts === 'function') {
             try {
+              const leg1ExitSide = isShortBn ? 'BUY' : 'SELL';
+              const leg2ExitSide = isShortBn ? 'SELL' : 'BUY';
+
               const bnReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
                 'BINANCE',
                 position.binanceSymbol,
-                exitExec.leg1?.orderId || ''
+                exitExec.leg1?.orderId || '',
+                position.entryBinancePrice,
+                leg1ExitSide
               );
               const bybReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
                 'BYBIT',
                 position.bybitSymbol,
-                exitExec.leg2?.orderId || ''
+                exitExec.leg2?.orderId || '',
+                position.entryBybitPrice,
+                leg2ExitSide
               );
               const netPnl = (bnReceipt?.realizedPnlUsdt || 0) + (bybReceipt?.realizedPnlUsdt || 0);
               const exitFees = (bnReceipt?.feeUsdt || 0) + (bybReceipt?.feeUsdt || 0);
