@@ -1,5 +1,5 @@
 # STATARB-OU-PERP — Hourly Manual Fleet Audit Report
-**Audit Iteration**: #6 | **Timestamp**: 2026-11-06 22:28 PST (2026-11-07 06:28 UTC)
+**Audit Iteration**: #7 | **Timestamp**: 2026-11-06 23:28 PST (2026-11-07 07:28 UTC)
 
 ---
 
@@ -7,15 +7,15 @@
 
 | Metric / Component | Value | Status |
 |---|---|---|
-| **Primary Fleet Engine** | `STATARB-OU-PERP` (Standalone V2.0) | 🟢 RUNNING (Uptime: 3h 46m) |
+| **Primary Fleet Engine** | `STATARB-OU-PERP` (Standalone V2.0) | 🟢 RUNNING (Uptime: 4h 46m) |
 | **Execution Loop** | Continuous SDE Sweeper (5-sec cadence) | 🟢 ACTIVE (`task-7150`) |
-| **Production Server** | Next.js 14 on port 3000 | 🟢 ACTIVE (`task-8466`) |
-| **Execution Mode** | `LIVE_ON_EXCHANGE` (dryRun: false) | 🟢 LIVE |
+| **Production Server** | Next.js 14 on port 3000 | 🟢 ACTIVE (`task-9327`) |
+| **Execution Mode** | `LIVE_ON_EXCHANGE` / Active Invariants | 🟢 LIVE |
 | **Autonomous Incident Sentinel** | 0 active incidents | 🟢 ZERO ERRORS |
 
 ---
 
-## 💰 Portfolio Equity & Margins
+## 💰 Portfolio Equity & Margins (Live Exchange Telemetry)
 
 | Venue | Total Equity | Usable Margin | Open Positions | Health |
 |---|---|---|:---:|---|
@@ -29,23 +29,26 @@ $$\text{Net Unhedged Delta: } |\Delta_{\text{net}}| = |0.000 - 0.000| = 0.000 < 
 
 ## 📡 Live Market & Corridor Telemetry (15 Monitored Pairs)
 
-- **Corridors Monitored**: 15 mutual liquid pairs across Binance USD-M $\leftrightarrow$ Bybit Linear
-- **Top Evaluated Candidate**: `CARVUSDT` (Spread: **`0.2400%`**, Price Div: **`0.1512%`**)
-- **Safety Gate Verdict**: `[FEE CLEARANCE FILTER]` Disqualified pre-dispatch (`0.2400% < 0.4000%` min gross hurdle) to protect against fee drag
-- **WebSocket Latency**: **25.2 ms** (sub-35ms target satisfied)
-- **Minimum Entry Hurdle**: $\ge 0.4000\%$ gross spread and $|z| \ge 2.20\sigma$
-- **Current Phase**: Scanning corridors; waiting for qualifying fee-clearing dislocation
+- **Corridors Monitored**: 15 mutual liquid pairs across Binance USD-M $\leftrightarrow$ Bybit Linear.
+- **Market Equilibrium**: Extreme mean-reversion parity across all corridors. Average price basis dislocation is `< 0.050%`.
+- **Top Statistical Candidate**: `SATS` (Basis: **`-0.343%`**, OU Z-Score: **`-0.62σ`** vs. required $|z| \ge 2.20\sigma$).
+- **Safety Gate Verdict**: Pre-flight gates actively asserting capital preservation:
+  - Gate 1 ($|z| \ge 2.20\sigma$): Current maximum is $0.62\sigma$ $\to$ In equilibrium, no entry edge.
+  - Gate 2 (Gross basis $\ge 0.280\%$): SATS basis magnitude ($0.343\%$) passes Gate 2, but fails Gate 1 ($0.62\sigma < 2.20\sigma$).
+  - Gate 5 (Pre-flight net edge $\ge 0.080\%$): Awaiting qualifying expansion.
+- **Fleet 549-Coin Scanner**: `1000CATUSDT` (Spread `+0.553%`, Adverse Price Gap `1.689%`) actively blocked by **Invariant 7 (Sticky Decoupling Filter)** as a depeg, preventing inverted entries.
 
 ---
 
 ## 🛡️ Risk & Invariant Guard Verification
 
 - [x] **Zero Naked Delta Invariant**: Verified across both exchange ledgers (0 Binance, 0 Bybit).
-- [x] **Zero-Loss Exit Rule**: Asserted $\text{Net PnL} \ge +\$0.01\text{ USDT}$ before any convergence exit is allowed.
-- [x] **Zero Formula Purge**: All live metrics read directly from exchange REST/WS and persistent state.
-- [x] **Autonomous Remediation**: 0 unresolved incidents in sentinel buffer.
-- [x] **Pre-Dispatch Fee Filter**: Actively blocked `CARVUSDT` (`0.2400%` spread) and `UMAUSDT` (`0.3109%` spread), preserving 100% of capital.
-- [x] **GitHub Synchronization**: Repository is clean and in sync with `origin/main`.
+- [x] **Zero-Loss Exit Rule**: Multi-Tiered hierarchy active; Tier 2 Parity Scratch ($\ge +\$0.0000$ USDT) enabled.
+- [x] **Guard 1 (Anti-Inversion Gate)**: Actively preventing shorting cheaper exchange corridors.
+- [x] **Guard 2 (Dynamic Friction Floor)**: Clamped to $k \in [1.6\times, 1.8\times]$ nominal roundtrip fees (`0.240%` to `0.272%`).
+- [x] **Guard 4 (Triple-Conditional Stagnancy Breaker)**: Protecting compressing positions while bounding dead capital.
+- [x] **Autonomous Sentinel**: 0 unresolved incidents in buffer.
+- [x] **GitHub Synchronization**: Commit `fe77614` (invariants) and `aa78c96` (docs) clean on `origin main`.
 
 ---
 
@@ -55,4 +58,4 @@ $$\text{Net Unhedged Delta: } |\Delta_{\text{net}}| = |0.000 - 0.000| = 0.000 < 
 
 ---
 
-**Next Audit**: Iteration #7 at ~07:28 UTC (2026-11-06 23:28 PST)
+**Next Audit**: Iteration #8 at ~08:28 UTC (2026-11-07 00:28 PST)
