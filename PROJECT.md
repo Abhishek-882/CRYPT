@@ -1,96 +1,163 @@
-# Project: STATARB-OU-PERP Standalone Convergence Sweeper & Cockpit
+# Project: STATARB-OU-PERP Live On-Exchange Execution Transition
 
 ## Architecture
-- **Engine Core (`web/lib/statarb/`)**: 100% standalone execution engine. Evaluates cross-exchange perpetual basis spreads across Binance USD-M and Bybit Linear perpetuals using continuous Ornstein-Uhlenbeck stochastic calculus.
-- **Order Execution Layer**: Dispatches Leg 1 as Post-Only Maker limit (`GTX`/`PostOnly`) and Leg 2 as sub-35ms WebSocket IOC Taker hedge.
-- **Safety Invariant Guard**: Enforces Invariant 6 (30-min low-watermark persistence breaker) and Invariant 7 (upstream sticky decoupling filter).
-- **Exit Optimizer**: Enforces 75% basis compression or $|z_t| \le 0.35$ with strictly guaranteed Zero-Loss Exit ($\ge +\$0.01$ USDT net of all fees).
-- **Cockpit Page (`web/app/convergence/page.tsx`)**: Dedicated Next.js 14 App Router UI with custom responsive SVG dynamic Z-score charts, live spread telemetry, controls, and trade execution audit table.
-- **Automated Verification Suite (`web/tests/unit/statarb/`)**: Vitest test harness with synthetic price fixtures covering all mathematics, gating, execution, and invariants.
+Cross-Exchange Statistical Arbitrage & Ornstein-Uhlenbeck Convergence Sweeper between Binance USD-M Perpetuals and Bybit Linear Perpetuals transitioning from simulated execution to 100% live on-exchange trading.
+
+```
+                    ┌────────────────────────────┐
+                    │      StatArbEngine         │
+                    │  (Corridor Scanner & PnL)  │
+                    └─────────────┬──────────────┘
+                                  │
+                  ┌───────────────┴───────────────┐
+                  ▼                               ▼
+       ┌──────────────────────┐        ┌──────────────────────┐
+       │   zScoreEngine.ts    │        │   exitOptimizer.ts   │
+       │ (Gates 1-5, Edge>0.08%)       │ (Hurdle >= +$0.0100) │
+       └──────────────────────┘        └──────────────────────┘
+                  │                               │
+                  └───────────────┬───────────────┘
+                                  ▼
+                    ┌────────────────────────────┐
+                    │   MakerTakerOrderRouter    │
+                    │  (normalizeQuantity, 120ms │
+                    │   adverse drift watchdog)  │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ▼
+                    ┌────────────────────────────┐
+                    │    LiveExchangeAdapter     │
+                    │ (ExchangeExecutionAdapter) │
+                    └──────┬──────────────┬──────┘
+                           │              │
+           Leg 1 Post-Only │              │ Leg 2 IOC Taker
+           Maker Limit     │              │ (Sub-35ms WS)
+                           ▼              ▼
+                    ┌────────────┐  ┌────────────┐
+                    │  Binance   │  │   Bybit    │
+                    │   USD-M    │  │   Linear   │
+                    └────────────┘  └────────────┘
+```
 
 ## Feature Inventory
 | # | Feature | Description | Milestone | Source |
 |---|---------|-------------|-----------|--------|
-| 1 | OU Continuous Parameter Calibration | AR(1) OLS calibration recovering $\theta, \mu, \sigma, \tau$ | M1 | Survey |
-| 2 | Real-Time Z-Score Engine | Rolling window spread normalization $z_t = (b_t - \mu)/\sigma_{\text{eq}}$ | M1 | Survey |
-| 3 | Order Book Depth Cushion Analyzer | $\ge 4.0\times$ order size book depth within 10 bps verification | M1 | Survey |
-| 4 | Bid-Ask Spread Filter | $\le 8.0$ bps spread cap on Binance & Bybit | M1 | Survey |
-| 5 | Multi-Condition Entry Gating | $|z_t| \ge 2.2$, gross basis $\ge 28$ bps, depth $\ge 4\times$, spread $\le 8$ bps | M1 | Survey |
-| 6 | Invariant 7 Sticky Decoupling Filter | Reject pairs whose divergence has not touched $< 1.0\%$ in 30 mins | M2 | Survey |
-| 7 | Invariant 6 Persistence Breaker | Auto-close positions if divergence persists $\ge 1.0\%$ for 30 mins | M2 | Survey |
-| 8 | Basis Compression Exit Gate | Exit when basis compresses $\ge 75\%$ from entry basis | M2 | Survey |
-| 9 | Z-Score Normalization Exit Gate | Exit when $|z_t| \le 0.35$ | M2 | Survey |
-| 10 | Guaranteed Zero-Loss Exit Enforcer | Block exit if net PnL $< +\$0.01$ USDT after all maker/taker fees | M2 | Survey |
-| 11 | Leg 1 Post-Only Maker Execution | Place top-of-book GTX limit order with 8s timeout & adverse drift cancel | M3 | Survey |
-| 12 | Sub-35ms WebSocket IOC Taker Hedge | Leg 2 WebSocket order sized strictly to Leg 1 fill quantity | M3 | Survey |
-| 13 | Standalone Engine Loop | Autonomous scanning and position management with zero legacy dependencies | M3 | Survey |
-| 14 | Standalone State Persistence | Atomic JSON persistence in `web/data/statarb_state.json` | M3 | Survey |
-| 15 | Dedicated Next.js Route `/convergence` | App router client page in `web/app/convergence/page.tsx` | M4 | Survey |
-| 16 | Dynamic SVG Z-Score Chart | Bespoke SVG chart with $\pm 2.2$ entry and $\pm 0.35$ exit bands | M4 | Survey |
-| 17 | Telemetry HUD & Radar Table | Live KPI cards and monitored pair status radar | M4 | Survey |
-| 18 | Live Controls & Settings Drawer | Start/Stop/Kill controls and configuration sliders | M4 | Survey |
-| 19 | Trade Execution Audit Table | Active positions, fill timestamps, IOC latency in ms, and net PnL | M4 | Survey |
-| 20 | Cockpit Navigation Integration | Link `/convergence` in `web/components/Navbar.tsx` | M4 | Survey |
-| 21 | Convergence API Routes | `/api/convergence/daemon`, `/radar`, `/audit` | M4 | Survey |
-| 22 | Synthetic Euler-Maruyama OU Fixture | Calibrator verification against stochastic trajectories | M5 (E2E) | Survey |
-| 23 | Entry Gate Matrix Fixture | Test 6 permutations of pass/fail entry gating | M5 (E2E) | Survey |
-| 24 | Execution Lifecycle & Partial Fill Fixture | Simulate Leg 1 fill, timeout cancel, partial fill sizing | M5 (E2E) | Survey |
-| 25 | Invariant 6 & 7 Timeline Fixtures | 30-min continuous divergence and reset test sequences | M5 (E2E) | Survey |
-| 26 | Zero-Loss Exit Gate Enforcer Fixture | Confirm exit blocking for $< +\$0.01$ and approval for $\ge +\$0.01$ | M5 (E2E) | Survey |
-| 27 | Full E2E Strategy Test Runner | Complete automated test suite passing with exit code 0 | M5 (E2E) | Survey |
+| 1 | Exchange Filter Registry | Dedicated module with tickSize, stepSize, minQty, and minNotional ($5.00 USDT) per pair with in-memory caching and offline fallbacks | M1 | Survey 1 |
+| 2 | Contract Multiplier Normalization | Enforce contract multiplier scaling in `normalizeQuantity()` and wire into `orderRouter.ts` Leg 2 IOC taker sizing | M1 | Survey 1, 3 |
+| 3 | Normalized Delta-Neutrality Invariant | Multiplier-aware `checkZeroOrphanInvariant` ensuring \|Delta_net\| < 0.001 in normalized base tokens | M1 | Survey 1 |
+| 4 | Asymmetric Multiplier PnL Fix | Normalize price differences and quantities in `statArbEngine.ts` and `exitOptimizer.ts` for pairs like SATS (10x) and TURBO (1000x) | M1 | Survey 1, 3 |
+| 5 | LiveExchangeAdapter Core | Implementation of `ExchangeExecutionAdapter` (5 methods) loading credentials for `usr_admin_varsha` via `cryptoVault` | M2 | Survey 2 |
+| 6 | Leg 1 Post-Only Maker Limit | Binance GTX & Bybit PostOnly limit orders with micro-repricing on book-cross (-2010 / 110007), 8s watchdog, and 120ms adverse drift cancel | M2 | Survey 2 |
+| 7 | Leg 2 High-Speed WS IOC Taker | Sub-35ms IOC taker via `binanceTradeStream` / `bybitTradeStream` with 500ms watchdog circuit breaker fallback to signed REST | M2 | Survey 2 |
+| 8 | Emergency Market Unwind Guard | Market unwind with `reduceOnly: true` on Leg 1 if Leg 2 fails on both WS and REST, eliminating orphan legs | M2 | Survey 2 |
+| 9 | Gate 5 Pre-Flight Net-Edge Enforcement | Gross spread hurdle > 0.080% (covering 0.020% Binance Maker + 0.055% Bybit Taker + slippage buffer) wired into default configs and radar route | M3 | Survey 3 |
+| 10 | Exit Optimizer Zero-Loss Hurdle | Mandatory net profit hurdle >= +$0.0100 USDT after deducting roundtrip fees; Invariant 6 (30m persistence breaker) & Invariant 7 (sticky decoupling) | M3 | Survey 3 |
+| 11 | Telemetry Integrity & Mock Data Purge | Purge synthetic seed positions (`arb_pepe_fill_101`, etc.) and fake `latencySeed` from `audit/route.ts`; bind telemetry to genuine on-exchange fills | M3 | Survey 3 |
+| 12 | Text & Symbol Hygiene | Purge legacy basis bot references and convert all display spreads/gaps from raw "bps" to formatted "%" | M3 | Survey 3 |
+| 13 | Engine Integration & Live Daemon Route | Wire `LiveExchangeAdapter` into `StatArbEngine` and `daemon/route.ts` when `dryRun: false` | M4 | Survey 2, 3 |
+| 14 | Comprehensive Verification Suite & Clean Build | Vitest tests for normalization, filters, Gate 5, live adapter; Clean Next.js build (`npm run build`) with 0 errors | M5 | Survey 1, 2, 3 |
+| 15 | Adversarial Hardening & Forensic Audit | Challenger empirical stress testing and Forensic Auditor integrity verification (zero cheating/facades) | M5 | Requirements |
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Math & Calibration Core | `web/lib/statarb/types.ts`, `ouCalibrator.ts`, `zScoreEngine.ts`, `bookDepthAnalyzer.ts` | none | PLANNED |
-| M2 | Invariants & Exit Optimizer | `invariantGuard.ts` (Inv 6 & 7), `exitOptimizer.ts` (Zero-Loss & 75% compression) | M1 | PLANNED |
-| M3 | Execution Router & Standalone Engine | `orderRouter.ts` (Maker + sub-35ms IOC), `statArbEngine.ts`, `statArbStateStore.ts` | M1, M2 | PLANNED |
-| M4 | Dedicated Next.js Cockpit Page | `web/app/convergence/page.tsx`, components, API routes, `Navbar.tsx` | M1, M2, M3 | PLANNED |
-| M5 | E2E Testing & Hardening | Full Vitest suite in `web/tests/unit/statarb/`, synthetic fixtures, audit verification | M1, M2, M3, M4 | PLANNED |
+| M1 | Multiplier Normalization & Exchange Filters | `exchangeFilterRegistry.ts`, `contractMapper.ts`, `orderRouter.ts` sizing, `invariantGuard.ts`, PnL calculations | none | PLANNED |
+| M2 | LiveExchangeAdapter & WS Routing | `liveExchangeAdapter.ts`, credential loading, GTX/PostOnly Maker, sub-35ms WS IOC Taker, emergency unwind | M1 | PLANNED |
+| M3 | Zero-Loss Gate 5, Net Exit Hurdle & Telemetry Purge | `zScoreEngine.ts`, `DEFAULT_STATARB_CONFIG`, `exitOptimizer.ts`, `audit/route.ts` mock purge, % formatting | M1 | PLANNED |
+| M4 | Engine Integration & Route Wiring | `statArbEngine.ts`, `daemon/route.ts` (`dryRun: false` wiring) | M2, M3 | PLANNED |
+| M5 | Verification, Clean Build & Forensic Audit | Unit tests in `tests/unit/statarb/`, `npm run build`, Challenger stress tests, Forensic Integrity Audit | M4 | PLANNED |
 
 ## Interface Contracts
-### `ouCalibrator` -> `zScoreEngine`
+
+### ExchangeFilterRegistry ↔ OrderRouter & Engine
 ```typescript
-interface OUParameters {
-  theta: number;        // Speed of mean reversion
-  mu: number;           // Long-term equilibrium basis (bps)
-  sigma: number;        // Volatility of basis
-  halfLifeMinutes: number; // ln(2) / theta
-  equilibriumSigma: number; // sigma / sqrt(2*theta)
-  rSquared: number;     // Regression goodness-of-fit
+export interface SymbolFilterSpec {
+  symbol: string;
+  venue: 'BINANCE' | 'BYBIT';
+  tickSize: number;
+  stepSize: number;
+  minQty: number;
+  minNotional: number; // e.g. 5.0 USDT
+  priceDecimals: number;
+  qtyDecimals: number;
 }
-function calibrateOrnsteinUhlenbeck(observations: number[], dtMinutes?: number): OUParameters;
-function calculateZScore(currentBasisBps: number, params: OUParameters): number;
+
+export function getSymbolFilter(venue: 'BINANCE' | 'BYBIT', symbol: string): SymbolFilterSpec;
+export function roundPrice(price: number, tickSize: number, side: 'BUY' | 'SELL'): number;
+export function roundQuantity(qty: number, stepSize: number): number;
+export function reconcileDualLegQuantities(
+  targetNotional: number,
+  price1: number,
+  price2: number,
+  venue1: 'BINANCE' | 'BYBIT',
+  venue2: 'BINANCE' | 'BYBIT',
+  canonical: string
+): {
+  valid: boolean;
+  leg1Qty: number;
+  leg2Qty: number;
+  leg1Notional: number;
+  leg2Notional: number;
+  rejectionReason?: string;
+};
 ```
 
-### `zScoreEngine` -> `orderRouter`
+### LiveExchangeAdapter ↔ OrderRouter
 ```typescript
-interface EntryGateResult {
-  passed: boolean;
-  zScore: number;
-  basisBps: number;
-  depthRatio: number;
-  spreadBps: number;
-  direction?: 'SHORT_BINANCE_LONG_BYBIT' | 'SHORT_BYBIT_LONG_BINANCE';
-  reasons: string[];
-}
-function evaluateEntryGates(candidate: PairCandidate, params: OUParameters): EntryGateResult;
-```
+export interface ExchangeExecutionAdapter {
+  placeMakerLimit(
+    venue: ExchangeVenue,
+    symbol: string,
+    side: OrderSide,
+    price: number,
+    qty: number,
+    clientOrderId: string,
+    timeInForce: 'GTX' | 'PostOnly'
+  ): Promise<{ orderId: string; status: 'NEW' | 'REJECTED'; rejectReason?: string }>;
 
-### `invariantGuard` -> `exitOptimizer` & `orderRouter`
-```typescript
-function checkInvariant7StickyDecoupling(divergenceHistory30m: number[]): { passed: boolean; minDivergence: number };
-function checkInvariant6PersistenceBreaker(positionHoldMinutes: number, divergenceHistory30m: number[]): { triggered: boolean; durationMinutes: number };
-function evaluateZeroLossExit(position: StatArbPosition, currentBasisBps: number, params: OUParameters): ExitGateResult;
+  cancelOrder(
+    venue: ExchangeVenue,
+    symbol: string,
+    orderId: string,
+    clientOrderId: string
+  ): Promise<{ success: boolean; executedQty: number }>;
+
+  pollOrderStatus(
+    venue: ExchangeVenue,
+    symbol: string,
+    orderId: string,
+    clientOrderId: string
+  ): Promise<{ status: 'NEW' | 'PARTIALLY_FILLED' | 'FILLED' | 'CANCELLED'; executedQty: number; avgPrice: number }>;
+
+  placeTakerIoc(
+    venue: ExchangeVenue,
+    symbol: string,
+    side: OrderSide,
+    qty: number,
+    clientOrderId: string,
+    useWebSocket: boolean,
+    expectedPrice?: number
+  ): Promise<{ orderId: string; executedQty: number; avgPrice: number; feeUsdt: number; latencyMs: number }>;
+
+  emergencyMarketUnwind(
+    venue: ExchangeVenue,
+    symbol: string,
+    side: OrderSide,
+    qty: number
+  ): Promise<{ success: boolean; executedQty: number; avgPrice: number }>;
+}
 ```
 
 ## Code Layout
-- `web/lib/statarb/types.ts` - Domain types
-- `web/lib/statarb/math/` - Continuous OU calibration and z-score calculation
-- `web/lib/statarb/execution/` - Order routing, zero-loss exit gate, invariant guards
-- `web/lib/statarb/engine/` - Standalone engine scanning loop, state store, safety breakers
-- `web/lib/statarb/index.ts` - Standalone strategy public facade
-- `web/app/convergence/page.tsx` - Next.js Cockpit page
-- `web/components/convergence/` - Dedicated UI components (HUD, SVG chart, radar, audit table, controls)
-- `web/app/api/convergence/` - Backend API routes (daemon, radar, audit)
-- `web/tests/unit/statarb/` - Automated unit and integration test suite with synthetic fixtures
+- `web/lib/statarb/utils/exchangeFilterRegistry.ts` — Exchange filter definitions, tick/step rounding, dual-leg lot reconciliation
+- `web/lib/statarb/utils/contractMapper.ts` — Multiplier normalization and symbol mapping
+- `web/lib/statarb/execution/liveExchangeAdapter.ts` — Live on-exchange execution adapter (Binance USD-M & Bybit Linear)
+- `web/lib/statarb/execution/orderRouter.ts` — Order routing, 120ms adverse drift checks, micro-repricing, normalized Leg 2 sizing
+- `web/lib/statarb/execution/exitOptimizer.ts` — Minimum profit hurdle (>= +$0.0100 USDT) and net PnL evaluation
+- `web/lib/statarb/execution/invariantGuard.ts` — Invariants 4, 6, 7 and normalized delta-neutrality invariant (|Delta_net| < 0.001)
+- `web/lib/statarb/math/zScoreEngine.ts` — Gates 1-5 evaluation with `minNetEdgeBps: 8.0` (0.080%)
+- `web/lib/statarb/engine/statArbEngine.ts` — Sizing, corridor scanning, position lifecycle, `dryRun` handling
+- `web/app/api/convergence/daemon/route.ts` — Live daemon route integrating `LiveExchangeAdapter` when `dryRun: false`
+- `web/app/api/convergence/audit/route.ts` — Clean audit route purged of mock seed data
+- `web/components/convergence/` — User-facing UI formatted with `%` (zero "bps")
+- `web/tests/unit/statarb/` — Unit and integration tests
