@@ -461,6 +461,7 @@ export class MakerTakerOrderRouter {
       return {
         success: false,
         status: 'REJECTED',
+        executionHash: `0x${Buffer.from(`${clientOrderIdLeg1}:REJECTED:${startTime}`).toString('hex').slice(0, 32)}`,
         requestedQty: request.quantity,
         executedQty: 0,
         netDelta: 0,
@@ -504,6 +505,9 @@ export class MakerTakerOrderRouter {
             return {
               success: false,
               status: 'ABORTED_ADVERSE_DRIFT',
+              leg1OrderId,
+              leg1ClientOrderId: clientOrderIdLeg1,
+              executionHash: `0x${Buffer.from(`${leg1OrderId}:${clientOrderIdLeg1}:ADVERSE_DRIFT:${startTime}`).toString('hex').slice(0, 32)}`,
               requestedQty: request.quantity,
               executedQty: 0,
               netDelta: 0,
@@ -561,6 +565,9 @@ export class MakerTakerOrderRouter {
         return {
           success: false,
           status: 'ABORTED_TIMEOUT',
+          leg1OrderId,
+          leg1ClientOrderId: clientOrderIdLeg1,
+          executionHash: `0x${Buffer.from(`${leg1OrderId}:${clientOrderIdLeg1}:ABORTED_TIMEOUT:${startTime}`).toString('hex').slice(0, 32)}`,
           requestedQty: request.quantity,
           executedQty: 0,
           netDelta: 0,
@@ -672,6 +679,9 @@ export class MakerTakerOrderRouter {
           success: false,
           status: 'EMERGENCY_UNWOUND',
           leg1: leg1Detail,
+          leg1OrderId,
+          leg1ClientOrderId: clientOrderIdLeg1,
+          executionHash: `0x${Buffer.from(`${leg1OrderId}:${clientOrderIdLeg1}:EMERGENCY_UNWOUND:${startTime}`).toString('hex').slice(0, 32)}`,
           requestedQty: request.quantity,
           executedQty: 0,
           netDelta: 0,
@@ -706,6 +716,11 @@ export class MakerTakerOrderRouter {
         success: false,
         status: 'EMERGENCY_UNWOUND',
         leg1: leg1Detail,
+        leg1OrderId,
+        leg2OrderId: leg2Result?.orderId,
+        leg1ClientOrderId: clientOrderIdLeg1,
+        leg2ClientOrderId: clientOrderIdLeg2,
+        executionHash: `0x${Buffer.from(`${leg1OrderId}:${leg2Result?.orderId || clientOrderIdLeg2}:ZERO_FILL_UNWIND:${startTime}`).toString('hex').slice(0, 32)}`,
         requestedQty: request.quantity,
         executedQty: 0,
         netDelta: 0,
@@ -799,9 +814,12 @@ export class MakerTakerOrderRouter {
       await this.adapter.emergencyMarketUnwind('BINANCE', position.binanceSymbol, leg1Side, position.quantity);
       await this.adapter.emergencyMarketUnwind('BYBIT', position.bybitSymbol, leg2Side, position.quantity);
 
+      const executionHash = `0x${Buffer.from(`${position.id}:${position.leg1OrderId || 'BINANCE'}:${position.leg2OrderId || 'BYBIT'}:EMERGENCY_EXIT:${startTime}`).toString('hex').slice(0, 32)}`;
+
       return {
         success: true,
         status: 'FILLED',
+        executionHash,
         requestedQty: position.quantity,
         executedQty: position.quantity,
         netDelta: 0,

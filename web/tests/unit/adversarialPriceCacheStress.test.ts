@@ -26,10 +26,12 @@ import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { NextRequest } from "next/server";
 import {
   GET,
-  COINS_CACHE_TTL_MS,
-  _resetCoinsCacheForTesting,
   CoinsApiResponse,
 } from "../../app/api/coins/route";
+import {
+  COINS_CACHE_TTL_MS,
+  _resetCoinsCacheForTesting,
+} from "../../lib/coinsCache";
 import { bybitStreamManager } from "../../lib/bybitStreamManager";
 
 // Mock exchangeFundingMeta to isolate pricing logic

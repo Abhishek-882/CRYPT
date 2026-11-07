@@ -18,7 +18,7 @@ import { describe, it, expect } from "vitest";
 import fs from "fs";
 import path from "path";
 import ts from "typescript";
-import { COINS_CACHE_TTL_MS } from "@/app/api/coins/route";
+import { COINS_CACHE_TTL_MS } from "@/lib/coinsCache";
 
 describe("Milestone 3 Adversarial Challenge: AST Client Isolation & Exchange Quota Math", () => {
   const webRoot = path.resolve(__dirname, "../../");

@@ -1,9 +1,273 @@
 [
   {
-    "timestamp": "2026-11-05T13:14:07.362Z",
-    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [142]",
+    "timestamp": "2026-11-07T01:57:44.378Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
     "level": "warn",
-    "count": 142,
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-07T01:15:59.662Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [359]",
+    "level": "warn",
+    "count": 359,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T20:57:40.407Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [13]",
+    "level": "warn",
+    "count": 13,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T20:49:37.233Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [82]",
+    "level": "warn",
+    "count": 82,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T19:50:55.257Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [24]",
+    "level": "warn",
+    "count": 24,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T19:30:39.510Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [98]",
+    "level": "warn",
+    "count": 98,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T18:09:44.331Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [34]",
+    "level": "warn",
+    "count": 34,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:41:02.049Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [19]",
+    "level": "warn",
+    "count": 19,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:24:49.545Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:22:44.000Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:21:36.357Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:20:14.425Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:19:00.705Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:17:38.555Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:16:20.447Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:14:56.934Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:13:35.674Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:12:28.562Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [38]",
+    "level": "warn",
+    "count": 38,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T16:39:20.002Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T16:37:21.426Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [42]",
+    "level": "warn",
+    "count": 42,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T16:02:00.958Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T16:00:53.489Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [16]",
+    "level": "warn",
+    "count": 16,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T15:49:05.679Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [27]",
+    "level": "warn",
+    "count": 27,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T15:31:52.235Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [210]",
+    "level": "warn",
+    "count": 210,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T12:59:08.488Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+    "level": "warn",
+    "count": 5,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T12:54:43.128Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [579]",
+    "level": "warn",
+    "count": 579,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T06:01:14.567Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [22]",
+    "level": "warn",
+    "count": 22,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T05:42:21.861Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [139]",
+    "level": "warn",
+    "count": 139,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T04:10:03.998Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T04:09:02.662Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [351]",
+    "level": "warn",
+    "count": 351,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T00:05:04.193Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T00:03:50.175Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T00:02:39.753Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [737]",
+    "level": "warn",
+    "count": 737,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-05T15:35:00.426Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_tester@fund.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [365]",
+    "level": "warn",
+    "count": 365,
     "botId": "bot-1",
     "botName": "Conservative Funding Sniper [PER]"
   },

@@ -2,8 +2,8 @@
   "isRunning": true,
   "runInBackgroundWhenClosed": true,
   "mode": "AUTONOMOUS_SERVER_24_7",
-  "startedAt": 1793880233780,
-  "lastCycleAt": 1793880233780,
+  "startedAt": 1794017999301,
+  "lastCycleAt": 1794017999301,
   "cyclesCompleted": 1,
   "activeBotId": "bot_persist_test",
   "bots": [
@@ -60,8 +60,8 @@
       "logs": [],
       "statusText": "RUNNING_24_7",
       "lastEvaluatedCandidate": null,
-      "createdAt": 1793880233780,
-      "updatedAt": 1793880233780
+      "createdAt": 1794017999301,
+      "updatedAt": 1794017999301
     }
   ],
   "setFiles": [],

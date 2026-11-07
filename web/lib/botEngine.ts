@@ -2587,7 +2587,7 @@ export async function fetchLiveFundingSpread(
     nextFundingTimeA,
     nextFundingTimeB,
     fresh: freshA && freshB,
-    direction: asym.bestDirection,
+    direction: (asym as any).recommendedDirection || (asym as any).bestDirection,
   };
 }
 

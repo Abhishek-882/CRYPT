@@ -326,6 +326,7 @@ export async function POST(req: NextRequest) {
         const mapping = getInstrumentMapping(item.canonical);
         const binanceSymbol = mapping ? mapping.binanceSymbol : `${item.canonical}USDT`;
         const bybitSymbol = mapping ? mapping.bybitSymbol : `${item.canonical}USDT`;
+        const multiplier = mapping ? mapping.multiplier : 1.0;
 
         let binanceMid = item.basePrice;
         let binanceSpreadBps = 3.5;
@@ -342,7 +343,7 @@ export async function POST(req: NextRequest) {
 
         const liveByb = liveBybitMap.get(bybitSymbol);
         if (liveByb) {
-          bybitMid = liveByb.mid;
+          bybitMid = multiplier > 0 ? liveByb.mid / multiplier : liveByb.mid;
           bybitSpreadBps = parseFloat((((liveByb.ask - liveByb.bid) / liveByb.mid) * 10000).toFixed(2));
         } else if (liveBn) {
           bybitMid = liveBn.mid;

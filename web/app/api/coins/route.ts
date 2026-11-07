@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getCoinsCache, COINS_CACHE_TTL_MS, TESTNET_CACHE_TTL_MS } from "@/lib/coinsCache";
 import { getDeterministicNextFundingTime } from "@/lib/settlementTime";
 import { fetchFundingMetaMap } from "@/lib/exchangeFundingMeta";
 import {
@@ -114,33 +115,33 @@ export interface CoinsApiResponse {
 }
 
 // In-memory cache structures
-let cachedResponse: CoinsApiResponse | null = null;
-let lastFetchTime = 0;
-export const COINS_CACHE_TTL_MS = 4_000; // 4 second in-memory cache for ultra-fast polling
+const coinsCache = getCoinsCache();
+
+
 const CACHE_TTL_MS = COINS_CACHE_TTL_MS;
 
 // Testnet symbols cache (valid for 15 minutes)
-let cachedTestnetSymbols: Set<string> | null = null;
-let lastTestnetFetch = 0;
-let lastUpstreamError: any = null;
-const TESTNET_CACHE_TTL_MS = 15 * 60 * 1000;
 
-export function _resetCoinsCacheForTesting(resetTestnet = false) {
-  lastUpstreamError = null;
-  cachedResponse = null;
-  lastFetchTime = 0;
-  if (resetTestnet) {
-    cachedTestnetSymbols = null;
-    lastTestnetFetch = 0;
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 async function getMutualDemoCryptoSymbols(): Promise<Set<string>> {
   const now = Date.now();
-  if (cachedTestnetSymbols && now - lastTestnetFetch < TESTNET_CACHE_TTL_MS) {
-    return cachedTestnetSymbols;
+  if (coinsCache.cachedTestnetSymbols && now - coinsCache.lastTestnetFetch < TESTNET_CACHE_TTL_MS) {
+    return coinsCache.cachedTestnetSymbols;
   }
 
   try {
@@ -174,8 +175,8 @@ async function getMutualDemoCryptoSymbols(): Promise<Set<string>> {
     }
 
     if (mutual.size > 0) {
-      cachedTestnetSymbols = mutual;
-      lastTestnetFetch = now;
+      coinsCache.cachedTestnetSymbols = mutual;
+      coinsCache.lastTestnetFetch = now;
       return mutual;
     }
   } catch (err) {
@@ -188,8 +189,8 @@ async function getMutualDemoCryptoSymbols(): Promise<Set<string>> {
     "LINKUSDT", "LTCUSDT", "NEARUSDT", "TRXUSDT", "UNIUSDT",
     "USDCUSDT", "HYPEUSDT"
   ]);
-  cachedTestnetSymbols = fallback;
-  lastTestnetFetch = now;
+  coinsCache.cachedTestnetSymbols = fallback;
+  coinsCache.lastTestnetFetch = now;
   return fallback;
 }
 
@@ -212,7 +213,7 @@ async function fetchBinancePremiumIndex(): Promise<any[]> {
         }
       }
     } catch (e: any) {
-      lastUpstreamError = e;
+      coinsCache.lastUpstreamError = e;
     }
   }
 
@@ -230,7 +231,7 @@ async function fetchBinancePremiumIndex(): Promise<any[]> {
       }
     }
   } catch (e: any) {
-    lastUpstreamError = e;
+    coinsCache.lastUpstreamError = e;
   }
 
   return [];
@@ -250,7 +251,7 @@ async function fetchBitgetTickers(): Promise<any[]> {
       }
     }
   } catch (e: any) {
-    lastUpstreamError = e;
+    coinsCache.lastUpstreamError = e;
   }
   return [];
 }
@@ -277,15 +278,15 @@ export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl?.searchParams;
   const forceRefresh = searchParams?.get("refresh") === "true";
 
-  if (!forceRefresh && cachedResponse && now - lastFetchTime < CACHE_TTL_MS) {
+  if (!forceRefresh && coinsCache.cachedResponse && now - coinsCache.lastFetchTime < CACHE_TTL_MS) {
     return NextResponse.json({
-      ...cachedResponse,
+      ...coinsCache.cachedResponse,
       cached: true,
     });
   }
 
   const fetchStart = Date.now();
-  lastUpstreamError = null; // Reset for new request
+  coinsCache.lastUpstreamError = null; // Reset for new request
 
   try {
     const [binanceData, bitgetData, testnetSet, metaMap, coindcxSet] = await Promise.all([
@@ -300,18 +301,18 @@ export async function GET(req: NextRequest) {
 
     // Failover safeguard: retain cached response if both exchanges return empty, or return 500 on cold cache
     if (binanceData.length === 0 && bitgetData.length === 0) {
-      if (cachedResponse) {
-        const errDetail = lastUpstreamError && lastUpstreamError.message ? ' (' + lastUpstreamError.message + ')' : '';
+      if (coinsCache.cachedResponse) {
+        const errDetail = coinsCache.lastUpstreamError && coinsCache.lastUpstreamError.message ? ' (' + coinsCache.lastUpstreamError.message + ')' : '';
         return NextResponse.json({
-          ...cachedResponse,
+          ...coinsCache.cachedResponse,
           cached: true,
-          updatedAt: lastFetchTime,
+          updatedAt: coinsCache.lastFetchTime,
           error: 'Exchange endpoints returned empty or failed: serving cached market data' + errDetail,
         });
       }
       return NextResponse.json({
         success: false,
-        error: lastUpstreamError && lastUpstreamError.message ? 'Upstream exchange endpoints failed: ' + lastUpstreamError.message : 'Exchange endpoints returned empty data',
+        error: coinsCache.lastUpstreamError && coinsCache.lastUpstreamError.message ? 'Upstream exchange endpoints failed: ' + coinsCache.lastUpstreamError.message : 'Exchange endpoints returned empty data',
         count: 0,
         cached: false,
         updatedAt: now,
@@ -832,14 +833,14 @@ export async function GET(req: NextRequest) {
       bybitRanked,
     };
 
-    cachedResponse = responsePayload;
-    lastFetchTime = now;
+    coinsCache.cachedResponse = responsePayload;
+    coinsCache.lastFetchTime = now;
 
     return NextResponse.json(responsePayload);
   } catch (err: any) {
-    if (cachedResponse) {
+    if (coinsCache.cachedResponse) {
       return NextResponse.json({
-        ...cachedResponse,
+        ...coinsCache.cachedResponse,
         cached: true,
         error: `Transient fetch error: ${err.message}`,
       });

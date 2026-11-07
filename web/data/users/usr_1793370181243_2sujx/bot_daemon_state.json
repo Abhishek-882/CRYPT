@@ -3,8 +3,8 @@
   "runInBackgroundWhenClosed": true,
   "mode": "AUTONOMOUS_SERVER_24_7",
   "startedAt": 1793370181854,
-  "lastCycleAt": 1793884485361,
-  "cyclesCompleted": 78512,
+  "lastCycleAt": 1794017963689,
+  "cyclesCompleted": 108855,
   "activeBotId": "bot-1",
   "bots": [
     {
@@ -59,10 +59,242 @@
       "completedHedges": [],
       "logs": [
         {
-          "timestamp": "2026-11-05T13:14:37.778Z",
-          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [1864]",
+          "timestamp": "2026-11-07T01:16:14.709Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [360]",
           "level": "warn",
-          "count": 1864,
+          "count": 360,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T20:57:31.932Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [13]",
+          "level": "warn",
+          "count": 13,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T20:49:20.603Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [82]",
+          "level": "warn",
+          "count": 82,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T19:50:36.185Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [156]",
+          "level": "warn",
+          "count": 156,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:40:43.047Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [19]",
+          "level": "warn",
+          "count": 19,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:24:22.646Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:22:13.832Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:21:05.249Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:19:48.820Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:18:25.772Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:17:07.075Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:15:43.709Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:14:26.025Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T17:13:02.424Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [39]",
+          "level": "warn",
+          "count": 39,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T16:38:59.480Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T16:37:00.738Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [42]",
+          "level": "warn",
+          "count": 42,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T16:01:24.367Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [17]",
+          "level": "warn",
+          "count": 17,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T15:48:45.427Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [27]",
+          "level": "warn",
+          "count": 27,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T15:31:33.061Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [210]",
+          "level": "warn",
+          "count": 210,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T12:58:47.925Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+          "level": "warn",
+          "count": 4,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T12:55:12.485Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [601]",
+          "level": "warn",
+          "count": 601,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T05:43:06.109Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T05:42:00.126Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [138]",
+          "level": "warn",
+          "count": 138,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T04:10:43.414Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T04:09:40.709Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [352]",
+          "level": "warn",
+          "count": 352,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T00:04:33.177Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T00:03:20.413Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-06T00:02:14.159Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [653]",
+          "level": "warn",
+          "count": 653,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-05T16:39:58.319Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [84]",
+          "level": "warn",
+          "count": 84,
+          "botId": "bot-1",
+          "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-05T15:34:50.446Z",
+          "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2086]",
+          "level": "warn",
+          "count": 2086,
           "botId": "bot-1",
           "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
         },
@@ -668,7 +900,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-11-05T12:41:09.929Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-11-07T02:19:23.684Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -696,7 +928,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-11-05T12:41:09.930Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-11-07T02:19:23.685Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -724,7 +956,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-11-05T12:41:09.930Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-11-07T02:19:23.685Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -752,7 +984,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Canary Micro-Staging 15USD\n; Exported: 2026-11-05T12:41:09.930Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=15\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=1\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Canary Micro-Staging 15USD\n; Exported: 2026-11-07T02:19:23.685Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=15\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=1\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -760,10 +992,242 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-11-05T13:14:37.778Z",
-      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [1864]",
+      "timestamp": "2026-11-07T01:16:14.709Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [360]",
       "level": "warn",
-      "count": 1864,
+      "count": 360,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T20:57:31.932Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [13]",
+      "level": "warn",
+      "count": 13,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T20:49:20.603Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [82]",
+      "level": "warn",
+      "count": 82,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T19:50:36.185Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [156]",
+      "level": "warn",
+      "count": 156,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:40:43.047Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [19]",
+      "level": "warn",
+      "count": 19,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:24:22.646Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:22:13.832Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:21:05.249Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:19:48.820Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:18:25.772Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:17:07.075Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:15:43.709Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:14:26.025Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T17:13:02.424Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [39]",
+      "level": "warn",
+      "count": 39,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T16:38:59.480Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T16:37:00.738Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [42]",
+      "level": "warn",
+      "count": 42,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T16:01:24.367Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [17]",
+      "level": "warn",
+      "count": 17,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T15:48:45.427Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [27]",
+      "level": "warn",
+      "count": 27,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T15:31:33.061Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [210]",
+      "level": "warn",
+      "count": 210,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T12:58:47.925Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+      "level": "warn",
+      "count": 4,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T12:55:12.485Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [601]",
+      "level": "warn",
+      "count": 601,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T05:43:06.109Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T05:42:00.126Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [138]",
+      "level": "warn",
+      "count": 138,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T04:10:43.414Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T04:09:40.709Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [352]",
+      "level": "warn",
+      "count": 352,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T00:04:33.177Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T00:03:20.413Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-06T00:02:14.159Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [653]",
+      "level": "warn",
+      "count": 653,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-05T16:39:58.319Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [84]",
+      "level": "warn",
+      "count": 84,
+      "botId": "bot-1",
+      "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-05T15:34:50.446Z",
+      "message": "[KEYS REQUIRED] Bot \"Binance ⇄ Bybit Real USD Sniper\" [PER]: User account admin_test@safecoiner.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2086]",
+      "level": "warn",
+      "count": 2086,
       "botId": "bot-1",
       "botName": "Binance ⇄ Bybit Real USD Sniper [PER]"
     },

@@ -53,7 +53,7 @@ export default function Navbar() {
     }
   };
 
-  const navLinks = [
+  const navLinks: { href: string; label: string; icon: any; adminOnly?: boolean }[] = [
     { href: "/", label: "Intro", icon: Home },
     { href: "/convergence", label: "Convergence", icon: Activity },
     { href: "/bot", label: "Fleet Bots", icon: Bot },

@@ -1,9 +1,249 @@
 [
   {
-    "timestamp": "2026-11-05T13:14:22.612Z",
-    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [142]",
+    "timestamp": "2026-11-07T01:16:07.698Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [359]",
     "level": "warn",
-    "count": 142,
+    "count": 359,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T20:57:48.231Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [14]",
+    "level": "warn",
+    "count": 14,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T20:49:12.010Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [106]",
+    "level": "warn",
+    "count": 106,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T19:30:04.705Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [97]",
+    "level": "warn",
+    "count": 97,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T18:09:59.367Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [54]",
+    "level": "warn",
+    "count": 54,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:24:07.335Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:23:05.287Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:21:57.499Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:20:39.303Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:19:25.027Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:17:59.639Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:16:44.494Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:15:20.496Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:14:04.699Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T17:12:43.295Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [39]",
+    "level": "warn",
+    "count": 39,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T16:38:44.447Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T16:37:33.771Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [43]",
+    "level": "warn",
+    "count": 43,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T16:01:09.011Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [43]",
+    "level": "warn",
+    "count": 43,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T15:32:06.910Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [211]",
+    "level": "warn",
+    "count": 211,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T12:58:32.141Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T12:54:56.900Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [601]",
+    "level": "warn",
+    "count": 601,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T05:42:42.245Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [139]",
+    "level": "warn",
+    "count": 139,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T04:10:25.729Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T04:09:22.281Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T04:08:22.236Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [350]",
+    "level": "warn",
+    "count": 350,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T00:05:25.638Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T00:04:09.996Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T00:03:00.236Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-06T00:01:56.061Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [653]",
+    "level": "warn",
+    "count": 653,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-05T16:39:42.563Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [83]",
+    "level": "warn",
+    "count": 83,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-05T15:35:10.577Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account rajieofficial19@gmail.com has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [365]",
+    "level": "warn",
+    "count": 365,
     "botId": "bot-1",
     "botName": "Conservative Funding Sniper [PER]"
   },

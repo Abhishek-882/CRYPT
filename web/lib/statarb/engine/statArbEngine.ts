@@ -448,6 +448,17 @@ export class StatArbEngine {
               this.quarantineSymbol(pair.canonicalSymbol, 3600);
             }
 
+            if (!execResult.success) {
+              pairReasons.push(`Execution aborted: ${execResult.reason || execResult.status}${execResult.executionHash ? ` (Hash: ${execResult.executionHash})` : ''}`);
+              rejectedReasons[pair.canonicalSymbol] = pairReasons;
+              appendStatArbLog(
+                `[WARN] [ENTRY ABORTED] Order execution aborted for ${pair.canonicalSymbol}: ${execResult.reason || execResult.status}${execResult.executionHash ? ` (Hash: ${execResult.executionHash})` : ''}`,
+                'warn',
+                pair.canonicalSymbol,
+                { status: execResult.status, executionHash: execResult.executionHash, reason: execResult.reason }
+              );
+            }
+
             if (execResult.success && execResult.executedQty > 0) {
               const leg1OrderId = execResult.leg1OrderId || execResult.leg1?.orderId;
               const leg2OrderId = execResult.leg2OrderId || execResult.leg2?.orderId;
@@ -636,7 +647,7 @@ export class StatArbEngine {
             `[SUCCESS] [REAL LEDGER SETTLEMENT] Position closed for ${position.canonicalSymbol} (${exitEval.exitType}): Real Net PnL: $${realNetPnl.toFixed(4)} USDT | Total Fees: $${realTotalFees.toFixed(4)} USDT.`,
             'success',
             position.canonicalSymbol,
-            { realNetPnl, realTotalFees, exitType: exitEval.exitType }
+            { realNetPnl, realTotalFees, exitType: exitEval.exitType, executionHash: exitExec.executionHash }
           );
         }
       }

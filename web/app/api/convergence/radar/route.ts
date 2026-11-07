@@ -144,7 +144,7 @@ export async function GET(req: NextRequest) {
 
       const liveByb = liveBybitMap.get(bybitSymbol);
       if (liveByb) {
-        bybitMid = liveByb.mid;
+        bybitMid = multiplier > 0 ? liveByb.mid / multiplier : liveByb.mid;
         bybitSpreadBps = parseFloat((((liveByb.ask - liveByb.bid) / liveByb.mid) * 10000).toFixed(2));
       } else if (liveBn) {
         bybitMid = liveBn.mid;
