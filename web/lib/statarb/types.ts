@@ -201,6 +201,10 @@ export interface StatArbConfig {
   makerTimeoutMs: number;
   /** Counterpart adverse drift abort threshold in bps (default: 8.0 bps) */
   adverseDriftThresholdBps: number;
+  /** Invariant 6: 30-Minute Persistence Breaker enabled (default: true) */
+  invariant6Enabled?: boolean;
+  /** Invariant 7: Upstream Sticky Decoupling Filter enabled (default: true) */
+  invariant7Enabled?: boolean;
 }
 
 /**

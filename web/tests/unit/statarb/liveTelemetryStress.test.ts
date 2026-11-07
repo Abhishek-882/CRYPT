@@ -403,6 +403,11 @@ describe("Telemetry & Rate Limit Stress Challenger Suite", () => {
   // =========================================================================
   describe("Task 4: Daemon Route Real-Ticker Consumption & Bulk Execution", () => {
     it("verifies daemon cron_tick consumes authentic tickers in parallel with bulk consolidation", async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const stateFile = path.join(process.cwd(), 'data', 'statarb_state.json');
+      const priorRaw = fs.existsSync(stateFile) ? fs.readFileSync(stateFile, 'utf-8') : null;
+
       const fetchSpy = vi.fn().mockImplementation(async (url: string) => {
         if (url.includes("binance.com")) {
           return new Response(
@@ -464,13 +469,17 @@ describe("Telemetry & Rate Limit Stress Challenger Suite", () => {
       expect(state).toBeDefined();
       expect(Array.isArray(state.monitoredPairs)).toBe(true);
 
-      // Clean up engine
+      // Clean up engine and restore prior production state
       const stopReq = new NextRequest("http://localhost:3000/api/convergence/daemon", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "stop" }),
       });
       await daemonPOST(stopReq);
+
+      if (priorRaw) {
+        fs.writeFileSync(stateFile, priorRaw, 'utf-8');
+      }
     });
   });
 

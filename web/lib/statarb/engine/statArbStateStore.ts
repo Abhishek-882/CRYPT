@@ -53,6 +53,8 @@ export const DEFAULT_STATARB_CONFIG: StatArbConfig = {
   orderNotionalUsdt: 15.0,
   makerTimeoutMs: 8000,
   adverseDriftThresholdBps: 8.0,
+  invariant6Enabled: true,
+  invariant7Enabled: true,
 };
 
 export const DEFAULT_STATARB_TELEMETRY: StatArbTelemetry = {

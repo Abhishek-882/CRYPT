@@ -351,6 +351,10 @@ export async function POST(req: NextRequest) {
       if (explicitDryRun !== undefined) {
         engine.updateConfig({ dryRun: explicitDryRun });
       }
+      if (body.clearQuarantine) {
+        engine.clearQuarantine();
+        console.log("[STATARB-DAEMON] All symbol cooldowns and quarantines cleared on config update.");
+      }
       const updatedIsLive = store.getState().config.dryRun === false;
       console.log(
         `[STATARB-DAEMON] Configuration updated. Active execution mode: ${
@@ -363,6 +367,18 @@ export async function POST(req: NextRequest) {
         mode: updatedIsLive ? "LIVE_ON_EXCHANGE" : "SIMULATED_DRY_RUN",
         dryRun: !updatedIsLive,
         config: engine.getState().config,
+        state: engine.getState(),
+      });
+    }
+
+    if (action === "clear_quarantine") {
+      const symbol = body.symbol as string | undefined;
+      engine.clearQuarantine(symbol);
+      console.log(`[STATARB-DAEMON] Cooldown/quarantine cleared ${symbol ? `for ${symbol}` : 'for ALL symbols'}.`);
+      return NextResponse.json({
+        success: true,
+        message: symbol ? `Cooldown/quarantine cleared for ${symbol}.` : "All symbol cooldowns and quarantines cleared successfully.",
+        quarantinedSymbols: engine.getQuarantinedSymbols(),
         state: engine.getState(),
       });
     }

@@ -201,7 +201,22 @@ export default function ConvergenceCockpitPage() {
       const res = await fetch("/api/convergence/daemon", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "update_config", config: newConfig }),
+        body: JSON.stringify({ action: "update_config", config: newConfig, clearQuarantine: true }),
+      });
+      if (res.ok) {
+        await refreshAll();
+      }
+    } catch {
+      // ignore
+    }
+  };
+
+  const handleClearQuarantine = async () => {
+    try {
+      const res = await fetch("/api/convergence/daemon", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "clear_quarantine" }),
       });
       if (res.ok) {
         await refreshAll();
@@ -311,6 +326,7 @@ export default function ConvergenceCockpitPage() {
           onStop={handleStop}
           onKillSwitch={handleKillSwitch}
           onUpdateConfig={handleUpdateConfig}
+          onClearQuarantine={handleClearQuarantine}
           onRefresh={refreshAll}
           isRefreshing={isRefreshing}
         />

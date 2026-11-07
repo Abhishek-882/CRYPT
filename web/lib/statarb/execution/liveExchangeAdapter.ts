@@ -19,6 +19,7 @@ import {
 import {
   signAndFetchBinance,
   validateOrGenerateBinanceClientOrderId,
+  setBinanceLeverage,
 } from '@/lib/binanceSigner';
 import {
   sendBybitRequest,
@@ -294,6 +295,18 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
               ? parseFloat((currentPrice - tickSize).toFixed(priceDecimals))
               : parseFloat((currentPrice + tickSize).toFixed(priceDecimals));
           continue;
+        }
+
+        // Auto-heal Binance -2027 leverage restriction: calibrate leverage to 5x and retry immediately
+        if (venue === 'BINANCE' && (errMsg.includes('-2027') || errMsg.toLowerCase().includes('current leverage')) && attempt < maxRetries) {
+          try {
+            const bnCreds = this.getBinanceCreds();
+            await setBinanceLeverage(bnCreds.apiKey, bnCreds.apiSecret, symbol.toUpperCase(), 5);
+            console.log(`[LiveExchangeAdapter] Auto-calibrated Binance leverage for ${symbol} to 5x upon -2027. Retrying order...`);
+            continue;
+          } catch (levErr: any) {
+            console.warn(`[LiveExchangeAdapter] Leverage auto-calibration failed for ${symbol}:`, levErr?.message);
+          }
         }
 
         return { orderId: '', status: 'REJECTED', rejectReason: errMsg };

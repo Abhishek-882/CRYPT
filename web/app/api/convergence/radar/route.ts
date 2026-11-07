@@ -99,7 +99,8 @@ export async function GET(req: NextRequest) {
       const zScore = universeOutput.zScoreMap.get(pair.canonicalSymbol) ?? calculateZScore(pair.grossBasisBps, ouParams);
       const gateResult = evaluateEntryGates(pair, ouParams, config.entryGate);
 
-      // Invariant 7 evaluation from rolling divergence history
+      // Invariant 7 evaluation from rolling divergence history (active only when invariant7Enabled is true)
+      const isInv7Enabled = config.invariant7Enabled !== false;
       const history30m = universeOutput.rollingHistoryMap.get(pair.canonicalSymbol) || [];
       const stickyCheck = checkInvariant7StickyDecoupling(history30m);
 
@@ -109,7 +110,7 @@ export async function GET(req: NextRequest) {
       const spreadGatePassed =
         pair.binanceSpreadBps <= config.entryGate.maxSpreadBps &&
         pair.bybitSpreadBps <= config.entryGate.maxSpreadBps;
-      const inv7GatePassed = stickyCheck.passed;
+      const inv7GatePassed = !isInv7Enabled || stickyCheck.passed;
       const minNetEdgeBps = config.entryGate.minNetEdgeBps !== undefined ? config.entryGate.minNetEdgeBps : 8.0;
       const netEdgeGatePassed = (gateResult.netExpectedEdgeBps ?? 0) >= minNetEdgeBps;
 
@@ -146,6 +147,7 @@ export async function GET(req: NextRequest) {
           depth: depthGatePassed,
           spread: spreadGatePassed,
           invariant7: inv7GatePassed,
+          invariant7Enabled: isInv7Enabled,
           netEdge: netEdgeGatePassed,
           allPassed: allGatesPassed,
         },

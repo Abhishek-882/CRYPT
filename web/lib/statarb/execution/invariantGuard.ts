@@ -90,10 +90,13 @@ export function checkInvariant6PersistenceBreaker(
     };
   }
 
-  // Sanitize and get absolute divergence values
+  // Sanitize and get absolute divergence values (auto-normalizing basis points > 2.0 to % format)
   const validSamples = divergenceHistory30m
     .filter((v) => typeof v === 'number' && !Number.isNaN(v))
-    .map((v) => Math.abs(v));
+    .map((v) => {
+      const absVal = Math.abs(v);
+      return absVal > 2.0 ? absVal / 100.0 : absVal;
+    });
 
   if (validSamples.length === 0) {
     return {
@@ -171,7 +174,10 @@ export function checkInvariant7StickyDecoupling(
 
   const validSamples = divergenceHistory30m
     .filter((v) => typeof v === 'number' && !Number.isNaN(v))
-    .map((v) => Math.abs(v));
+    .map((v) => {
+      const absVal = Math.abs(v);
+      return absVal > 2.0 ? absVal / 100.0 : absVal;
+    });
 
   if (validSamples.length === 0) {
     return {

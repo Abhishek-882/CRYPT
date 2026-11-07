@@ -20,6 +20,7 @@ export interface RadarGateBadges {
   depth: boolean;
   spread: boolean;
   invariant7: boolean;
+  invariant7Enabled?: boolean;
   netEdge?: boolean;
   allPassed: boolean;
 }
@@ -390,14 +391,28 @@ export default function ConvergenceRadarTable({
                         {/* Invariant 7: Sticky Decoupling Filter */}
                         <span
                           className={`px-1 py-0.5 rounded font-bold border flex items-center space-x-0.5 ${
-                            p.gateBadges.invariant7
+                            p.gateBadges.invariant7Enabled === false
+                              ? "bg-zinc-800 text-zinc-400 border-zinc-700/60"
+                              : p.gateBadges.invariant7
                               ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
                               : "bg-rose-500/20 text-rose-400 border-rose-500/40"
                           }`}
-                          title={p.gateBadges.invariant7 ? "Invariant 7 Sticky Filter Passed" : "Invariant 7 Failed (Sticky Decoupling)"}
+                          title={
+                            p.gateBadges.invariant7Enabled === false
+                              ? "Invariant 7 Filter Bypassed (Disabled in settings)"
+                              : p.gateBadges.invariant7
+                              ? "Invariant 7 Sticky Filter Passed"
+                              : "Invariant 7 Failed (Sticky Decoupling)"
+                          }
                         >
-                          {p.gateBadges.invariant7 ? <Check className="w-2.5 h-2.5" /> : <X className="w-2.5 h-2.5" />}
-                          <span>INV7</span>
+                          {p.gateBadges.invariant7Enabled === false ? (
+                            <Check className="w-2.5 h-2.5 text-zinc-400" />
+                          ) : p.gateBadges.invariant7 ? (
+                            <Check className="w-2.5 h-2.5" />
+                          ) : (
+                            <X className="w-2.5 h-2.5" />
+                          )}
+                          <span>{p.gateBadges.invariant7Enabled === false ? "INV7 (OFF)" : "INV7"}</span>
                         </span>
                       </div>
                     </td>

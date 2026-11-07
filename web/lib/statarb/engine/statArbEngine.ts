@@ -90,8 +90,10 @@ export class StatArbEngine {
     const sym = symbol.toUpperCase();
     const expiry = Date.now() + durationSeconds * 1000;
     this.symbolCooldowns.set(sym, expiry);
+    const isLong = durationSeconds >= 3600;
+    const durLabel = durationSeconds < 60 ? `${durationSeconds}s` : `${Math.round(durationSeconds / 60)}m`;
     appendStatArbLog(
-      `[WARN] [QUARANTINE ACTIVATED: 60M] Symbol ${sym} quarantined for ${Math.round(durationSeconds / 60)} minutes until ${new Date(expiry).toLocaleTimeString()} to prevent repetitive entry loops.`,
+      `[WARN] [${isLong ? 'QUARANTINE ACTIVATED' : 'COOLDOWN ACTIVATED'}: ${durLabel.toUpperCase()}] Symbol ${sym} ${isLong ? 'quarantined' : 'placed on cooldown'} for ${durLabel} until ${new Date(expiry).toLocaleTimeString()} to prevent repetitive entry loops.`,
       'warn',
       sym
     );
@@ -351,19 +353,22 @@ export class StatArbEngine {
         continue;
       }
 
-      // Check if instrument is under 60-minute rejection quarantine
+      // Check if instrument is under cooldown/quarantine
       if (this.isQuarantined(pair.canonicalSymbol)) {
-        rejectedReasons[pair.canonicalSymbol] = ['Symbol is quarantined (60-minute rejection cooldown active)'];
+        rejectedReasons[pair.canonicalSymbol] = ['Symbol is in cooldown/quarantine to prevent repetitive entry loops'];
         continue;
       }
 
-      // 2.1 Invariant 7: Upstream Sticky Decoupling Filter
+      // 2.1 Invariant 7: Upstream Sticky Decoupling Filter (Active only when invariant7Enabled is true)
+      const isInv7Enabled = config.invariant7Enabled !== false;
       const divergenceHistory = rollingHistoryMap.get(pair.canonicalSymbol) || [];
-      const stickyCheck = checkInvariant7StickyDecoupling(divergenceHistory);
-      if (!stickyCheck.passed) {
-        pairReasons.push(stickyCheck.reason);
-        rejectedReasons[pair.canonicalSymbol] = pairReasons;
-        continue;
+      if (isInv7Enabled) {
+        const stickyCheck = checkInvariant7StickyDecoupling(divergenceHistory);
+        if (!stickyCheck.passed) {
+          pairReasons.push(stickyCheck.reason);
+          rejectedReasons[pair.canonicalSymbol] = pairReasons;
+          continue;
+        }
       }
 
       // 2.2 Gross Basis Hurdle Gate (|b_t| >= minGrossBasisBps)
@@ -455,8 +460,18 @@ export class StatArbEngine {
 
             const execResult: ExecutionResult = await this.orderRouter.executeEntry(orderRoutingRequest);
 
-            if (execResult.quarantineSymbol || execResult.status === 'EMERGENCY_UNWOUND' || !execResult.success) {
+            if (execResult.status === 'EMERGENCY_UNWOUND' || execResult.quarantineSymbol) {
+              // Critical leg 2 hedge failure / emergency unwind -> 60-minute isolation quarantine
               this.quarantineSymbol(pair.canonicalSymbol, 3600);
+            } else if (execResult.status === 'ABORTED_TIMEOUT') {
+              // Normal 8-second maker limit timeout with 0 loss -> brief 30-second cooldown
+              this.quarantineSymbol(pair.canonicalSymbol, 30);
+            } else if (execResult.status === 'ABORTED_ADVERSE_DRIFT') {
+              // Adverse drift before fill -> brief 30-second cooldown
+              this.quarantineSymbol(pair.canonicalSymbol, 30);
+            } else if (!execResult.success) {
+              // Non-fatal abort/rejection -> 60-second cooldown
+              this.quarantineSymbol(pair.canonicalSymbol, 60);
             }
 
             if (!execResult.success) {

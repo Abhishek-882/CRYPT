@@ -24,6 +24,7 @@ export interface ConvergenceControlsProps {
   onStop: () => Promise<void>;
   onKillSwitch: () => Promise<void>;
   onUpdateConfig: (config: Partial<StatArbConfig>) => Promise<void>;
+  onClearQuarantine?: () => Promise<void>;
   onRefresh?: () => void;
   isRefreshing?: boolean;
 }
@@ -36,6 +37,7 @@ export default function ConvergenceControls({
   onStop,
   onKillSwitch,
   onUpdateConfig,
+  onClearQuarantine,
   onRefresh,
   isRefreshing = false,
 }: ConvergenceControlsProps) {
@@ -43,6 +45,8 @@ export default function ConvergenceControls({
   const [isKillConfirmOpen, setIsKillConfirmOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [isClearing, setIsClearing] = useState(false);
+  const [clearSuccess, setClearSuccess] = useState(false);
 
   // Form local state initialized from config
   const [minZScore, setMinZScore] = useState<number>(config?.entryGate?.minZScore ?? 2.2);
@@ -73,6 +77,8 @@ export default function ConvergenceControls({
       );
       setExitZScoreThreshold(config.exitZScoreThreshold ?? 0.35);
       setOrderNotionalUsdt(config.orderNotionalUsdt ?? 15.0);
+      setInvariant6Enabled(config.invariant6Enabled !== false);
+      setInvariant7Enabled(config.invariant7Enabled !== false);
     }
   }, [config]);
 
@@ -92,6 +98,8 @@ export default function ConvergenceControls({
         exitConvergenceCompression: Number(exitConvergenceCompression) / 100,
         exitZScoreThreshold: Number(exitZScoreThreshold),
         orderNotionalUsdt: Number(orderNotionalUsdt),
+        invariant6Enabled: Boolean(invariant6Enabled),
+        invariant7Enabled: Boolean(invariant7Enabled),
       });
       setSaveSuccess(true);
       setTimeout(() => {
@@ -176,6 +184,29 @@ export default function ConvergenceControls({
               title="Refresh Telemetry"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin text-accent-amber" : ""}`} />
+            </button>
+          )}
+
+          {onClearQuarantine && (
+            <button
+              type="button"
+              onClick={async () => {
+                if (isClearing) return;
+                setIsClearing(true);
+                try {
+                  await onClearQuarantine();
+                  setClearSuccess(true);
+                  setTimeout(() => setClearSuccess(false), 2000);
+                } finally {
+                  setIsClearing(false);
+                }
+              }}
+              disabled={isClearing}
+              className="flex items-center space-x-1.5 px-3 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-400 hover:text-amber-300 text-xs font-semibold transition-colors active:scale-95 shadow-sm"
+              title="Clear all symbol cooldowns and 60m quarantine locks"
+            >
+              <RotateCcw className={`w-3.5 h-3.5 ${isClearing ? "animate-spin" : ""}`} />
+              <span>{clearSuccess ? "COOLDOWNS CLEARED!" : "RESET COOLDOWNS"}</span>
             </button>
           )}
 
