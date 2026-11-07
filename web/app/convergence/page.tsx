@@ -37,9 +37,9 @@ export default function ConvergenceCockpitPage() {
   const [config, setConfig] = useState<StatArbConfig | undefined>(undefined);
   const [stats, setStats] = useState<any>({
     activePositionsCount: 0,
-    totalRealizedPnlUsdt: 14.28,
-    winRate: 100.0,
-    averageHoldDurationMinutes: 20.6,
+    totalRealizedPnlUsdt: 0.0,
+    winRate: 0.0,
+    averageHoldDurationMinutes: 0.0,
   });
 
   // Radar state
