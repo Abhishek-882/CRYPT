@@ -225,3 +225,167 @@ export function generateTradeSignal(
     reasons: result.reasons,
   };
 }
+
+/**
+ * Guard 1: Symmetrically Directional Anti-Inversion Gate
+ * Invariant to venue labels; enforces selling venue > buying venue by S_floor.
+ * Eliminates inverted entries while preserving reverse-spread winners.
+ */
+export function evaluateStrictDirectionality(
+  direction: StatArbDirection,
+  binanceBid: number,
+  binanceAsk: number,
+  bybitBid: number,
+  bybitAsk: number,
+  minGrossSpreadPct: number = 0.240
+): { passed: boolean; grossSpreadPct: number; reason: string } {
+  // Sanity checks on feed integrity
+  if (
+    !Number.isFinite(binanceBid) || !Number.isFinite(binanceAsk) ||
+    !Number.isFinite(bybitBid) || !Number.isFinite(bybitAsk) ||
+    binanceBid <= 0 || bybitBid <= 0
+  ) {
+    return { passed: false, grossSpreadPct: 0, reason: 'CORRUPTED_PRICE_FEEDS' };
+  }
+  // Crossed book detection
+  if (binanceBid >= binanceAsk || bybitBid >= bybitAsk) {
+    return { passed: false, grossSpreadPct: 0, reason: 'CROSSED_ORDERBOOK_FEED' };
+  }
+
+  const shortPrice = direction === 'SHORT_BINANCE_LONG_BYBIT' ? binanceBid : bybitBid;
+  const longPrice = direction === 'SHORT_BINANCE_LONG_BYBIT' ? bybitAsk : binanceAsk;
+
+  const grossSpreadPct = ((shortPrice - longPrice) / longPrice) * 100.0;
+
+  // Anti-Inversion Invariant: Shorting cheap venue is mathematically forbidden
+  if (shortPrice <= longPrice) {
+    return {
+      passed: false,
+      grossSpreadPct,
+      reason: `DIRECTIONAL_INVERSION_BLOCKED: Short ($${shortPrice}) <= Long ($${longPrice}), spread ${grossSpreadPct.toFixed(3)}% <= 0.000%`
+    };
+  }
+
+  // Friction Floor Check
+  if (grossSpreadPct < minGrossSpreadPct) {
+    return {
+      passed: false,
+      grossSpreadPct,
+      reason: `INSUFFICIENT_SPREAD_EDGE: Spread ${grossSpreadPct.toFixed(3)}% < required floor ${minGrossSpreadPct.toFixed(3)}%`
+    };
+  }
+
+  return { passed: true, grossSpreadPct, reason: 'DIRECTIONALITY_AND_SPREAD_VERIFIED' };
+}
+
+/**
+ * Guard 1.2: Leg-Aware IOC Bound Invariant
+ * Evaluates whether Leg 1 is BUY or SELL, not whether Leg 1 is Binance or Bybit.
+ * Protects against adverse microsecond book-cross drift on Leg 2 taker execution.
+ */
+export function computeLeg2IocBoundPrice(
+  leg1Side: 'SELL' | 'BUY',
+  leg1FillPrice: number,
+  minGrossSpreadPct: number = 0.240
+): number {
+  if (leg1Side === 'SELL') {
+    // Leg 1 is Short. Leg 2 is BUY (Long). Cap maximum buy price:
+    return parseFloat((leg1FillPrice / (1.0 + minGrossSpreadPct / 100.0)).toFixed(8));
+  } else {
+    // Leg 1 is Long. Leg 2 is SELL (Short). Floor minimum sell price:
+    return parseFloat((leg1FillPrice * (1.0 + minGrossSpreadPct / 100.0)).toFixed(8));
+  }
+}
+
+/**
+ * Guard 2: Dynamic Friction Hurdle Evaluator with Passive Maker Abort
+ * Enforces k_optimal = 1.6x to 1.8x total roundtrip fees.
+ * Requires 8-second passive maker cancel to eliminate taker degradation traps.
+ */
+export interface DynamicGatingResult {
+  canDispatch: boolean;
+  requiredHurdlePct: number;
+  grossSpreadPct: number;
+  netEdgePct: number;
+  reason: string;
+}
+
+export function evaluateDynamicFrictionFloor(
+  grossSpreadPct: number,
+  leg1MakerFeePct: number = 0.020,
+  leg2TakerFeePct: number = 0.055,
+  isAltcoinTier: boolean = false,
+  kMultiplier: number = 1.60
+): DynamicGatingResult {
+  const effectiveTakerFee = isAltcoinTier ? Math.max(leg2TakerFeePct, 0.065) : leg2TakerFeePct;
+  const roundtripFeePct = 2.0 * (leg1MakerFeePct + effectiveTakerFee); // 0.150% standard / 0.170% altcoin
+  
+  // Enforce optimal multiplier boundary [1.6x, 1.8x]
+  const clampedK = Math.min(Math.max(kMultiplier, 1.60), 1.80);
+  const requiredHurdlePct = roundtripFeePct * clampedK; // 0.240% to 0.272%
+  const netEdgePct = grossSpreadPct - roundtripFeePct;
+
+  if (grossSpreadPct < requiredHurdlePct) {
+    return {
+      canDispatch: false,
+      requiredHurdlePct,
+      grossSpreadPct,
+      netEdgePct,
+      reason: `GROSS_SPREAD_BELOW_FRICTION_FLOOR: Spread ${grossSpreadPct.toFixed(3)}% < Hurdle ${requiredHurdlePct.toFixed(3)}% (k=${clampedK.toFixed(1)}x)`
+    };
+  }
+
+  // Pre-Flight Gate 5 Net Edge Invariant: Net edge must exceed 0.080%
+  if (netEdgePct < 0.080) {
+    return {
+      canDispatch: false,
+      requiredHurdlePct,
+      grossSpreadPct,
+      netEdgePct,
+      reason: `NET_EDGE_BELOW_PREFLIGHT_GATE: Net edge ${netEdgePct.toFixed(3)}% < 0.080%`
+    };
+  }
+
+  return {
+    canDispatch: true,
+    requiredHurdlePct,
+    grossSpreadPct,
+    netEdgePct,
+    reason: `DYNAMIC_FLOOR_VERIFIED: Net edge ${netEdgePct.toFixed(3)}% >= 0.080%`
+  };
+}
+
+/**
+ * 8-Second Passive Maker Watchdog Invariant:
+ * Aborts unhedged Leg 1 maker order if not filled passively within 8,000 ms.
+ */
+export function shouldAbortLeg1MakerOrder(elapsedMs: number): boolean {
+  return elapsedMs >= 8000;
+}
+
+/**
+ * Guard 3: Strategy-Decoupled Pure StatArb Evaluator
+ * Verifies that STATARB-OU-PERP is 100% decoupled from funding epoch synchronization.
+ * Purges synthetic phantom funding formulas.
+ */
+export function evaluatePureStatArbEligibility(
+  zScore: number,
+  depthRatio: number,
+  grossSpreadPct: number,
+  minZScore: number = 2.20,
+  minDepthRatio: number = 4.0,
+  minGrossSpreadPct: number = 0.240
+): { eligible: boolean; reason: string } {
+  if (Math.abs(zScore) < minZScore) {
+    return { eligible: false, reason: `INSUFFICIENT_ZSCORE: |${zScore.toFixed(2)}| < ${minZScore.toFixed(2)}` };
+  }
+  if (depthRatio < minDepthRatio) {
+    return { eligible: false, reason: `INSUFFICIENT_DEPTH: Ratio ${depthRatio.toFixed(2)}x < ${minDepthRatio.toFixed(2)}x` };
+  }
+  if (grossSpreadPct < minGrossSpreadPct) {
+    return { eligible: false, reason: `INSUFFICIENT_SPREAD: ${grossSpreadPct.toFixed(3)}% < ${minGrossSpreadPct.toFixed(3)}%` };
+  }
+
+  // 100% Autonomous 24/7 Orderbook Convergence — ZERO funding restrictions
+  return { eligible: true, reason: 'PURE_STATARB_CRITERIA_VERIFIED' };
+}

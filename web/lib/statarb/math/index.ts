@@ -16,7 +16,13 @@ export {
   calculateBasisBps,
   evaluateEntryGates,
   generateTradeSignal,
+  evaluateStrictDirectionality,
+  computeLeg2IocBoundPrice,
+  evaluateDynamicFrictionFloor,
+  shouldAbortLeg1MakerOrder,
+  evaluatePureStatArbEligibility,
   DEFAULT_ENTRY_GATE_CONFIG,
+  type DynamicGatingResult,
 } from './zScoreEngine';
 
 export {

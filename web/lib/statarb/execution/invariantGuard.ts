@@ -283,3 +283,61 @@ export function checkZeroOrphanInvariant(
       : `Zero-Orphan Invariant violated: Leg 1 qty (${leg1Qty}) does not match Leg 2 normalized qty (${leg2Equivalent.toFixed(4)}), |Delta_net| = ${deltaNet.toFixed(6)} > ${maxNetDelta}.`,
   };
 }
+
+export interface DynamicStagnancyBreakerResult {
+  triggered: boolean;
+  holdMinutes: number;
+  maxHoldMinutes: number;
+  netPnLUsdt: number;
+  basisCompressionPct: number;
+  minCompressionThresholdPct: number;
+  reason: string;
+}
+
+/**
+ * Guard 4: Dynamic Stagnancy Breaker (Triple-Conditional Invariant)
+ * 
+ * Protects against premature exits on profitable/compressing trades (e.g. 1000CATUSDT held 176.75m for +$0.1743 USDT),
+ * while terminating truly dead, decoupled, stagnant losing positions.
+ * 
+ * Trigger Condition (Triple-AND):
+ * 1. Hold duration >= maxHoldMinutes (default 180 min / 3.0h)
+ * 2. Net Unrealized PnL < $0.0000 USDT (actively losing)
+ * 3. Basis Compression < 30.0% (stagnant, failed to compress)
+ * 
+ * If ANY of these 3 conditions is false, the breaker will NOT trigger.
+ */
+export function evaluateDynamicStagnancyBreaker(
+  holdMinutes: number,
+  netPnLUsdt: number,
+  basisCompressionPct: number,
+  maxHoldMinutes: number = 180,
+  minCompressionThresholdPct: number = 30.0
+): DynamicStagnancyBreakerResult {
+  const isTimeExceeded = holdMinutes >= maxHoldMinutes;
+  const isLosing = netPnLUsdt < 0.0;
+  const isNotCompressing = basisCompressionPct < minCompressionThresholdPct;
+
+  const triggered = isTimeExceeded && isLosing && isNotCompressing;
+
+  let reason = '';
+  if (triggered) {
+    reason = `Dynamic Stagnancy Breaker TRIGGERED: Duration ${holdMinutes.toFixed(1)}m >= ${maxHoldMinutes}m, Net PnL $${netPnLUsdt.toFixed(4)} < $0.0000, and Basis Compression ${basisCompressionPct.toFixed(1)}% < ${minCompressionThresholdPct.toFixed(1)}%. Unwinding decoupled position.`;
+  } else if (!isTimeExceeded) {
+    reason = `Dynamic Stagnancy Breaker PASS: Duration ${holdMinutes.toFixed(1)}m < ${maxHoldMinutes}m threshold.`;
+  } else if (!isLosing) {
+    reason = `Dynamic Stagnancy Breaker PROTECTED: Position is profitable or at parity (Net PnL $${netPnLUsdt.toFixed(4)} >= $0.0000). Hold permitted.`;
+  } else {
+    reason = `Dynamic Stagnancy Breaker PROTECTED: Position is actively compressing (${basisCompressionPct.toFixed(1)}% >= ${minCompressionThresholdPct.toFixed(1)}%). Allowing mean-reversion convergence to complete.`;
+  }
+
+  return {
+    triggered,
+    holdMinutes,
+    maxHoldMinutes,
+    netPnLUsdt,
+    basisCompressionPct,
+    minCompressionThresholdPct,
+    reason,
+  };
+}

@@ -11,7 +11,11 @@
  */
 
 import { StatArbPosition } from '../types';
-import { checkInvariant6PersistenceBreaker, checkInvariant4CatastrophicStopLoss } from './invariantGuard';
+import {
+  checkInvariant6PersistenceBreaker,
+  checkInvariant4CatastrophicStopLoss,
+  evaluateDynamicStagnancyBreaker,
+} from './invariantGuard';
 
 export const MIN_ZERO_LOSS_PROFIT_USDT = 0.01;
 export const DEFAULT_COMPRESSION_THRESHOLD = 0.75;
@@ -53,10 +57,25 @@ export interface ZeroLossGateResult {
 
 export type ExitDecisionType =
   | 'PROFITABLE_CONVERGENCE_EXIT'
+  | 'PARITY_SCRATCH_EXIT'
   | 'HOLD_CARRY_FOR_PARITY'
   | 'HOLD_ACTIVE'
+  | 'STAGNANCY_DECOUPLING_UNWIND'
   | 'STRUCTURAL_BASIS_DECOUPLING'
   | 'CATASTROPHIC_STOP';
+
+export interface MultiTierExitResult {
+  canExit: boolean;
+  exitAllowed: boolean;
+  exitType: ExitDecisionType;
+  tier: 1 | 2 | 3 | 4 | 'HOLD';
+  netPnLUsdt: number;
+  grossBasisPnLUsdt: number;
+  totalFeesUsdt: number;
+  basisCompression: number;
+  currentZScore: number;
+  reason: string;
+}
 
 export interface ExitEvaluationResult {
   canExit: boolean;
@@ -247,6 +266,8 @@ export function evaluateExit(
     currentRoiPct?: number;
     holdMinutes?: number;
     divergenceHistory30m?: number[];
+    enableParityScratch?: boolean;
+    enableStagnancyBreaker?: boolean;
   } = {}
 ): ExitEvaluationResult {
   const {
@@ -257,6 +278,8 @@ export function evaluateExit(
     currentRoiPct,
     holdMinutes = position.holdDurationMinutes || 0,
     divergenceHistory30m = position.divergenceHistory30m || [],
+    enableParityScratch = false,
+    enableStagnancyBreaker = false,
   } = options;
 
   const grossBasisPnL = calculateGrossBasisPnL(
@@ -313,6 +336,33 @@ export function evaluateExit(
     }
   }
 
+  // Guard 4: Dynamic Stagnancy Breaker (Triple-Conditional Invariant)
+  if (enableStagnancyBreaker && holdMinutes >= 180) {
+    const stagnancyCheck = evaluateDynamicStagnancyBreaker(
+      holdMinutes,
+      netPnL,
+      basisCompression * 100.0,
+      180,
+      30.0
+    );
+    if (stagnancyCheck.triggered) {
+      return {
+        canExit: true,
+        exitAllowed: true,
+        exitType: 'STAGNANCY_DECOUPLING_UNWIND',
+        basisCompression,
+        isCompressed,
+        isNormalized,
+        currentZScore: zScore,
+        currentBasisBps,
+        netPnLUsdt: netPnL,
+        grossBasisPnLUsdt: grossBasisPnL,
+        totalFeesUsdt: totalFees,
+        reason: stagnancyCheck.reason,
+      };
+    }
+  }
+
   // 3. Normal Convergence Exit Evaluation
   if (isCompressed || isNormalized) {
     const gateResult = evaluateZeroLossExitGate(
@@ -340,6 +390,27 @@ export function evaluateExit(
         totalFeesUsdt: totalFees,
         reason: `Convergence target met (${isCompressed ? 'Basis compression >= 75%' : '|z| <= 0.35'}) with guaranteed profit: Net PnL $${netPnL.toFixed(4)} >= +$0.0100 USDT.`,
       };
+    }
+
+    // Tier 2 Parity Scratch Exit (Guard 5: Net PnL >= +$0.0000 USDT at tight normalization or 90%+ compression)
+    if (enableParityScratch && holdMinutes >= 15) {
+      const isTightReversion = Math.abs(zScore) <= 0.15 || basisCompression >= 0.90;
+      if (isTightReversion && netPnL >= 0.0) {
+        return {
+          canExit: true,
+          exitAllowed: true,
+          exitType: 'PARITY_SCRATCH_EXIT',
+          basisCompression,
+          isCompressed,
+          isNormalized,
+          currentZScore: zScore,
+          currentBasisBps,
+          netPnLUsdt: netPnL,
+          grossBasisPnLUsdt: grossBasisPnL,
+          totalFeesUsdt: totalFees,
+          reason: `Tier 2 Parity Scratch Exit: Normalized (|z|=${Math.abs(zScore).toFixed(2)} <= 0.15 or compression ${(basisCompression * 100).toFixed(1)}% >= 90%) with zero loss: Net PnL $${netPnL.toFixed(4)} >= +$0.0000 USDT (hold: ${holdMinutes.toFixed(1)}m >= 15m). Capital safely recycled.`,
+        };
+      }
     }
 
     // Convergence met but blocked by Zero-Loss Gate
@@ -373,5 +444,56 @@ export function evaluateExit(
     grossBasisPnLUsdt: grossBasisPnL,
     totalFeesUsdt: totalFees,
     reason: `Position active: Basis compression ${(basisCompression * 100).toFixed(1)}% < 75%, |z| = ${Math.abs(zScore).toFixed(2)} > 0.35. Awaiting mean-reversion.`,
+  };
+}
+
+/**
+ * Multi-Tiered Exit Invariant Hierarchy (Guard 5 & Guard 4)
+ * Evaluates active positions across all 4 institutional tiers.
+ */
+export function evaluateMultiTierExitGate(
+  position: StatArbPosition,
+  currentBasisBps: number,
+  zScore: number,
+  options: {
+    feesConfig?: FeeStructure;
+    fundingEarnedUsdt?: number;
+    currentBinancePrice?: number;
+    currentBybitPrice?: number;
+    currentRoiPct?: number;
+    holdMinutes?: number;
+    divergenceHistory30m?: number[];
+    enableParityScratch?: boolean;
+    enableStagnancyBreaker?: boolean;
+  } = {}
+): MultiTierExitResult {
+  const result = evaluateExit(position, currentBasisBps, zScore, {
+    ...options,
+    enableParityScratch: options.enableParityScratch ?? true,
+    enableStagnancyBreaker: options.enableStagnancyBreaker ?? true,
+  });
+
+  let tier: 1 | 2 | 3 | 4 | 'HOLD' = 'HOLD';
+  if (result.exitType === 'CATASTROPHIC_STOP' || result.exitType === 'STRUCTURAL_BASIS_DECOUPLING') {
+    tier = 4;
+  } else if (result.exitType === 'STAGNANCY_DECOUPLING_UNWIND') {
+    tier = 3;
+  } else if (result.exitType === 'PARITY_SCRATCH_EXIT') {
+    tier = 2;
+  } else if (result.exitType === 'PROFITABLE_CONVERGENCE_EXIT') {
+    tier = 1;
+  }
+
+  return {
+    canExit: result.canExit,
+    exitAllowed: result.exitAllowed,
+    exitType: result.exitType,
+    tier,
+    netPnLUsdt: result.netPnLUsdt,
+    grossBasisPnLUsdt: result.grossBasisPnLUsdt,
+    totalFeesUsdt: result.totalFeesUsdt,
+    basisCompression: result.basisCompression,
+    currentZScore: result.currentZScore,
+    reason: result.reason,
   };
 }

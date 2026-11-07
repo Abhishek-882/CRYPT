@@ -13,6 +13,7 @@ export {
   checkInvariant4CatastrophicStopLoss,
   checkInvariant5AdverseCarryInversion,
   checkZeroOrphanInvariant,
+  evaluateDynamicStagnancyBreaker,
   DEFAULT_PERSISTENCE_THRESHOLD_PCT,
   DEFAULT_PERSISTENCE_MINUTES,
   DEFAULT_CATASTROPHIC_ROI_PCT,
@@ -22,11 +23,13 @@ export {
   type Invariant4Result,
   type Invariant5Result,
   type ZeroOrphanResult,
+  type DynamicStagnancyBreakerResult,
 } from './invariantGuard';
 
 export {
   evaluateZeroLossExitGate,
   evaluateExit,
+  evaluateMultiTierExitGate,
   calculateBasisCompression,
   isBasisCompressed,
   isZScoreNormalized,
@@ -40,6 +43,7 @@ export {
   type ZeroLossGateResult,
   type ExitDecisionType,
   type ExitEvaluationResult,
+  type MultiTierExitResult,
 } from './exitOptimizer';
 
 export {
