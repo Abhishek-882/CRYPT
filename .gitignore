@@ -42,7 +42,7 @@ scripts/measure_*
 # Backups & Logs
 *.bak
 *.log
-logs/
+/logs/
 .agents/
 web/data/reports/*.log
 

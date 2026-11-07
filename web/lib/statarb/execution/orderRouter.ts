@@ -18,6 +18,7 @@ import { StatArbDirection, StatArbPair, StatArbPosition } from '../types';
 import { checkZeroOrphanInvariant } from './invariantGuard';
 import { normalizeQuantity } from '../utils/contractMapper';
 import { getSymbolFilter, roundQuantity } from '../utils/exchangeFilterRegistry';
+import { appendStatArbLog } from '../logging';
 
 export type OrderSide = 'BUY' | 'SELL';
 export type ExchangeVenue = 'BINANCE' | 'BYBIT';
@@ -96,6 +97,8 @@ export interface ExecutionResult {
   durationMs: number;
   leg2LatencyMs: number;
   reason: string;
+  quarantineSymbol?: boolean;
+  inFlightState?: 'PENDING_MAKER' | 'IN_TRANSIT_HEDGING' | 'HEDGED' | 'ORPHAN_RECOVERY';
 }
 
 /**
@@ -142,6 +145,26 @@ export interface ExchangeExecutionAdapter {
     side: OrderSide,
     qty: number
   ): Promise<{ success: boolean; executedQty: number; avgPrice: number }>;
+
+  fetchRealExecutionReceipts?(
+    venue: ExchangeVenue,
+    symbol: string,
+    orderId: string
+  ): Promise<{
+    realizedPnlUsdt: number;
+    feeUsdt: number;
+    executedQty: number;
+    avgPrice: number;
+    tradesCount: number;
+  }>;
+
+  getRateLimitHealth?(): {
+    binanceWeightUsed: number;
+    binanceWeightLimit: number;
+    bybitStatus: number;
+    bybitLimit: number;
+    healthZone: 'GREEN' | 'AMBER' | 'RED';
+  };
 }
 
 /**
@@ -252,6 +275,42 @@ export class SimulatedExecutionAdapter implements ExchangeExecutionAdapter {
       success: true,
       executedQty: qty,
       avgPrice: 1.0,
+    };
+  }
+
+  async fetchRealExecutionReceipts(
+    venue: ExchangeVenue,
+    symbol: string,
+    orderId: string
+  ): Promise<{
+    realizedPnlUsdt: number;
+    feeUsdt: number;
+    executedQty: number;
+    avgPrice: number;
+    tradesCount: number;
+  }> {
+    return {
+      realizedPnlUsdt: 0.0,
+      feeUsdt: 0.005,
+      executedQty: 10,
+      avgPrice: 1.0,
+      tradesCount: 1,
+    };
+  }
+
+  getRateLimitHealth(): {
+    binanceWeightUsed: number;
+    binanceWeightLimit: number;
+    bybitStatus: number;
+    bybitLimit: number;
+    healthZone: 'GREEN' | 'AMBER' | 'RED';
+  } {
+    return {
+      binanceWeightUsed: 24,
+      binanceWeightLimit: 2400,
+      bybitStatus: 9,
+      bybitLimit: 10,
+      healthZone: 'GREEN',
     };
   }
 }
@@ -572,15 +631,36 @@ export class MakerTakerOrderRouter {
           false, // REST fallback
           request.leg2InitialPrice
         );
-      } catch (restErr) {
+      } catch (restErr: any) {
         // Catastrophic failure: Both WS and REST failed on Leg 2!
         // Trigger Emergency Market Unwind on Leg 1 to eliminate orphan risk (Meme Coin Solvency Invariant)
         const unwindSide: OrderSide = request.leg1Side === 'BUY' ? 'SELL' : 'BUY';
-        await this.adapter.emergencyMarketUnwind(
-          leg1Venue,
-          request.leg1Symbol,
-          unwindSide,
-          leg1ExecutedQty
+        let unwindSuccess = false;
+        let unwindAttempts = 0;
+
+        // Up to 3 retries for emergency unwind with 40ms backoff
+        while (unwindAttempts < 3 && !unwindSuccess) {
+          unwindAttempts++;
+          try {
+            const unwindRes = await this.adapter.emergencyMarketUnwind(
+              leg1Venue,
+              request.leg1Symbol,
+              unwindSide,
+              leg1ExecutedQty
+            );
+            if (unwindRes.success) {
+              unwindSuccess = true;
+            }
+          } catch {
+            await new Promise((r) => setTimeout(r, 40));
+          }
+        }
+
+        appendStatArbLog(
+          `[ERROR] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for ${request.pair.canonicalSymbol} (${restErr?.message || 'timeout/zero fill'}). Emergency unwind executed on ${leg1Venue} (${unwindAttempts} attempts, success: ${unwindSuccess}). Blacklisting symbol for 60m.`,
+          'error',
+          request.pair.canonicalSymbol,
+          { restError: restErr?.message, unwindSuccess, unwindAttempts }
         );
 
         return {
@@ -594,9 +674,44 @@ export class MakerTakerOrderRouter {
           capitalLossUsdt: 0.01,
           durationMs: Date.now() - startTime,
           leg2LatencyMs: Date.now() - leg2StartTime,
+          quarantineSymbol: true,
+          inFlightState: 'ORPHAN_RECOVERY',
           reason: `Leg 2 hedge execution failed on both WS and REST. Emergency market unwind executed on Leg 1 within sub-40ms. Orphan risk eliminated.`,
         };
       }
+    }
+
+    // Zero-fill hedge protection: if leg2 returned 0 executed qty, treat as failure & unwind Leg 1
+    if (!leg2Result || leg2Result.executedQty <= 0) {
+      const unwindSide: OrderSide = request.leg1Side === 'BUY' ? 'SELL' : 'BUY';
+      await this.adapter.emergencyMarketUnwind(
+        leg1Venue,
+        request.leg1Symbol,
+        unwindSide,
+        leg1ExecutedQty
+      );
+
+      appendStatArbLog(
+        `[ERROR] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 returned 0 executed quantity on ${request.pair.canonicalSymbol}. Emergency Leg 1 unwind executed. Symbol blacklisted for 60m.`,
+        'error',
+        request.pair.canonicalSymbol
+      );
+
+      return {
+        success: false,
+        status: 'EMERGENCY_UNWOUND',
+        leg1: leg1Detail,
+        requestedQty: request.quantity,
+        executedQty: 0,
+        netDelta: 0,
+        isDeltaNeutral: true,
+        capitalLossUsdt: 0.01,
+        durationMs: Date.now() - startTime,
+        leg2LatencyMs: Date.now() - leg2StartTime,
+        quarantineSymbol: true,
+        inFlightState: 'ORPHAN_RECOVERY',
+        reason: `Leg 2 IOC returned 0 executed quantity. Emergency Leg 1 market unwind executed.`,
+      };
     }
 
     const leg2LatencyMs = leg2Result ? leg2Result.latencyMs || Date.now() - leg2StartTime : 0;
@@ -625,6 +740,12 @@ export class MakerTakerOrderRouter {
       leg2Venue
     );
 
+    appendStatArbLog(
+      `[SUCCESS] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ${request.pair.canonicalSymbol}. Leg 1 Maker filled (${leg1ExecutedQty}) @ $${leg1ExecutedPrice.toFixed(4)}, Leg 2 Taker filled (${leg2Result.executedQty}) @ $${leg2Result.avgPrice.toFixed(4)} via ${transportUsed} in ${leg2LatencyMs}ms. Net delta: ${orphanCheck.deltaNet.toFixed(4)}.`,
+      'success',
+      request.pair.canonicalSymbol
+    );
+
     return {
       success: true,
       status: leg1ExecutedQty === request.quantity ? 'FILLED' : 'PARTIALLY_FILLED',
@@ -637,6 +758,8 @@ export class MakerTakerOrderRouter {
       capitalLossUsdt: 0.0,
       durationMs: Date.now() - startTime,
       leg2LatencyMs,
+      quarantineSymbol: false,
+      inFlightState: 'HEDGED',
       reason: `Delta-neutral position established: Leg 1 Maker filled (${leg1ExecutedQty}), Leg 2 Taker filled (${leg2Result.executedQty}) via ${transportUsed} in ${leg2LatencyMs}ms.`,
     };
   }

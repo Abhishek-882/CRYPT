@@ -9,6 +9,7 @@ import {
   ConvergenceControls,
   ConvergenceRadarTable,
   ConvergenceExecutionAuditTable,
+  ConvergenceAuditStream,
   RadarPair,
   ActivePositionItem,
   CompletedFillItem,
@@ -338,6 +339,9 @@ export default function ConvergenceCockpitPage() {
           onClosePosition={handleClosePosition}
           isClosingId={isClosingId}
         />
+
+        {/* 6. 24/7 Convergence Audit Stream (Live Exchange Receipts, Log Viewer & Error Sentinel) */}
+        <ConvergenceAuditStream />
       </main>
 
       <Footer />

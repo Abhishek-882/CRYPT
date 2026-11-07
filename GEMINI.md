@@ -42,3 +42,30 @@
 - **Zero-Loss Fee Shield Invariant**: Exits are strictly prohibited unless the gross convergence price gain completely covers all actual realized exchange fees from entry plus projected exit taker fees, plus a guaranteed minimum net profit of $\ge +\$0.0100\text{ USDT}$:
   $$\text{Gross Convergence PnL} \ge \text{Realized Entry Fees} + \text{Estimated Exit Fees} + \$0.0100\text{ USDT}$$
 - **Prohibition of Hardcoded Adapter Pricing & Notional Distortions**: All simulated and live execution adapters (`SimulatedExchangeAdapter`, `OrderRouter`) must dynamically resolve executed fill prices directly from live orderbook top-of-book depth or counterpart mid-prices (`leg2InitialPrice`). Hardcoding unit prices (e.g. `1.0`) is strictly prohibited, as it distorts fill prices, inflates fee calculations, and creates false floating losses on non-dollar unit coins.
+
+## 8. Pure Real-Exchange Output Invariant (Zero-Formula Telemetry)
+- **Prohibition of Mathematical PnL Surrogates**: The engine and reporting telemetry must never calculate, display, or store trade PnL using theoretical formulas (e.g. `(entrySpread - exitSpread) * notional`).
+- **Authentic Ledger Reconciliation**: All realized PnL, trading fees, fill prices, and hold durations must be directly sourced from authoritative exchange execution ledgers (`GET /fapi/v1/userTrades` on Binance USD-M and `GET /v5/execution/list` / `GET /v5/position/closed-pnl` on Bybit Linear).
+- **Strict Net Realized PnL Formula**:
+  $$\text{Real Net PnL} = \sum (\text{Realized PnL}_{\text{Binance}} + \text{Realized PnL}_{\text{Bybit}}) - \sum (\text{Fees}_{\text{Binance}} + \text{Fees}_{\text{Bybit}})$$
+- **Zero Fill Exclusion**: Any trade where either leg failed to execute ($Q_{\text{exec}} = 0$) must never be recorded as a completed arbitrage cycle or profitable trade.
+
+## 9. Institutional-Grade Anti-Orphan Self-Healing Protocol
+- **Gate 0 (Pre-Flight Zero-Orphan Invariant)**: Before evaluating candidates or dispatching Leg 1, query live positions on BOTH Binance (`/fapi/v2/account`) and Bybit (`/v5/position/list`). If any unhedged contracts exist on either venue, block all new entries immediately.
+- **Phase 1.5 Entry Suspension (`ORPHAN_HEALING_ACTIVE`)**: If an orphan leg is detected or Leg 2 fails, new trade entries across the entire engine are unconditionally suspended until the orphan is confirmed 100% flat.
+- **Live-Ground-Truth Quantity Sizing**: Never size emergency unwinds using requested or theoretical quantities. Always query the live exchange API for `exactQty = Math.abs(pos.amount)` and dispatch market orders with `reduceOnly: true`.
+- **Market Taker Execution for Leg 2**: All Leg 2 counterpart hedge orders must be dispatched as `orderType: 'Market'` with `timeInForce: 'IOC'`. Never submit fixed-price limit orders that risk `EC_NoImmediateQtyToFill`.
+- **Immediate Pre-Emptive Market Unwind**: If Leg 2 fails for any reason, the router must immediately fire an emergency market order with `reduceOnly: true` on Leg 1 within 40ms, retrying up to 3 times to guarantee 0 orphan exposure.
+- **60-Minute Symbol Quarantine**: Any instrument suffering a Leg 2 execution rejection is blacklisted from scanning and trading for 60 minutes across all scanning gates.
+- **Continuous Anti-Orphan Sentinel**: The background sweeper verifies cross-exchange delta neutrality ($|\Delta_{\text{net}}| < 0.001$) every cycle. Any unhedged exposure triggers immediate self-healing remediation.
+
+## 10. Dedicated Quota & Route Isolation Invariant
+- **Single-Engine Quota Allocation**: Redundant polling services (legacy multi-tenant daemons, `/terminal`, `/basis-bot`, and `/history` background pollers) must be permanently decommissioned to guarantee 100% of exchange REST and WebSocket rate limits are reserved for `STATARB-OU-PERP`.
+- **Zero Unauthenticated Polling**: No background loop may query exchange endpoints without confirmed, validated credentials.
+
+## 11. Institutional Logging & Autonomous Error Wakeup / Triage Engine
+- **Convergence Audit Stream (`appendStatArbLog`)**: Every lifecycle transition, order dispatch, fill, rejection, unwind, and ledger settlement must be emitted with standardized severity tags (`info`, `success`, `warn`, `error`).
+- **60-Second In-Memory Deduplication**: Repetitive scanning and tick messages must be aggregated in-place with count badge `[N]` within 60 seconds to prevent log flooding.
+- **Permanent Ledger & Incident Storage**: Persist audit logs to `statarb_audit_log.json` and permanent trade events to `trade_audit_permanent.jsonl`.
+- **Autonomous Error Wakeup Trigger**: Any log entry with `level: 'error'` immediately registers an active incident ticket and triggers an instant AI agent wakeup call.
+- **Zero-Touch Autonomous Triage & Auto-Proceed**: The agent immediately conducts an in-depth forensic investigation of live exchange positions, orders, and balances. If urgent remediation is required (e.g. unhedged orphan, rejection loop, margin deficiency), the agent autonomously plans, executes the fix (e.g. `reduceOnly` market unwind, 60m quarantine, rate limit backoff), verifies 0.000 exposure, and logs the post-mortem without requiring human intervention.

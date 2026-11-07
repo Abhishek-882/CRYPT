@@ -1,13 +1,14 @@
 {
   "isRunning": false,
-  "fsmState": "IDLE_MONITORING",
+  "fsmState": "SHUT_DOWN",
+  "statusText": "PERMANENTLY SHUT DOWN - 100% Rate Limits Dedicated to STATARB-OU-PERP",
   "startedAt": 1793450798496,
   "cyclesCompleted": 63158,
   "lastCycleAt": 1793806897133,
   "config": {
-    "enabled": true,
+    "enabled": false,
     "mode": "SPOT_FUTURES_BASIS",
-    "isLive": true,
+    "isLive": false,
     "targetPairs": [
       "BTCUSDT",
       "ETHUSDT",

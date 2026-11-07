@@ -20,3 +20,5 @@ export type {
   ActivePositionItem,
   CompletedFillItem,
 } from "./ConvergenceExecutionAuditTable";
+
+export { default as ConvergenceAuditStream } from "./ConvergenceAuditStream";

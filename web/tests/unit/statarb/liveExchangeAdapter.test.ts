@@ -616,10 +616,16 @@ describe('LiveExchangeAdapter Unit Test Suite (liveExchangeAdapter.ts)', () => {
       vi.mocked(bybitTradeStream.placeOrder).mockResolvedValueOnce({
         success: true,
         orderId: 'ws_bybit_order_456',
+        orderLinkId: 'link_1',
+        category: 'linear',
+        symbol: 'ETHUSDT',
+        side: 'Buy',
         quantity: 0.1,
         avgPrice: 3000.0,
         executionLatencyMs: 22,
-      });
+        venue: 'BYBIT',
+        isSimulated: false,
+      } as any);
 
       const res = await adapter.placeTakerIoc(
         'BYBIT',
@@ -637,6 +643,39 @@ describe('LiveExchangeAdapter Unit Test Suite (liveExchangeAdapter.ts)', () => {
       expect(res.latencyMs).toBe(22);
       // Fee: 0.1 * 3000 * 0.00055 = 0.165 USDT
       expect(res.feeUsdt).toBe(0.165);
+      expect(bybitTradeStream.placeOrder).toHaveBeenCalledTimes(1);
+      expect(sendBybitRequest).not.toHaveBeenCalled();
+    });
+
+    it('dispatches Bybit WebSocket IOC taker with BybitOrderResult and resolves orderLinkId when orderId is absent', async () => {
+      vi.mocked(bybitTradeStream.isHealthy).mockReturnValue(true);
+      vi.mocked(bybitTradeStream.placeOrder).mockResolvedValueOnce({
+        success: true,
+        orderLinkId: 'link_1',
+        category: 'linear',
+        symbol: 'ETHUSDT',
+        side: 'Buy',
+        quantity: 0.1,
+        avgPrice: 3000.0,
+        executionLatencyMs: 25,
+        venue: 'BYBIT',
+        isSimulated: false,
+      } as any);
+
+      const res = await adapter.placeTakerIoc(
+        'BYBIT',
+        'ETHUSDT',
+        'BUY',
+        0.1,
+        'link_1',
+        true,
+        3000.0
+      );
+
+      expect(res.orderId).toBe('link_1');
+      expect(res.executedQty).toBe(0.1);
+      expect(res.avgPrice).toBe(3000.0);
+      expect(res.latencyMs).toBe(25);
       expect(bybitTradeStream.placeOrder).toHaveBeenCalledTimes(1);
       expect(sendBybitRequest).not.toHaveBeenCalled();
     });
@@ -883,7 +922,7 @@ describe('LiveExchangeAdapter Unit Test Suite (liveExchangeAdapter.ts)', () => {
     });
 
     it('falls back cleanly to environment variables when userStore is unavailable', () => {
-      vi.mocked(findUserById).mockReturnValueOnce(null);
+      vi.mocked(findUserById).mockReturnValueOnce(undefined);
 
       const originalEnv = { ...process.env };
       process.env.BINANCE_API_KEY = 'env_bn_key';
@@ -903,7 +942,7 @@ describe('LiveExchangeAdapter Unit Test Suite (liveExchangeAdapter.ts)', () => {
     });
 
     it('provides static helper LiveExchangeAdapter.decryptCredentials', () => {
-      vi.mocked(findUserById).mockReturnValueOnce(null);
+      vi.mocked(findUserById).mockReturnValueOnce(undefined);
       const creds = LiveExchangeAdapter.decryptCredentials();
       expect(creds).toBeDefined();
       expect(creds.binanceEndpoint).toBe('https://fapi.binance.com');

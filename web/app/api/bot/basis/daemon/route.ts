@@ -15,25 +15,19 @@ import { fetchBybitAccount, BybitCredentials } from "@/lib/bybitSigner";
 export const dynamic = "force-dynamic";
 
 /**
- * Global background worker interval for basis bot daemon
+ * Global background worker interval permanently deactivated for rate limit protection.
+ * 100% of exchange API rate limits are reserved for STATARB-OU-PERP.
  */
 let basisDaemonTimer: NodeJS.Timeout | null = null;
 
 function ensureBasisDaemonWorker() {
-  if (basisDaemonTimer) return;
-  basisDaemonTimer = setInterval(async () => {
-    try {
-      const state = loadBasisBotState();
-      if (state.isRunning) {
-        await runAutonomousBasisCycle();
-      }
-    } catch (err: any) {
-      console.error("[BasisDaemonWorker] Tick error:", err.message);
-    }
-  }, 4000);
+  if (basisDaemonTimer) {
+    clearInterval(basisDaemonTimer);
+    basisDaemonTimer = null;
+  }
 }
 
-// Start worker immediately in Node process
+// Ensure timer is cleared
 ensureBasisDaemonWorker();
 
 /**

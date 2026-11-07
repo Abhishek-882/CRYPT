@@ -238,7 +238,8 @@ export class StatArbStateStore {
     id: string,
     exitReason: string,
     realizedPnlUsdt: number,
-    exitBasisBps?: number
+    exitBasisBps?: number,
+    totalFeesUsdt?: number
   ): StatArbPosition | null {
     const idx = this.state.positions.findIndex((p) => p.id === id);
     if (idx === -1) return null;
@@ -256,6 +257,7 @@ export class StatArbStateStore {
       exitReason,
       realizedPnlUsdt,
       netPnlUsdt: realizedPnlUsdt,
+      totalFeesUsdt: totalFeesUsdt !== undefined ? totalFeesUsdt : pos.totalFeesUsdt,
       currentBasisBps: exitBasisBps !== undefined ? exitBasisBps : pos.currentBasisBps,
       holdDurationMinutes,
     };

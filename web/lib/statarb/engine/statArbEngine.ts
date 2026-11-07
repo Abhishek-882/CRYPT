@@ -38,6 +38,8 @@ import {
 } from '../execution';
 import { StatArbStateStore, StatArbEngineState } from './statArbStateStore';
 import { checkConcurrentPositionsLimit, evaluateSystemSafety } from './safetyBreakers';
+import { getSymbolFilter, roundQuantity } from '../utils/exchangeFilterRegistry';
+import { appendStatArbLog } from '../logging';
 
 export type OrderRoutingRequest = ExecutionRequest;
 
@@ -65,6 +67,54 @@ export class StatArbEngine {
   private positionTimer: NodeJS.Timeout | null = null;
   private scanIntervalMs: number = 3000;
   private positionIntervalMs: number = 2000;
+  private symbolCooldowns: Map<string, number> = new Map();
+
+  /**
+   * Check if a symbol is in the 60-minute rejection quarantine
+   */
+  public isQuarantined(symbol: string): boolean {
+    const sym = symbol.toUpperCase();
+    const expiry = this.symbolCooldowns.get(sym);
+    if (!expiry) return false;
+    if (Date.now() >= expiry) {
+      this.symbolCooldowns.delete(sym);
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * Quarantine a symbol for durationSeconds (default: 3600s / 60 minutes)
+   */
+  public quarantineSymbol(symbol: string, durationSeconds: number = 3600): void {
+    const sym = symbol.toUpperCase();
+    const expiry = Date.now() + durationSeconds * 1000;
+    this.symbolCooldowns.set(sym, expiry);
+    appendStatArbLog(
+      `[WARN] [QUARANTINE ACTIVATED: 60M] Symbol ${sym} quarantined for ${Math.round(durationSeconds / 60)} minutes until ${new Date(expiry).toLocaleTimeString()} to prevent repetitive entry loops.`,
+      'warn',
+      sym
+    );
+  }
+
+  /**
+   * Get active quarantined symbols with remaining minutes
+   */
+  public getQuarantinedSymbols(): { symbol: string; remainingMinutes: number }[] {
+    const now = Date.now();
+    const result: { symbol: string; remainingMinutes: number }[] = [];
+    for (const [sym, expiry] of this.symbolCooldowns.entries()) {
+      if (now < expiry) {
+        result.push({
+          symbol: sym,
+          remainingMinutes: Math.max(0, Math.round((expiry - now) / 60000)),
+        });
+      } else {
+        this.symbolCooldowns.delete(sym);
+      }
+    }
+    return result;
+  }
 
   constructor(
     customStore?: StatArbStateStore,
@@ -290,6 +340,12 @@ export class StatArbEngine {
         continue;
       }
 
+      // Check if instrument is under 60-minute rejection quarantine
+      if (this.isQuarantined(pair.canonicalSymbol)) {
+        rejectedReasons[pair.canonicalSymbol] = ['Symbol is quarantined (60-minute rejection cooldown active)'];
+        continue;
+      }
+
       // 2.1 Invariant 7: Upstream Sticky Decoupling Filter
       const divergenceHistory = rollingHistoryMap.get(pair.canonicalSymbol) || [];
       const stickyCheck = checkInvariant7StickyDecoupling(divergenceHistory);
@@ -345,8 +401,22 @@ export class StatArbEngine {
 
           // 2.5 Execute Entry if capacity permits and engine is active
           if (availableSlots > 0 && this.isRunning) {
-            const notional = config.orderNotionalUsdt || 15.0;
-            const quantity = parseFloat((notional / pair.binanceMid).toFixed(4));
+            const targetNotional = config.orderNotionalUsdt || 15.0;
+            const notional = targetNotional;
+            const leg1Price = pair.binanceMid;
+            const filter = getSymbolFilter((pair as any).binanceVenue ?? 'BINANCE', pair.binanceSymbol);
+            const rawQty = targetNotional / leg1Price;
+            const quantity = roundQuantity(rawQty, filter.stepSize);
+
+            // Assert quantity satisfies exchange filter.minQty and filter.stepSize
+            const isStepValid = filter.stepSize > 0 && Math.abs(quantity - Math.round(quantity / filter.stepSize) * filter.stepSize) < 1e-8;
+            if (quantity < filter.minQty || quantity <= 0 || !isStepValid) {
+              pairReasons.push(
+                `Leg 1 quantity ${quantity} fails filter requirements (minQty: ${filter.minQty}, stepSize: ${filter.stepSize}) for ${pair.binanceSymbol}`
+              );
+              rejectedReasons[pair.canonicalSymbol] = pairReasons;
+              continue;
+            }
 
             const isShortBn = signal.direction === 'SHORT_BINANCE_LONG_BYBIT';
             const leg1Side = isShortBn ? 'SELL' : 'BUY';
@@ -374,36 +444,46 @@ export class StatArbEngine {
 
             const execResult: ExecutionResult = await this.orderRouter.executeEntry(orderRoutingRequest);
 
-          if (execResult.success && execResult.executedQty > 0) {
-            const newPosition: StatArbPosition = {
-              id: `pos_${pair.canonicalSymbol}_${timestamp}`,
-              canonicalSymbol: pair.canonicalSymbol,
-              binanceSymbol: pair.binanceSymbol,
-              bybitSymbol: pair.bybitSymbol,
-              direction: signal.direction,
-              status: 'OPEN',
-              entryTimestamp: timestamp,
-              entryBasisBps: pair.grossBasisBps,
-              entryBinancePrice: execResult.leg1?.price || pair.binanceMid,
-              entryBybitPrice: execResult.leg2?.price || pair.bybitMid,
-              quantity: execResult.executedQty,
-              notionalUsdt: notional,
-              currentBasisBps: pair.grossBasisBps,
-              currentBinancePrice: pair.binanceMid,
-              currentBybitPrice: pair.bybitMid,
-              currentZScore: signal.zScore,
-              realizedPnlUsdt: 0.0,
-              unrealizedPnlUsdt: 0.0,
-              totalFeesUsdt: (execResult.leg1?.feeUsdt || 0) + (execResult.leg2?.feeUsdt || 0),
-              netPnlUsdt: 0.0,
-              holdDurationMinutes: 0.0,
-              divergenceHistory30m: [...divergenceHistory],
-            };
+            if (execResult.quarantineSymbol || execResult.status === 'EMERGENCY_UNWOUND' || !execResult.success) {
+              this.quarantineSymbol(pair.canonicalSymbol, 3600);
+            }
 
-            this.store.addPosition(newPosition);
-            executedPositions.push(newPosition);
-            availableSlots--;
-          }
+            if (execResult.success && execResult.executedQty > 0) {
+              const newPosition: StatArbPosition = {
+                id: `pos_${pair.canonicalSymbol}_${timestamp}`,
+                canonicalSymbol: pair.canonicalSymbol,
+                binanceSymbol: pair.binanceSymbol,
+                bybitSymbol: pair.bybitSymbol,
+                direction: signal.direction,
+                status: 'OPEN',
+                entryTimestamp: timestamp,
+                entryBasisBps: pair.grossBasisBps,
+                entryBinancePrice: execResult.leg1?.price || pair.binanceMid,
+                entryBybitPrice: execResult.leg2?.price || pair.bybitMid,
+                quantity: execResult.executedQty,
+                notionalUsdt: notional,
+                currentBasisBps: pair.grossBasisBps,
+                currentBinancePrice: pair.binanceMid,
+                currentBybitPrice: pair.bybitMid,
+                currentZScore: signal.zScore,
+                realizedPnlUsdt: 0.0,
+                unrealizedPnlUsdt: 0.0,
+                totalFeesUsdt: (execResult.leg1?.feeUsdt || 0) + (execResult.leg2?.feeUsdt || 0),
+                netPnlUsdt: 0.0,
+                holdDurationMinutes: 0.0,
+                divergenceHistory30m: [...divergenceHistory],
+              };
+
+              this.store.addPosition(newPosition);
+              executedPositions.push(newPosition);
+              availableSlots--;
+
+              appendStatArbLog(
+                `[SUCCESS] [ENTRY FILLED] Delta-neutral position opened on ${pair.canonicalSymbol}: ${newPosition.direction} | Notional: $${notional.toFixed(2)} USDT | Quantity: ${execResult.executedQty}`,
+                'success',
+                pair.canonicalSymbol
+              );
+            }
         }
       }
     }
@@ -503,13 +583,46 @@ export class StatArbEngine {
         );
 
         if (exitExec.success) {
+          let realNetPnl = exitEval.netPnLUsdt;
+          let realTotalFees = (position.totalFeesUsdt || 0) + (exitExec.leg1?.feeUsdt || 0) + (exitExec.leg2?.feeUsdt || 0);
+
+          const isDryRun = this.store.getState().config.dryRun ?? true;
+          if (!isDryRun && typeof (this.activeAdapter as any).fetchRealExecutionReceipts === 'function') {
+            try {
+              const bnReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
+                'BINANCE',
+                position.binanceSymbol,
+                exitExec.leg1?.orderId || ''
+              );
+              const bybReceipt = await (this.activeAdapter as any).fetchRealExecutionReceipts(
+                'BYBIT',
+                position.bybitSymbol,
+                exitExec.leg2?.orderId || ''
+              );
+              const netPnl = (bnReceipt?.realizedPnlUsdt || 0) + (bybReceipt?.realizedPnlUsdt || 0);
+              const exitFees = (bnReceipt?.feeUsdt || 0) + (bybReceipt?.feeUsdt || 0);
+              realTotalFees = parseFloat(((position.totalFeesUsdt || 0) + exitFees).toFixed(4));
+              realNetPnl = parseFloat((netPnl - exitFees).toFixed(4));
+            } catch (receiptErr: any) {
+              console.warn('[StatArbEngine] Receipt fetch error:', receiptErr.message);
+            }
+          }
+
           const closed = this.store.closePosition(
             position.id,
             exitEval.exitType,
-            exitEval.netPnLUsdt,
-            currentBasisBps
+            realNetPnl,
+            currentBasisBps,
+            realTotalFees
           );
           if (closed) closedPositions.push(closed);
+
+          appendStatArbLog(
+            `[SUCCESS] [REAL LEDGER SETTLEMENT] Position closed for ${position.canonicalSymbol} (${exitEval.exitType}): Real Net PnL: $${realNetPnl.toFixed(4)} USDT | Total Fees: $${realTotalFees.toFixed(4)} USDT.`,
+            'success',
+            position.canonicalSymbol,
+            { realNetPnl, realTotalFees, exitType: exitEval.exitType }
+          );
         }
       }
     }

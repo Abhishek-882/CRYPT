@@ -55,11 +55,8 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Intro", icon: Home },
-    { href: "/terminal", label: "Terminal", icon: Terminal },
-    { href: "/bot", label: "Auto-Bot", icon: Bot },
-    { href: "/basis-bot", label: "Basis Bot", icon: Zap, adminOnly: true },
     { href: "/convergence", label: "Convergence", icon: Activity },
-    { href: "/history", label: "History", icon: History },
+    { href: "/bot", label: "Fleet Bots", icon: Bot },
     { href: "/profile", label: "Profile", icon: User },
   ];
 

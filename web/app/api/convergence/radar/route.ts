@@ -70,15 +70,29 @@ export async function GET(req: NextRequest) {
     const config = store.getState().config;
     const now = Date.now();
 
-    // Try fetching live public bookTickers from Binance
+    // In-memory 2,500ms cache to guarantee optimal exchange rate limit conservation
+    if (globalThis.__radarCache && (now - globalThis.__radarCache.timestamp < 2500)) {
+      return NextResponse.json(globalThis.__radarCache.data);
+    }
+
+    // Consolidated single bulk endpoints for Binance and Bybit (1 request each for ALL symbols)
     const liveBinanceMap = new Map<string, { bid: number; ask: number; mid: number }>();
+    const liveBybitMap = new Map<string, { bid: number; ask: number; mid: number }>();
+
     try {
-      const res = await fetch("https://fapi.binance.com/fapi/v1/ticker/bookTicker", {
-        cache: "no-store",
-        signal: AbortSignal.timeout(2000),
-      });
-      if (res.ok) {
-        const data = await res.json();
+      const [bnRes, bybRes] = await Promise.all([
+        fetch("https://fapi.binance.com/fapi/v1/ticker/bookTicker", {
+          cache: "no-store",
+          signal: AbortSignal.timeout(2500),
+        }).catch(() => null),
+        fetch("https://api.bybit.com/v5/market/tickers?category=linear", {
+          cache: "no-store",
+          signal: AbortSignal.timeout(2500),
+        }).catch(() => null),
+      ]);
+
+      if (bnRes && bnRes.ok) {
+        const data = await bnRes.json();
         if (Array.isArray(data)) {
           for (const item of data) {
             const bid = parseFloat(item.bidPrice);
@@ -89,8 +103,20 @@ export async function GET(req: NextRequest) {
           }
         }
       }
+
+      if (bybRes && bybRes.ok) {
+        const data = await bybRes.json();
+        const list = Array.isArray(data?.result?.list) ? data.result.list : [];
+        for (const item of list) {
+          const bid = parseFloat(item.bid1Price || "0");
+          const ask = parseFloat(item.ask1Price || "0");
+          if (bid > 0 && ask > 0) {
+            liveBybitMap.set(item.symbol, { bid, ask, mid: (bid + ask) / 2 });
+          }
+        }
+      }
     } catch {
-      // Best-effort live fetch; fallback cleanly if rate-limited or offline
+      // Best-effort live fetch; fallback cleanly if offline
     }
 
     const radarItems = [];
@@ -239,13 +265,21 @@ export async function GET(req: NextRequest) {
     // Update monitored pairs in state store
     store.updateMonitoredPairs(statArbPairs);
 
-    return NextResponse.json({
+    const responsePayload = {
       success: true,
       monitoredCount: radarItems.length,
       qualifyingCount: radarItems.filter((r) => r.gateBadges.allPassed).length,
       pairs: radarItems,
       timestamp: now,
-    });
+    };
+
+    // Cache response for 2,500ms
+    globalThis.__radarCache = {
+      timestamp: now,
+      data: responsePayload,
+    };
+
+    return NextResponse.json(responsePayload);
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Failed to generate radar scan";
     return NextResponse.json(

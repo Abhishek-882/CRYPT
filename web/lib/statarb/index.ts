@@ -32,3 +32,6 @@ export * from './utils/contractMapper';
 
 // Exchange Filter Registry & Lot Sizing Reconciler
 export * from './utils/exchangeFilterRegistry';
+
+// Institutional Logging & Autonomous Incident Sentinel
+export * from './logging';
