@@ -1,0 +1,351 @@
+[
+  {
+    "id": "inc_1794014776651_4a8oh",
+    "timestamp": "2026-11-07T01:26:16.651Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014776632_5u3pc",
+    "timestamp": "2026-11-07T01:26:16.632Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:26:16.638Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794014775952_dl3xp",
+    "timestamp": "2026-11-07T01:26:15.952Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014775190_9epha",
+    "timestamp": "2026-11-07T01:26:15.190Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014775029_ipc8i",
+    "timestamp": "2026-11-07T01:26:15.029Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014767202_xpcc3",
+    "timestamp": "2026-11-07T01:26:07.202Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766985_bn3zn",
+    "timestamp": "2026-11-07T01:26:06.985Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766713_vu40r",
+    "timestamp": "2026-11-07T01:26:06.713Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766559_vqunk",
+    "timestamp": "2026-11-07T01:26:06.559Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014766545_jwcky",
+    "timestamp": "2026-11-07T01:26:06.545Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:26:06.551Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794014604395_wux5a",
+    "timestamp": "2026-11-07T01:23:24.395Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014604176_bdwst",
+    "timestamp": "2026-11-07T01:23:24.176Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014603893_0fhp8",
+    "timestamp": "2026-11-07T01:23:23.893Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014603748_1k6rq",
+    "timestamp": "2026-11-07T01:23:23.748Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014603733_6uqgk",
+    "timestamp": "2026-11-07T01:23:23.733Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:23:23.737Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794014559582_0s18b",
+    "timestamp": "2026-11-07T01:22:39.582Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014559366_eg9sx",
+    "timestamp": "2026-11-07T01:22:39.366Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014559076_9ymwh",
+    "timestamp": "2026-11-07T01:22:39.076Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014559016_dm5a7",
+    "timestamp": "2026-11-07T01:22:39.016Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014559001_mlbay",
+    "timestamp": "2026-11-07T01:22:39.001Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:22:39.006Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794014334756_7og8r",
+    "timestamp": "2026-11-07T01:18:54.756Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014334535_w1zup",
+    "timestamp": "2026-11-07T01:18:54.535Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014334255_787wo",
+    "timestamp": "2026-11-07T01:18:54.255Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014334219_hxc6k",
+    "timestamp": "2026-11-07T01:18:54.219Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014334201_lvbdj",
+    "timestamp": "2026-11-07T01:18:54.201Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:18:54.207Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794014015016_98ue8",
+    "timestamp": "2026-11-07T01:13:35.016Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014014719_8orrg",
+    "timestamp": "2026-11-07T01:13:34.719Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014014437_7lpc7",
+    "timestamp": "2026-11-07T01:13:34.437Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014014358_121j0",
+    "timestamp": "2026-11-07T01:13:34.358Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794014014341_ocsql",
+    "timestamp": "2026-11-07T01:13:34.341Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:13:34.350Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794013838602_ssr24",
+    "timestamp": "2026-11-07T01:10:38.602Z",
+    "errorType": "EXECUTION_ERROR",
+    "details": "[STATARB-OU-PERP] Execution failed",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794013838587_k0hf6",
+    "timestamp": "2026-11-07T01:10:38.587Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "SUIUSDT",
+    "details": "[STATARB-OU-PERP] EC_NoImmediateQtyToFill on Bybit taker order",
+    "urgency": "CRITICAL",
+    "resolved": true,
+    "resolvedAt": "2026-11-07T01:10:38.592Z",
+    "remediationAction": "Unwound Leg 1 on Binance to 0.000"
+  },
+  {
+    "id": "inc_1794013824552_mov9c",
+    "timestamp": "2026-11-07T01:10:24.552Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794013824333_kysk4",
+    "timestamp": "2026-11-07T01:10:24.333Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794013824044_7zy6j",
+    "timestamp": "2026-11-07T01:10:24.044Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794013802491_1f7bo",
+    "timestamp": "2026-11-07T01:10:02.491Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Catastrophic failure on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794013802247_x1o18",
+    "timestamp": "2026-11-07T01:10:02.247Z",
+    "errorType": "LEG2_REJECTION",
+    "symbol": "BTC",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for BTC (Simulated catastrophic failure: venue rejected order on both WS and REST). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  },
+  {
+    "id": "inc_1794013801971_6bqpz",
+    "timestamp": "2026-11-07T01:10:01.971Z",
+    "errorType": "NETWORK_TIMEOUT",
+    "symbol": "BTCUSDT",
+    "details": "[ERROR] [STATARB-OU-PERP] [EMERGENCY UNWIND FAILED] Failed to unwind 0.05 BTCUSDT on BINANCE: Network disconnected / timeout",
+    "urgency": "CRITICAL",
+    "resolved": false
+  }
+]
