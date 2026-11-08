@@ -319,7 +319,7 @@ export function hasCorridorLivePosition(
   venueB: string,
   snapshot: VenuePositionsSnapshot,
   ignoreConvergencePositions: boolean = false,
-  maxRepeatedTrades: number = 1
+  maxRepeatedTrades: number = 2
 ): {
   hasPosition: boolean;
   blockingVenues: string[];
@@ -335,19 +335,19 @@ export function hasCorridorLivePosition(
   const convCount = conv.symbolCounts.get(normSym) || (conv.symbols.has(normSym) ? 1 : 0);
   const isConvergence = convCount > 0;
 
-  // If this symbol already has reached or exceeded max repeated trades (cap: 1, no duplicate trades), strictly block!
+  // If this symbol already has reached or exceeded max repeated trades (e.g. 2 across fleet), block!
   if (convCount >= maxRepeatedTrades) {
     return {
       hasPosition: true,
-      blockingVenues: ["Convergence Engine (No Duplicate Trades Guard)"],
+      blockingVenues: ["Convergence Engine (Max Repeated Trades Active)"],
       isConvergencePosition: true,
       convergenceDirection: conv.directions.get(normSym),
       totalPositionsForSymbol: convCount,
-      reason: `No duplicate trades allowed: ${convCount}/${maxRepeatedTrades} active in convergence engine.`,
+      reason: `Max repeated trades cap reached for symbol: ${convCount}/${maxRepeatedTrades} active in convergence engine.`,
     };
   }
 
-  // If under max repeated trades cap (< 1) and coexistence is allowed:
+  // If under max repeated trades cap (< 2) and coexistence is allowed:
   if (ignoreConvergencePositions && isConvergence) {
     return {
       hasPosition: false,
@@ -355,7 +355,7 @@ export function hasCorridorLivePosition(
       isConvergencePosition: true,
       convergenceDirection: conv.directions.get(normSym),
       totalPositionsForSymbol: convCount,
-      reason: `Trade permitted: ${convCount}/${maxRepeatedTrades} active in convergence.`,
+      reason: `Repeated trade permitted for fleet: ${convCount}/${maxRepeatedTrades} active in convergence.`,
     };
   }
 
