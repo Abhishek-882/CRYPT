@@ -417,34 +417,32 @@ describe('Standalone StatArbEngine Unit Tests (statArbEngine.ts)', () => {
       expect(scanResult.rejectedReasons.SYSTEM?.[0]).toContain('4/4 active slots full');
     });
 
-    it('strictly caps max repeated trades on the same symbol to 2 and blocks 3rd entry', async () => {
-      // Add 2 active positions on the SAME symbol (CYBER)
-      for (let i = 1; i <= 2; i++) {
-        store.addPosition({
-          id: `pos_cyber_${i}`,
-          canonicalSymbol: 'CYBER',
-          binanceSymbol: 'CYBERUSDT',
-          bybitSymbol: 'CYBERUSDT',
-          direction: 'SHORT_BINANCE_LONG_BYBIT',
-          status: 'OPEN',
-          entryTimestamp: Date.now(),
-          entryBasisBps: 30.0,
-          entryBinancePrice: 10.0,
-          entryBybitPrice: 9.97,
-          quantity: 1.5,
-          notionalUsdt: 15.0,
-          currentBasisBps: 30.0,
-          currentBinancePrice: 10.0,
-          currentBybitPrice: 9.97,
-          currentZScore: 2.5,
-          realizedPnlUsdt: 0,
-          unrealizedPnlUsdt: 0,
-          totalFeesUsdt: 0.015,
-          netPnlUsdt: 0,
-          holdDurationMinutes: 1,
-          divergenceHistory30m: [],
-        });
-      }
+    it('strictly prevents duplicate trades on the same symbol and blocks duplicate entry', async () => {
+      // Add 1 active position on CYBER
+      store.addPosition({
+        id: 'pos_cyber_1',
+        canonicalSymbol: 'CYBER',
+        binanceSymbol: 'CYBERUSDT',
+        bybitSymbol: 'CYBERUSDT',
+        direction: 'SHORT_BINANCE_LONG_BYBIT',
+        status: 'OPEN',
+        entryTimestamp: Date.now(),
+        entryBasisBps: 30.0,
+        entryBinancePrice: 10.0,
+        entryBybitPrice: 9.97,
+        quantity: 1.5,
+        notionalUsdt: 15.0,
+        currentBasisBps: 30.0,
+        currentBinancePrice: 10.0,
+        currentBybitPrice: 9.97,
+        currentZScore: 2.5,
+        realizedPnlUsdt: 0,
+        unrealizedPnlUsdt: 0,
+        totalFeesUsdt: 0.015,
+        netPnlUsdt: 0,
+        holdDurationMinutes: 1,
+        divergenceHistory30m: [],
+      });
 
       const cyberCandidate: StatArbPair = {
         canonicalSymbol: 'CYBER',
@@ -462,7 +460,7 @@ describe('Standalone StatArbEngine Unit Tests (statArbEngine.ts)', () => {
 
       const scanResult = await engine.scanCorridors([cyberCandidate], new Map(), new Map());
       expect(scanResult.executedPositions).toHaveLength(0);
-      expect(scanResult.rejectedReasons.CYBER?.[0]).toContain('Max repeated trades cap reached for CYBER: 2/2 active positions running');
+      expect(scanResult.rejectedReasons.CYBER?.[0]).toContain('Duplicate trade rejected for CYBER');
     });
   });
 });

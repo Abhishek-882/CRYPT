@@ -356,7 +356,17 @@ export function evaluateExit(
   const totalFees = calculateRoundtripFees(position, feesConfig);
   const netPnL = parseFloat((grossBasisPnL + fundingEarnedUsdt - totalFees).toFixed(4));
   const basisCompression = calculateBasisCompression(position.entryBasisBps, currentBasisBps);
-  const isCompressed = isBasisCompressed(position.entryBasisBps, currentBasisBps);
+
+  // Adaptive Time-Decay Compression Barrier for aging positions (prevents 500m-800m+ deadlock)
+  const adaptiveCompressionThreshold = holdMinutes >= 720
+    ? 0.40 // 12+ hours: 40% compression sufficient
+    : holdMinutes >= 360
+    ? 0.50 // 6+ hours: 50% compression sufficient
+    : holdMinutes >= 180
+    ? 0.60 // 3+ hours: 60% compression sufficient
+    : DEFAULT_COMPRESSION_THRESHOLD; // <3 hours: standard 75%
+
+  const isCompressed = basisCompression !== null && basisCompression >= adaptiveCompressionThreshold;
   const isNormalized = isZScoreNormalized(zScore);
 
   // 1. Catastrophic Stop-Loss Override
@@ -497,29 +507,44 @@ export function evaluateExit(
         netPnLUsdt: netPnL,
         grossBasisPnLUsdt: grossBasisPnL,
         totalFeesUsdt: totalFees,
-        reason: `Convergence target met (${isCompressed ? `Basis compression ${(basisCompression * 100).toFixed(1)}% >= 75%` : `|z| = ${Math.abs(zScore).toFixed(2)} <= 0.35`}) with guaranteed profit: Net PnL $${netPnL.toFixed(4)} >= +$${minNetProfitUsdt.toFixed(4)} USDT.`,
+        reason: `Convergence target met (${isCompressed ? `Basis compression ${(basisCompression * 100).toFixed(1)}% >= ${(adaptiveCompressionThreshold * 100).toFixed(0)}%` : `|z| = ${Math.abs(zScore).toFixed(2)} <= 0.35`}) with guaranteed profit: Net PnL $${netPnL.toFixed(4)} >= +$${minNetProfitUsdt.toFixed(4)} USDT.`,
       };
     }
 
-    // Tier 2 Parity Scratch Exit (Guard 5: Net PnL >= +$0.0000 USDT at tight normalization or 90%+ compression)
-    if (enableParityScratch && holdMinutes >= 15) {
-      const isTightReversion = Math.abs(zScore) <= 0.15 || basisCompression >= 0.90;
-      if (isTightReversion && netPnL >= 0.0) {
-        return {
-          canExit: true,
-          exitAllowed: true,
-          exitType: 'PARITY_SCRATCH_EXIT',
-          basisCompression,
-          isCompressed,
-          isNormalized,
-          currentZScore: zScore,
-          currentBasisBps,
-          netPnLUsdt: netPnL,
-          grossBasisPnLUsdt: grossBasisPnL,
-          totalFeesUsdt: totalFees,
-          reason: `Tier 2 Parity Scratch Exit: Normalized (|z|=${Math.abs(zScore).toFixed(2)} <= 0.15 or compression ${(basisCompression * 100).toFixed(1)}% >= 90%) with zero loss: Net PnL $${netPnL.toFixed(4)} >= +$0.0000 USDT (hold: ${holdMinutes.toFixed(1)}m >= 15m). Capital safely recycled.`,
-        };
-      }
+    // Tier 2 Parity Scratch Exit: If holdMinutes >= 180, any non-negative netPnL (>= 0.0) with compression >= threshold can exit cleanly at parity
+    if ((enableParityScratch || holdMinutes >= 180) && netPnL >= 0.0) {
+      return {
+        canExit: true,
+        exitAllowed: true,
+        exitType: 'PARITY_SCRATCH_EXIT',
+        basisCompression,
+        isCompressed,
+        isNormalized,
+        currentZScore: zScore,
+        currentBasisBps,
+        netPnLUsdt: netPnL,
+        grossBasisPnLUsdt: grossBasisPnL,
+        totalFeesUsdt: totalFees,
+        reason: `Tier 2 Parity Scratch Exit: Position matured over ${holdMinutes.toFixed(1)}m. Basis compression ${(basisCompression * 100).toFixed(1)}% >= ${(adaptiveCompressionThreshold * 100).toFixed(0)}% hurdle. Liquidating cleanly at parity/breakeven ($${netPnL.toFixed(4)} >= $0.0000). Capital recycled.`,
+      };
+    }
+
+    // Tier 3 Aging Stagnancy Liberation: If holdMinutes >= 720 (12+ hours) and netPnL >= -0.0100 and basisCompression >= 0.40
+    if (holdMinutes >= 720 && netPnL >= -0.0100 && basisCompression !== null && basisCompression >= 0.40) {
+      return {
+        canExit: true,
+        exitAllowed: true,
+        exitType: 'STAGNANCY_DECOUPLING_UNWIND',
+        basisCompression,
+        isCompressed,
+        isNormalized,
+        currentZScore: zScore,
+        currentBasisBps,
+        netPnLUsdt: netPnL,
+        grossBasisPnLUsdt: grossBasisPnL,
+        totalFeesUsdt: totalFees,
+        reason: `Aging Stagnancy Resolution: Position held ${holdMinutes.toFixed(1)}m (12+ hours). Basis compressed ${(basisCompression * 100).toFixed(1)}% >= 40.0%. Unwinding within negligible friction band ($${netPnL.toFixed(4)}) to eliminate ongoing adverse funding decay and liberate capital slots.`,
+      };
     }
 
     // Convergence met but blocked by Zero-Loss Gate
@@ -552,7 +577,7 @@ export function evaluateExit(
     netPnLUsdt: netPnL,
     grossBasisPnLUsdt: grossBasisPnL,
     totalFeesUsdt: totalFees,
-    reason: `Position active: Basis compression ${(basisCompression * 100).toFixed(1)}% < 75%, |z| = ${Math.abs(zScore).toFixed(2)} > 0.35. Awaiting mean-reversion.`,
+    reason: `Position active: Basis compression ${(basisCompression * 100).toFixed(1)}% < ${(adaptiveCompressionThreshold * 100).toFixed(0)}%, |z| = ${Math.abs(zScore).toFixed(2)} > 0.35. Awaiting mean-reversion.`,
   };
 }
 

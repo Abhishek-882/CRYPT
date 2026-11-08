@@ -6055,9 +6055,9 @@ export async function runTenantBotCycle(
       const qualifiedCandidates: any[] = [];
 
       for (const coin of opportunities) {
-        // Check max repeated trades cap (max 2 repeated trades for any coin in this bot)
+        // Check duplicate trades cap (max 1 active trade for any coin in this bot, no duplicates)
         const symbolHedgesInBot = bot.activeHedges.filter((h) => h.symbol === coin.symbol).length;
-        if (symbolHedgesInBot >= 2) continue;
+        if (symbolHedgesInBot >= 1) continue;
 
         // CORRIDOR FLEET GUARD (Invariant 11): Prevent cross-bot collisions on same corridor
         if (fleetCorridorActiveSymbols.has(coin.symbol) || isCorridorSymbolLocked(corridor, coin.symbol)) {
@@ -6073,8 +6073,8 @@ export async function runTenantBotCycle(
           continue;
         }
 
-        // CORRIDOR LIVE POSITION GUARD: Block re-entry if coin has reached max repeated trades (2)
-        // Allow candidate evaluation if position belongs to STATARB-OU-PERP convergence fleet and coexistence is permitted under 2 repeated trades cap
+        // CORRIDOR LIVE POSITION GUARD: Block re-entry if coin has an active position (strictly no duplicate trades)
+        // Allow candidate evaluation if position belongs to STATARB-OU-PERP convergence fleet and coexistence is permitted under 1 trade cap
         const allowConvergence = bot.config.allowConvergenceCoexistence ?? true;
         const livePosCheck = hasCorridorLivePosition(
           coin.symbol,
@@ -6082,7 +6082,7 @@ export async function runTenantBotCycle(
           expectedVB,
           corridorLiveSnapshot,
           allowConvergence,
-          2 // max repeated trades = 2
+          1 // max repeated trades = 1 (strictly no duplicates)
         );
 
         if (livePosCheck.hasPosition) {

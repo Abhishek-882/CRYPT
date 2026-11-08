@@ -956,6 +956,70 @@ export class LiveExchangeAdapter implements ExchangeExecutionAdapter {
   }
 
   /**
+   * Fetches accrued funding fee cashflow for an open position across Binance and Bybit
+   * between entryTimestamp and the current time.
+   */
+  public async fetchAccruedFunding(
+    symbol: string,
+    entryTimestamp: number
+  ): Promise<{
+    binanceFundingUsdt: number;
+    bybitFundingUsdt: number;
+    totalFundingUsdt: number;
+  }> {
+    const normSym = symbol.toUpperCase().endsWith('USDT') ? symbol.toUpperCase() : `${symbol.toUpperCase()}USDT`;
+    let bnSum = 0;
+    let bybSum = 0;
+
+    // 1. Binance Funding
+    try {
+      const bnCreds = this.getBinanceCreds();
+      const qs = `symbol=${normSym}&incomeType=FUNDING_FEE&startTime=${entryTimestamp}&limit=50&timestamp=${Date.now()}`;
+      const sig = crypto.createHmac('sha256', bnCreds.apiSecret).update(qs).digest('hex');
+      const res = await fetch(`https://fapi.binance.com/fapi/v1/income?${qs}&signature=${sig}`, {
+        headers: { 'X-MBX-APIKEY': bnCreds.apiKey },
+      });
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        bnSum = data.reduce((acc: number, item: any) => acc + (parseFloat(item.income) || 0), 0);
+      }
+    } catch {
+      // ignore
+    }
+
+    // 2. Bybit Funding
+    try {
+      const bybCreds = this.getBybitCreds();
+      const tsB = Date.now().toString();
+      const recv = '5000';
+      const qsB = `accountType=UNIFIED&category=linear&type=SETTLEMENT&startTime=${entryTimestamp}&limit=50`;
+      const preHash = tsB + bybCreds.apiKey + recv + qsB;
+      const sigB = crypto.createHmac('sha256', bybCreds.apiSecret).update(preHash).digest('hex');
+      const res = await fetch(`https://api.bybit.com/v5/account/transaction-log?${qsB}`, {
+        headers: {
+          'X-BAPI-API-KEY': bybCreds.apiKey,
+          'X-BAPI-SIGN': sigB,
+          'X-BAPI-TIMESTAMP': tsB,
+          'X-BAPI-RECV-WINDOW': recv,
+        },
+      });
+      const data = await res.json();
+      const list = data?.result?.list || [];
+      const matches = list.filter((item: any) => item.symbol === normSym);
+      bybSum = matches.reduce((acc: number, item: any) => acc + (parseFloat(item.funding) || 0), 0);
+    } catch {
+      // ignore
+    }
+
+    const totalFundingUsdt = parseFloat((bnSum + bybSum).toFixed(6));
+    return {
+      binanceFundingUsdt: parseFloat(bnSum.toFixed(6)),
+      bybitFundingUsdt: parseFloat(bybSum.toFixed(6)),
+      totalFundingUsdt,
+    };
+  }
+
+  /**
    * Tracks and returns live rate limit headroom across venues
    */
   public getRateLimitHealth(): {

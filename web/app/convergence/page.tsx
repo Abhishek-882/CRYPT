@@ -226,6 +226,21 @@ export default function ConvergenceCockpitPage() {
     }
   };
 
+  const handleToggleWindDown = async () => {
+    try {
+      const res = await fetch("/api/convergence/daemon", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "toggle_wind_down" }),
+      });
+      if (res.ok) {
+        await refreshAll();
+      }
+    } catch {
+      // ignore
+    }
+  };
+
   const handleClosePosition = async (positionId: string) => {
     setIsClosingId(positionId);
     try {
@@ -306,6 +321,7 @@ export default function ConvergenceCockpitPage() {
           isRunning={isRunning}
           fsmState={fsmState}
           isKillSwitchEngaged={isKillSwitchEngaged}
+          noNewTrades={Boolean(config?.noNewTrades || config?.drainMode)}
           uptimeSeconds={uptimeSeconds}
           monitoredPairsCount={radarPairs.length || 15}
           bestGrossBasisBps={bestGrossBasisBps}
@@ -327,6 +343,7 @@ export default function ConvergenceCockpitPage() {
           onKillSwitch={handleKillSwitch}
           onUpdateConfig={handleUpdateConfig}
           onClearQuarantine={handleClearQuarantine}
+          onToggleWindDown={handleToggleWindDown}
           onRefresh={refreshAll}
           isRefreshing={isRefreshing}
         />

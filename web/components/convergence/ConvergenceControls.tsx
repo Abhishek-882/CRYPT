@@ -25,6 +25,7 @@ export interface ConvergenceControlsProps {
   onKillSwitch: () => Promise<void>;
   onUpdateConfig: (config: Partial<StatArbConfig>) => Promise<void>;
   onClearQuarantine?: () => Promise<void>;
+  onToggleWindDown?: () => Promise<void>;
   onRefresh?: () => void;
   isRefreshing?: boolean;
 }
@@ -38,6 +39,7 @@ export default function ConvergenceControls({
   onKillSwitch,
   onUpdateConfig,
   onClearQuarantine,
+  onToggleWindDown,
   onRefresh,
   isRefreshing = false,
 }: ConvergenceControlsProps) {
@@ -48,7 +50,10 @@ export default function ConvergenceControls({
   const [isClearing, setIsClearing] = useState(false);
   const [clearSuccess, setClearSuccess] = useState(false);
 
+  const isWindDownActive = Boolean(config?.noNewTrades || config?.drainMode);
+
   // Form local state initialized from config
+  const [noNewTrades, setNoNewTrades] = useState<boolean>(config?.noNewTrades ?? false);
   const [minZScore, setMinZScore] = useState<number>(config?.entryGate?.minZScore ?? 2.2);
   const [minGrossBasisBps, setMinGrossBasisBps] = useState<number>(config?.entryGate?.minGrossBasisBps ?? 28.0);
   const [minDepthRatio, setMinDepthRatio] = useState<number>(config?.entryGate?.minDepthRatio ?? 4.0);
@@ -66,6 +71,7 @@ export default function ConvergenceControls({
   // Sync state when config changes
   React.useEffect(() => {
     if (config) {
+      setNoNewTrades(Boolean(config.noNewTrades || config.drainMode));
       setMinZScore(config.entryGate?.minZScore ?? 2.2);
       setMinGrossBasisBps(config.entryGate?.minGrossBasisBps ?? 28.0);
       setMinDepthRatio(config.entryGate?.minDepthRatio ?? 4.0);
@@ -100,6 +106,9 @@ export default function ConvergenceControls({
         orderNotionalUsdt: Number(orderNotionalUsdt),
         invariant6Enabled: Boolean(invariant6Enabled),
         invariant7Enabled: Boolean(invariant7Enabled),
+        noNewTrades: Boolean(noNewTrades),
+        drainMode: Boolean(noNewTrades),
+        maxPositionsPerSymbol: 1,
       });
       setSaveSuccess(true);
       setTimeout(() => {
@@ -158,6 +167,23 @@ export default function ConvergenceControls({
             <Pause className="w-3.5 h-3.5 fill-current" />
             <span>PAUSE ENGINE</span>
           </button>
+
+          {/* Wind-Down / Exit-Only Toggle Button */}
+          {onToggleWindDown && (
+            <button
+              onClick={onToggleWindDown}
+              disabled={isSubmitting}
+              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all shadow-sm ${
+                isWindDownActive
+                  ? "bg-amber-500/20 text-amber-300 border border-amber-500/60 shadow-amber-500/10 active:scale-95"
+                  : "bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 border border-zinc-700 active:scale-95"
+              }`}
+              title="Wind-Down Mode: Halts opening new trades while continuing to monitor and exit existing positions gracefully."
+            >
+              <ShieldAlert className={`w-3.5 h-3.5 ${isWindDownActive ? "text-amber-400 animate-pulse" : "text-zinc-400"}`} />
+              <span>{isWindDownActive ? "WIND-DOWN: NO NEW TRADES" : "WIND-DOWN (EXIT ONLY)"}</span>
+            </button>
+          )}
 
           {/* Emergency Kill-Switch */}
           <button
@@ -429,8 +455,27 @@ export default function ConvergenceControls({
               {/* Invariant Safety Toggles */}
               <div className="bg-zinc-900/60 p-3 rounded-lg border border-zinc-800 space-y-2.5 pt-3">
                 <div className="text-[11px] font-bold text-zinc-300 uppercase tracking-wider mb-1">
-                  Autonomous Invariant Protections
+                  Autonomous Invariant Protections & Execution Modes
                 </div>
+
+                {/* Wind-Down (No New Trades) Toggle */}
+                <label className="flex items-center justify-between cursor-pointer py-1 border-b border-zinc-800/80 pb-2">
+                  <div>
+                    <span className="text-amber-300 font-semibold flex items-center gap-1.5">
+                      <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
+                      Wind-Down Mode (No New Trades, Handle Existing)
+                    </span>
+                    <p className="text-[10px] text-zinc-500">
+                      Disables candidate scanning and opening new positions. Actively monitors and gracefully exits existing open positions.
+                    </p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={noNewTrades}
+                    onChange={(e) => setNoNewTrades(e.target.checked)}
+                    className="w-4 h-4 text-amber-500 rounded border-zinc-700 bg-zinc-900 focus:ring-0 cursor-pointer ml-3"
+                  />
+                </label>
 
                 {/* Invariant 6 Toggle */}
                 <label className="flex items-center justify-between cursor-pointer py-1">

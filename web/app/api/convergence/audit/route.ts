@@ -131,9 +131,13 @@ export async function GET(req: NextRequest) {
         executionHash: pos.executionHash || null,
         notionalUsdt: pos.notionalUsdt,
         totalFeesUsdt: pos.totalFeesUsdt ?? 0.0,
-        netRealizedPnlUsdt: pos.realizedPnlUsdt || 0.0,
+        fundingEarnedUsdt: pos.fundingEarnedUsdt ?? 0.0,
+        binanceFundingUsdt: (pos as any).binanceFundingUsdt ?? 0.0,
+        bybitFundingUsdt: (pos as any).bybitFundingUsdt ?? 0.0,
+        fundingReceipts: (pos as any).fundingReceipts ?? [],
+        netRealizedPnlUsdt: pos.netPnlUsdt !== undefined ? pos.netPnlUsdt : (pos.realizedPnlUsdt || 0.0),
         exitReason: pos.exitReason || "BASIS_COMPRESSION_75",
-        status: (pos.realizedPnlUsdt || 0) >= MIN_ZERO_LOSS_PROFIT_USDT ? "CONFIRMED_ZERO_LOSS" : "CLOSED",
+        status: ((pos.netPnlUsdt !== undefined ? pos.netPnlUsdt : pos.realizedPnlUsdt) || 0) >= MIN_ZERO_LOSS_PROFIT_USDT ? "CONFIRMED_ZERO_LOSS" : "CLOSED",
         holdDurationMinutes: pos.holdDurationMinutes,
       };
     });

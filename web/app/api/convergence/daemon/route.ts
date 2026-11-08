@@ -369,13 +369,32 @@ export async function POST(req: NextRequest) {
       console.log(
         `[STATARB-DAEMON] Configuration updated. Active execution mode: ${
           updatedIsLive ? "LIVE ON-EXCHANGE (dryRun: false)" : "SIMULATED DRY-RUN (dryRun: true)"
-        }.`
+        }. Wind-Down Mode: ${engine.getState().config.noNewTrades ? "ON (No New Trades)" : "OFF (Dispatching Enabled)"}.`
       );
       return NextResponse.json({
         success: true,
         message: "Convergence configuration updated successfully.",
         mode: updatedIsLive ? "LIVE_ON_EXCHANGE" : "SIMULATED_DRY_RUN",
         dryRun: !updatedIsLive,
+        config: engine.getState().config,
+        state: engine.getState(),
+      });
+    }
+
+    if (action === "toggle_wind_down" || action === "toggle_no_new_trades" || action === "set_wind_down") {
+      const currentVal = store.getState().config.noNewTrades || store.getState().config.drainMode || false;
+      const targetVal = typeof body.enabled === "boolean" ? body.enabled : !currentVal;
+      engine.updateConfig({ noNewTrades: targetVal, drainMode: targetVal });
+      const updatedIsLive = store.getState().config.dryRun === false;
+      console.log(
+        `[STATARB-DAEMON] Wind-Down Mode (No New Trades) toggled to: ${targetVal ? "ENABLED (Exit Only)" : "DISABLED (Normal Dispatch)"}.`
+      );
+      return NextResponse.json({
+        success: true,
+        message: `Wind-Down Mode ${targetVal ? "ENABLED: No new trades will be opened. Existing positions are actively managed for exit." : "DISABLED: Normal new trade scanning and dispatch resumed."}`,
+        noNewTrades: targetVal,
+        drainMode: targetVal,
+        mode: updatedIsLive ? "LIVE_ON_EXCHANGE" : "SIMULATED_DRY_RUN",
         config: engine.getState().config,
         state: engine.getState(),
       });

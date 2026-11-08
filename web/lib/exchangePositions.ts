@@ -311,7 +311,7 @@ export function getConvergenceActivePositions(): {
 
 /**
  * Check if a coin has an open position on either corridor venue.
- * Enforces strict max repeated trades cap (default: 2) across engine & fleet.
+ * Enforces strict max repeated trades cap (default: 1, no duplicate trades) across engine & fleet.
  */
 export function hasCorridorLivePosition(
   symbol: string,
@@ -319,7 +319,7 @@ export function hasCorridorLivePosition(
   venueB: string,
   snapshot: VenuePositionsSnapshot,
   ignoreConvergencePositions: boolean = false,
-  maxRepeatedTrades: number = 2
+  maxRepeatedTrades: number = 1
 ): {
   hasPosition: boolean;
   blockingVenues: string[];
@@ -335,19 +335,19 @@ export function hasCorridorLivePosition(
   const convCount = conv.symbolCounts.get(normSym) || (conv.symbols.has(normSym) ? 1 : 0);
   const isConvergence = convCount > 0;
 
-  // If this symbol already has reached or exceeded max repeated trades (e.g. 2 in convergence), strictly block!
+  // If this symbol already has reached or exceeded max repeated trades (cap: 1, no duplicate trades), strictly block!
   if (convCount >= maxRepeatedTrades) {
     return {
       hasPosition: true,
-      blockingVenues: ["Convergence Engine (Max Repeated 2 Trades Active)"],
+      blockingVenues: ["Convergence Engine (No Duplicate Trades Guard)"],
       isConvergencePosition: true,
       convergenceDirection: conv.directions.get(normSym),
       totalPositionsForSymbol: convCount,
-      reason: `Max repeated trades cap (${maxRepeatedTrades}) reached in convergence engine.`,
+      reason: `No duplicate trades allowed: ${convCount}/${maxRepeatedTrades} active in convergence engine.`,
     };
   }
 
-  // If under max repeated trades cap (< 2) and coexistence is allowed:
+  // If under max repeated trades cap (< 1) and coexistence is allowed:
   if (ignoreConvergencePositions && isConvergence) {
     return {
       hasPosition: false,
@@ -355,7 +355,7 @@ export function hasCorridorLivePosition(
       isConvergencePosition: true,
       convergenceDirection: conv.directions.get(normSym),
       totalPositionsForSymbol: convCount,
-      reason: `Repeated trade permitted: ${convCount}/${maxRepeatedTrades} active in convergence.`,
+      reason: `Trade permitted: ${convCount}/${maxRepeatedTrades} active in convergence.`,
     };
   }
 

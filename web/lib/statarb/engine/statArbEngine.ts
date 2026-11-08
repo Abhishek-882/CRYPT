@@ -320,6 +320,21 @@ export class StatArbEngine {
     const executedPositions: StatArbPosition[] = [];
     const rejectedReasons: Record<string, string[]> = {};
 
+    // 0. Wind-Down / Exit-Only Mode Guard (No New Trades)
+    if (config.noNewTrades || config.drainMode) {
+      return {
+        timestamp,
+        monitoredPairsCount: pairs.length,
+        qualifyingSignals: [],
+        executedPositions: [],
+        rejectedReasons: {
+          SYSTEM: [
+            'Wind-Down Mode ACTIVE (No New Trades): Engine is managing and exiting existing positions only.'
+          ],
+        },
+      };
+    }
+
     // 1. Check System Safety & Capacity (Enforcing strict max 4 concurrent live positions cap)
     const maxConcurrent = Math.min(4, config.maxConcurrentPositions ?? DEFAULT_MAX_CONCURRENT_POSITIONS);
     const safety = evaluateSystemSafety(
@@ -352,8 +367,8 @@ export class StatArbEngine {
     for (const pair of pairs) {
       const pairReasons: string[] = [];
 
-      // Avoid exceeding max repeated trades cap (default: 2) on the same canonical instrument
-      const maxPerSymbol = Math.min(2, config.maxPositionsPerSymbol ?? 2);
+      // Avoid duplicate trades: strictly max 1 active trade allowed per canonical instrument
+      const maxPerSymbol = Math.min(1, config.maxPositionsPerSymbol ?? 1);
       const activeForSymbol = state.positions.filter(
         (p) => p.canonicalSymbol === pair.canonicalSymbol && p.status === 'OPEN'
       ).length;
@@ -361,7 +376,7 @@ export class StatArbEngine {
       if (activeForSymbol >= maxPerSymbol || this.inFlightEntries.has(pair.canonicalSymbol)) {
         rejectedReasons[pair.canonicalSymbol] = [
           activeForSymbol >= maxPerSymbol
-            ? `Max repeated trades cap reached for ${pair.canonicalSymbol}: ${activeForSymbol}/${maxPerSymbol} active positions running`
+            ? `Duplicate trade rejected for ${pair.canonicalSymbol}: active position already running on this instrument (${activeForSymbol}/${maxPerSymbol})`
             : 'Entry order already in-flight for this instrument'
         ];
         continue;
@@ -649,28 +664,47 @@ export class StatArbEngine {
 
       // Query authoritative top-of-book quotes for executable exit valuation
       let topBook = undefined;
+      let fundingEarnedUsdt = position.fundingEarnedUsdt ?? 0;
       const isDryRun = this.store.getState().config.dryRun ?? true;
-      if (!isDryRun && typeof (this.activeAdapter as any).getLiveTopBook === 'function') {
-        try {
-          const [bnBook, bybBook] = await Promise.all([
-            (this.activeAdapter as any).getLiveTopBook('BINANCE', position.binanceSymbol),
-            (this.activeAdapter as any).getLiveTopBook('BYBIT', position.bybitSymbol),
-          ]);
-          const bnBid = bnBook?.bid ?? bnBook?.bestBid ?? 0;
-          const bnAsk = bnBook?.ask ?? bnBook?.bestAsk ?? 0;
-          const bybBid = bybBook?.bid ?? bybBook?.bestBid ?? 0;
-          const bybAsk = bybBook?.ask ?? bybBook?.bestAsk ?? 0;
+      if (!isDryRun) {
+        if (typeof (this.activeAdapter as any).getLiveTopBook === 'function') {
+          try {
+            const [bnBook, bybBook] = await Promise.all([
+              (this.activeAdapter as any).getLiveTopBook('BINANCE', position.binanceSymbol),
+              (this.activeAdapter as any).getLiveTopBook('BYBIT', position.bybitSymbol),
+            ]);
+            const bnBid = bnBook?.bid ?? bnBook?.bestBid ?? 0;
+            const bnAsk = bnBook?.ask ?? bnBook?.bestAsk ?? 0;
+            const bybBid = bybBook?.bid ?? bybBook?.bestBid ?? 0;
+            const bybAsk = bybBook?.ask ?? bybBook?.bestAsk ?? 0;
 
-          if (bnBid > 0 && bnAsk > 0 && bybBid > 0 && bybAsk > 0) {
-            topBook = {
-              binanceBid: bnBid,
-              binanceAsk: bnAsk,
-              bybitBid: bybBid,
-              bybitAsk: bybAsk,
-            };
+            if (bnBid > 0 && bnAsk > 0 && bybBid > 0 && bybAsk > 0) {
+              topBook = {
+                binanceBid: bnBid,
+                binanceAsk: bnAsk,
+                bybitBid: bybBid,
+                bybitAsk: bybAsk,
+              };
+            }
+          } catch (err: any) {
+            console.warn(`[StatArbEngine] Failed to refresh live top book for ${position.canonicalSymbol}:`, err.message);
           }
-        } catch (err: any) {
-          console.warn(`[StatArbEngine] Failed to refresh live top book for ${position.canonicalSymbol}:`, err.message);
+        }
+
+        // Query authentic accrued funding fee cashflow from Binance and Bybit ledgers
+        if (typeof (this.activeAdapter as any).fetchAccruedFunding === 'function') {
+          try {
+            const fundingRes = await (this.activeAdapter as any).fetchAccruedFunding(
+              position.canonicalSymbol,
+              position.entryTimestamp
+            );
+            fundingEarnedUsdt = fundingRes.totalFundingUsdt;
+            this.store.updatePosition(position.id, {
+              fundingEarnedUsdt,
+            });
+          } catch {
+            // preserve existing
+          }
         }
       }
 
@@ -681,9 +715,11 @@ export class StatArbEngine {
         currentRoiPct,
         holdMinutes: holdDurationMinutes,
         divergenceHistory30m: divergenceHistory,
-        fundingEarnedUsdt: position.fundingEarnedUsdt ?? 0,
+        fundingEarnedUsdt,
         minNetProfitUsdt: this.store.getState().config.minNetProfitUsdt ?? 0.01,
         enableEarlyTakeProfit: this.store.getState().config.enableEarlyTakeProfit ?? true,
+        enableParityScratch: true,
+        enableStagnancyBreaker: true,
         topBook,
         requireAuthoritativeTopBook: !isDryRun,
         feesConfig: !isDryRun ? LIVE_FEE_STRUCTURE : undefined,

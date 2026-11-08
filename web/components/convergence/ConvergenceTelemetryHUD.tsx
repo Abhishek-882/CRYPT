@@ -16,6 +16,7 @@ export interface ConvergenceTelemetryHUDProps {
   isRunning: boolean;
   fsmState: string;
   isKillSwitchEngaged: boolean;
+  noNewTrades?: boolean;
   uptimeSeconds?: number;
   monitoredPairsCount?: number;
   bestGrossBasisBps?: number;
@@ -41,6 +42,7 @@ export default function ConvergenceTelemetryHUD({
   isRunning,
   fsmState,
   isKillSwitchEngaged,
+  noNewTrades = false,
   uptimeSeconds = 0,
   monitoredPairsCount = 15,
   bestGrossBasisBps = 34.5,
@@ -61,9 +63,15 @@ export default function ConvergenceTelemetryHUD({
     statusPingColor = "bg-rose-500";
     statusLabel = "EMERGENCY_KILLED";
   } else if (isRunning) {
-    statusBadgeColor = "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
-    statusPingColor = "bg-emerald-400";
-    statusLabel = activePositionsCount > 0 ? "HEDGED_CONVERGING" : "RUNNING";
+    if (noNewTrades) {
+      statusBadgeColor = "bg-amber-500/15 text-amber-300 border-amber-500/40 shadow-sm shadow-amber-500/10";
+      statusPingColor = "bg-amber-400";
+      statusLabel = activePositionsCount > 0 ? "WIND_DOWN_EXIT_ONLY" : "WIND_DOWN_DRAINED";
+    } else {
+      statusBadgeColor = "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
+      statusPingColor = "bg-emerald-400";
+      statusLabel = activePositionsCount > 0 ? "HEDGED_CONVERGING" : "RUNNING";
+    }
   }
 
   const isLatencySub35 = iocLatencyMs < 35.0;

@@ -215,8 +215,12 @@ export interface StatArbConfig {
   maxPositionHoldMinutes: number;
   /** Maximum number of concurrent active positions across all corridors (default: 4) */
   maxConcurrentPositions: number;
-  /** Maximum number of repeated trades allowed on a single symbol/instrument (default: 2) */
+  /** Maximum number of repeated trades allowed on a single symbol/instrument (default: 1, strictly no duplicate trades) */
   maxPositionsPerSymbol?: number;
+  /** Wind-Down / Exit-Only Mode: Disables opening new trades while continuing to monitor and exit active positions gracefully (default: false) */
+  noNewTrades?: boolean;
+  /** Alias for noNewTrades */
+  drainMode?: boolean;
   /** Standard order notional per leg in USDT (default: 15.0 USDT) */
   orderNotionalUsdt: number;
   /** Leg 1 Maker limit order timeout in milliseconds (default: 8000 ms) */

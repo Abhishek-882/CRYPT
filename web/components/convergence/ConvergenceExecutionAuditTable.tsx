@@ -69,6 +69,7 @@ export interface CompletedFillItem {
   };
   notionalUsdt: number;
   totalFeesUsdt: number;
+  fundingEarnedUsdt?: number;
   netRealizedPnlUsdt: number;
   exitReason: string;
   status: string;
@@ -409,18 +410,23 @@ export default function ConvergenceExecutionAuditTable({
                         </span>
                       </td>
 
-                      {/* Total Fees */}
+                      {/* Total Fees & Funding */}
                       <td className="py-3 px-3 text-right text-zinc-400 font-mono">
-                        ${fill.totalFeesUsdt.toFixed(4)}
+                        <div>${fill.totalFeesUsdt.toFixed(4)}</div>
+                        {fill.fundingEarnedUsdt !== undefined && Math.abs(fill.fundingEarnedUsdt) > 0.00001 && (
+                          <div className={`text-[10px] font-semibold ${fill.fundingEarnedUsdt >= 0 ? "text-emerald-400" : "text-amber-400"}`}>
+                            Carry: {fill.fundingEarnedUsdt >= 0 ? `+$${fill.fundingEarnedUsdt.toFixed(4)}` : `-$${Math.abs(fill.fundingEarnedUsdt).toFixed(4)}`}
+                          </div>
+                        )}
                       </td>
 
-                      {/* Net Realized PnL (strictly verified >= +0.01) */}
+                      {/* Net Realized PnL */}
                       <td className="py-3 px-3 text-right">
-                        <span className="font-bold text-emerald-400 text-sm">
-                          +${fill.netRealizedPnlUsdt.toFixed(4)}
+                        <span className={`font-bold text-sm ${fill.netRealizedPnlUsdt >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                          {fill.netRealizedPnlUsdt >= 0 ? `+$${fill.netRealizedPnlUsdt.toFixed(4)}` : `-$${Math.abs(fill.netRealizedPnlUsdt).toFixed(4)}`}
                         </span>
-                        <div className="text-[9px] text-emerald-500 font-semibold">
-                          ZERO-LOSS CONFIRMED
+                        <div className={`text-[9px] font-semibold ${fill.netRealizedPnlUsdt >= 0.01 ? "text-emerald-500" : (fill.netRealizedPnlUsdt >= 0 ? "text-zinc-400" : "text-rose-500")}`}>
+                          {fill.netRealizedPnlUsdt >= 0.01 ? "ZERO-LOSS CONFIRMED" : (fill.netRealizedPnlUsdt >= 0 ? "PARITY SCRATCH" : "NET DEFICIT")}
                         </div>
                       </td>
 
