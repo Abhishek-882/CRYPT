@@ -6766,9 +6766,9 @@ export async function runTenantBotCycle(
         } else if (oppSticky) {
           fallbackReason = `[STRUCTURAL DISLOCATION EXCLUSION] Price diff persistently >= 1.0% over 30m window (min: ${Math.min(...oppSymHistory!.map((s) => s.divPct)).toFixed(3)}% >= 1.0%). Decoupled market.`;
         } else if (oppSpread < botMinGross) {
-          fallbackReason = `[FEE CLEARANCE FILTER] Spread (${oppSpread} bps) < Min Gross (${botMinGross} bps)`;
+          fallbackReason = `[FEE CLEARANCE FILTER] Spread (${(oppSpread / 100).toFixed(2)}%) < Min Gross (${(botMinGross / 100).toFixed(2)}%)`;
         } else if (Math.abs(oppSignedBasisBps) > 250) {
-          fallbackReason = `[BASIS SAFETY CAP] Signed basis |${oppSignedBasisBps.toFixed(1)}| bps exceeds 250 bps safety cap (entering would lose price parity on unwind)`;
+          fallbackReason = `[BASIS SAFETY CAP] Signed basis |${(oppSignedBasisBps / 100).toFixed(2)}%| exceeds 2.50% safety cap (entering would lose price parity on unwind)`;
         } else if (oppDiv > oppTiming.requiredDivergencePct) {
           fallbackReason = `[PRICE DIFF GATE] Price diff ${oppDiv.toFixed(3)}% > ceiling ${oppTiming.requiredDivergencePct.toFixed(3)}% (${oppSec}s left)`;
         }
@@ -6792,14 +6792,14 @@ export async function runTenantBotCycle(
           continue;
         }
 
-        bot.statusText = `SCANNING [${expectedVA}⇄${expectedVB}] (Top: ${topOpp?.symbol || "N/A"} - Spread: ${topOpp?.spreadBps || 0} bps - Cycle: ${topOpp?.fundingIntervalHours || 8}h - Countdown: ${topOpp?.secondsToFunding || 0}s)`;
+        bot.statusText = `SCANNING [${expectedVA}⇄${expectedVB}] (Top: ${topOpp?.symbol || "N/A"} - Spread: ${((topOpp?.spreadBps || 0) / 100).toFixed(2)}% - Cycle: ${topOpp?.fundingIntervalHours || 8}h - Countdown: ${topOpp?.secondsToFunding || 0}s)`;
 
         // Periodic Scan Pulse every 6 cycles (~30s) so live logs are continuously emitted
         if (state.cyclesCompleted % 6 === 0) {
           const pulseCand = bot.lastEvaluatedCandidate || topOpp;
           appendBotLog(
             state,
-            `[SCAN PULSE] Bot "${bot.name}": Scanned ${opportunities.length} pairs on ${expectedVA} ⇄ ${expectedVB}. Corridor active. Candidate: ${pulseCand?.symbol || "N/A"} (${pulseCand?.spreadBps || 0} bps, diff ${pulseCand?.divergencePct || 0}%).`,
+            `[SCAN PULSE] Bot "${bot.name}": Scanned ${opportunities.length} pairs on ${expectedVA} ⇄ ${expectedVB}. Corridor active. Candidate: ${pulseCand?.symbol || "N/A"} (Spread: ${((pulseCand?.spreadBps || 0) / 100).toFixed(2)}%, Diff: ${parseFloat(String(pulseCand?.divergencePct || 0)).toFixed(3)}%).`,
             "info",
             user.id,
             bot.id
@@ -6843,7 +6843,7 @@ export async function runTenantBotCycle(
         if (liveCandSpreadBps < (config.minSpreadBps || 35.0)) {
           appendBotLog(
             state,
-            `[PRE-TRADE SPREAD COLLAPSE] Bot "${bot.name}": Candidate ${cand.symbol} live spread collapsed to ${liveCandSpreadBps.toFixed(1)} bps (scanner saw ${cand.spreadBps.toFixed(1)} bps). Cascading to next candidate...`,
+            `[PRE-TRADE SPREAD COLLAPSE] Bot "${bot.name}": Candidate ${cand.symbol} live spread collapsed to ${(liveCandSpreadBps / 100).toFixed(2)}% (scanner saw ${(cand.spreadBps / 100).toFixed(2)}%). Cascading to next candidate...`,
             "warn",
             user.id
           );
@@ -6927,14 +6927,14 @@ export async function runTenantBotCycle(
           chosenFreshCheck = freshCheck;
           appendBotLog(
             state,
-            `[NET-YIELD QUALIFIED] Bot "${bot.name}": ${cand.symbol} cleared pre-trade hurdle! Gross: ${liveCandSpreadBps.toFixed(1)} bps | Basis: ${effectiveBasisContribution.toFixed(1)} bps | Net Yield: +${preTradeCheck.expectedNetYieldBps.toFixed(1)} bps (Friction: ${preTradeCheck.totalFrictionBps.toFixed(1)} bps, Div: ${freshCheck.divergencePct.toFixed(3)}%).`,
+            `[NET-YIELD QUALIFIED] Bot "${bot.name}": ${cand.symbol} cleared pre-trade hurdle! Gross: ${(liveCandSpreadBps / 100).toFixed(2)}% | Basis: ${(effectiveBasisContribution / 100).toFixed(2)}% | Net Yield: +${(preTradeCheck.expectedNetYieldBps / 100).toFixed(2)}% (Friction: ${(preTradeCheck.totalFrictionBps / 100).toFixed(2)}%, Div: ${freshCheck.divergencePct.toFixed(3)}%).`,
             "info",
             user.id
           );
           if (cand.symbol !== topCandidate?.symbol) {
             appendBotLog(
               state,
-              `[MULTI-CANDIDATE CASCADE] Bot "${bot.name}": Selected ${cand.symbol} (Spread: ${cand.spreadBps} bps, Basis: ${effectiveBasisContribution.toFixed(1)} bps, Div: ${freshCheck.divergencePct.toFixed(3)}%) after top candidate failed price parity check.`,
+              `[MULTI-CANDIDATE CASCADE] Bot "${bot.name}": Selected ${cand.symbol} (Spread: ${(cand.spreadBps / 100).toFixed(2)}%, Basis: ${(effectiveBasisContribution / 100).toFixed(2)}%, Div: ${freshCheck.divergencePct.toFixed(3)}%) after top candidate failed price parity check.`,
               "info",
               user.id
             );
@@ -6942,11 +6942,11 @@ export async function runTenantBotCycle(
           break; // Found highest spread candidate that passes fresh parity and net-yield hurdle!
         } else {
           const reasonTag = !freshBasisSafe
-            ? `basis |${freshSignedBasisBps}| bps > 250 bps safety cap`
+            ? `basis |${(freshSignedBasisBps / 100).toFixed(2)}%| > 2.50% safety cap`
             : `adverse diff ${freshAdverseDivPct.toFixed(3)}% > stage target ${freshReq.requiredDivergencePct.toFixed(3)}%`;
           appendBotLog(
             state,
-            `[PRICE DIFF GATE] Bot "${bot.name}": ${cand.symbol} spread is ${cand.spreadBps} bps, but fresh ${reasonTag} (${freshReq.stage}, ${cand.secondsToFunding || 0}s left). Cascading to next candidate...`,
+            `[PRICE DIFF GATE] Bot "${bot.name}": ${cand.symbol} spread is ${(cand.spreadBps / 100).toFixed(2)}%, but fresh ${reasonTag} (${freshReq.stage}, ${cand.secondsToFunding || 0}s left). Cascading to next candidate...`,
             "warn",
             user.id
           );
@@ -7009,7 +7009,7 @@ export async function runTenantBotCycle(
 
       appendBotLog(
         state,
-        `[OPPORTUNITY QUALIFIED] Bot "${bot.name}" selected ${topCandidate.symbol} (Spread: ${topCandidate.spreadBps} bps, Cycle: ${topCandidate.fundingIntervalHours || 8}h, Div: ${freshCheck.divergencePct.toFixed(4)}%, Alloc: $${allocatedMargin.toFixed(0)} USDT, Cap: $${config.maxAmountPerHedgeUsdt || 100}). Executing dual hedge...`,
+        `[OPPORTUNITY QUALIFIED] Bot "${bot.name}" selected ${topCandidate.symbol} (Spread: ${(topCandidate.spreadBps / 100).toFixed(2)}%, Cycle: ${topCandidate.fundingIntervalHours || 8}h, Div: ${freshCheck.divergencePct.toFixed(4)}%, Alloc: $${allocatedMargin.toFixed(0)} USDT, Cap: $${config.maxAmountPerHedgeUsdt || 100}). Executing dual hedge...`,
         "info",
         user.id
       );
