@@ -1,0 +1,3562 @@
+[
+  {
+    "timestamp": "2026-11-10T14:40:36.795Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (600 bps, diff 7.0902%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:40:36.781Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:39:07.013Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (600 bps, diff 3.9286%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:39:07.001Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:37:36.741Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (602.1 bps, diff 8.3011%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:37:36.730Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:36:01.905Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (606.63 bps, diff 5.3915%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:36:01.894Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:34:12.204Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (606.63 bps, diff 5.1292%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:34:12.187Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:31:40.813Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1701s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:31:05.863Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (611.85 bps, diff 3.4528%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:31:05.851Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:27:30.547Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1951s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:25:30.577Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (619.38 bps, diff 3.3226%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:25:30.567Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:24:20.996Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2141s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:24:01.013Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (600.39 bps, diff 3.7843%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:24:01.003Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:21:45.558Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (258.91 bps, diff 3.2071%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:21:45.547Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:18:01.867Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 519 pairs on Binance ⇄ Bybit. Corridor active. Candidate: 哈基米USDT (30.68 bps, diff 0%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:17:23.728Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (971.02 bps, diff 5.1729%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:17:13.969Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2568s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:16:53.435Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.14 bps, diff 4.9006%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:16:23.470Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.14 bps, diff 1.611%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:16:13.888Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2628s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:16:04.159Z",
+    "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-10T16:00:00.000Z vs 2026-11-10T15:00:00.000Z).). Cascading to next candidate... [3]",
+    "level": "warn",
+    "count": 3,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:15:24.041Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.14 bps, diff 2.2977%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:14:53.714Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (967.98 bps, diff 1.7342%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:14:23.748Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (967.98 bps, diff 2.6553%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:14:08.741Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2753s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:13:53.704Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (968.16 bps, diff 1.2821%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:13:36.759Z",
+    "message": "Bot \"Innovation Lab (Feature Challenger)\" [GER]: Parameters updated for \"Innovation Lab (Feature Challenger)\": Corridor=BINANCE_BYBIT, Mode=ALL_ASYMMETRIC, Budget=$25 USDT, Min Spread=0.32%, Parity Div=0.25%, Cap=$100 [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:13:23.494Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (968.16 bps, diff 4.0871%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:13:08.727Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2813s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:12:53.741Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.23 bps, diff 2.479%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:12:23.565Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.23 bps, diff 1.3456%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:11:53.837Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.23 bps, diff 1.052%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:11:23.518Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.23 bps, diff 1.0671%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:11:04.029Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2938s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:10:53.528Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.09 bps, diff 1.2774%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:10:23.473Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.09 bps, diff 0.7062%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:09:53.753Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.7 bps, diff 0.7308%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:09:24.101Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.7 bps, diff 2.1941%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:09:03.781Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3058s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:08:53.918Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (971.37 bps, diff 0.5581%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:08:23.478Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (971.37 bps, diff 1.6956%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:07:53.563Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (971.37 bps, diff 0.5238%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:08:49.198Z",
+    "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-10T16:00:00.000Z vs 2026-11-10T15:00:00.000Z).). Cascading to next candidate... [6]",
+    "level": "warn",
+    "count": 6,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:07:23.763Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (971.37 bps, diff 1.2115%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:06:53.719Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (971.21 bps, diff 1.1132%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:04:53.218Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.75 bps, diff 1.1586%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:04:23.430Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.75 bps, diff 0.5326%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:06:44.419Z",
+    "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-10T16:00:00.000Z vs 2026-11-10T15:00:00.000Z).). Cascading to next candidate... [13]",
+    "level": "warn",
+    "count": 13,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:03:58.475Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3363s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:03:53.381Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.75 bps, diff 1.8678%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:03:23.147Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.75 bps, diff 3.022%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:02:53.413Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.79 bps, diff 3.5303%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:02:23.324Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (970.79 bps, diff 1.7585%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:02:08.473Z",
+    "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-10T16:00:00.000Z vs 2026-11-10T15:00:00.000Z).). Cascading to next candidate... [3]",
+    "level": "warn",
+    "count": 3,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:01:53.870Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.78 bps, diff 0.5029%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:01:53.847Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3487s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:01:23.433Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (969.78 bps, diff 1.3347%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:00:53.626Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (170.21 bps, diff 1.575%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:00:23.342Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (170.21 bps, diff 0.7992%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:59:53.146Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (323.73 bps, diff 1.2518%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:59:23.157Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (323.73 bps, diff 0.0841%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:58:53.482Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (379.56 bps, diff 4.241%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:58:23.176Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (379.56 bps, diff 4.0288%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:57:53.209Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (408.68 bps, diff 4.1505%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:57:48.461Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 133s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:57:23.491Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (408.68 bps, diff 4.8476%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:56:53.413Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (420.37 bps, diff 5.474%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:56:48.250Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 193s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:56:23.302Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (420.37 bps, diff 5.423%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:55:53.415Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (441.4 bps, diff 4.7076%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:55:43.707Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 258s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:55:23.765Z",
+    "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-10T16:00:00.000Z vs 2026-11-10T14:00:00.000Z).). Cascading to next candidate... [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:54:53.109Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (504.62 bps, diff 3.4061%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:54:43.580Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 318s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:54:23.295Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (504.62 bps, diff 6.4718%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:53:53.744Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (489.41 bps, diff 7.1742%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:53:23.181Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (489.41 bps, diff 5.4555%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:52:53.334Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (475.5 bps, diff 6.634%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:52:23.331Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (475.5 bps, diff 5.3941%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:52:08.336Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 473s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:51:53.141Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (478 bps, diff 6.1821%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:51:23.434Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (478 bps, diff 6.2764%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:50:53.336Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (487.4 bps, diff 5.8077%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:50:23.155Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (487.4 bps, diff 5.2204%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:49:53.211Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (495.16 bps, diff 5.7762%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:49:28.290Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 633s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:49:23.525Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (495.16 bps, diff 5.6882%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:48:53.802Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (501.75 bps, diff 5.9118%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:48:23.515Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (501.75 bps, diff 5.9778%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:47:53.328Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (506.2 bps, diff 6.0566%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:47:23.397Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (506.2 bps, diff 6.0807%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:46:53.128Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (524.99 bps, diff 5.5542%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:46:33.254Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 808s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:46:23.254Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (524.99 bps, diff 5.7896%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:45:53.113Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (548.22 bps, diff 5.5979%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:45:23.176Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (548.22 bps, diff 5.5859%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:44:53.319Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (553.78 bps, diff 5.5574%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:44:23.290Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (553.78 bps, diff 5.324%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:43:53.635Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (559.31 bps, diff 5.2186%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:43:53.612Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 968s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:43:23.336Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (559.31 bps, diff 5.4919%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:42:53.575Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (559.94 bps, diff 4.95%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:42:53.552Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1028s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:42:23.255Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (559.94 bps, diff 5.4779%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:41:53.336Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (554.88 bps, diff 5.3252%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:41:23.426Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (554.88 bps, diff 5.0705%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:41:13.218Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1128s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:40:53.259Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (539.57 bps, diff 5.532%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:40:23.098Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (539.57 bps, diff 5.697%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:39:53.134Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (529.39 bps, diff 5.6552%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:39:43.305Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1218s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:39:23.125Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (529.39 bps, diff 6.0132%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:38:53.499Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (513.38 bps, diff 5.6123%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:38:23.192Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (513.38 bps, diff 5.5453%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:38:03.475Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1318s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:37:53.367Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (477.25 bps, diff 5.7623%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:37:23.466Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (477.25 bps, diff 6.0932%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:36:53.269Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (452.25 bps, diff 5.7985%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:36:23.139Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (452.25 bps, diff 5.7906%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:35:53.385Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (429.63 bps, diff 7.1514%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:35:23.342Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (429.63 bps, diff 4.931%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:35:08.236Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1493s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:34:53.171Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (423.1 bps, diff 5.6052%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:34:23.333Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (423.1 bps, diff 4.7474%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:33:54.484Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 519 pairs on Binance ⇄ Bybit. Corridor active. Candidate: 哈基米USDT (30.97 bps, diff 0%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:33:58.061Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1563s. [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:33:17.796Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (441.16 bps, diff 4.3666%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:32:47.827Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (479.64 bps, diff 5.2963%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:32:37.931Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1643s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:32:18.086Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (479.64 bps, diff 5.196%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:31:48.017Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (452.01 bps, diff 5.273%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:31:33.002Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1708s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:31:17.836Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (452.01 bps, diff 5.1542%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:30:47.821Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (447.98 bps, diff 4.6902%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:30:28.463Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1773s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:30:17.819Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (447.98 bps, diff 5.973%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:29:47.885Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (425.87 bps, diff 6.1113%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:29:18.402Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (425.87 bps, diff 5.7047%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:28:47.756Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (393.79 bps, diff 4.7916%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:28:17.715Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (393.79 bps, diff 5.3229%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:27:47.738Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (363.74 bps, diff 4.966%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:27:18.594Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (363.74 bps, diff 5.5293%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:26:47.871Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (334.05 bps, diff 5.1291%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:26:47.845Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1993s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:26:17.945Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (334.05 bps, diff 5.5695%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:25:47.961Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (308.5 bps, diff 5.5586%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:25:32.892Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2068s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:25:17.990Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (308.5 bps, diff 5.4001%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:24:47.730Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (300.61 bps, diff 4.5842%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:24:17.726Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (300.61 bps, diff 4.5197%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:23:47.931Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (327.47 bps, diff 5.0026%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:23:17.868Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (327.47 bps, diff 5.0019%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:22:47.886Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (328.11 bps, diff 4.6591%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:22:27.998Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2253s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:22:18.729Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (328.11 bps, diff 4.6148%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:21:47.722Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (329.42 bps, diff 4.6261%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:21:27.902Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2313s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:21:17.868Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (329.42 bps, diff 4.7676%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:20:47.856Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (342.72 bps, diff 4.5997%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:20:17.907Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (342.72 bps, diff 3.9955%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:19:47.846Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (356.6 bps, diff 4.7612%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:19:23.046Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2438s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:19:17.747Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (356.6 bps, diff 4.489%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:18:47.721Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (362.6 bps, diff 4.3966%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:18:17.917Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (362.6 bps, diff 4.5496%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:17:47.910Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (374.97 bps, diff 4.8635%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:17:18.865Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 519 pairs on Binance ⇄ Bybit. Corridor active. Candidate: 哈基米USDT (29.98 bps, diff 0%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:17:18.686Z",
+    "message": "[SPREAD COLLAPSE BLOCKED BY ZERO-LOSS GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT spread collapsed to 0.00 bps (< 15 bps), but early exit blocked to prevent loss: Blocked by Zero-Loss Gate: Net PnL ($-0.1651) < +$0.0100 (+-1.662% < +0.30% target) (Basis: $-0.0644, Funding: +$0, Fees: -$0.1007). Holding for basis parity reversion (OU zScore: 2.39, t_half: 8m).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:17:22.716Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2558s. [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:16:33.497Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (374.97 bps, diff 4.8896%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:16:03.541Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (397.74 bps, diff 4.2633%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:15:33.778Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (397.97 bps, diff 4.6013%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:15:03.873Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (417.03 bps, diff 4.8439%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:14:33.796Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (417.5 bps, diff 4.8681%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:14:03.780Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (442.28 bps, diff 4.9079%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:13:33.496Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (442.7 bps, diff 4.6398%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:13:03.788Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (489.09 bps, diff 5.022%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:12:38.993Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2843s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:12:33.496Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (489.09 bps, diff 4.9688%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:12:03.872Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (492.81 bps, diff 4.6804%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:11:38.467Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2903s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:11:34.070Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (493.18 bps, diff 5.3289%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:11:03.777Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (461.4 bps, diff 5.3642%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:10:33.726Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (461.71 bps, diff 5.1604%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:10:33.710Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2968s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:10:03.922Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (469.72 bps, diff 5.2715%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:09:34.335Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (470.02 bps, diff 4.6709%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:09:23.533Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3038s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:09:04.022Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (484.79 bps, diff 4.6917%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:08:33.894Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (484.79 bps, diff 4.9553%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:08:18.547Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3103s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:07:50.966Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (533.09 bps, diff 4.5474%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:07:20.764Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (533.09 bps, diff 5.0156%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:07:05.792Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3176s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:06:51.158Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (577.38 bps, diff 5.0575%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:06:21.006Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (577.38 bps, diff 4.9636%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:05:51.718Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (642.79 bps, diff 5.3762%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:05:20.730Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (642.79 bps, diff 4.9702%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:04:51.088Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (642.79 bps, diff 4.6301%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:04:21.146Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (642.79 bps, diff 4.6368%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:04:01.059Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3361s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:03:50.782Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (642.71 bps, diff 4.4352%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:03:20.998Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (642.71 bps, diff 4.5161%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:03:00.759Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3421s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:02:51.050Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (643.22 bps, diff 4.4689%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:02:21.268Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (643.22 bps, diff 4.2876%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:01:50.381Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (643.9 bps, diff 5.1318%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:01:20.524Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (643.9 bps, diff 5.0475%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:00:56.399Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3546s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:00:51.784Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (156.6 bps, diff 4.8147%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:00:21.647Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (156.6 bps, diff 4.5855%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:59:52.019Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (297.5 bps, diff 4.8751%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:59:21.920Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (297.5 bps, diff 4.9057%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:58:51.935Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (302.57 bps, diff 4.9645%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:58:21.429Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (302.57 bps, diff 4.9624%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:57:51.274Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (303.47 bps, diff 4.8863%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:57:21.900Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (303.47 bps, diff 5.0039%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:56:51.478Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (305.32 bps, diff 4.7271%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:56:22.164Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (305.32 bps, diff 4.6661%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:55:52.741Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 519 pairs on Binance ⇄ Bybit. Corridor active. Candidate: 哈基米USDT (29.09 bps, diff 0%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:55:52.558Z",
+    "message": "[SPREAD COLLAPSE BLOCKED BY ZERO-LOSS GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT spread collapsed to 0.00 bps (< 15 bps), but early exit blocked to prevent loss: Blocked by Zero-Loss Gate: Net PnL ($-0.2198) < +$0.0100 (+-2.213% < +0.30% target) (Basis: $-0.119, Funding: +$0, Fees: -$0.1008). Holding for basis parity reversion (OU zScore: 1.32, t_half: 8m).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:55:16.007Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (303.8 bps, diff 3.9556%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:54:55.671Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 307s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:54:45.999Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (311.62 bps, diff 4.1937%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:54:15.845Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (311.62 bps, diff 4.5365%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:53:45.832Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (322.55 bps, diff 3.9842%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:53:16.557Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (322.55 bps, diff 4.0821%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:52:45.889Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (325.39 bps, diff 4.0504%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:52:15.882Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (325.39 bps, diff 4.0926%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:51:45.809Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (328.77 bps, diff 4.1353%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:51:15.980Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (328.77 bps, diff 4.0979%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:50:45.940Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (330.91 bps, diff 4.1692%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:50:16.079Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (330.91 bps, diff 4.1032%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:49:46.040Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (333.92 bps, diff 3.7086%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:49:15.903Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (333.92 bps, diff 4.043%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:48:41.080Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (333.31 bps, diff 3.8629%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:48:11.429Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (333.31 bps, diff 3.7857%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:47:41.759Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (342.5 bps, diff 3.851%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:47:11.438Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (342.5 bps, diff 4.3291%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:46:41.302Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (354.66 bps, diff 3.7748%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:46:16.695Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 827s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:46:11.479Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (354.66 bps, diff 3.5459%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:45:41.032Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (361.09 bps, diff 3.7515%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:45:06.204Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (365.08 bps, diff 3.726%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:44:36.434Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (365.08 bps, diff 3.8088%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:44:06.729Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (370.59 bps, diff 3.9289%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:43:36.464Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (370.95 bps, diff 3.8493%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:43:06.654Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (381.9 bps, diff 3.844%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:42:36.041Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (382.22 bps, diff 3.4298%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:42:01.564Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (392.22 bps, diff 3.8505%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:41:31.570Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (392.22 bps, diff 3.669%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:41:01.456Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (400.16 bps, diff 3.8695%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:40:31.505Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (400.16 bps, diff 3.6756%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:39:54.735Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (407.11 bps, diff 3.8693%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:39:24.733Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (407.11 bps, diff 3.8691%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:39:05.063Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1257s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:38:55.039Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (413.39 bps, diff 3.9284%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:38:25.434Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (413.39 bps, diff 4.0368%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:38:00.084Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1322s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:37:55.062Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (429.37 bps, diff 3.6839%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:37:24.932Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (429.37 bps, diff 3.7913%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:36:59.708Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1382s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:36:55.005Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (442.78 bps, diff 3.4703%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:36:25.064Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (442.78 bps, diff 3.7256%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:35:55.140Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (459.11 bps, diff 3.8156%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:35:55.126Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1447s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:35:24.691Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (459.11 bps, diff 3.6897%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:34:54.680Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (473.03 bps, diff 4.1046%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:34:54.667Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1507s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:34:24.971Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (473.03 bps, diff 3.9071%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:33:54.359Z",
+    "message": "Bot \"Innovation Lab (Feature Challenger)\" [GER]: Parameters updated for \"Innovation Lab (Feature Challenger)\": Corridor=BINANCE_BYBIT, Mode=ALL_ASYMMETRIC, Budget=$40 USDT, Min Spread=0.32%, Parity Div=0.25%, Cap=$100",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:33:54.343Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (480.97 bps, diff 3.6621%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:33:54.326Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1567s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:33:24.546Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (480.97 bps, diff 3.8118%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:32:54.374Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (491.62 bps, diff 3.6596%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:32:49.624Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1632s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:32:24.518Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (491.62 bps, diff 3.8344%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:31:54.571Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (502.92 bps, diff 3.7978%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:31:44.590Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1697s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:31:24.736Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (502.92 bps, diff 3.776%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:31:53.032Z",
+    "message": "Bot \"Innovation Lab (Feature Challenger)\" [GER]: Parameters updated for \"Innovation Lab (Feature Challenger)\": Corridor=BINANCE_BYBIT, Mode=ALL_ASYMMETRIC, Budget=$40 USDT, Min Spread=0.32%, Parity Div=0.25%, Cap=$100 [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:30:54.498Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (517.4 bps, diff 3.7568%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:30:44.557Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1757s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:30:24.324Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (517.4 bps, diff 3.8642%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:29:54.749Z",
+    "message": "Bot \"Conservative Funding Sniper\" [PER] toggled: PAUSED",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:29:54.414Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (528.58 bps, diff 3.658%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:29:54.179Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\" [PER]: Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:29:53.643Z",
+    "message": "Bot \"Conservative Funding Sniper\" [PER] toggled: ACTIVE (Scanning)",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:29:39.515Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1822s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:29:24.480Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (528.58 bps, diff 3.8901%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:28:54.927Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (548.48 bps, diff 3.8645%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:28:53.856Z",
+    "message": "Bot \"Conservative Funding Sniper\" [PER] toggled: PAUSED",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:28:34.503Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1887s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:28:24.619Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (548.48 bps, diff 3.4171%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:27:54.246Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (565.33 bps, diff 3.6753%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:27:29.803Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 1952s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:27:25.192Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (565.33 bps, diff 3.463%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:26:54.440Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (590.43 bps, diff 3.553%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:26:29.430Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2012s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:26:24.414Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (590.43 bps, diff 3.6838%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:25:54.396Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (602.42 bps, diff 2.6422%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:25:24.427Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (602.42 bps, diff 3.3741%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:25:24.414Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2077s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:24:54.324Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (597.99 bps, diff 3.3223%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:24:24.528Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (597.99 bps, diff 3.2708%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:24:19.513Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2142s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:23:54.370Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (586.79 bps, diff 3.4755%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:23:24.467Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (586.79 bps, diff 3.5811%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:23:14.460Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2207s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:22:54.580Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (596.96 bps, diff 3.5113%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:22:24.474Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (596.96 bps, diff 3.779%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:22:09.432Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2272s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:21:54.303Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (605.29 bps, diff 2.9538%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:21:24.241Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (605.29 bps, diff 3.3766%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:21:04.690Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2337s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:20:54.407Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (608.13 bps, diff 3.3832%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:20:24.230Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (608.13 bps, diff 3.5586%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:20:04.472Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2397s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:19:54.282Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (617.3 bps, diff 3.1675%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:19:24.401Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (617.3 bps, diff 3.2615%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:19:04.322Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2457s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:18:54.484Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (633.92 bps, diff 3.4441%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:18:24.249Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (633.92 bps, diff 3.2505%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:17:59.813Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2522s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:17:54.246Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (646.47 bps, diff 3.2213%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:17:24.456Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (646.47 bps, diff 3.3632%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:16:59.271Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2582s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:16:54.471Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (653.56 bps, diff 3.2775%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:16:24.479Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (653.56 bps, diff 3.1334%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:16:10.593Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Binance ($5.5) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:16:06.265Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.02 bps) + basis (0.0 bps) minus friction (50.68 bps = fees 21 + crossing 21.68 + depth 0 + latency 8) yields -14.66 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:59.977Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.22 bps) + basis (0.0 bps) minus friction (50.68 bps = fees 21 + crossing 21.68 + depth 0 + latency 8) yields -14.46 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:55.198Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.22 bps) + basis (-7.2 bps) minus friction (50.69 bps = fees 21 + crossing 21.69 + depth 0 + latency 8) yields -21.69 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:54.523Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2647s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:25.093Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.22 bps) + basis (-13.4 bps) minus friction (43.41 bps = fees 21 + crossing 14.41 + depth 0 + latency 8) yields -20.62 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:20.305Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.22 bps) + basis (-24.7 bps) minus friction (50.62 bps = fees 21 + crossing 21.62 + depth 0 + latency 8) yields -39.13 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:15.704Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.22 bps) + basis (-11.3 bps) minus friction (50.57 bps = fees 21 + crossing 21.57 + depth 0 + latency 8) yields -25.64 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:10.403Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.22 bps) + basis (-5.3 bps) minus friction (50.49 bps = fees 21 + crossing 21.49 + depth 0 + latency 8) yields -19.62 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:05.271Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.29 bps) + basis (6.6 bps) minus friction (43.32 bps = fees 21 + crossing 14.32 + depth 0 + latency 8) yields -0.46 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:15:00.152Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.47 bps) + basis (6.6 bps) minus friction (43.32 bps = fees 21 + crossing 14.32 + depth 0 + latency 8) yields -0.28 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:54.925Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Binance ($26.7) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:37.029Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.47 bps) + basis (-21.4 bps) minus friction (50.45 bps = fees 21 + crossing 21.45 + depth 0 + latency 8) yields -35.41 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:32.013Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.47 bps) + basis (-21.4 bps) minus friction (50.45 bps = fees 21 + crossing 21.45 + depth 0 + latency 8) yields -35.39 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:26.903Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.47 bps) + basis (-7.2 bps) minus friction (50.48 bps = fees 21 + crossing 21.48 + depth 0 + latency 8) yields -21.16 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:22.163Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.47 bps) + basis (-7.2 bps) minus friction (50.47 bps = fees 21 + crossing 21.47 + depth 0 + latency 8) yields -21.15 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:17.098Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.47 bps) + basis (0.0 bps) minus friction (57.64 bps = fees 21 + crossing 28.64 + depth 0 + latency 8) yields -21.17 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:12.159Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (36.47 bps) + basis (-14.3 bps) minus friction (50.48 bps = fees 21 + crossing 21.48 + depth 0 + latency 8) yields -28.3 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:07.419Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-14.3 bps) minus friction (43.3 bps = fees 21 + crossing 14.3 + depth 0 + latency 8) yields -22.18 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:02.031Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-21.4 bps) minus friction (50.48 bps = fees 21 + crossing 21.48 + depth 0 + latency 8) yields -36.5 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:14:54.223Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2707s. [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:52.084Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-7.2 bps) minus friction (57.71 bps = fees 21 + crossing 28.71 + depth 0 + latency 8) yields -29.47 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:46.854Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-1.5 bps) minus friction (50.53 bps = fees 21 + crossing 21.53 + depth 0 + latency 8) yields -16.62 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:42.803Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-8.6 bps) minus friction (43.35 bps = fees 21 + crossing 14.35 + depth 0 + latency 8) yields -16.58 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:37.111Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (2.1 bps) minus friction (43.37 bps = fees 21 + crossing 14.37 + depth 0 + latency 8) yields -5.88 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:32.049Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (0.6 bps) minus friction (43.36 bps = fees 21 + crossing 14.36 + depth 0 + latency 8) yields -7.38 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:26.949Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-7.2 bps) minus friction (50.48 bps = fees 21 + crossing 21.48 + depth 0 + latency 8) yields -22.22 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:22.710Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-7.2 bps) minus friction (43.3 bps = fees 21 + crossing 14.3 + depth 0 + latency 8) yields -15.04 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:16.933Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-20.9 bps) minus friction (57.64 bps = fees 21 + crossing 28.64 + depth 0 + latency 8) yields -43.17 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:13:12.096Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (35.41 bps) + basis (-16.8 bps) minus friction (43.24 bps = fees 21 + crossing 14.24 + depth 0 + latency 8) yields -24.65 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:12:56.476Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2825s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:12:46.402Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (623.17 bps, diff 3.3265%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:12:16.374Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (623.17 bps, diff 3.1957%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:11:56.447Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2885s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:11:46.471Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (601.83 bps, diff 3.536%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:11:16.393Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (601.83 bps, diff 3.3162%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:10:56.202Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 2945s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:10:46.387Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (600.91 bps, diff 3.386%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:10:16.231Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (600.91 bps, diff 2.5474%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:52.383Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3010s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:46.764Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (610.97 bps, diff 3.2142%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:17.617Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (610.97 bps, diff 3.063%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T14:18:01.853Z",
+    "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — active open position detected on Binance, Bybit in Live Positions. [256]",
+    "level": "info",
+    "count": 256,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:03.922Z",
+    "message": "[HEDGE PLACED] Bot \"Innovation Lab (Feature Challenger)\" [GER] opened dual hedge on CYBERUSDT! Size: 170 ($49.67 USDT). Active: 1/2.",
+    "level": "success",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:03.916Z",
+    "message": "[HEDGE FILLED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Successfully entered dual delta-neutral hedge on CYBERUSDT! [🌐 REST] Net Delta = 0.00. Inter-leg delta: 49ms (Leg 1: 142ms, Leg 2: 93ms). Binance #3793614690 @ $0.29219813 | Bybit #d77a5c4a-ec02-4a4e-ad88-9c99691f00b0 @ $0.2927.",
+    "level": "success",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:03.906Z",
+    "message": "[LEG 2 FILLED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Bybit BUY CYBERUSDT filled successfully! Order #d77a5c4a-ec02-4a4e-ad88-9c99691f00b0 @ $0.2927 (93ms, placedAt: 2026-11-10T12:09:03.906Z)",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:03.807Z",
+    "message": "[LEG 1 FILLED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Binance SELL CYBERUSDT filled successfully! [REST] Order #3793614690 @ 0.29219813 (142ms, placedAt: 2026-11-10T12:09:03.807Z)",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:09:03.660Z",
+    "message": "[LEG 1 MAKER TIMEOUT] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Binance maker order unfilled in 10643ms (MAKER_TIMEOUT_UNFILLED). Live spread (89.7 bps >= 42 bps) justifies market fallback.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:53.009Z",
+    "message": "[ORDER DISPATCH] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Initiating sequential zero-orphan execution for CYBERUSDT (Leg 1: SELL Binance first -> Leg 2: BUY Bybit on fill confirmation)...",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:52.857Z",
+    "message": "[ORDER PREPARE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Sizing calculated for CYBERUSDT | Notional: $49.67 USDT (170 units) | Lev: Binance 10x / Bybit 10x | Direction: Short Binance + Long Bybit",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:52.201Z",
+    "message": "[OPPORTUNITY QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER] selected CYBERUSDT (Spread: 89.7 bps, Cycle: 4h, Div: 0.0429%, Alloc: $10 USDT, Cap: $30). Executing dual hedge...",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:52.196Z",
+    "message": "[NET-YIELD QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT cleared pre-trade hurdle! Gross: 89.7 bps | Basis: -4.3 bps | Net Yield: +37.2 bps (Friction: 48.3 bps, Div: 0.043%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:49.930Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($5.2) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:27.057Z",
+    "message": "[ENTRY ABORTED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT entry failed: PRE_EXEC_SLIPPAGE_ABORT: ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($5.2) < $29.02 required for Thin Alt with 23 USDT order × 1.25x).",
+    "level": "error",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:27.054Z",
+    "message": "[PRE-EXEC SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: At dispatch microsecond, CYBERUSDT failed friction check: ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($5.2) < $29.02 required for Thin Alt with 23 USDT order × 1.25x).. Dispatch aborted to prevent fee/slippage burn.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:26.215Z",
+    "message": "[OPPORTUNITY QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER] selected CYBERUSDT (Spread: 89.7 bps, Cycle: 4h, Div: 0.1720%, Alloc: $10 USDT, Cap: $30). Executing dual hedge...",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:26.211Z",
+    "message": "[NET-YIELD QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT cleared pre-trade hurdle! Gross: 89.7 bps | Basis: -17.2 bps | Net Yield: +26.4 bps (Friction: 46.1 bps, Div: 0.172%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:49.256Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3075s. [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:13.204Z",
+    "message": "[PRICE DIFF GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT spread is 89.7 bps, but fresh adverse diff 0.477% > stage target 0.404% (CONTINUOUS, 13908s left). Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:11.245Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Binance ($17.6) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:04.200Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate CYBERUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($31.7) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:07:40.777Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (603.97 bps, diff 3.4342%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:07:18.099Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (603.97 bps, diff 3.3707%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:07:12.992Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3168s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:07:48.343Z",
+    "message": "[PRICE DIFF GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT spread is 69.66 bps, but fresh adverse diff 0.480% > stage target 0.313% (CONTINUOUS, 13933s left). Cascading to next candidate... [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:06:55.560Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (637.95 bps, diff 2.9525%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:06:54.066Z",
+    "message": "[PRICE DIFF GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: CYBERUSDT spread is 45.12 bps, but fresh adverse diff 0.557% > stage target 0.250% (CONTINUOUS, 13988s left). Cascading to next candidate... [3]",
+    "level": "warn",
+    "count": 3,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:06:12.867Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 1h). Earliest countdown: 3228s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:06:10.782Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (54.15 bps, diff 2.8907%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:05:48.131Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (59.55 bps, diff 2.9071%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:05:25.745Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (59.55 bps, diff 2.8772%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:05:03.148Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (60.41 bps, diff 2.8749%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:04:40.876Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (60.41 bps, diff 3.2043%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:04:18.062Z",
+    "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 549 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (60.41 bps, diff 3.529%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:04:03.708Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Binance ($10.2) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:58.551Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($5.5) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:56.008Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (4.9 bps) minus friction (43.7 bps = fees 21 + crossing 14.7 + depth 0 + latency 8) yields -1.39 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:53.790Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (0.0 bps) minus friction (43.7 bps = fees 21 + crossing 14.7 + depth 0 + latency 8) yields -6.29 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:48.522Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (0.0 bps) minus friction (53.5 bps = fees 21 + crossing 24.5 + depth 0 + latency 8) yields -16.09 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:43.803Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (0.0 bps) minus friction (58.4 bps = fees 21 + crossing 29.4 + depth 0 + latency 8) yields -20.99 bps < 10 bps hurdle. Cascading to next candidate... [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:38.779Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (9.8 bps) minus friction (58.4 bps = fees 21 + crossing 29.4 + depth 0 + latency 8) yields -11.2 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:33.728Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Binance ($21.4) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:28.550Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (0.0 bps) minus friction (48.56 bps = fees 21 + crossing 19.56 + depth 0 + latency 8) yields -11.15 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:27.857Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 14193s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:26.213Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (9.8 bps) minus friction (48.56 bps = fees 21 + crossing 19.56 + depth 0 + latency 8) yields -1.37 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:23.552Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Binance ($21.5) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:18.746Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (12.7 bps) minus friction (58.35 bps = fees 21 + crossing 29.35 + depth 0 + latency 8) yields -8.22 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:13.621Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (11.7 bps) minus friction (48.56 bps = fees 21 + crossing 19.56 + depth 0 + latency 8) yields 0.53 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:11.071Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (7.3 bps) minus friction (43.67 bps = fees 21 + crossing 14.67 + depth 0 + latency 8) yields 1.02 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:08.865Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (37.41 bps) + basis (7.3 bps) minus friction (48.57 bps = fees 21 + crossing 19.57 + depth 0 + latency 8) yields -3.88 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:02.141Z",
+    "message": "[ENTRY ABORTED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: SOPHUSDT entry failed: Leg 1 (Binance) rejected: MAKER_ADVERSE_DRIFT_ABORT: ADVERSE_PRICE_DRIFT_14.49BPS. Bybit preserved ($0.00 spent).",
+    "level": "error",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:02.138Z",
+    "message": "[ZERO-ORPHAN PROTECTION] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Leg 1 (Binance) rejected (MAKER_ADVERSE_DRIFT_ABORT: ADVERSE_PRICE_DRIFT_14.49BPS). Bybit was NOT dispatched (0 orphan exposure, $0.00 fee loss).",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:03:02.134Z",
+    "message": "[LEG 1 MAKER ADVERSE DRIFT CANCEL] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Binance maker order cancelled early (ADVERSE_PRICE_DRIFT_14.49BPS). Bybit counterpart price drifted adversely. Aborting trade cleanly without falling back to market (0 fees, 0 slippage).",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:54.341Z",
+    "message": "[ORDER PREPARE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Sizing calculated for SOPHUSDT | Notional: $24.99 USDT (18070 units) | Lev: Binance 5x / Bybit 5x | Direction: Short Binance + Long Bybit",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:53.824Z",
+    "message": "[OPPORTUNITY QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER] selected SOPHUSDT (Spread: 42.22 bps, Cycle: 4h, Div: 0.2169%, Alloc: $10 USDT, Cap: $30). Executing dual hedge...",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:53.821Z",
+    "message": "[NET-YIELD QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: SOPHUSDT cleared pre-trade hurdle! Gross: 42.2 bps | Basis: 21.7 bps | Net Yield: +13.2 bps (Friction: 50.7 bps, Div: 0.217%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:49.073Z",
+    "message": "[ENTRY ABORTED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: SOPHUSDT entry failed: Leg 1 (Binance) rejected: MAKER_ADVERSE_DRIFT_ABORT: ADVERSE_PRICE_DRIFT_14.5BPS. Bybit preserved ($0.00 spent).",
+    "level": "error",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:49.071Z",
+    "message": "[ZERO-ORPHAN PROTECTION] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Leg 1 (Binance) rejected (MAKER_ADVERSE_DRIFT_ABORT: ADVERSE_PRICE_DRIFT_14.5BPS). Bybit was NOT dispatched (0 orphan exposure, $0.00 fee loss).",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:49.066Z",
+    "message": "[LEG 1 MAKER ADVERSE DRIFT CANCEL] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Binance maker order cancelled early (ADVERSE_PRICE_DRIFT_14.5BPS). Bybit counterpart price drifted adversely. Aborting trade cleanly without falling back to market (0 fees, 0 slippage).",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:54.493Z",
+    "message": "[ORDER DISPATCH] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Initiating sequential zero-orphan execution for SOPHUSDT (Leg 1: SELL Binance first -> Leg 2: BUY Bybit on fill confirmation)... [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:42.065Z",
+    "message": "[ORDER PREPARE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Sizing calculated for SOPHUSDT | Notional: $25.00 USDT (18090 units) | Lev: Binance 5x / Bybit 5x | Direction: Short Binance + Long Bybit",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:41.197Z",
+    "message": "[OPPORTUNITY QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER] selected SOPHUSDT (Spread: 42.22 bps, Cycle: 4h, Div: 0.2171%, Alloc: $10 USDT, Cap: $30). Executing dual hedge...",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:41.192Z",
+    "message": "[NET-YIELD QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: SOPHUSDT cleared pre-trade hurdle! Gross: 42.2 bps | Basis: 21.8 bps | Net Yield: +13.2 bps (Friction: 50.7 bps, Div: 0.217%).",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:39.209Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($5.2) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate... [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:38.570Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (42.22 bps) + basis (14.5 bps) minus friction (50.73 bps = fees 21 + crossing 21.73 + depth 0 + latency 8) yields 5.97 bps < 10 bps hurdle. Cascading to next candidate... [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:27.218Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate LYNUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($1.6) < $37.5 required for Thin Alt with 30 USDT order × 1.25x).. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:26.545Z",
+    "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SOPHUSDT skipped — NET_YIELD_BELOW_HURDLE (Invariant 8): Gross yield (42.22 bps) + basis (7.2 bps) minus friction (50.71 bps = fees 21 + crossing 21.71 + depth 0 + latency 8) yields -1.26 bps < 10 bps hurdle. Cascading to next candidate...",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:02:25.851Z",
+    "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 14255s.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:28:24.231Z",
+    "message": "[BUFFER GUARD] Bot \"Conservative Funding Sniper\" [PER]: Available margin on CoinDCX ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries. [58]",
+    "level": "warn",
+    "count": 58,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  }
+]

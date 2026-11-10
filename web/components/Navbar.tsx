@@ -56,7 +56,9 @@ export default function Navbar() {
   const navLinks: { href: string; label: string; icon: any; adminOnly?: boolean }[] = [
     { href: "/", label: "Intro", icon: Home },
     { href: "/convergence", label: "Convergence", icon: Activity },
+    { href: "/divergence", label: "Divergence", icon: Zap },
     { href: "/bot", label: "Fleet Bots", icon: Bot },
+    { href: "/history", label: "History", icon: History },
     { href: "/profile", label: "Profile", icon: User },
   ];
 

@@ -180,7 +180,7 @@ export default function UserProfileModal({ isOpen, onClose, onLogout }: UserProf
               </div>
               <div className="bg-zinc-950 p-2 rounded border border-zinc-800">
                 <div className="text-zinc-500 text-[9px]">ACTIVE HEDGES</div>
-                <div className="font-bold text-accent-amber mt-0.5">{daemonState.activeHedges}</div>
+                <div className="font-bold text-accent-amber mt-0.5">{Array.isArray(daemonState.activeHedges) ? daemonState.activeHedges.length : (typeof daemonState.activeHedges === "number" ? daemonState.activeHedges : 0)}</div>
               </div>
             </div>
 

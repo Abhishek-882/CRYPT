@@ -19,7 +19,13 @@ cloudflared.exe
 chrome_automation_profile/
 chrome_temp_profile/
 chrome_hourly_profile/
+chrome_qa_mobile_profile/
+chrome_qa_profile/
 screenshots/
+web/scratch/
+*.lock
+web/*.lock
+*.tmp*
 
 # Secrets & Environment Variables (Security Invariant)
 .env

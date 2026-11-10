@@ -2,8 +2,8 @@
   "isRunning": true,
   "runInBackgroundWhenClosed": true,
   "mode": "AUTONOMOUS_SERVER_24_7",
-  "startedAt": 1794017999301,
-  "lastCycleAt": 1794017999301,
+  "startedAt": 1794315654368,
+  "lastCycleAt": 1794315654368,
   "cyclesCompleted": 1,
   "activeBotId": "bot_persist_test",
   "bots": [
@@ -41,6 +41,10 @@
         "scanIntervalSeconds": 5,
         "timingMode": "FUNDING_SNIPER_5M",
         "executionCorridor": "COINDCX_BYBIT",
+        "normalCoinLeverage": 20,
+        "volatileCoinLeverage": 10,
+        "minNetHedgeTargetPct": 0.3,
+        "minExitProfitUsdt": 0.01,
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true,
         "intervalMode": "ALL_ASYMMETRIC",
@@ -60,8 +64,8 @@
       "logs": [],
       "statusText": "RUNNING_24_7",
       "lastEvaluatedCandidate": null,
-      "createdAt": 1794017999301,
-      "updatedAt": 1794017999301
+      "createdAt": 1794315654368,
+      "updatedAt": 1794315654368
     }
   ],
   "setFiles": [],
@@ -94,6 +98,10 @@
     "scanIntervalSeconds": 5,
     "timingMode": "FUNDING_SNIPER_5M",
     "executionCorridor": "COINDCX_BYBIT",
+    "normalCoinLeverage": 20,
+    "volatileCoinLeverage": 10,
+    "minNetHedgeTargetPct": 0.3,
+    "minExitProfitUsdt": 0.01,
     "enableFlattenMemoryLock": true,
     "allowAsymmetricFunding": true,
     "intervalMode": "ALL_ASYMMETRIC",

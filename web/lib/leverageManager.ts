@@ -24,6 +24,11 @@ export interface Candle {
 
 export type AssetTier = "TIER_1_MAJOR" | "TIER_2_LARGE_CAP" | "TIER_3_ALTCOIN";
 
+export interface LeverageConfigOptions {
+  normalCoinLeverage?: number;  // Default: 20x for Majors & Large-Caps
+  volatileCoinLeverage?: number; // Default: 10x for Meme Coins & Volatile Alts
+}
+
 export interface LeverageEvaluationResult {
   symbol: string;
   venue: string;
@@ -57,17 +62,23 @@ export class LeverageManager {
   /**
    * Determine asset tier and corresponding liquidation buffer
    */
-  public static getAssetTier(symbol: string): { tier: AssetTier; bufferPct: number; defaultFloor: number } {
+  public static getAssetTier(
+    symbol: string,
+    options?: LeverageConfigOptions
+  ): { tier: AssetTier; bufferPct: number; defaultFloor: number } {
     const cleanSym = String(symbol || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
     const base = cleanSym.endsWith("USDT") ? cleanSym : `${cleanSym}USDT`;
 
+    const normalLev = options?.normalCoinLeverage ?? 20;
+    const volatileLev = options?.volatileCoinLeverage ?? 10;
+
     if (TIER_1_SYMBOLS.has(base) || TIER_1_SYMBOLS.has(cleanSym)) {
-      return { tier: "TIER_1_MAJOR", bufferPct: 1.6, defaultFloor: 25 };
+      return { tier: "TIER_1_MAJOR", bufferPct: 1.6, defaultFloor: Math.max(normalLev, 20) };
     }
     if (TIER_2_SYMBOLS.has(base) || TIER_2_SYMBOLS.has(cleanSym)) {
-      return { tier: "TIER_2_LARGE_CAP", bufferPct: 3.0, defaultFloor: 15 };
+      return { tier: "TIER_2_LARGE_CAP", bufferPct: 3.0, defaultFloor: normalLev };
     }
-    return { tier: "TIER_3_ALTCOIN", bufferPct: 5.0, defaultFloor: 5 };
+    return { tier: "TIER_3_ALTCOIN", bufferPct: 5.0, defaultFloor: volatileLev };
   }
 
   /**
@@ -124,9 +135,10 @@ export class LeverageManager {
     venue: string = "Binance",
     atr1hPct?: number,
     candleCount: number = 24,
-    exchangeMaxLev?: number
+    exchangeMaxLev?: number,
+    options?: LeverageConfigOptions
   ): LeverageEvaluationResult {
-    const { tier, bufferPct, defaultFloor } = this.getAssetTier(symbol);
+    const { tier, bufferPct, defaultFloor } = this.getAssetTier(symbol, options);
 
     // Resolve exchange maximum leverage cap from metadata if not explicitly provided
     let maxLev = exchangeMaxLev;
@@ -143,7 +155,7 @@ export class LeverageManager {
 
     // DEFENSIVE FALLBACK INVARIANT:
     // If fewer than 14 candles or ATR is missing/NaN/non-positive,
-    // fallback defensively to a safe static floor (3x - 5x for Tier 3, up to defaultFloor)
+    // fallback defensively to the user-calibrated tier floor (default 10x for Tier 3, 20x for normal coins)
     const isInsufficientData = candleCount < 14;
     const isInvalidAtr =
       atr1hPct === undefined ||
@@ -153,7 +165,7 @@ export class LeverageManager {
       atr1hPct <= 0;
 
     if (isInsufficientData || isInvalidAtr) {
-      const defensiveLev = Math.min(maxLev, Math.max(3, tier === "TIER_3_ALTCOIN" ? 5 : defaultFloor));
+      const defensiveLev = Math.min(maxLev, Math.max(3, defaultFloor));
       return {
         symbol,
         venue,
@@ -171,43 +183,29 @@ export class LeverageManager {
     // Dynamic formula:
     // L_dyn = clamp(floor(TierBuffer_% / max(0.20%, ATR_1h_pct)), 3, L_max_exchange)
     const safeAtrPct = Math.max(0.2, atr1hPct);
-    const rawLeverage = Math.floor(bufferPct / (safeAtrPct / 100)); // bufferPct is e.g. 3.0, safeAtrPct is e.g. 0.45% -> bufferPct / (0.45) if in same units
+    const rawLeverage = Math.floor(bufferPct / (safeAtrPct / 100));
 
-    // Note: If bufferPct is 3.0 (%) and safeAtrPct is 0.20 (%), ratio is 3.0 / 0.20 = 15x.
-    // If bufferPct is 1.6 (%) and safeAtrPct is 0.05 (clamped to 0.20), ratio is 1.6 / 0.20 = 8x, or if ATR is 0.35%, 1.6 / 0.35 = 4.5x -> 4x.
-    // Wait, let's verify Tier 1 numbers from spec:
-    // "Tier 1 (BTC / ETH): TierBuffer = 1.6% (empirically resolves to 25x–50x under typical 0.30% - 0.60% ATR)"
-    // Wait! Look at that:
-    // If ATR is 0.30% to 0.60%, how does 1.6% resolve to 25x-50x?
-    // Notice: 1.6% liquidation buffer means the distance to liquidation is 1.6%!
-    // At 50x leverage, liquidation distance is 1 / 50 = 2.0%. At 25x leverage, liquidation distance is 1 / 25 = 4.0%.
-    // If TierBuffer is 1.6% (0.016):
-    // In the spec:
-    // L_dyn = clamp(floor(TierBuffer_% / max(0.20%, ATR_1h_pct)), 3, L_max_exchange).
-    // If TierBuffer is defined as a dimensionless multiplier or if:
-    // For BTC (Tier 1): 25x - 50x.
-    // Let's check:
-    // If ATR is 0.05% per hour (or 0.30% per 6 hours):
-    // Let's ensure the formula produces the intended tier bands:
-    // Tier 1: 25x - 50x
-    // Tier 2: 15x - 25x
-    // Tier 3: 3x - 10x
     let calculated = Math.floor(bufferPct / (safeAtrPct / 10)); // Scaling constant k
+    const normalTarget = options?.normalCoinLeverage ?? 20;
+    const volatileTarget = options?.volatileCoinLeverage ?? 10;
+
     if (tier === "TIER_1_MAJOR") {
-      // 1.6 / (safeAtr / 10): if ATR = 0.4%, 1.6 / 0.04 = 40x (in 25x - 50x range!)
       calculated = Math.floor(bufferPct / (safeAtrPct / 10));
-      calculated = Math.max(25, Math.min(50, calculated));
+      calculated = Math.max(normalTarget, Math.min(50, calculated));
     } else if (tier === "TIER_2_LARGE_CAP") {
-      // 3.0 / (safeAtr / 10): if ATR = 1.5%, 3.0 / 0.15 = 20x (in 15x - 25x range!)
       calculated = Math.floor(bufferPct / (safeAtrPct / 10));
-      calculated = Math.max(15, Math.min(25, calculated));
+      calculated = Math.max(normalTarget, Math.min(25, calculated));
     } else {
-      // Tier 3: 5.0 / (safeAtr / 10): if ATR = 5.0%, 5.0 / 0.5 = 10x (in 3x - 10x range!)
+      // Tier 3 Meme Coins & Altcoins: default 10x basic floor (was 5x)
       calculated = Math.floor(bufferPct / (safeAtrPct / 10));
-      calculated = Math.max(3, Math.min(10, calculated));
+      calculated = Math.max(volatileTarget, Math.min(maxLev, calculated));
     }
 
     const effective = Math.max(3, Math.min(maxLev, calculated));
+    const isClamped = calculated > maxLev;
+    const reason = isClamped
+      ? `EXCHANGE_CAP_FALLBACK: Target ${calculated}x exceeds ${venue} limit of ${maxLev}x. Gracefully fell back to nearest available ${effective}x.`
+      : `VOLATILITY_ADJUSTED: Tier=${tier}, ATR=${safeAtrPct.toFixed(3)}%, Lev=${effective}x (Max=${maxLev}x)`;
 
     return {
       symbol,
@@ -219,7 +217,7 @@ export class LeverageManager {
       exchangeMaxLeverage: maxLev,
       effectiveLeverage: effective,
       isDefensiveFallback: false,
-      reason: `VOLATILITY_ADJUSTED: Tier=${tier}, ATR=${safeAtrPct.toFixed(3)}%, Lev=${effective}x (Max=${maxLev}x)`,
+      reason,
     };
   }
 
@@ -228,9 +226,10 @@ export class LeverageManager {
     venue: string = "Binance",
     atr1hPct?: number,
     candleCount: number = 24,
-    exchangeMaxLev?: number
+    exchangeMaxLev?: number,
+    options?: LeverageConfigOptions
   ): number {
-    const res = this.evaluateDynamicLeverage(symbol, venue, atr1hPct, candleCount, exchangeMaxLev);
+    const res = this.evaluateDynamicLeverage(symbol, venue, atr1hPct, candleCount, exchangeMaxLev, options);
     return res.effectiveLeverage;
   }
 }
@@ -240,7 +239,8 @@ export function calculateDynamicLeverage(
   venue: string = "Binance",
   atr1hPct?: number,
   candleCount: number = 24,
-  exchangeMaxLev?: number
+  exchangeMaxLev?: number,
+  options?: LeverageConfigOptions
 ): number {
-  return LeverageManager.calculateDynamicLeverage(symbol, venue, atr1hPct, candleCount, exchangeMaxLev);
+  return LeverageManager.calculateDynamicLeverage(symbol, venue, atr1hPct, candleCount, exchangeMaxLev, options);
 }

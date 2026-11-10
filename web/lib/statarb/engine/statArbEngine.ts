@@ -38,7 +38,7 @@ import {
   ExecutionRequest,
 } from '../execution';
 import { StatArbStateStore, StatArbEngineState } from './statArbStateStore';
-import { checkConcurrentPositionsLimit, evaluateSystemSafety } from './safetyBreakers';
+import { checkConcurrentPositionsLimit, evaluateSystemSafety, DEFAULT_MAX_CONCURRENT_POSITIONS } from './safetyBreakers';
 import { getSymbolFilter, roundQuantity, reconcileDualLegQuantities } from '../utils/exchangeFilterRegistry';
 import { appendStatArbLog } from '../logging';
 

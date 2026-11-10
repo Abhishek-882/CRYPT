@@ -2,7 +2,7 @@ import { signAndFetchBinance } from "./binanceSigner";
 import { getBitgetAccount, BitgetCredentials } from "./bitgetSigner";
 import { getCoinDcxAccount, fromCoinDcxPair } from "./coindcxSigner";
 import { fetchBybitPositions } from "./bybitSigner";
-import { UserApiKeys } from "./userStore";
+import { UserApiKeys, isUserAdminRole, findUserById } from "./userStore";
 import { decryptVaultSecret } from "./cryptoVault";
 import fs from "fs";
 import path from "path";
@@ -47,6 +47,16 @@ export function normalizeExchangeSymbol(rawSym: string): string {
   return clean;
 }
 
+function isCallerAdmin(userId?: string): boolean {
+  if (!userId) return false;
+  if (userId === "usr_admin_varsha" || userId === "admin") return true;
+  const user = findUserById(userId);
+  if (user) {
+    return isUserAdminRole(user);
+  }
+  return isUserAdminRole(userId);
+}
+
 /**
  * Fetches open positions for specified venues (or all 4 venues by default)
  * Respects 5-second in-memory cache to ensure sub-millisecond candidate filtering
@@ -55,7 +65,8 @@ export async function getLivePositionsForVenues(
   targetVenues: string[] = ["Binance", "Bitget", "CoinDCX", "Bybit"],
   creds?: UserApiKeys,
   cacheKey: string = "default",
-  forceRefresh: boolean = false
+  forceRefresh: boolean = false,
+  userId?: string
 ): Promise<VenuePositionsSnapshot> {
   const now = Date.now();
   const cached = positionsCache.get(cacheKey);
@@ -76,8 +87,10 @@ export async function getLivePositionsForVenues(
     promises.push(
       (async () => {
         try {
-          const key = creds?.binanceKey || process.env.ADMIN_BINANCE_KEY || "";
-          const sec = creds?.binanceSecret || process.env.ADMIN_BINANCE_SECRET || "";
+          const effectiveUserId = userId || (cacheKey.startsWith("startup_") ? cacheKey.replace(/^startup_/, "") : (cacheKey.startsWith("usr_") ? cacheKey : undefined));
+          const isAdmin = isCallerAdmin(effectiveUserId);
+          const key = creds?.binanceKey || (isAdmin ? (process.env.ADMIN_BINANCE_KEY || "") : "");
+          const sec = creds?.binanceSecret || (isAdmin ? (process.env.ADMIN_BINANCE_SECRET || "") : "");
           const ep = creds?.binanceEndpoint || undefined;
 
           if (key && sec) {

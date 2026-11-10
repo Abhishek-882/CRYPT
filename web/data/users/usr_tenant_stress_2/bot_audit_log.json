@@ -1,0 +1,90 @@
+[
+  {
+    "timestamp": "2026-11-10T11:44:47.555Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: DOTUSDT quarantined for 60m (until 2026-11-10T12:44:47.555Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:44:47.550Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: NEARUSDT quarantined for 60m (until 2026-11-10T12:44:47.550Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:44:47.518Z",
+    "message": "[MEMORY RESET] Bot \"Conservative Funding Sniper\" [PER]: Cleared 2 locked coin(s) and anti-churn quarantines from bot \"Conservative Funding Sniper\". All universe coins now eligible for trading.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:26:32.847Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: DOTUSDT quarantined for 60m (until 2026-11-10T12:26:32.847Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:26:32.841Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: NEARUSDT quarantined for 60m (until 2026-11-10T12:26:32.841Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:25:59.175Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: DOTUSDT quarantined for 60m (until 2026-11-10T12:25:59.175Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:25:59.169Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: NEARUSDT quarantined for 60m (until 2026-11-10T12:25:59.169Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:26:32.803Z",
+    "message": "[MEMORY RESET] Bot \"Conservative Funding Sniper\" [PER]: Cleared 2 locked coin(s) and anti-churn quarantines from bot \"Conservative Funding Sniper\". All universe coins now eligible for trading. [2]",
+    "level": "info",
+    "count": 2,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:25:04.584Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: DOTUSDT quarantined for 60m (until 2026-11-10T12:25:04.584Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:25:04.580Z",
+    "message": "[ANTI-CHURN QUARANTINE ENGAGED] Bot \"Conservative Funding Sniper\" [PER]: NEARUSDT quarantined for 60m (until 2026-11-10T12:25:04.580Z) in bot \"Conservative Funding Sniper\". Reason: Manual or automated flatten lock.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:25:04.552Z",
+    "message": "[MEMORY RESET] Bot \"Conservative Funding Sniper\" [PER]: Cleared 0 locked coin(s) and anti-churn quarantines from bot \"Conservative Funding Sniper\". All universe coins now eligible for trading.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  }
+]

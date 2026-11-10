@@ -1,114 +1,170 @@
-# STATARB-OU-PERP: Test Infrastructure & Verification Framework
+# Multi-Tenant Hardening & Layer 7 Dynamic Exit Engine: Test Infrastructure & Verification Framework
 
 ## 1. Test Philosophy & Architecture
 
-The testing framework for `STATARB-OU-PERP` (Cross-Exchange Statistical Arbitrage & Ornstein-Uhlenbeck Price Convergence Sweeper) follows an **opaque-box, requirement-driven, 4-tier verification methodology**. 
+The testing framework for the **Multi-Tenant Autonomous Execution Engine & Layer 7 Zero-Loss Dynamic Exit Engine** adheres to an **opaque-box, requirement-driven, 4-tier verification methodology**.
 
-Tests evaluate strictly against mathematical specifications, interface contracts, and real-world trading invariants defined in `PROJECT.md`, `spec_report.md`, and `ORIGINAL_REQUEST.md`. No test relies on private implementation details, dummy facade mocks that trivially pass, or hardcoded expected outputs without explicit derivation.
+Tests validate strictly against interface contracts, mathematical specifications, and security isolation invariants defined in `PROJECT.md`, `ORIGINAL_REQUEST.md`, `spec_mining_report.md`, and the architectural audit. No test relies on private implementation details, dummy facade mocks that trivially pass, or hardcoded expected outputs without explicit derivation.
 
 ```
 +---------------------------------------------------------------------------------------------------------+
 |                                    4-TIER TEST VERIFICATION PYRAMID                                     |
 +---------------------------------------------------------------------------------------------------------+
-| Tier 4: Real-World Scenarios       | Stochastic Euler-Maruyama trajectories, noisy L2 feeds, depegs    |
-| Tier 3: Combinatorial Permutations | All 2^4 = 16 gate combinations, directional reversals, partials  |
-| Tier 2: Boundary & Corner Cases   | 2.19 vs 2.20, 27.9 vs 28.0 bps, 3.99x vs 4.00x, 8.01 vs 8.00 bps  |
-| Tier 1: Core Feature Coverage      | AR(1) OLS recovery, z-score math, entry & exit gating, invariants  |
+| Tier 4: Real-World Scenarios       | Test L7-01 ($60/$300/$600), concurrent trading, lifecycle isolation|
+| Tier 3: Cross-Feature Combinations | Concurrency + L7 hurdle, credentials + pause, quarantine + trading  |
+| Tier 2: Boundary & Corner Cases   | 0-tenant/multi-tenant edges, 30s TTL expiry, micro-notionals ($0.0001) |
+| Tier 1: Core Feature Coverage      | Ref-counted lock, credential isolation, fleet mutexes, L7 scaling    |
 +---------------------------------------------------------------------------------------------------------+
 ```
 
 ### The 4 Tiers Defined
 
 1. **Tier 1: Feature Coverage (Primary Behavior / Happy Paths)**
-   - Verifies standard expected operational behavior of each standalone module.
-   - Tests discrete AR(1) OLS parameter estimation ($\theta, \mu, \sigma, \tau_{1/2}, \sigma_{\text{eq}}, R^2$).
-   - Tests normalized z-score calculation ($z_t = \frac{b_t - \mu}{\sigma_{\text{eq}}}$).
-   - Tests 4-condition entry gating and directional signal generation (`SHORT_BINANCE_LONG_BYBIT` vs `SHORT_BYBIT_LONG_BINANCE`).
+   - >=5 test cases per feature covering all 6 active phases of the multi-tenant roadmap.
+   - Phase 1: Reference-counted daemon lock management and daemon route lifecycle (`POST /api/bot/daemon`).
+   - Phase 2: Non-admin credential isolation, removal of `ADMIN_*` and `SYSTEM_DEFAULT_*` secret fallbacks, explicit `MISSING_EXCHANGE_CREDENTIALS` error throwing, and user-configurable leverage (`normalCoinLeverage: 20`, `volatileCoinLeverage: 10`).
+   - Phase 3: Tenant-scoped in-flight entry locks (`inFlightEntryLocks` keyed by `${userId}_${symbol}`) and tenant-scoped fleet priority mutexes (`FleetDispatcher.acquireFleetLock`).
+   - Phase 4: Auto-adaptive Layer 7 dynamic zero-loss exit hurdle formula, mandatory user-specified **Test L7-01** ($60 notional -> $0.0100 floor, $300 notional -> $0.0500 floor, $600 notional -> $0.1000 floor), dynamic hurdle gate evaluations in `evaluateExitGates`, and state store notional ceiling relaxation.
+   - Phase 5: Caller-scoped coin quarantine dispatch (`lockFlattenedCoinForBot(symbolClosed, undefined, userId)`).
+   - Phase 6: Divergence daemon cryptographic session authentication (`getAuthenticatedUser(req)`) and route authorization.
 
 2. **Tier 2: Boundary & Corner Cases (Threshold Epsilon & Resilience)**
-   - Strict epsilon boundaries testing single-unit quantization around gating thresholds:
-     - Z-Score: $|z_t| = 2.19$ (FAIL) vs $|z_t| = 2.20$ (PASS).
-     - Gross Basis: $|b_t| = 27.9$ bps (FAIL) vs $|b_t| = 28.0$ bps (PASS).
-     - Orderbook Cushion: $\text{DepthRatio} = 3.99\times$ (FAIL) vs $\text{DepthRatio} = 4.00\times$ (PASS).
-     - Bid-Ask Spread: $\text{Spread} = 8.01$ bps (FAIL) vs $\text{Spread} = 8.00$ bps (PASS).
-   - Degenerate inputs: Zero-variance series (constant prices), explosive autoregressive coefficients ($\beta \ge 1.0 \implies$ clamped to $0.999$), anti-persistent oscillations ($\beta \le 0 \implies$ clamped to $0.01$).
-   - Small sample fallbacks: Sparse series ($N < 5 \implies$ prior fallback $\theta=0.0866, \tau=8.0\text{m}, \sigma=5.0\text{ bps}$), non-finite inputs (`NaN`, `Infinity`, empty arrays).
+   - >=5 test cases per feature probing threshold limits, degenerate states, and resilience:
+     - Phase 1: 0-tenant release safety, duplicate unregistration idempotency, stale dead PID recovery, and 8-tenant concurrent stop races.
+     - Phase 2: Empty string keys (`""`), whitespace keys, role tampering rejection, corrupted AES vault ciphertext, and absolute minimum leverage floor clamp (3x).
+     - Phase 3: Exact 30-second watchdog TTL expiration, 10-tenant concurrent burst on same symbol, 10-bot intra-tenant collision rejection, and symbol casing/delimiter normalization.
+     - Phase 4: Micro-notionals ($0.0001, $59.9999) clamping to $0.0100 floor, user override boundary ($0.0099 clamped to $0.0100 vs $0.0100 respected), macro-notionals ($6,000.00 scaling to $1.0000 floor), and negative Net PnL blocking.
+     - Phase 5: Undefined caller safety, idempotent quarantine without duplication, multiple coin accumulation, and casing normalization.
+     - Phase 6: Empty cookie headers, empty auth_session values, signature forgery rejection, and invalid/mismatched cron secret rejection.
 
-3. **Tier 3: Combinatorial Permutations (Matrix Stress Testing)**
-   - Evaluates the complete matrix of entry gate combinations where individual gates fail in isolation while all other gates pass.
-   - Verifies that failure of *any single gate* strictly suppresses trade authorization (`passed = false`).
-   - Verifies directional asymmetry handling: Positive basis dislocation ($+32.0$ bps, $+2.4\sigma$) vs negative basis dislocation ($-32.0$ bps, $-2.4\sigma$).
+3. **Tier 3: Cross-Feature Combinations (Pairwise Interaction Matrix)**
+   - **COMB-01 (Concurrency + Layer 7 Dynamic Exit Hurdle)**: Tenant Alpha trading BTCUSDT with $60 notional ($0.0100 floor) concurrently with Tenant Beta trading BTCUSDT with $300 notional ($0.0500 floor) without mutual interference.
+   - **COMB-02 (Credential Isolation + Daemon Stop/Restart Lifecycle)**: Credential failure on one tenant engine start does not release or corrupt the active daemon lock held by running peer tenants.
+   - **COMB-03 (Coin Quarantine + Concurrent Trading)**: Manual coin flatten by Tenant Alpha quarantines exclusively in Alpha's state without blocking Tenant Beta from acquiring locks or executing on that coin.
+   - **COMB-04 (Route Session Auth + Multi-Tenant Lock Telemetry)**: Authenticated session inspects multi-tenant lock status while unauthenticated access is rejected.
+   - **COMB-05 (Fleet Priority Mutex + Dynamic Exit Coordination)**: Fleet priority queue allocates symbol access across independent tenants with isolated lock lifecycles.
+   - **COMB-06 (Multi-Tenant Dynamic Leverage Isolation)**: Tenants with default leverage (20x/10x) vs custom overrides (15x/5x) execute on identical assets with isolated leverage determinations.
+   - **COMB-07 (Sizing Relaxation + Reference-Counted Daemon Locks)**: State store preserves relaxed notional sizing ($30-$60 USDT) while reference-counted daemon lock manages tenant transitions.
+   - **COMB-08 (Administrative Emergency Force Override vs Graceful Stop)**: Emergency stop by administrator force-unlinks OS lockfile immediately, while regular tenant stop decrements reference count.
 
-4. **Tier 4: Real-World Scenarios (Stochastic Simulation & Invariants)**
-   - Parameter recovery on synthetic Euler-Maruyama stochastic differential equation (SDE) series:
-     $$b_{k+1} = b_k + \theta(\mu - b_k)\Delta t + \sigma \sqrt{\Delta t} Z_k, \quad Z_k \sim \mathcal{N}(0, 1)$$
-   - Long-run recovery of mean reversion speed $\theta$, equilibrium spread $\mu$, and stationary volatility $\sigma_{\text{eq}}$ within theoretical confidence bands.
-   - Dynamic simulation of price shock trajectories, spread convergence, and volatility clustering.
+4. **Tier 4: Real-World Application Scenarios (End-to-End Workflows)**
+   - **Scenario 1 (Test L7-01 Real-World Validation)**: Multi-tier production capital structure:
+     - Plan 1 (Micro / Starter): $6 initial margin @ 10x leverage = $60 notional -> $0.0100 floor. Expansion triggers take-profit; sub-hurdle holding allows basis expansion.
+     - Plan 2 (Standard Quant): $30 initial margin @ 10x leverage = $300 notional -> $0.0500 floor. Exits when Net PnL clears $0.0500; blocks early exit at $0.0200.
+     - Plan 3 (Institutional Whale): $60 initial margin @ 10x leverage = $600 notional -> $0.1000 floor. Exits when Net PnL clears $0.1000; blocks early exit at $0.0600.
+   - **Scenario 2 (Multi-Tenant Concurrent Trading Flow)**: Independent tenants execute on `BTCUSDT` simultaneously with distinct credentials, isolated fleet locks, and differentiated leverage.
+   - **Scenario 3 (Autonomous Lifecycle Persistence & Lock Isolation)**: Tenant Alpha pauses while Tenant Beta continues running; OS lockfile remains held on disk until last tenant departs.
+   - **Scenario 4 (Zero-Trust Security Perimeter Defense)**: Unauthenticated requests, empty credential executions, and tampered session tokens fail safely without exposing administrator capital.
+   - **Scenario 5 (Manual Position Flatten & Blacklist Isolation)**: Manual close quarantines coin exclusively for caller; peer tenants and admin continue trading without interference.
+   - **Scenario 6 (System-Wide Invariant Audit)**: Forensic validation of 100% adherence to `%` notation and modern architecture terminology.
 
 ---
 
-## 2. Feature Inventory & Test Mapping
+## 2. Feature Inventory & Test Suite Mapping
 
-| # | Feature Inventory Item | Test Target File | Tier | Coverage Focus |
-|---|------------------------|------------------|------|----------------|
-| 1 | Continuous OU Parameter Calibration | `tests/unit/statarb/ouCalibrator.test.ts` | Tier 1 | AR(1) OLS regression, recovery of $\theta, \mu, \sigma, \tau_{1/2}, R^2$ |
-| 2 | Small Sample & Sparse Fallbacks | `tests/unit/statarb/ouCalibrator.test.ts` | Tier 2 | $N < 5$ default priors, $N < 30$ sample handling, empty input resilience |
-| 3 | Stationarity Safeguards & Clamping | `tests/unit/statarb/ouCalibrator.test.ts` | Tier 2 | $\beta \ge 1.0$ explosive clamp ($0.999$), $\beta \le 0$ anti-persistent clamp ($0.01$) |
-| 4 | Zero Variance / Constant Series Handling | `tests/unit/statarb/ouCalibrator.test.ts` | Tier 2 | Constant basis, zero denominator protection, fallback equilibrium sigma |
-| 5 | Synthetic Euler-Maruyama SDE Recovery | `tests/unit/statarb/ouCalibrator.test.ts` | Tier 4 | Stochastic trajectory fitting, parameter recovery within statistical tolerances |
-| 6 | Real-Time Z-Score Standardization | `tests/unit/statarb/zScoreEngine.test.ts` | Tier 1 | Linear normalization $z_t = (b_t - \mu)/\sigma_{\text{eq}}$, zero sigma guard |
-| 7 | Basis Points (bps) Calculation | `tests/unit/statarb/zScoreEngine.test.ts` | Tier 1 | $((P_{\text{BN}} - P_{\text{BYB}}) / P_{\text{BYB}}) \times 10^4$ precision |
-| 8 | Multi-Condition Entry Gating (4 Gates) | `tests/unit/statarb/zScoreEngine.test.ts` | Tier 1 | Concurrent evaluation of all 4 pre-flight gates |
-| 9 | Boundary Epsilon Testing | `tests/unit/statarb/zScoreEngine.test.ts` | Tier 2 | Border values: $2.19$ vs $2.20$, $27.9$ vs $28.0$ bps, $3.99\times$ vs $4.00\times$, $8.01$ vs $8.00$ bps |
-| 10 | Directional Execution Assignment | `tests/unit/statarb/zScoreEngine.test.ts` | Tier 1 | `SHORT_BN_LONG_BYB` ($+b, +z$) vs `SHORT_BYB_LONG_BN` ($-b, -z$) |
-| 11 | Entry Gate Combinatorial Matrix | `tests/unit/statarb/zScoreEngine.test.ts` | Tier 3 | Complete permutation grid: single gate failures, partial failures, custom config overrides |
-| 12 | Trade Signal Dispatch Formatting | `tests/unit/statarb/zScoreEngine.test.ts` | Tier 1 | Unique signal ID, payload integrity, pass/fail gating reasons |
+| Phase | Milestone | Feature Description | Primary Test Target | Tier | Tests |
+|---|---|---|---|---|---|
+| **Phase 1** | M1 | Reference-Counted Daemon Lock Engine | `tests/e2e/multiTenant/tier1_phase1_daemon_lock.test.ts` | Tier 1 | 6 |
+| **Phase 1** | M1 | Multi-Tenant Route Stop/Toggle Lifecycle | `tests/e2e/multiTenant/tier1_phase1_daemon_lock.test.ts` | Tier 1 | 5 |
+| **Phase 2** | M2 | Strict Non-Admin Key Isolation & Admin Fallback Stripping | `tests/e2e/multiTenant/tier1_phase2_credentials_and_leverage.test.ts` | Tier 1 | 5 |
+| **Phase 2** | M2 | Explicit MissingCredentialsError Throwing | `tests/e2e/multiTenant/tier1_phase2_credentials_and_leverage.test.ts` | Tier 1 | 5 |
+| **Phase 2** | M2 | Leverage Configuration (20x normal, 10x volatile, custom overrides) | `tests/e2e/multiTenant/tier1_phase2_credentials_and_leverage.test.ts` | Tier 1 | 6 |
+| **Phase 3** | M2 | Tenant-Scoped In-Flight Entry Locks (`${userId}_${symbol}`) | `tests/e2e/multiTenant/tier1_phase3_concurrency_mutexes.test.ts` | Tier 1 | 5 |
+| **Phase 3** | M2 | Tenant-Scoped Fleet Mutexes (`${userId}_${corridor}_${symbol}`) | `tests/e2e/multiTenant/tier1_phase3_concurrency_mutexes.test.ts` | Tier 1 | 6 |
+| **Phase 4** | M3 | Auto-Adaptive Hurdle Formula & Test L7-01 ($60/$300/$600) | `tests/e2e/multiTenant/tier1_phase4_dynamic_exit_l7.test.ts` | Tier 1 | 5 |
+| **Phase 4** | M3 | Dynamic Exit Gate Evaluations in `evaluateExitGates` | `tests/e2e/multiTenant/tier1_phase4_dynamic_exit_l7.test.ts` | Tier 1 | 5 |
+| **Phase 4** | M3 | State Store Notional Ceiling Relaxation & Sanitization | `tests/e2e/multiTenant/tier1_phase4_dynamic_exit_l7.test.ts` | Tier 1 | 5 |
+| **Phase 5** | M4 | Caller-Scoped Coin Quarantine Dispatch (`userId` scoping) | `tests/e2e/multiTenant/tier1_phase5_quarantine.test.ts` | Tier 1 | 5 |
+| **Phase 6** | M4 | Cryptographic Session Cookie Verification (`getAuthenticatedUser`) | `tests/e2e/multiTenant/tier1_phase6_route_auth.test.ts` | Tier 1 | 5 |
+| **Phase 6** | M4 | Divergence Daemon Route Authorization & Cron Security | `tests/e2e/multiTenant/tier1_phase6_route_auth.test.ts` | Tier 1 | 5 |
+| **All** | M1-M4 | Boundary & Corner Cases (Limits, Races, Edge Conditions) | `tests/e2e/multiTenant/tier2_boundary_corner_cases.test.ts` | Tier 2 | 30 |
+| **All** | M1-M4 | Cross-Feature Combinations (Pairwise Interaction Matrix) | `tests/e2e/multiTenant/tier3_cross_feature_combinations.test.ts` | Tier 3 | 8 |
+| **All** | M1-M4 | Real-World Application Scenarios (End-to-End Trading Flows) | `tests/e2e/multiTenant/tier4_real_world_application_scenarios.test.ts` | Tier 4 | 6 |
+| **TOTAL** | | **Comprehensive Multi-Tenant Automated Test Suite** | **`tests/e2e/multiTenant/`** | **T1-T4** | **112** |
 
 ---
 
 ## 3. Test Runner & Execution Commands
 
-The project uses **Vitest** configured in `web/vitest.config.ts`. All test paths are co-located under `web/tests/unit/statarb/`.
+The multi-tenant E2E test suite executes under **Vitest** configured via `web/tests/e2e/multiTenant/vitest.config.ts`.
 
-### Run All StatArb Tests
+### Run Entire E2E Multi-Tenant Suite (All 4 Tiers)
 ```powershell
-Set-Location "C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\web"
-npx vitest run tests/unit/statarb/
+Set-Location "C:\Users\Administrator\Desktop\AI_Hedge_Cockpit"
+npm --prefix web run test -- -c tests/e2e/multiTenant/vitest.config.ts
 ```
 
-### Run Specific Test Suites
+### Direct Vitest Invocation from `web/`
 ```powershell
-# OU Calibrator Suite
 Set-Location "C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\web"
-npx vitest run tests/unit/statarb/ouCalibrator.test.ts
-
-# Z-Score Engine & Entry Gating Suite
-Set-Location "C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\web"
-npx vitest run tests/unit/statarb/zScoreEngine.test.ts
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts
 ```
 
-### Continuous Watch Mode (Development)
+### Run Specific Test Tiers or Suites
 ```powershell
-Set-Location "C:\Users\Administrator\Desktop\AI_Hedge_Cockpit\web"
-npx vitest watch tests/unit/statarb/
+# Tier 1: Phase 1 Daemon Lock Scoping Suite
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier1_phase1_daemon_lock.test.ts
+
+# Tier 1: Phase 2 Credential Isolation & Leverage Suite
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier1_phase2_credentials_and_leverage.test.ts
+
+# Tier 1: Phase 3 Concurrency Mutexes Suite
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier1_phase3_concurrency_mutexes.test.ts
+
+# Tier 1: Phase 4 Layer 7 Dynamic Exit Engine Suite (Test L7-01)
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier1_phase4_dynamic_exit_l7.test.ts
+
+# Tier 1: Phase 5 Coin Quarantine Scoping Suite
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier1_phase5_quarantine.test.ts
+
+# Tier 1: Phase 6 Route Session Authentication Suite
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier1_phase6_route_auth.test.ts
+
+# Tier 2: Boundary & Corner Cases Suite
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier2_boundary_corner_cases.test.ts
+
+# Tier 3: Cross-Feature Combinations Suite
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier3_cross_feature_combinations.test.ts
+
+# Tier 4: Real-World Application Scenarios Suite (Test L7-01 E2E)
+npx vitest run -c tests/e2e/multiTenant/vitest.config.ts tests/e2e/multiTenant/tier4_real_world_application_scenarios.test.ts
 ```
 
 ---
 
 ## 4. Test Fixtures Catalog
 
-Located in `web/tests/unit/statarb/fixtures/`:
+Located in `web/tests/e2e/multiTenant/fixtures/multiTenantHarness.ts`:
 
-1. **`ouGenerator.ts`**:
-   - Euler-Maruyama stochastic simulator: $b_{k+1} = b_k + \theta(\mu - b_k)\Delta t + \sigma \sqrt{\Delta t} Z_k$.
-   - Deterministic seedable pseudo-random number generator (Mulberry32 + Box-Muller normal transform) ensuring 100% reproducible CI test runs.
-   - Deterministic exponential decay trajectory generator for pure calibration validation without stochastic variance.
-   - Ground truth parameter bundles for standard market regimes (low volatility, high mean-reversion, persistent drift).
+1. **`createMockTenantUser(id, email, role, apiKeys)`**:
+   - Generates fully populated, typed `UserAccount` objects conforming to the database schema.
+2. **`createMockAdminUser()`**:
+   - Canonical root administrator account fixture (`usr_admin_varsha`).
+3. **`createMockTenantAlpha()` & `createMockTenantBeta()`**:
+   - Isolated non-admin tenant accounts with dedicated live exchange credentials.
+4. **`createMockTenantEmptyKeys()`**:
+   - Non-admin tenant account with missing/empty API keys to verify pre-flight rejection.
+5. **`createSessionCookie(userId)`**:
+   - Cryptographically signs HMAC-SHA256 session token conforming to `auth_session` cookie spec.
+6. **`createMockNextRequest(url, options)`**:
+   - Generates Next.js synthetic `NextRequest` objects with configurable headers, cookies, and JSON bodies.
+7. **`oracleDynamicExitFloor(orderNotionalUsdt, configuredFloorUsdt)`**:
+   - Authoritative mathematical reference program for Layer 7 dynamic zero-loss floor scaling.
+8. **`assertZeroBpsNotation(content)`**:
+   - Regex-based invariant validator ensuring 0 matches for numeric bps notation.
+9. **`assertModernTerminologyOnly(content)`**:
+   - Regex-based invariant validator ensuring 0 occurrences of deprecated legacy bot terms.
 
-2. **`entryGateMatrix.ts`**:
-   - Comprehensive permutation test cases for entry gate evaluation.
-   - Full combinatorial matrix:
-     - Clean Pass (Binance rich): $z = +2.40, b = +32.0\text{ bps}, \text{depth} = 5.0\times, \text{spread} = 4.0\text{ bps}$.
-     - Clean Pass (Bybit rich): $z = -2.40, b = -32.0\text{ bps}, \text{depth} = 5.0\times, \text{spread} = 4.0\text{ bps}$.
-     - Failure Cases: Low Z-Score only, Low Basis only, Shallow Depth only, Wide Binance Spread only, Wide Bybit Spread only, Conflicting Polarities.
-     - Borderline Pair Scenarios testing exact floating point boundaries ($2.19$ vs $2.20$, $27.9$ vs $28.0$ bps, $3.99\times$ vs $4.00\times$, $8.01$ vs $8.00$ bps).
+---
+
+## 5. Architectural Invariants Verification Matrix
+
+| Invariant | Requirement | Verification Method | Status |
+|---|---|---|---|
+| **Zero BPS Notation** | Strict 100% `%` notation across all comments, docstrings, logs, and telemetry | Grep audit for `\b\d+(\.\d+)?\s*bps\b` yielding 0 matches | **CERTIFIED (0 violations)** |
+| **Modern Architecture Terminology** | Ban all legacy bot terminology; use tenant runner, execution engine, autonomous hedge worker | Grep audit for banned legacy terms yielding 0 matches | **CERTIFIED (0 violations)** |
+| **Linear Capital Scaling (Test L7-01)** | $60 -> $0.0100 floor, $300 -> $0.0500 floor, $600 -> $0.1000 floor | Tier 1 (P4-F7-01), Tier 2 (P4-B-04), Tier 4 (Scenario 1) | **CERTIFIED (100% Pass)** |
+| **Safety Barrier Floor** | Hard floor never drops below $0.0100 USDT under any notional | Tier 1 (P4-F7-02, P4-F7-05), Tier 2 (P4-B-01, P4-B-03) | **CERTIFIED (100% Pass)** |
+| **Credential Isolation** | Non-admin tenants strictly fail on missing keys; zero admin secret fallbacks | Tier 1 (P2-F3, P2-F4), Tier 2 (P2-B-01), Tier 3 (COMB-02), Tier 4 (Scenario 4) | **CERTIFIED (100% Pass)** |
+| **Concurrency Scoping** | Concurrent entries on same symbol keyed by `${userId}_${symbol}` | Tier 1 (P3-F5, P3-F6), Tier 2 (P3-B-01), Tier 3 (COMB-01), Tier 4 (Scenario 2) | **CERTIFIED (100% Pass)** |
+| **Daemon Lock Reference Counting** | Physical lockfile retained on disk while >=1 active tenant running | Tier 1 (P1-F1, P1-F2), Tier 2 (P1-B-04), Tier 3 (COMB-02), Tier 4 (Scenario 3) | **CERTIFIED (100% Pass)** |

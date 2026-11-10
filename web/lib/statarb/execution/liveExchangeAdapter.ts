@@ -11,6 +11,7 @@
  * 100% standalone with zero legacy dependencies.
  */
 
+import crypto from 'crypto';
 import {
   ExchangeExecutionAdapter,
   ExchangeVenue,

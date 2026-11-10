@@ -20,6 +20,8 @@ import {
   getDecryptedUserApiKeys,
   UserAccount,
   UserApiKeys,
+  isUserAdminRole,
+  findUserById,
 } from "./userStore";
 import { decryptVaultSecret } from "./cryptoVault";
 import { getUserActiveConsents, getUserConsentHistory } from "./complianceStore";
@@ -96,6 +98,12 @@ export interface BotConfig {
   enableMakerRouting?: boolean; // Default true: route Leg 1 as post-only limit maker to slash 40 bps taker fees
   currentSignedBasisBps?: number; // Transient signed basis contribution (+bps favorable, -bps adverse) passed to friction gate
   enableZeroLossGate?: boolean; // Zero-Loss Dynamic Exit Engine: blocks any exit where Net PnL < +$0.01 USDT unless catastrophic stop
+  allowConvergenceCoexistence?: boolean; // Permits coexistence with STATARB-OU-PERP convergence fleet when under 2 hedges per coin
+  normalCoinLeverage?: number; // default: 20x for normal/large-cap coins
+  volatileCoinLeverage?: number; // default: 10x for meme/volatile coins
+  minNetHedgeTargetPct?: number; // Minimum net profit target % per hedge (default: 0.30% ROI on total invested margin)
+  minExitProfitUsdt?: number; // Optional user floor override in USDT (clamps to $0.0100 USDT)
+  fastExitIntervalMs?: number; // Dual-Cadence sub-second exit evaluation interval (default: 250ms, 4 checks/sec)
 }
 
 export interface ActiveBotHedge {
@@ -266,20 +274,30 @@ const AUDIT_LOG_FILE_NAME = "bot_audit_log.json";
 // Concurrency in-flight symbol locks to prevent duplicate order dispatches across fleet
 const inFlightEntryLocks = new Set<string>();
 
-export function isCorridorSymbolLocked(corridor: string, symbol: string): boolean {
+export function isCorridorSymbolLocked(corridor: string, symbol: string, userId?: string): boolean {
   const sym = (symbol || "").toUpperCase();
   const corr = (corridor || "").toUpperCase();
-  return inFlightEntryLocks.has(sym) || inFlightEntryLocks.has(`${corr}_${sym}`);
+  const prefix = `${userId || "global"}_`;
+  return (
+    inFlightEntryLocks.has(`${prefix}${sym}`) ||
+    inFlightEntryLocks.has(`${prefix}${corr}_${sym}`) ||
+    (!userId && (inFlightEntryLocks.has(sym) || inFlightEntryLocks.has(`${corr}_${sym}`)))
+  );
 }
 
-export function releaseCorridorSymbolLock(corridor: string, symbol: string): void {
+export function releaseCorridorSymbolLock(corridor: string, symbol: string, userId?: string): void {
   const sym = (symbol || "").toUpperCase();
   const corr = (corridor || "").toUpperCase();
-  inFlightEntryLocks.delete(sym);
-  inFlightEntryLocks.delete(`${corr}_${sym}`);
+  const prefix = `${userId || "global"}_`;
+  inFlightEntryLocks.delete(`${prefix}${sym}`);
+  inFlightEntryLocks.delete(`${prefix}${corr}_${sym}`);
+  if (!userId) {
+    inFlightEntryLocks.delete(sym);
+    inFlightEntryLocks.delete(`${corr}_${sym}`);
+  }
   try {
     import("./fleetDispatcher").then(({ globalFleetDispatcher }) => {
-      globalFleetDispatcher.releaseFleetLock(sym, corr, "admin");
+      globalFleetDispatcher.releaseFleetLock(sym, corr, "admin", userId);
     }).catch(() => {});
   } catch {}
 }
@@ -296,6 +314,116 @@ const ADMIN_BITGET_CREDS: BitgetCredentials = {
   passphrase: SYSTEM_DEFAULT_BITGET_PASSPHRASE,
   isDemo: true,
 };
+
+export class MissingCredentialsError extends Error {
+  public readonly code = "MISSING_EXCHANGE_CREDENTIALS";
+  constructor(public readonly venue: string, public readonly userId: string = "unknown") {
+    super(`MISSING_EXCHANGE_CREDENTIALS: Non-admin tenant ${userId} is missing required ${venue} exchange credentials`);
+    this.name = "MissingCredentialsError";
+  }
+}
+
+export function isTenantAdmin(userId?: string): boolean {
+  if (!userId) return false;
+  if (userId === "usr_admin_varsha" || userId === "admin") return true;
+  const user = findUserById(userId);
+  if (user) {
+    return isUserAdminRole(user);
+  }
+  return isUserAdminRole(userId);
+}
+
+export interface VerifiedCredentials {
+  isAdmin: boolean;
+  binanceKey: string;
+  binanceSecret: string;
+  binanceEndpoint: string;
+  bybitKey: string;
+  bybitSecret: string;
+  bybitProxy?: string;
+  bybitBaseUrl?: string;
+  bybitBackupProxy?: string;
+  bybitBackupBaseUrl?: string;
+  bitgetKey: string;
+  bitgetSecret: string;
+  bitgetPassphrase: string;
+  bitgetEnv: string;
+  coindcxKey: string;
+  coindcxSecret: string;
+}
+
+/**
+ * Resolves verified exchange API credentials for a tenant.
+ * Non-admin tenants require valid credentials for all active corridor venues and
+ * never fall back to administrator exchange keys or balances.
+ */
+export function getVerifiedCredentialsForTenant(
+  userId: string | undefined,
+  creds: Partial<UserApiKeys> | undefined,
+  corridor: string
+): VerifiedCredentials {
+  const isAdmin = isTenantAdmin(userId);
+
+  const bnKey = creds?.binanceKey || (isAdmin ? ADMIN_BINANCE_KEY : "");
+  const rawBnSec = creds?.binanceSecret || (isAdmin ? ADMIN_BINANCE_SECRET : "");
+  const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
+  const bnEndpoint = creds?.binanceEndpoint || (isAdmin ? ADMIN_BINANCE_ENDPOINT : "https://fapi.binance.com");
+
+  const bybitKey = creds?.bybitKey || (isAdmin ? ADMIN_BYBIT_KEY : "");
+  const rawBybitSec = creds?.bybitSecret || (isAdmin ? ADMIN_BYBIT_SECRET : "");
+  const bybitSec = rawBybitSec && rawBybitSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybitSec) : rawBybitSec;
+
+  const bgKey = creds?.bitgetKey || (isAdmin ? SYSTEM_DEFAULT_BITGET_KEY : "");
+  const rawBgSec = creds?.bitgetSecret || (isAdmin ? SYSTEM_DEFAULT_BITGET_SECRET : "");
+  const bgSec = rawBgSec && rawBgSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBgSec) : rawBgSec;
+  const rawBgPass = creds?.bitgetPassphrase || (isAdmin ? SYSTEM_DEFAULT_BITGET_PASSPHRASE : "");
+  const bgPass = rawBgPass && rawBgPass.startsWith("enc:v1:") ? decryptVaultSecret(rawBgPass) : rawBgPass;
+  const bgEnv = creds?.bitgetEnv || "demo";
+
+  const cdxKey = creds?.coindcxKey || (isAdmin ? (process.env.ADMIN_COINDCX_KEY || "") : "");
+  const rawCdxSec = creds?.coindcxSecret || (isAdmin ? (process.env.ADMIN_COINDCX_SECRET || "") : "");
+  const cdxSec = rawCdxSec && rawCdxSec.startsWith("enc:v1:") ? decryptVaultSecret(rawCdxSec) : rawCdxSec;
+
+  if (!isAdmin) {
+    const corrUpper = (corridor || "").toUpperCase();
+    const needsBinance = corrUpper.includes("BINANCE");
+    const needsBybit = corrUpper.includes("BYBIT");
+    const needsBitget = corrUpper.includes("BITGET");
+    const needsCoinDcx = corrUpper.includes("COINDCX");
+
+    if (needsBinance && (!bnKey || !bnSec)) {
+      throw new MissingCredentialsError("Binance", userId || "unknown");
+    }
+    if (needsBybit && (!bybitKey || !bybitSec)) {
+      throw new MissingCredentialsError("Bybit", userId || "unknown");
+    }
+    if (needsBitget && (!bgKey || !bgSec || !bgPass)) {
+      throw new MissingCredentialsError("Bitget", userId || "unknown");
+    }
+    if (needsCoinDcx && (!cdxKey || !cdxSec)) {
+      throw new MissingCredentialsError("CoinDCX", userId || "unknown");
+    }
+  }
+
+  return {
+    isAdmin,
+    binanceKey: bnKey,
+    binanceSecret: bnSec,
+    binanceEndpoint: bnEndpoint,
+    bybitKey,
+    bybitSecret: bybitSec,
+    bybitProxy: creds?.bybitProxy,
+    bybitBaseUrl: creds?.bybitBaseUrl,
+    bybitBackupProxy: creds?.bybitBackupProxy,
+    bybitBackupBaseUrl: creds?.bybitBackupBaseUrl,
+    bitgetKey: bgKey,
+    bitgetSecret: bgSec,
+    bitgetPassphrase: bgPass,
+    bitgetEnv: bgEnv,
+    coindcxKey: cdxKey,
+    coindcxSecret: cdxSec,
+  };
+}
 
 export const DEFAULT_CONFIG: BotConfig = {
   enabled: true,
@@ -325,6 +453,11 @@ export const DEFAULT_CONFIG: BotConfig = {
   scanIntervalSeconds: 5,
   timingMode: "FUNDING_SNIPER_5M",
   executionCorridor: "COINDCX_BYBIT",
+  normalCoinLeverage: 20,
+  volatileCoinLeverage: 10,
+  minNetHedgeTargetPct: 0.30,
+  minExitProfitUsdt: 0.01,
+  fastExitIntervalMs: 250,
   enableFlattenMemoryLock: true,
   allowAsymmetricFunding: true,
   intervalMode: "ALL_ASYMMETRIC",
@@ -370,6 +503,11 @@ export function serializeConfigToSetText(config: BotConfig, name: string): strin
     `TimingMode=${config.timingMode || "FUNDING_SNIPER_5M"}`,
     `SniperWindowMinutes=${config.sniperWindowMinutes ?? (config.timingMode === "FUNDING_SNIPER_1M" ? 1 : 5)}`,
     `ExecutionCorridor=${config.executionCorridor || "COINDCX_BYBIT"}`,
+    `NormalCoinLeverage=${config.normalCoinLeverage ?? 20}`,
+    `VolatileCoinLeverage=${config.volatileCoinLeverage ?? 10}`,
+    `MinNetHedgeTargetPct=${config.minNetHedgeTargetPct ?? 0.30}`,
+    `MinExitProfitUsdt=${config.minExitProfitUsdt ?? 0.01}`,
+    `FastExitIntervalMs=${config.fastExitIntervalMs ?? 250}`,
     `EnableFlattenMemoryLock=${config.enableFlattenMemoryLock !== false}`,
     `AllowAsymmetricFunding=${effectiveMode !== "STRICT_SYNC_ONLY"}`,
     `IntervalMode=${effectiveMode}`,
@@ -537,6 +675,34 @@ export function parseSetTextToConfig(text: string, baseConfig?: BotConfig): BotC
           cfg.intervalMode = "ALL_ASYMMETRIC";
           cfg.allowAsymmetricFunding = true;
         }
+        break;
+      }
+      case "normalcoinleverage": {
+        const parsed = parseInt(val, 10);
+        if (!isNaN(parsed) && parsed > 0) cfg.normalCoinLeverage = parsed;
+        break;
+      }
+      case "volatilecoinleverage": {
+        const parsed = parseInt(val, 10);
+        if (!isNaN(parsed) && parsed > 0) cfg.volatileCoinLeverage = parsed;
+        break;
+      }
+      case "minnethedgetargetpct":
+      case "minnettargetpct": {
+        const parsed = parseFloat(val);
+        if (!isNaN(parsed) && parsed >= 0) cfg.minNetHedgeTargetPct = parsed;
+        break;
+      }
+      case "minexitprofitusdt":
+      case "minexitprofit": {
+        const parsed = parseFloat(val);
+        if (!isNaN(parsed) && parsed >= 0) cfg.minExitProfitUsdt = parsed;
+        break;
+      }
+      case "fastexitintervalms":
+      case "fastexitinterval": {
+        const parsed = parseInt(val, 10);
+        if (!isNaN(parsed) && parsed >= 50) cfg.fastExitIntervalMs = parsed;
         break;
       }
       case "allowedintervalpairs": {
@@ -836,6 +1002,9 @@ const globalForBot = global as unknown as {
   botInterval?: NodeJS.Timeout | null;
   keepAliveInterval?: NodeJS.Timeout | null;
   botIsExecutingCycle?: boolean;
+  fastExitInterval?: NodeJS.Timeout | null;
+  fastExitIsExecuting?: boolean;
+  cachedOpportunities?: any[];
 };
 
 if (!globalForBot.tenantStates) {
@@ -1861,11 +2030,15 @@ export interface CorridorBalances {
 }
 
 /**
- * Fetch available margin across Binance, Bitget, CoinDCX, and Bybit using tenant credentials
+ * Fetch available margin across Binance, Bitget, CoinDCX, and Bybit using tenant credentials.
+ * For non-admin accounts (!isTenantAdmin(userId)), valid exchange API credentials are required
+ * and execution fails closed without falling back to administrator exchange keys or balances.
  */
-export async function fetchAvailableBalances(creds?: UserApiKeys): Promise<CorridorBalances> {
-  let binanceBal = 1000;
-  let bitgetBal = 1000;
+export async function fetchAvailableBalances(creds?: UserApiKeys, userId?: string): Promise<CorridorBalances> {
+  const isAdmin = isTenantAdmin(userId);
+
+  let binanceBal = isAdmin ? 1000 : 0;
+  let bitgetBal = isAdmin ? 1000 : 0;
   let coindcxBal = 0;
   let bybitBal = 0;
   let coindcxEquity = 0;
@@ -1873,53 +2046,58 @@ export async function fetchAvailableBalances(creds?: UserApiKeys): Promise<Corri
   let coindcxLockedMargin = 0;
   let bybitLockedMargin = 0;
 
-  const bnKey = creds?.binanceKey || ADMIN_BINANCE_KEY;
-  const rawBnSec = creds?.binanceSecret || ADMIN_BINANCE_SECRET;
+  const bnKey = creds?.binanceKey || (isAdmin ? ADMIN_BINANCE_KEY : "");
+  const rawBnSec = creds?.binanceSecret || (isAdmin ? ADMIN_BINANCE_SECRET : "");
   const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
-  const bnEndpoint = creds?.binanceEndpoint || ADMIN_BINANCE_ENDPOINT;
+  const bnEndpoint = creds?.binanceEndpoint || (isAdmin ? ADMIN_BINANCE_ENDPOINT : "https://fapi.binance.com");
 
-  const rawBgSec = creds?.bitgetSecret || SYSTEM_DEFAULT_BITGET_SECRET;
-  const rawBgPass = creds?.bitgetPassphrase || SYSTEM_DEFAULT_BITGET_PASSPHRASE;
+  const rawBgSec = creds?.bitgetSecret || (isAdmin ? SYSTEM_DEFAULT_BITGET_SECRET : "");
+  const rawBgPass = creds?.bitgetPassphrase || (isAdmin ? SYSTEM_DEFAULT_BITGET_PASSPHRASE : "");
+  const bgKey = creds?.bitgetKey || (isAdmin ? SYSTEM_DEFAULT_BITGET_KEY : "");
   const bgCreds: BitgetCredentials = {
-    apiKey: creds?.bitgetKey || SYSTEM_DEFAULT_BITGET_KEY,
+    apiKey: bgKey,
     apiSecret: rawBgSec && rawBgSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBgSec) : rawBgSec,
     passphrase: rawBgPass && rawBgPass.startsWith("enc:v1:") ? decryptVaultSecret(rawBgPass) : rawBgPass,
     isDemo: creds?.bitgetEnv !== "live",
   };
 
-  try {
-    const { data: bnAcc } = await signAndFetchBinance(
-      bnKey,
-      bnSec,
-      "GET",
-      "/fapi/v2/account",
-      {},
-      true,
-      bnEndpoint
-    );
-    const avail = parseFloat(bnAcc?.availableBalance || "0");
-    if (avail > 0) binanceBal = avail;
-  } catch {}
+  if (bnKey && bnSec) {
+    try {
+      const { data: bnAcc } = await signAndFetchBinance(
+        bnKey,
+        bnSec,
+        "GET",
+        "/fapi/v2/account",
+        {},
+        true,
+        bnEndpoint
+      );
+      const avail = parseFloat(bnAcc?.availableBalance || "0");
+      if (avail > 0) binanceBal = avail;
+    } catch {}
+  }
 
-  try {
-    const path = "/api/v3/account/assets?category=USDT-FUTURES";
-    const res = await fetch(`https://api.bitget.com${path}`, {
-      headers: {
-        papertrading: bgCreds.isDemo ? "1" : "0",
-        paptrading: bgCreds.isDemo ? "1" : "0",
-      },
-      cache: "no-store",
-    });
-    if (res.ok) {
-      const data = await res.json();
-      const usdt = (data?.data?.assets || []).find((a: any) => a.coin === "USDT" || a.currency === "USDT");
-      const avail = parseFloat(usdt?.available || usdt?.equity || "0");
-      if (avail > 0) bitgetBal = avail;
-    }
-  } catch {}
+  if (bgKey && bgCreds.apiSecret && bgCreds.passphrase) {
+    try {
+      const path = "/api/v3/account/assets?category=USDT-FUTURES";
+      const res = await fetch(`https://api.bitget.com${path}`, {
+        headers: {
+          papertrading: bgCreds.isDemo ? "1" : "0",
+          paptrading: bgCreds.isDemo ? "1" : "0",
+        },
+        cache: "no-store",
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const usdt = (data?.data?.assets || []).find((a: any) => a.coin === "USDT" || a.currency === "USDT");
+        const avail = parseFloat(usdt?.available || usdt?.equity || "0");
+        if (avail > 0) bitgetBal = avail;
+      }
+    } catch {}
+  }
 
-  const bybitKey = creds?.bybitKey || ADMIN_BYBIT_KEY;
-  const rawBybitSec = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
+  const bybitKey = creds?.bybitKey || (isAdmin ? ADMIN_BYBIT_KEY : "");
+  const rawBybitSec = creds?.bybitSecret || (isAdmin ? ADMIN_BYBIT_SECRET : "");
   const bybitSec = rawBybitSec && rawBybitSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybitSec) : rawBybitSec;
 
   if (bybitKey && bybitSec) {
@@ -2985,13 +3163,32 @@ export async function executeDualHedgeEntry(
     venueBName = "Bybit";
   }
 
-  // Concurrency Gate: Prevent duplicate in-flight entries on same symbol/corridor across fleet
-  const corridorKey = `${corridor}_${symbol}`.toUpperCase();
-  const symKey = symbol.toUpperCase();
+  // Verify tenant credentials for the specified corridor
+  let verifiedCreds: VerifiedCredentials;
+  try {
+    verifiedCreds = getVerifiedCredentialsForTenant(userId, creds, corridor);
+  } catch (credErr: any) {
+    appendBotLog(
+      state,
+      `[CREDENTIAL_ISOLATION_ERROR] Bot "${botName}": Missing exchange credentials for corridor ${corridor} (User: ${userId || "unknown"}): ${credErr.message}`,
+      "error",
+      userId,
+      botId
+    );
+    return {
+      success: false,
+      error: credErr.code || "MISSING_EXCHANGE_CREDENTIALS",
+    };
+  }
+
+  // Concurrency Gate: Prevent duplicate in-flight entries on same symbol/corridor across fleet for this tenant
+  const prefix = `${userId || "global"}_`;
+  const corridorKey = `${prefix}${corridor}_${symbol}`.toUpperCase();
+  const symKey = `${prefix}${symbol}`.toUpperCase();
   if (inFlightEntryLocks.has(corridorKey) || inFlightEntryLocks.has(symKey)) {
     appendBotLog(
       state,
-      `[CONCURRENCY LOCK] Bot "${botName}": Entry on ${symbol} (${corridor}) blocked — in-flight entry order currently processing.`,
+      `[CONCURRENCY LOCK] Bot "${botName}": Entry on ${symbol} (${corridor}) blocked — in-flight entry order currently processing for this tenant.`,
       "warn",
       userId,
       botId
@@ -3002,13 +3199,13 @@ export async function executeDualHedgeEntry(
     };
   }
 
-  // Phase 4: Centralized Fleet Dispatcher Mutex Lock (Track SPEC-04)
+  // Centralized Fleet Dispatcher Mutex Lock
   try {
     const { globalFleetDispatcher } = await import("./fleetDispatcher");
-    if (!globalFleetDispatcher.acquireFleetLock(symbol, corridor, botId || botName)) {
+    if (!globalFleetDispatcher.acquireFleetLock(symbol, corridor, botId || botName, userId)) {
       appendBotLog(
         state,
-        `[FLEET LOCK ACTIVE] Bot "${botName}": Symbol ${symbol} is locked by another fleet bot. Skipping.`,
+        `[FLEET LOCK ACTIVE] Bot "${botName}": Symbol ${symbol} is locked by another fleet instance for this tenant. Skipping.`,
         "warn",
         userId,
         botId
@@ -3031,13 +3228,17 @@ export async function executeDualHedgeEntry(
   const maxLevA = venueAName === "CoinDCX" ? coinLevs.coindcx : venueAName === "Bitget" ? coinLevs.bitget : coinLevs.binance;
   const maxLevB = venueBName === "Bybit" ? coinLevs.bybit : venueBName === "CoinDCX" ? coinLevs.coindcx : coinLevs.bitget;
 
-  // Phase 4: Dynamic Volatility-Adjusted Leverage (Track SPEC-05)
+  // Dynamic Volatility-Adjusted Leverage with user-configurable normal and volatile coin targets
   let dynLevA = maxLevA;
   let dynLevB = maxLevB;
   try {
     const { calculateDynamicLeverage } = await import("./leverageManager");
-    dynLevA = calculateDynamicLeverage(symbol, venueAName, coin.atr1hPct, 24, maxLevA);
-    dynLevB = calculateDynamicLeverage(symbol, venueBName, coin.atr1hPct, 24, maxLevB);
+    const leverageOpts = {
+      normalCoinLeverage: config.normalCoinLeverage ?? 20,
+      volatileCoinLeverage: config.volatileCoinLeverage ?? 10,
+    };
+    dynLevA = calculateDynamicLeverage(symbol, venueAName, coin.atr1hPct, 24, maxLevA, leverageOpts);
+    dynLevB = calculateDynamicLeverage(symbol, venueBName, coin.atr1hPct, 24, maxLevB, leverageOpts);
   } catch {}
 
   // Auto-minimize margin as per available margin: use dynamic leverage unless user configured CUSTOM leverage
@@ -3346,11 +3547,10 @@ export async function executeDualHedgeEntry(
   }
 
   // UPGRADE 2 / PILLAR 2: PRE-FLIGHT VENUE B SOLVENCY & LIQUIDITY GUARANTEE
-  const rawBybitSec = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
-  const cleanBybitSec = rawBybitSec && rawBybitSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybitSec) : rawBybitSec;
+  const cleanBybitSec = verifiedCreds.bybitSecret;
   const requiredMarginUsdt = totalNotional / Math.max(1, bitgetLeverage);
   const bybitCredsForCheck = isBybit ? {
-    apiKey: creds?.bybitKey || ADMIN_BYBIT_KEY,
+    apiKey: verifiedCreds.bybitKey,
     apiSecret: cleanBybitSec,
     proxyUrl: creds?.bybitProxy,
     baseUrl: creds?.bybitBaseUrl,
@@ -3379,17 +3579,14 @@ export async function executeDualHedgeEntry(
     };
   }
 
-  const bnKey = creds?.binanceKey || ADMIN_BINANCE_KEY;
-  const rawBnSec = creds?.binanceSecret || ADMIN_BINANCE_SECRET;
-  const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
-  const bnEndpoint = creds?.binanceEndpoint || ADMIN_BINANCE_ENDPOINT;
+  const bnKey = verifiedCreds.binanceKey;
+  const bnSec = verifiedCreds.binanceSecret;
+  const bnEndpoint = verifiedCreds.binanceEndpoint;
 
-  const rawBgSec = creds?.bitgetSecret || SYSTEM_DEFAULT_BITGET_SECRET;
-  const rawBgPass = creds?.bitgetPassphrase || SYSTEM_DEFAULT_BITGET_PASSPHRASE;
   const bgCreds: BitgetCredentials = {
-    apiKey: creds?.bitgetKey || SYSTEM_DEFAULT_BITGET_KEY,
-    apiSecret: rawBgSec && rawBgSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBgSec) : rawBgSec,
-    passphrase: rawBgPass && rawBgPass.startsWith("enc:v1:") ? decryptVaultSecret(rawBgPass) : rawBgPass,
+    apiKey: verifiedCreds.bitgetKey,
+    apiSecret: verifiedCreds.bitgetSecret,
+    passphrase: verifiedCreds.bitgetPassphrase,
     isDemo: creds?.bitgetEnv !== "live",
   };
 
@@ -3652,10 +3849,9 @@ export async function executeDualHedgeEntry(
       // Immediate post-fill dispatch: eliminated redundant 60ms delay to slash execution drift
       leg2DispatchedAt = Date.now();
       const { placeBybitOrder } = await import("./bybitSigner");
-      const rawBybitSec = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
       const bybitCreds = {
-        apiKey: creds?.bybitKey || ADMIN_BYBIT_KEY,
-        apiSecret: rawBybitSec && rawBybitSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybitSec) : rawBybitSec,
+        apiKey: verifiedCreds.bybitKey,
+        apiSecret: verifiedCreds.bybitSecret,
         proxyUrl: creds?.bybitProxy,
         baseUrl: creds?.bybitBaseUrl,
         backupProxyUrl: creds?.bybitBackupProxy,
@@ -4064,7 +4260,7 @@ export async function executeDualHedgeEntry(
   } finally {
     try {
       const { globalFleetDispatcher } = await import("./fleetDispatcher");
-      globalFleetDispatcher.releaseFleetLock(symbol, corridor, botId || botName);
+      globalFleetDispatcher.releaseFleetLock(symbol, corridor, botId || botName, userId);
     } catch {}
     inFlightEntryLocks.delete(corridorKey);
     inFlightEntryLocks.delete(symKey);
@@ -4148,10 +4344,23 @@ export async function remediateOrphanLeg(
     const exactQty = Math.abs(pos.amount || hedge.effectiveQty);
     const formattedQty = exactQty.toString();
 
+    const isAdmin = isTenantAdmin(userId);
+
     if (orphanVenue === "Bybit") {
-      const { placeBybitOrder } = await import("./bybitSigner");
-      const rawSecret = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
+      const bybitKey = creds?.bybitKey || (isAdmin ? ADMIN_BYBIT_KEY : "");
+      const rawSecret = creds?.bybitSecret || (isAdmin ? ADMIN_BYBIT_SECRET : "");
+      if (!isAdmin && (!bybitKey || !rawSecret)) {
+        appendBotLog(
+          state,
+          `[CREDENTIAL_ISOLATION_ERROR] Non-admin tenant ${userId || "unknown"} is missing required Bybit credentials for orphan remediation.`,
+          "error",
+          userId,
+          botId
+        );
+        return { success: false, error: "MISSING_EXCHANGE_CREDENTIALS" };
+      }
       const cleanSecret = rawSecret.startsWith("enc:v1:") ? decryptVaultSecret(rawSecret) : rawSecret;
+      const { placeBybitOrder } = await import("./bybitSigner");
 
       const routes = [
         { proxyUrl: creds?.bybitProxy, baseUrl: creds?.bybitBaseUrl },
@@ -4162,7 +4371,7 @@ export async function remediateOrphanLeg(
       for (const route of routes) {
         const bybitRes = await placeBybitOrder(
           {
-            apiKey: creds?.bybitKey || ADMIN_BYBIT_KEY,
+            apiKey: bybitKey,
             apiSecret: cleanSecret,
             proxyUrl: route.proxyUrl,
             baseUrl: route.baseUrl,
@@ -4222,10 +4431,20 @@ export async function remediateOrphanLeg(
         }
       }
     } else if (orphanVenue === "Binance") {
-      const bnKey = creds?.binanceKey || ADMIN_BINANCE_KEY;
-      const rawBnSec = creds?.binanceSecret || ADMIN_BINANCE_SECRET;
+      const bnKey = creds?.binanceKey || (isAdmin ? ADMIN_BINANCE_KEY : "");
+      const rawBnSec = creds?.binanceSecret || (isAdmin ? ADMIN_BINANCE_SECRET : "");
+      if (!isAdmin && (!bnKey || !rawBnSec)) {
+        appendBotLog(
+          state,
+          `[CREDENTIAL_ISOLATION_ERROR] Non-admin tenant ${userId || "unknown"} is missing required Binance credentials for orphan remediation.`,
+          "error",
+          userId,
+          botId
+        );
+        return { success: false, error: "MISSING_EXCHANGE_CREDENTIALS" };
+      }
       const bnSec = rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
-      const bnEndpoint = creds?.binanceEndpoint || ADMIN_BINANCE_ENDPOINT;
+      const bnEndpoint = creds?.binanceEndpoint || (isAdmin ? ADMIN_BINANCE_ENDPOINT : "https://fapi.binance.com");
 
       const bnRes = await placeBinanceOrder(
         { apiKey: bnKey, apiSecret: bnSec, endpoint: bnEndpoint },
@@ -4334,12 +4553,17 @@ export async function executeSyntheticDeltaLock(
     botId
   );
 
+  const isAdmin = isTenantAdmin(userId);
+
   try {
     if (healthyVenue === "Binance") {
-      const bnKey = creds?.binanceKey || ADMIN_BINANCE_KEY;
-      const rawBnSec = creds?.binanceSecret || ADMIN_BINANCE_SECRET;
+      const bnKey = creds?.binanceKey || (isAdmin ? ADMIN_BINANCE_KEY : "");
+      const rawBnSec = creds?.binanceSecret || (isAdmin ? ADMIN_BINANCE_SECRET : "");
+      if (!isAdmin && (!bnKey || !rawBnSec)) {
+        throw new MissingCredentialsError("Binance", userId || "unknown");
+      }
       const bnSec = rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
-      const bnEndpoint = creds?.binanceEndpoint || ADMIN_BINANCE_ENDPOINT;
+      const bnEndpoint = creds?.binanceEndpoint || (isAdmin ? ADMIN_BINANCE_ENDPOINT : "https://fapi.binance.com");
 
       // Note: reduceOnly=false because we are opening an offsetting position using released margin
       const bnRes = await placeBinanceOrder(
@@ -4375,12 +4599,16 @@ export async function executeSyntheticDeltaLock(
       }
     } else if (healthyVenue === "Bybit") {
       const { placeBybitOrder } = await import("./bybitSigner");
-      const rawSecret = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
+      const bybitKey = creds?.bybitKey || (isAdmin ? ADMIN_BYBIT_KEY : "");
+      const rawSecret = creds?.bybitSecret || (isAdmin ? ADMIN_BYBIT_SECRET : "");
+      if (!isAdmin && (!bybitKey || !rawSecret)) {
+        throw new MissingCredentialsError("Bybit", userId || "unknown");
+      }
       const cleanSecret = rawSecret.startsWith("enc:v1:") ? decryptVaultSecret(rawSecret) : rawSecret;
 
       const bybitRes = await placeBybitOrder(
         {
-          apiKey: creds?.bybitKey || ADMIN_BYBIT_KEY,
+          apiKey: bybitKey,
           apiSecret: cleanSecret,
           proxyUrl: creds?.bybitProxy,
           baseUrl: creds?.bybitBaseUrl,
@@ -4478,18 +4706,31 @@ export async function reconcileSyntheticLock(
     const syntheticCloseSide: "BUY" | "SELL" = hedge.syntheticSide === "BUY" ? "SELL" : "BUY";
     const formattedQty = hedge.quantity;
 
+    const isAdmin = isTenantAdmin(userId);
+
     // Step A: Close surviving leg on failedVenue
     let failedVenueClosed = false;
     let failedClosePrice = 0;
 
     if (failedVenue === "Bybit") {
-      const { placeBybitOrder } = await import("./bybitSigner");
-      const rawSecret = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
+      const bybitKey = creds?.bybitKey || (isAdmin ? ADMIN_BYBIT_KEY : "");
+      const rawSecret = creds?.bybitSecret || (isAdmin ? ADMIN_BYBIT_SECRET : "");
+      if (!isAdmin && (!bybitKey || !rawSecret)) {
+        appendBotLog(
+          state,
+          `[CREDENTIAL_ISOLATION_ERROR] Non-admin tenant ${userId || "unknown"} missing Bybit credentials for synthetic reconcile`,
+          "error",
+          userId,
+          botId
+        );
+        return { success: false, error: "MISSING_EXCHANGE_CREDENTIALS" };
+      }
       const cleanSecret = rawSecret.startsWith("enc:v1:") ? decryptVaultSecret(rawSecret) : rawSecret;
+      const { placeBybitOrder } = await import("./bybitSigner");
 
       const res = await placeBybitOrder(
         {
-          apiKey: creds?.bybitKey || ADMIN_BYBIT_KEY,
+          apiKey: bybitKey,
           apiSecret: cleanSecret,
           proxyUrl: creds?.bybitProxy,
           baseUrl: creds?.bybitBaseUrl,
@@ -4508,11 +4749,21 @@ export async function reconcileSyntheticLock(
         failedClosePrice = res.avgPrice || 0;
       }
     } else if (failedVenue === "Binance") {
-      const bnKey = creds?.binanceKey || ADMIN_BINANCE_KEY;
-      const rawBnSec = creds?.binanceSecret || ADMIN_BINANCE_SECRET;
+      const bnKey = creds?.binanceKey || (isAdmin ? ADMIN_BINANCE_KEY : "");
+      const rawBnSec = creds?.binanceSecret || (isAdmin ? ADMIN_BINANCE_SECRET : "");
+      if (!isAdmin && (!bnKey || !rawBnSec)) {
+        appendBotLog(
+          state,
+          `[CREDENTIAL_ISOLATION_ERROR] Non-admin tenant ${userId || "unknown"} missing Binance credentials for synthetic reconcile`,
+          "error",
+          userId,
+          botId
+        );
+        return { success: false, error: "MISSING_EXCHANGE_CREDENTIALS" };
+      }
       const bnSec = rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
       const bnRes = await placeBinanceOrder(
-        { apiKey: bnKey, apiSecret: bnSec, endpoint: creds?.binanceEndpoint || ADMIN_BINANCE_ENDPOINT },
+        { apiKey: bnKey, apiSecret: bnSec, endpoint: creds?.binanceEndpoint || (isAdmin ? ADMIN_BINANCE_ENDPOINT : "https://fapi.binance.com") },
         { symbol: hedge.symbol, side: failedCloseSide as any, type: "MARKET", quantity: formattedQty, reduceOnly: "true" }
       );
       if (bnRes.success) {
@@ -4526,11 +4777,21 @@ export async function reconcileSyntheticLock(
     let healthyClosePrice = 0;
 
     if (healthyVenue === "Binance") {
-      const bnKey = creds?.binanceKey || ADMIN_BINANCE_KEY;
-      const rawBnSec = creds?.binanceSecret || ADMIN_BINANCE_SECRET;
+      const bnKey = creds?.binanceKey || (isAdmin ? ADMIN_BINANCE_KEY : "");
+      const rawBnSec = creds?.binanceSecret || (isAdmin ? ADMIN_BINANCE_SECRET : "");
+      if (!isAdmin && (!bnKey || !rawBnSec)) {
+        appendBotLog(
+          state,
+          `[CREDENTIAL_ISOLATION_ERROR] Non-admin tenant ${userId || "unknown"} missing Binance credentials for synthetic reconcile`,
+          "error",
+          userId,
+          botId
+        );
+        return { success: false, error: "MISSING_EXCHANGE_CREDENTIALS" };
+      }
       const bnSec = rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
       const bnRes = await placeBinanceOrder(
-        { apiKey: bnKey, apiSecret: bnSec, endpoint: creds?.binanceEndpoint || ADMIN_BINANCE_ENDPOINT },
+        { apiKey: bnKey, apiSecret: bnSec, endpoint: creds?.binanceEndpoint || (isAdmin ? ADMIN_BINANCE_ENDPOINT : "https://fapi.binance.com") },
         { symbol: hedge.symbol, side: syntheticCloseSide, type: "MARKET", quantity: formattedQty, reduceOnly: "true" }
       );
       if (bnRes.success) {
@@ -4538,11 +4799,22 @@ export async function reconcileSyntheticLock(
         healthyClosePrice = bnRes.avgPrice || 0;
       }
     } else if (healthyVenue === "Bybit") {
-      const { placeBybitOrder } = await import("./bybitSigner");
-      const rawSecret = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
+      const bybitKey = creds?.bybitKey || (isAdmin ? ADMIN_BYBIT_KEY : "");
+      const rawSecret = creds?.bybitSecret || (isAdmin ? ADMIN_BYBIT_SECRET : "");
+      if (!isAdmin && (!bybitKey || !rawSecret)) {
+        appendBotLog(
+          state,
+          `[CREDENTIAL_ISOLATION_ERROR] Non-admin tenant ${userId || "unknown"} missing Bybit credentials for synthetic reconcile`,
+          "error",
+          userId,
+          botId
+        );
+        return { success: false, error: "MISSING_EXCHANGE_CREDENTIALS" };
+      }
       const cleanSecret = rawSecret.startsWith("enc:v1:") ? decryptVaultSecret(rawSecret) : rawSecret;
+      const { placeBybitOrder } = await import("./bybitSigner");
       const res = await placeBybitOrder(
-        { apiKey: creds?.bybitKey || ADMIN_BYBIT_KEY, apiSecret: cleanSecret, proxyUrl: creds?.bybitProxy, baseUrl: creds?.bybitBaseUrl },
+        { apiKey: bybitKey, apiSecret: cleanSecret, proxyUrl: creds?.bybitProxy, baseUrl: creds?.bybitBaseUrl },
         { symbol: hedge.symbol, side: syntheticCloseSide === "BUY" ? "Buy" : "Sell", qty: formattedQty, orderType: "Market", reduceOnly: true, positionIdx: 0 }
       );
       if (res.success || res.error?.includes("position is zero")) {
@@ -4658,15 +4930,17 @@ export async function executeDualHedgeClose(
     }
   }
 
-  const bnKey = creds?.binanceKey || ADMIN_BINANCE_KEY;
-  const rawBnSec = creds?.binanceSecret || ADMIN_BINANCE_SECRET;
-  const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
-  const bnEndpoint = creds?.binanceEndpoint || ADMIN_BINANCE_ENDPOINT;
+  const isAdmin = isTenantAdmin(userId);
 
-  const rawBgSec = creds?.bitgetSecret || SYSTEM_DEFAULT_BITGET_SECRET;
-  const rawBgPass = creds?.bitgetPassphrase || SYSTEM_DEFAULT_BITGET_PASSPHRASE;
+  const bnKey = creds?.binanceKey || (isAdmin ? ADMIN_BINANCE_KEY : "");
+  const rawBnSec = creds?.binanceSecret || (isAdmin ? ADMIN_BINANCE_SECRET : "");
+  const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
+  const bnEndpoint = creds?.binanceEndpoint || (isAdmin ? ADMIN_BINANCE_ENDPOINT : "https://fapi.binance.com");
+
+  const rawBgSec = creds?.bitgetSecret || (isAdmin ? SYSTEM_DEFAULT_BITGET_SECRET : "");
+  const rawBgPass = creds?.bitgetPassphrase || (isAdmin ? SYSTEM_DEFAULT_BITGET_PASSPHRASE : "");
   const bgCreds: BitgetCredentials = {
-    apiKey: creds?.bitgetKey || SYSTEM_DEFAULT_BITGET_KEY,
+    apiKey: creds?.bitgetKey || (isAdmin ? SYSTEM_DEFAULT_BITGET_KEY : ""),
     apiSecret: rawBgSec && rawBgSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBgSec) : rawBgSec,
     passphrase: rawBgPass && rawBgPass.startsWith("enc:v1:") ? decryptVaultSecret(rawBgPass) : rawBgPass,
     isDemo: creds?.bitgetEnv !== "live",
@@ -4784,9 +5058,9 @@ export async function executeDualHedgeClose(
         closeLeg2DispatchedAt = Date.now();
         const t0 = performance.now();
         const { placeBybitOrder } = await import("./bybitSigner");
-        const rawBybitSec = creds?.bybitSecret || ADMIN_BYBIT_SECRET;
+        const rawBybitSec = creds?.bybitSecret || (isAdmin ? ADMIN_BYBIT_SECRET : "");
         const bybitCreds = {
-          apiKey: creds?.bybitKey || ADMIN_BYBIT_KEY,
+          apiKey: creds?.bybitKey || (isAdmin ? ADMIN_BYBIT_KEY : ""),
           apiSecret: rawBybitSec && rawBybitSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybitSec) : rawBybitSec,
           proxyUrl: creds?.bybitProxy,
           baseUrl: creds?.bybitBaseUrl,
@@ -5109,6 +5383,638 @@ export async function executeDualHedgeClose(
 }
 
 /**
+ * Sub-Second In-Flight Exit Monitor & Settlement Processor for a single bot's active hedges.
+ * Evaluates in-flight hedges against Zero-Loss Dynamic Exit Gate, Tiered ROI Take-Profit,
+ * and funding settlement convergence.
+ */
+export async function evaluateAndProcessActiveHedges(
+  bot: BotInstance,
+  state: BotEngineState,
+  user: UserAccount,
+  creds: any,
+  now: number,
+  opportunities: any[] = []
+): Promise<{ closedCount: number; survivingHedges: ActiveBotHedge[] }> {
+  const config = bot.config;
+  const survivingHedges: ActiveBotHedge[] = [];
+  let closedCount = 0;
+
+  for (const hedge of bot.activeHedges) {
+    // CLEANUP GUARD: If both legs are already closed, ensure moved to completedHedges and do not survive
+    if (hedge.status === "CLOSED" || (hedge.leg1Closed && hedge.leg2Closed)) {
+      hedge.status = "CLOSED";
+      if (!bot.completedHedges.some((h) => h.id === hedge.id)) {
+        bot.completedHedges.unshift(hedge);
+        if (bot.completedHedges.length > 50) bot.completedHedges = bot.completedHedges.slice(0, 50);
+      }
+      closedCount++;
+      continue;
+    }
+
+    // CONCURRENCY GUARD: If already closing in another routine, retain in survivingHedges and skip
+    if (hedge.status === "CLOSING") {
+      survivingHedges.push(hedge);
+      continue;
+    }
+
+    // STRICT DELTA-NEUTRAL FREEZE AUTO-RECOVERY:
+    if (hedge.status === "FROZEN_PROXY_DOWN") {
+      const isBybit = hedge.venueB === "Bybit" || hedge.direction.includes("BYBIT");
+      if (isBybit) {
+        const recoveryCheck = await verifyProxyPreFlight({
+          proxyUrl: creds?.bybitProxy,
+          baseUrl: creds?.bybitBaseUrl,
+          backupProxyUrl: creds?.bybitBackupProxy,
+          backupBaseUrl: creds?.bybitBackupBaseUrl,
+        });
+
+        if (!recoveryCheck.allowed) {
+          survivingHedges.push(hedge);
+          if (state.cyclesCompleted % 4 === 0) {
+            appendBotLog(
+              state,
+              `[STRICT DELTA-NEUTRAL FREEZE ACTIVE] Bot "${bot.name}": ${hedge.symbol} remains safely frozen delta-neutral until Bybit proxy recovers. Cockpit audio chime active.`,
+              "warn",
+              user.id
+            );
+          }
+          continue;
+        }
+
+        appendBotLog(
+          state,
+          `[PROXY RECOVERED] Bot "${bot.name}": Bybit proxy restored (${recoveryCheck.activeEndpointId} route @ ${recoveryCheck.latencyMs}ms). Unfreezing ${hedge.symbol} and resuming dual synchronized close!`,
+          "success",
+          user.id
+        );
+        hedge.status = "CLOSING";
+      }
+    }
+
+    // PRIORITIZE SYNTHETIC RECONCILIATION: If hedge is in SYNTHETIC_DELTA_LOCKED, probe & de-escalate!
+    if (hedge.status === "SYNTHETIC_DELTA_LOCKED") {
+      const reconRes = await reconcileSyntheticLock(hedge, bot.name, state, creds, user.id, bot.id);
+      if (reconRes.closed) {
+        bot.completedHedges.unshift(hedge);
+        if (bot.completedHedges.length > 50) {
+          bot.completedHedges = bot.completedHedges.slice(0, 50);
+        }
+        quarantineBotSymbol(bot, hedge.symbol, 3600, "Synthetic delta de-escalation close", state, user.id);
+        closedCount++;
+      } else {
+        survivingHedges.push(hedge);
+      }
+      continue;
+    }
+
+    // PRIORITIZE ORPHAN RECOVERY: If hedge is in ORPHAN_RECOVERY, auto-heal immediately!
+    if (hedge.status === "ORPHAN_RECOVERY") {
+      const healRes = await remediateOrphanLeg(hedge, bot.name, state, creds, user.id, bot.id);
+      if (healRes.success) {
+        hedge.status = "CLOSED";
+        hedge.closeTime = Date.now();
+        bot.completedHedges.unshift(hedge);
+        if (bot.completedHedges.length > 50) {
+          bot.completedHedges = bot.completedHedges.slice(0, 50);
+        }
+        quarantineBotSymbol(bot, hedge.symbol, 3600, "Orphan remediation close", state, user.id);
+        closedCount++;
+      } else {
+        survivingHedges.push(hedge);
+      }
+      continue;
+    }
+
+    // R1 & R2 ACTIVE POSITION SAFEGUARDS:
+    const vA = hedge.venueA || (hedge.direction.includes("BINANCE") ? "Binance" : (hedge.direction.includes("COINDCX") ? "CoinDCX" : "Binance"));
+    const vB = hedge.venueB || (hedge.direction.includes("BYBIT") ? "Bybit" : (hedge.direction.includes("BITGET") ? "Bitget" : "Bybit"));
+    const liveFundingMeta = getCachedFundingMeta(hedge.symbol);
+    const intervalMode: FundingIntervalMode = config.intervalMode || (config.allowAsymmetricFunding === false ? "STRICT_SYNC_ONLY" : "ALL_ASYMMETRIC");
+    const allowAsym = hedge.isAsymmetric || intervalMode !== "STRICT_SYNC_ONLY";
+    const liveSyncCheck = checkFundingSynchronization(vA, vB, liveFundingMeta, now, {
+      allowAsymmetric: true,
+      intervalMode: hedge.isAsymmetric ? "ALL_ASYMMETRIC" : intervalMode,
+      allowedIntervalPairs: config.allowedIntervalPairs,
+    });
+
+    // 1. DYNAMIC INTERVAL DESYNCHRONIZATION GUARD:
+    if (!liveSyncCheck.synchronized && !hedge.isAsymmetric) {
+      appendBotLog(
+        state,
+        `[CIRCUIT BREAKER: DYNAMIC FUNDING DESYNCHRONIZATION] Bot "${bot.name}": Live settlement intervals or countdowns on ${hedge.symbol} (${vA} ⇄ ${vB}) desynchronized post-entry (${liveSyncCheck.reason}). Closing hedge immediately to prevent asymmetric single-leg settlement!`,
+        "error",
+        user.id,
+        bot.id
+      );
+      hedge.status = "CLOSING";
+      hedge.unwindReason = "CIRCUIT_BREAKER_DYNAMIC_FUNDING_DESYNC";
+      const freshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
+      const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
+      if (closeRes.success) {
+        hedge.status = "CLOSED";
+        hedge.closeTime = Date.now();
+        hedge.closeBinancePrice = freshPrices.bnPrice;
+        hedge.closeBitgetPrice = freshPrices.bgPrice;
+        hedge.closeDivergencePct = freshPrices.divergencePct;
+        hedge.pnl = closeRes.pnl;
+        quarantineBotSymbol(bot, hedge.symbol, 3600, "Dynamic funding desync unwind", state, user.id);
+        bot.completedHedges.unshift(hedge);
+        if (bot.completedHedges.length > 50) {
+          bot.completedHedges = bot.completedHedges.slice(0, 50);
+        }
+        closedCount++;
+      } else {
+        survivingHedges.push(hedge);
+      }
+      continue;
+    }
+
+    // 2. DYNAMIC SYNCHRONIZED INTERVAL SHIFT UPDATE:
+    const relevantLiveNextFunding = hedge.isAsymmetric
+      ? (liveSyncCheck.macroNextFundingTime || liveSyncCheck.earliestNextFundingTime)
+      : liveSyncCheck.venueANextFundingTime;
+
+    if (relevantLiveNextFunding > now && relevantLiveNextFunding < hedge.fundingSettlementTime) {
+      appendBotLog(
+        state,
+        `[DYNAMIC INTERVAL SHIFT] Bot "${bot.name}": ${hedge.symbol} ${hedge.isAsymmetric ? "macro" : "synchronized"} funding settlement updated to earlier time: ${new Date(relevantLiveNextFunding).toISOString()}.`,
+        "info",
+        user.id,
+        bot.id
+      );
+      hedge.fundingSettlementTime = relevantLiveNextFunding;
+    }
+
+    // 2b. RECONCILE ENTRY PRICES & FUNDING CASH FLOW FROM EXCHANGE RECORDS
+    if (hedge.status === "ACTIVE" || hedge.status === "WAITING_PRICE_PARITY") {
+      try {
+        const { reconcileHedgeFunding, reconcileHedgeEntryPrices } = await import("./exitOptimizer");
+        const rawBnSec = creds?.binanceSecret || "";
+        const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
+        const rawBybSec = creds?.bybitSecret || "";
+        const bybSec = rawBybSec && rawBybSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybSec) : rawBybSec;
+        const bnCreds = (creds?.binanceKey && bnSec) ? { apiKey: creds.binanceKey, apiSecret: bnSec } : undefined;
+        const bybCreds = (creds?.bybitKey && bybSec) ? { apiKey: creds.bybitKey, apiSecret: bybSec, proxyUrl: creds.bybitProxy, baseUrl: creds.bybitBaseUrl } : undefined;
+
+        await reconcileHedgeEntryPrices(hedge, bnCreds, bybCreds);
+        if (now >= (hedge.fundingSettlementTime || 0)) {
+          await reconcileHedgeFunding(hedge, bnCreds, bybCreds);
+        }
+      } catch {
+        // Best-effort non-blocking sync
+      }
+    }
+
+    // Fetch fresh prices once per hedge evaluation
+    const freshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
+    if (!hedge.divergenceHistory) hedge.divergenceHistory = [];
+    hedge.divergenceHistory.push({ timestamp: now, divPct: freshPrices.divergencePct });
+    if (hedge.divergenceHistory.length > 100) {
+      hedge.divergenceHistory = hedge.divergenceHistory.filter((s) => s.timestamp >= now - 45 * 60 * 1000);
+    }
+
+    // 3. INVERTED / NEGATIVE FUNDING RATE FLIP GUARD:
+    if (config.enableFundingInversionCircuitBreaker === true) {
+      const currentOpp = opportunities.find((o: any) => o.symbol === hedge.symbol);
+      if (currentOpp) {
+        const rateA = vA === "CoinDCX" ? (currentOpp.coindcxRate || currentOpp.binanceRate) : (vA === "Binance" ? currentOpp.binanceRate : currentOpp.bitgetRate);
+        const rateB = vB === "Bybit" ? currentOpp.bybitRate : (vB === "CoinDCX" ? currentOpp.coindcxRate : currentOpp.bitgetRate);
+        let isInverted = false;
+        let expectedYieldPct = 0;
+
+        if (hedge.isAsymmetric && hedge.venueAIntervalHours && hedge.venueBIntervalHours) {
+          const macroCycle = calculateAsymmetricMacroYield(rateA || 0, hedge.venueAIntervalHours, rateB || 0, hedge.venueBIntervalHours, config.timingMode);
+          const isHedgeShortA = hedge.direction.toUpperCase().includes("SHORT_A") ||
+            (hedge.venueA && hedge.direction.toUpperCase().includes(`SHORT_${hedge.venueA.toUpperCase()}`)) ||
+            hedge.direction.toUpperCase().startsWith("SHORT");
+          const liveDominantShortA = macroCycle.recommendedDirection === "SHORT_A_LONG_B";
+
+          if (isHedgeShortA !== liveDominantShortA && macroCycle.grossYieldBps >= 30) {
+            isInverted = true;
+            expectedYieldPct = -(macroCycle.grossYieldBps / 100);
+          }
+        } else {
+          const yieldEval = calculateHedgeFundingYield(hedge.direction, rateA || 0, rateB || 0);
+          if (yieldEval.expectedYieldBps <= -30) {
+            isInverted = true;
+            expectedYieldPct = yieldEval.expectedYieldBps / 100;
+          }
+        }
+
+        const holdDurationMs = now - (hedge.entryTime || now);
+        const isOutsideJitterWindow = holdDurationMs >= 15 * 60 * 1000;
+
+        if (isInverted && isOutsideJitterWindow && now < hedge.fundingSettlementTime - 15000) {
+          appendBotLog(
+            state,
+            `[CIRCUIT BREAKER: FUNDING RATE INVERSION] Bot "${bot.name}": Confirmed severe funding inversion on ${hedge.symbol} (Yield: ${expectedYieldPct.toFixed(2)}% after ${Math.round(holdDurationMs / 60000)}m hold). Unwinding hedge early.`,
+            "warn",
+            user.id,
+            bot.id
+          );
+          hedge.status = "CLOSING";
+          hedge.unwindReason = "CIRCUIT_BREAKER_FUNDING_INVERSION";
+          const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
+          if (closeRes.success) {
+            hedge.status = "CLOSED";
+            hedge.closeTime = Date.now();
+            hedge.closeBinancePrice = freshPrices.bnPrice;
+            hedge.closeBitgetPrice = freshPrices.bgPrice;
+            hedge.closeDivergencePct = freshPrices.divergencePct;
+            hedge.pnl = closeRes.pnl;
+            bot.completedHedges.unshift(hedge);
+            if (bot.completedHedges.length > 50) {
+              bot.completedHedges = bot.completedHedges.slice(0, 50);
+            }
+            closedCount++;
+          } else {
+            survivingHedges.push(hedge);
+          }
+          continue;
+        }
+      }
+    }
+
+    // =========================================================================
+    // SPREAD COLLAPSE & PRICE CONVERGENCE EARLY EXIT
+    // =========================================================================
+    const enableSpreadCollapseExit = config.enableSpreadCollapseExit === true;
+    const collapseThresholdBps = config.spreadCollapseExitBps ?? 25.0;
+    const holdDurationMinutes = Math.max(0, (now - (hedge.entryTime || now)) / 60000);
+    const settlementHasPassedForExit = now >= (hedge.fundingSettlementTime || 0);
+
+    if (enableSpreadCollapseExit && (settlementHasPassedForExit || holdDurationMinutes >= 30)) {
+      const currentOpp = opportunities.find((o: any) => o.symbol === hedge.symbol);
+      if (currentOpp) {
+        const rateA = vA === "CoinDCX" ? (currentOpp.coindcxRate || currentOpp.binanceRate) : (vA === "Binance" ? currentOpp.binanceRate : currentOpp.bitgetRate);
+        const rateB = vB === "Bybit" ? currentOpp.bybitRate : (vB === "CoinDCX" ? currentOpp.coindcxRate : currentOpp.bitgetRate);
+
+        let liveSpreadBps = 0;
+        if (hedge.isAsymmetric && hedge.venueAIntervalHours && hedge.venueBIntervalHours) {
+          const asym = calculateAsymmetricMacroYield(rateA || 0, hedge.venueAIntervalHours, rateB || 0, hedge.venueBIntervalHours, config.timingMode);
+          liveSpreadBps = asym.grossYieldBps;
+        } else {
+          liveSpreadBps = Math.abs((rateA || 0) - (rateB || 0)) * 100;
+        }
+
+        if (liveSpreadBps < collapseThresholdBps) {
+          const { evaluateZeroLossExitGate } = await import("./exitOptimizer");
+          const exitDecision = evaluateZeroLossExitGate(
+            hedge,
+            freshPrices,
+            undefined,
+            undefined,
+            bot.config.minExitProfitUsdt,
+            bot.config.minNetHedgeTargetPct ?? 0.30
+          );
+
+          if (exitDecision.canExit) {
+            appendBotLog(
+              state,
+              `[SPREAD COLLAPSE HARVEST EXIT] Bot "${bot.name}": ${hedge.symbol} live funding spread collapsed to ${(liveSpreadBps / 100).toFixed(3)}% (< ${(collapseThresholdBps / 100).toFixed(3)}% threshold) and price divergence converged (${freshPrices.divergencePct.toFixed(4)}%). Exit approved by Zero-Loss Gate: ${exitDecision.reason}`,
+              "info",
+              user.id,
+              bot.id
+            );
+            hedge.status = "CLOSING";
+            hedge.unwindReason = `SPREAD_COLLAPSE_${(liveSpreadBps / 100).toFixed(2)}PCT_CONVERGED`;
+            const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
+            if (closeRes.success) {
+              hedge.status = "CLOSED";
+              hedge.closeTime = Date.now();
+              hedge.closeBinancePrice = freshPrices.bnPrice;
+              hedge.closeBitgetPrice = freshPrices.bgPrice;
+              hedge.closeDivergencePct = freshPrices.divergencePct;
+              hedge.pnl = closeRes.pnl;
+              bot.completedHedges.unshift(hedge);
+              if (bot.completedHedges.length > 50) {
+                bot.completedHedges = bot.completedHedges.slice(0, 50);
+              }
+              quarantineBotSymbol(bot, hedge.symbol, 180, "Spread collapse early recycled exit", state, user.id);
+              closedCount++;
+            } else {
+              survivingHedges.push(hedge);
+            }
+            continue;
+          } else {
+            if (state.cyclesCompleted % 4 === 0) {
+              appendBotLog(
+                state,
+                `[SPREAD COLLAPSE BLOCKED BY ZERO-LOSS GATE] Bot "${bot.name}": ${hedge.symbol} spread collapsed to ${(liveSpreadBps / 100).toFixed(3)}% (< ${(collapseThresholdBps / 100).toFixed(3)}%), but early exit blocked to prevent loss: ${exitDecision.reason}`,
+                "info",
+                user.id,
+                bot.id
+              );
+            }
+          }
+        }
+      }
+    }
+
+    // =========================================================================
+    // TIERED ROI TAKE-PROFIT ENGINE (20% Target Convergence & 50% Hard Blowoff)
+    // =========================================================================
+    const lev1 = hedge.binanceLeverage || 10;
+    const lev2 = hedge.bitgetLeverage || 10;
+    const avgLev = (lev1 + lev2) / 2 || 10;
+    const initialMargin = (hedge.notionalUsdt > 0) ? (hedge.notionalUsdt / avgLev) : 4.0;
+
+    const leg1Dir = hedge.direction.startsWith("SHORT_") ? -1 : 1;
+    const leg2Dir = -leg1Dir;
+    const leg1Entry = hedge.entryBinancePrice || (hedge as any).entryPriceA || 0;
+    const leg2Entry = hedge.entryBitgetPrice || (hedge as any).entryPriceB || 0;
+    const leg1Pnl = leg1Entry > 0 ? leg1Dir * (freshPrices.bnPrice - leg1Entry) * hedge.effectiveQty : 0;
+    const leg2Pnl = leg2Entry > 0 ? leg2Dir * (freshPrices.bgPrice - leg2Entry) * hedge.effectiveQty : 0;
+    const grossPriceSpreadPnl = leg1Pnl + leg2Pnl;
+
+    const estExitFees = (freshPrices.bnPrice + freshPrices.bgPrice) * hedge.effectiveQty * 0.0006;
+    const totalEstFees = (hedge.totalFeesUsdt || (hedge.leg1FeeUsdt || 0) + (hedge.leg2FeeUsdt || 0) || 0.05) + estExitFees;
+    const liveFunding = hedge.fundingClaimedUsdt || 0;
+    const estNetPnl = parseFloat((grossPriceSpreadPnl + liveFunding - totalEstFees).toFixed(4));
+    const currentRoiPct = initialMargin > 0 ? parseFloat(((estNetPnl / initialMargin) * 100).toFixed(2)) : 0;
+
+    const targetRoiThreshold = config.targetRoiTakeProfitPct ?? 20.0;
+    const hardRoiThreshold = config.hardRoiTakeProfitPct ?? 50.0;
+    const maxExitDivergencePct = typeof config.closeMaxPriceDivergencePct === "number"
+      ? config.closeMaxPriceDivergencePct
+      : 0.05;
+
+    // Tier 2: Hard Blowoff Emergency Close at +50% ROI Profit OR -50% ROI Loss
+    if (currentRoiPct >= hardRoiThreshold || currentRoiPct <= -hardRoiThreshold) {
+      const isHardLoss = currentRoiPct <= -hardRoiThreshold;
+      appendBotLog(
+        state,
+        `[${isHardLoss ? "HARD STOP-LOSS" : "HARD TAKE-PROFIT"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} achieved ${currentRoiPct.toFixed(1)}% ROI (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin | ${isHardLoss ? "Loss threshold -" + hardRoiThreshold + "% reached" : "Profit threshold +" + hardRoiThreshold + "% reached"}). Bypassing price divergence gate and executing IMMEDIATE dual close to ${isHardLoss ? "prevent exchange liquidation" : "lock in harvest"}!`,
+        isHardLoss ? "error" : "success",
+        user.id,
+        bot.id
+      );
+      hedge.status = "CLOSING";
+      hedge.unwindReason = isHardLoss ? `HARD_STOP_LOSS_${Math.round(hardRoiThreshold)}_ROI` : `HARD_TAKE_PROFIT_${Math.round(hardRoiThreshold)}_ROI`;
+      const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
+      if (closeRes.success) {
+        hedge.status = "CLOSED";
+        hedge.closeTime = Date.now();
+        hedge.closeBinancePrice = freshPrices.bnPrice;
+        hedge.closeBitgetPrice = freshPrices.bgPrice;
+        hedge.closeDivergencePct = freshPrices.divergencePct;
+        hedge.pnl = closeRes.pnl;
+        bot.completedHedges.unshift(hedge);
+        if (bot.completedHedges.length > 50) {
+          bot.completedHedges = bot.completedHedges.slice(0, 50);
+        }
+        quarantineBotSymbol(bot, hedge.symbol, 300, isHardLoss ? "Hard stop-loss emergency exit" : "Hard blowoff take-profit realized", state, user.id);
+        closedCount++;
+      } else {
+        survivingHedges.push(hedge);
+      }
+      continue;
+    }
+
+    // Tier 1: Target Convergence Exit at +20% ROI Profit OR -20% ROI Loss
+    if (currentRoiPct >= targetRoiThreshold || currentRoiPct <= -targetRoiThreshold) {
+      const isTargetLoss = currentRoiPct <= -targetRoiThreshold;
+      const isParitySafe = freshPrices.divergencePct <= maxExitDivergencePct;
+      if (isParitySafe) {
+        appendBotLog(
+          state,
+          `[${isTargetLoss ? "TARGET STOP-LOSS" : "TARGET TAKE-PROFIT"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} reached ${currentRoiPct.toFixed(1)}% ROI (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin) and exit divergence (${freshPrices.divergencePct.toFixed(3)}%) <= configured target (${maxExitDivergencePct}%). Executing dual close...`,
+          isTargetLoss ? "warn" : "success",
+          user.id,
+          bot.id
+        );
+        hedge.status = "CLOSING";
+        hedge.unwindReason = isTargetLoss ? `TARGET_STOP_LOSS_${Math.round(targetRoiThreshold)}_ROI` : `TARGET_TAKE_PROFIT_${Math.round(targetRoiThreshold)}_ROI`;
+        const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
+        if (closeRes.success) {
+          hedge.status = "CLOSED";
+          hedge.closeTime = Date.now();
+          hedge.closeBinancePrice = freshPrices.bnPrice;
+          hedge.closeBitgetPrice = freshPrices.bgPrice;
+          hedge.closeDivergencePct = freshPrices.divergencePct;
+          hedge.pnl = closeRes.pnl;
+          bot.completedHedges.unshift(hedge);
+          if (bot.completedHedges.length > 50) {
+            bot.completedHedges = bot.completedHedges.slice(0, 50);
+          }
+          quarantineBotSymbol(bot, hedge.symbol, 300, isTargetLoss ? "Target stop-loss realized" : "Target take-profit realized", state, user.id);
+          closedCount++;
+        } else {
+          survivingHedges.push(hedge);
+        }
+        continue;
+      } else {
+        hedge.status = "WAITING_PRICE_PARITY";
+        survivingHedges.push(hedge);
+        if (state.cyclesCompleted % 4 === 0) {
+          appendBotLog(
+            state,
+            `[${isTargetLoss ? "STOP-LOSS ARMED" : "TAKE-PROFIT ARMED"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} threshold reached (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin). Active & waiting for price divergence reversion (${freshPrices.divergencePct.toFixed(3)}% > ${maxExitDivergencePct}% config target).`,
+            isTargetLoss ? "warn" : "info",
+            user.id,
+            bot.id
+          );
+        }
+        continue;
+      }
+    }
+
+    // Check settlement passage
+    const waitThreshold = hedge.fundingSettlementTime + (config.postSettlementWaitSeconds || 15) * 1000;
+    const settlementHasPassed = now >= waitThreshold;
+
+    if (!settlementHasPassed) {
+      if (hedge.isAsymmetric && hedge.earliestNextFundingTime && now >= hedge.earliestNextFundingTime && state.cyclesCompleted % 6 === 0) {
+        const remainingSeconds = Math.max(0, Math.round((waitThreshold - now) / 1000));
+        appendBotLog(
+          state,
+          `[ASYMMETRIC HARVEST ACTIVE] Bot "${bot.name}": ${hedge.symbol} completed intermediate settlement on faster venue. Holding position until macro settlement at ${new Date(hedge.fundingSettlementTime).toISOString()} (${remainingSeconds}s remaining).`,
+          "info",
+          user.id,
+          bot.id
+        );
+      }
+      survivingHedges.push(hedge);
+      continue;
+    }
+
+    // 4. POST-SETTLEMENT EVALUATION: CARRY CONTINUATION HOLD vs PROFIT-FIRST EXIT
+    const enableContinuation = config.enableCarryContinuation !== false;
+    const minContinuationSpreadBps = config.minContinuationSpreadBps ?? Math.max(20, (config.minSpreadBps || 30) * 0.7);
+
+    let nextYieldBps = 0;
+    const currentOppForContinuation = opportunities.find((o: any) => o.symbol === hedge.symbol);
+    if (enableContinuation && currentOppForContinuation) {
+      const rateA = vA === "CoinDCX" ? (currentOppForContinuation.coindcxRate || currentOppForContinuation.binanceRate) : (vA === "Binance" ? currentOppForContinuation.binanceRate : currentOppForContinuation.bitgetRate);
+      const rateB = vB === "Bybit" ? currentOppForContinuation.bybitRate : (vB === "CoinDCX" ? currentOppForContinuation.coindcxRate : currentOppForContinuation.bitgetRate);
+      let isProfitableContinuation = false;
+
+      if (hedge.isAsymmetric && hedge.venueAIntervalHours && hedge.venueBIntervalHours) {
+        const macroCycle = calculateAsymmetricMacroYield(rateA || 0, hedge.venueAIntervalHours, rateB || 0, hedge.venueBIntervalHours, config.timingMode);
+        const isHedgeShortA = hedge.direction.toUpperCase().includes("SHORT_A") ||
+          (hedge.venueA && hedge.direction.toUpperCase().includes(`SHORT_${hedge.venueA.toUpperCase()}`)) ||
+          hedge.direction.toUpperCase().startsWith("SHORT");
+        const liveDominantShortA = macroCycle.recommendedDirection === "SHORT_A_LONG_B";
+        if (isHedgeShortA === liveDominantShortA && macroCycle.grossYieldBps >= minContinuationSpreadBps) {
+          isProfitableContinuation = true;
+          nextYieldBps = macroCycle.grossYieldBps;
+        }
+      } else {
+        const yieldEval = calculateHedgeFundingYield(hedge.direction, rateA || 0, rateB || 0);
+        if (!yieldEval.isNegativeYield && yieldEval.expectedYieldBps >= minContinuationSpreadBps) {
+          isProfitableContinuation = true;
+          nextYieldBps = yieldEval.expectedYieldBps;
+        }
+      }
+
+      const nextTargetSettlement = hedge.isAsymmetric
+        ? (liveSyncCheck.macroNextFundingTime || (now + (hedge.venueBIntervalHours || 4) * 3600 * 1000))
+        : (liveSyncCheck.venueANextFundingTime || (now + 4 * 3600 * 1000));
+
+      if (isProfitableContinuation && nextTargetSettlement > now + 60000) {
+        hedge.cyclesHarvested = (hedge.cyclesHarvested || 1) + 1;
+        hedge.lastHarvestedSettlementTime = hedge.fundingSettlementTime;
+        hedge.fundingSettlementTime = nextTargetSettlement;
+        if (hedge.isAsymmetric) {
+          hedge.macroNextFundingTime = nextTargetSettlement;
+          hedge.earliestNextFundingTime = liveSyncCheck.earliestNextFundingTime || (now + 3600 * 1000);
+        }
+        hedge.status = "ACTIVE";
+        appendBotLog(
+          state,
+          `[CARRY CONTINUATION HOLD] Bot "${bot.name}": ${hedge.symbol} settlement passed. Next cycle projected spread remains lucrative (+${(nextYieldBps / 100).toFixed(3)}% >= ${(minContinuationSpreadBps / 100).toFixed(3)}%). Rolling position into next settlement at ${new Date(nextTargetSettlement).toISOString()} to compound harvest without paying exit/re-entry taker fees (Harvest Cycle #${hedge.cyclesHarvested}).`,
+          "success",
+          user.id,
+          bot.id
+        );
+        survivingHedges.push(hedge);
+        continue;
+      }
+    }
+
+    // Step 2: Zero-Loss Dynamic Exit Engine Evaluation
+    const { evaluateZeroLossExitGate } = await import("./exitOptimizer");
+    const postSettlementHoldMinutes = Math.max(0, (now - (hedge.lastHarvestedSettlementTime || hedge.fundingSettlementTime)) / 60000);
+    const forwardSpreadBps = (enableContinuation && currentOppForContinuation) ? nextYieldBps : undefined;
+    const exitDecision = evaluateZeroLossExitGate(
+      hedge,
+      freshPrices,
+      undefined,
+      forwardSpreadBps,
+      bot.config.minExitProfitUsdt,
+      bot.config.minNetHedgeTargetPct ?? 0.30
+    );
+
+    // Catastrophic stop loss or 30-min structural basis decoupling override: emergency close
+    if (exitDecision.exitType === "CATASTROPHIC_STOP" || exitDecision.exitType === "STRUCTURAL_BASIS_DECOUPLING") {
+      const isStructural = exitDecision.exitType === "STRUCTURAL_BASIS_DECOUPLING";
+      appendBotLog(
+        state,
+        `[${isStructural ? "STRUCTURAL BASIS RISK EXIT" : "CATASTROPHIC STOP LOSS"}] Bot "${bot.name}": ${hedge.symbol} ${exitDecision.reason}. Executing emergency close!`,
+        isStructural ? "warn" : "error",
+        user.id,
+        bot.id
+      );
+      hedge.status = "CLOSING";
+      hedge.unwindReason = isStructural ? "STRUCTURAL_BASIS_DECOUPLING_30M" : "CATASTROPHIC_STOP_LOSS";
+      const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
+      if (closeRes.success) {
+        hedge.status = "CLOSED";
+        hedge.closeTime = Date.now();
+        hedge.closeBinancePrice = freshPrices.bnPrice;
+        hedge.closeBitgetPrice = freshPrices.bgPrice;
+        hedge.closeDivergencePct = freshPrices.divergencePct;
+        hedge.pnl = closeRes.pnl;
+        bot.completedHedges.unshift(hedge);
+        if (bot.completedHedges.length > 50) bot.completedHedges = bot.completedHedges.slice(0, 50);
+        quarantineBotSymbol(bot, hedge.symbol, isStructural ? 1800 : 3600, isStructural ? "Structural basis decoupling 30m cutoff" : "Catastrophic stop-loss exit", state, user.id);
+        closedCount++;
+      } else {
+        survivingHedges.push(hedge);
+      }
+      continue;
+    }
+
+    // If Zero-Loss Gate approves exit
+    if (exitDecision.canExit) {
+      appendBotLog(
+        state,
+        `[ZERO-LOSS EXIT CONFIRMED] Bot "${bot.name}": ${hedge.symbol} harvest complete (${hedge.cyclesHarvested || 1} cycle(s)). Net PnL: +$${exitDecision.netPnL.toFixed(4)} USDT (Basis: $${exitDecision.grossBasisPnL.toFixed(4)}, Funding: +$${exitDecision.fundingClaimed.toFixed(4)}, Fees: -$${exitDecision.totalFeesUsdt.toFixed(4)}). Exit mode: ${exitDecision.exitType}. Executing dual close...`,
+        "success",
+        user.id,
+        bot.id
+      );
+
+      hedge.status = "CLOSING";
+      hedge.unwindReason = `ZERO_LOSS_${exitDecision.exitType}`;
+      const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
+
+      if (closeRes.success) {
+        hedge.status = "CLOSED";
+        hedge.closeTime = Date.now();
+        hedge.closeBinancePrice = freshPrices.bnPrice;
+        hedge.closeBitgetPrice = freshPrices.bgPrice;
+        hedge.closeDivergencePct = freshPrices.divergencePct;
+        hedge.pnl = closeRes.pnl;
+
+        bot.completedHedges.unshift(hedge);
+        if (bot.completedHedges.length > 50) {
+          bot.completedHedges = bot.completedHedges.slice(0, 50);
+        }
+
+        appendBotLog(
+          state,
+          `[HEDGE CLOSED] Successfully unwound ${hedge.symbol} hedge by "${bot.name}". Net Realized PnL: $${closeRes.pnl} USDT (${hedge.cyclesHarvested || 1} cycle(s) harvested).`,
+          "success",
+          user.id
+        );
+
+        quarantineBotSymbol(bot, hedge.symbol, 300, "Dual hedge settlement convergence", state, user.id);
+        closedCount++;
+      } else if (closeRes.error === "STRICT_DELTA_NEUTRAL_FREEZE") {
+        hedge.status = "FROZEN_PROXY_DOWN";
+        survivingHedges.push(hedge);
+      } else if ((hedge.status as string) === "ORPHAN_RECOVERY" || (hedge.status as string) === "SYNTHETIC_DELTA_LOCKED") {
+        survivingHedges.push(hedge);
+        appendBotLog(
+          state,
+          `[ORPHAN/SYNTHETIC ACTIVE] Bot "${bot.name}": ${hedge.symbol} is currently in ${hedge.status}. Auto-healing/reconciliation engaged on priority.`,
+          "warn",
+          user.id
+        );
+      } else {
+        hedge.status = "ACTIVE";
+        survivingHedges.push(hedge);
+        appendBotLog(
+          state,
+          `[CLOSE RETRY] Bot "${bot.name}": Error closing ${hedge.symbol}: ${closeRes.error}. Will retry on next cycle.`,
+          "warn",
+          user.id
+        );
+      }
+      continue;
+    }
+
+    // Zero-Loss Gate blocked exit: Net PnL would be negative or basis is unconverged.
+    hedge.status = "WAITING_PRICE_PARITY";
+    survivingHedges.push(hedge);
+
+    if (state.cyclesCompleted % 4 === 0) {
+      appendBotLog(
+        state,
+        `[ZERO-LOSS GATE HOLD] Bot "${bot.name}": ${hedge.symbol} settlement passed (${Math.round(postSettlementHoldMinutes)}m elapsed). ${exitDecision.reason}`,
+        "warn",
+        user.id,
+        bot.id
+      );
+    }
+    continue;
+  }
+
+  return { closedCount, survivingHedges };
+}
+
+/**
  * Executes a single evaluation cycle for a specific tenant account.
  * Honors user isolation, tenant margin cap, set parameters, and flatten memory lock.
  */
@@ -5193,7 +6099,7 @@ export async function runTenantBotCycle(
     }
 
     // Fetch user balances using decrypted credentials
-    const balances = await fetchAvailableBalances(creds);
+    const balances = await fetchAvailableBalances(creds, user.id);
     const effectiveBal = (balances.bybitBal !== undefined && balances.bybitBal > 0)
       ? Math.min(balances.binanceBal, balances.bybitBal)
       : (balances.coindcxBal !== undefined && balances.coindcxBal > 0)
@@ -5204,614 +6110,17 @@ export async function runTenantBotCycle(
       const config = bot.config;
 
       // ─────────────────────────────────────────────────────────────
-      // PHASE 1: EXIT MONITOR FOR THIS BOT'S ACTIVE HEDGES
+      // PHASE 1: EXIT MONITOR FOR THIS BOT'S ACTIVE HEDGES (Sub-Second Dual-Cadence Processor)
       // ─────────────────────────────────────────────────────────────
-      const survivingHedges: ActiveBotHedge[] = [];
-
-      for (const hedge of bot.activeHedges) {
-        // CLEANUP GUARD: If both legs are already closed, ensure moved to completedHedges and do not survive
-        if (hedge.status === "CLOSED" || (hedge.leg1Closed && hedge.leg2Closed)) {
-          hedge.status = "CLOSED";
-          if (!bot.completedHedges.some((h) => h.id === hedge.id)) {
-            bot.completedHedges.unshift(hedge);
-            if (bot.completedHedges.length > 50) bot.completedHedges = bot.completedHedges.slice(0, 50);
-          }
-          continue;
-        }
-
-        // STRICT DELTA-NEUTRAL FREEZE AUTO-RECOVERY:
-        if (hedge.status === "FROZEN_PROXY_DOWN") {
-          const isBybit = hedge.venueB === "Bybit" || hedge.direction.includes("BYBIT");
-          if (isBybit) {
-            const recoveryCheck = await verifyProxyPreFlight({
-              proxyUrl: creds?.bybitProxy,
-              baseUrl: creds?.bybitBaseUrl,
-              backupProxyUrl: creds?.bybitBackupProxy,
-              backupBaseUrl: creds?.bybitBackupBaseUrl,
-            });
-
-            if (!recoveryCheck.allowed) {
-              survivingHedges.push(hedge);
-              if (state.cyclesCompleted % 4 === 0) {
-                appendBotLog(
-                  state,
-                  `[STRICT DELTA-NEUTRAL FREEZE ACTIVE] Bot "${bot.name}": ${hedge.symbol} remains safely frozen delta-neutral until Bybit proxy recovers. Cockpit audio chime active.`,
-                  "warn",
-                  user.id
-                );
-              }
-              continue;
-            }
-
-            appendBotLog(
-              state,
-              `[PROXY RECOVERED] Bot "${bot.name}": Bybit proxy restored (${recoveryCheck.activeEndpointId} route @ ${recoveryCheck.latencyMs}ms). Unfreezing ${hedge.symbol} and resuming dual synchronized close!`,
-              "success",
-              user.id
-            );
-            hedge.status = "CLOSING";
-          }
-        }
-
-        // PRIORITIZE SYNTHETIC RECONCILIATION: If hedge is in SYNTHETIC_DELTA_LOCKED, probe & de-escalate!
-        if (hedge.status === "SYNTHETIC_DELTA_LOCKED") {
-          const reconRes = await reconcileSyntheticLock(hedge, bot.name, state, creds, user.id, bot.id);
-          if (reconRes.closed) {
-            bot.completedHedges.unshift(hedge);
-            if (bot.completedHedges.length > 50) {
-              bot.completedHedges = bot.completedHedges.slice(0, 50);
-            }
-            quarantineBotSymbol(bot, hedge.symbol, 3600, "Synthetic delta de-escalation close", state, user.id);
-          } else {
-            survivingHedges.push(hedge);
-          }
-          continue;
-        }
-
-        // PRIORITIZE ORPHAN RECOVERY: If hedge is in ORPHAN_RECOVERY, auto-heal immediately!
-        if (hedge.status === "ORPHAN_RECOVERY") {
-          const healRes = await remediateOrphanLeg(hedge, bot.name, state, creds, user.id, bot.id);
-          if (healRes.success) {
-            hedge.status = "CLOSED";
-            hedge.closeTime = Date.now();
-            bot.completedHedges.unshift(hedge);
-            if (bot.completedHedges.length > 50) {
-              bot.completedHedges = bot.completedHedges.slice(0, 50);
-            }
-            quarantineBotSymbol(bot, hedge.symbol, 3600, "Orphan remediation close", state, user.id);
-          } else {
-            survivingHedges.push(hedge);
-          }
-          continue;
-        }
-
-        // R1 & R2 ACTIVE POSITION SAFEGUARDS:
-        const vA = hedge.venueA || (hedge.direction.includes("BINANCE") ? "Binance" : (hedge.direction.includes("COINDCX") ? "CoinDCX" : "Binance"));
-        const vB = hedge.venueB || (hedge.direction.includes("BYBIT") ? "Bybit" : (hedge.direction.includes("BITGET") ? "Bitget" : "Bybit"));
-        const liveFundingMeta = getCachedFundingMeta(hedge.symbol);
-        const intervalMode: FundingIntervalMode = config.intervalMode || (config.allowAsymmetricFunding === false ? "STRICT_SYNC_ONLY" : "ALL_ASYMMETRIC");
-        const allowAsym = hedge.isAsymmetric || intervalMode !== "STRICT_SYNC_ONLY";
-        const liveSyncCheck = checkFundingSynchronization(vA, vB, liveFundingMeta, now, {
-          allowAsymmetric: true, // Always allow asymmetric validation for in-flight asymmetric positions
-          intervalMode: hedge.isAsymmetric ? "ALL_ASYMMETRIC" : intervalMode,
-          allowedIntervalPairs: config.allowedIntervalPairs,
-        });
-
-        // 1. DYNAMIC INTERVAL DESYNCHRONIZATION GUARD:
-        // If live settlement intervals or countdowns desynchronize post-entry, immediately exit to prevent asymmetric single-leg settlements!
-        if (!liveSyncCheck.synchronized && !hedge.isAsymmetric) {
-          appendBotLog(
-            state,
-            `[CIRCUIT BREAKER: DYNAMIC FUNDING DESYNCHRONIZATION] Bot "${bot.name}": Live settlement intervals or countdowns on ${hedge.symbol} (${vA} ⇄ ${vB}) desynchronized post-entry (${liveSyncCheck.reason}). Closing hedge immediately to prevent asymmetric single-leg settlement!`,
-            "error",
-            user.id,
-            bot.id
-          );
-          hedge.status = "CLOSING";
-          hedge.unwindReason = "CIRCUIT_BREAKER_DYNAMIC_FUNDING_DESYNC";
-          const freshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
-          const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
-          if (closeRes.success) {
-            hedge.status = "CLOSED";
-            hedge.closeTime = Date.now();
-            hedge.closeBinancePrice = freshPrices.bnPrice;
-            hedge.closeBitgetPrice = freshPrices.bgPrice;
-            hedge.closeDivergencePct = freshPrices.divergencePct;
-            hedge.pnl = closeRes.pnl;
-            quarantineBotSymbol(bot, hedge.symbol, 3600, "Dynamic funding desync unwind", state, user.id);
-            bot.completedHedges.unshift(hedge);
-            if (bot.completedHedges.length > 50) {
-              bot.completedHedges = bot.completedHedges.slice(0, 50);
-            }
-          } else {
-            survivingHedges.push(hedge);
-          }
-          continue;
-        }
-
-        // 2. DYNAMIC SYNCHRONIZED INTERVAL SHIFT UPDATE:
-        // Respect the macro settlement horizon for asymmetric hedges; do not overwrite with faster venue settlement!
-        const relevantLiveNextFunding = hedge.isAsymmetric
-          ? (liveSyncCheck.macroNextFundingTime || liveSyncCheck.earliestNextFundingTime)
-          : liveSyncCheck.venueANextFundingTime;
-
-        if (relevantLiveNextFunding > now && relevantLiveNextFunding < hedge.fundingSettlementTime) {
-          appendBotLog(
-            state,
-            `[DYNAMIC INTERVAL SHIFT] Bot "${bot.name}": ${hedge.symbol} ${hedge.isAsymmetric ? "macro" : "synchronized"} funding settlement updated to earlier time: ${new Date(relevantLiveNextFunding).toISOString()}.`,
-            "info",
-            user.id,
-            bot.id
-          );
-          hedge.fundingSettlementTime = relevantLiveNextFunding;
-        }
-
-        // 2b. RECONCILE ENTRY PRICES & FUNDING CASH FLOW FROM EXCHANGE RECORDS
-        if (hedge.status === "ACTIVE" || hedge.status === "WAITING_PRICE_PARITY") {
-          try {
-            const { reconcileHedgeFunding, reconcileHedgeEntryPrices } = await import("./exitOptimizer");
-            const rawBnSec = creds?.binanceSecret || "";
-            const bnSec = rawBnSec && rawBnSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBnSec) : rawBnSec;
-            const rawBybSec = creds?.bybitSecret || "";
-            const bybSec = rawBybSec && rawBybSec.startsWith("enc:v1:") ? decryptVaultSecret(rawBybSec) : rawBybSec;
-            const bnCreds = (creds?.binanceKey && bnSec) ? { apiKey: creds.binanceKey, apiSecret: bnSec } : undefined;
-            const bybCreds = (creds?.bybitKey && bybSec) ? { apiKey: creds.bybitKey, apiSecret: bybSec, proxyUrl: creds.bybitProxy, baseUrl: creds.bybitBaseUrl } : undefined;
-
-            await reconcileHedgeEntryPrices(hedge, bnCreds, bybCreds);
-            if (now >= (hedge.fundingSettlementTime || 0)) {
-              await reconcileHedgeFunding(hedge, bnCreds, bybCreds);
-            }
-          } catch {
-            // Best-effort non-blocking sync
-          }
-        }
-
-        // 3. INVERTED / NEGATIVE FUNDING RATE FLIP GUARD (DISABLED BY DEFAULT TO PREVENT PREMATURE FEE LOSSES):
-        // Active hedges adhere to the Zero Stop Loss / Pure Convergence Invariant and hold until settlement.
-        // Only evaluates if explicitly enabled via config.enableFundingInversionCircuitBreaker with strict debounce.
-        if (config.enableFundingInversionCircuitBreaker === true) {
-          const currentOpp = opportunities.find((o: any) => o.symbol === hedge.symbol);
-          if (currentOpp) {
-            const rateA = vA === "CoinDCX" ? (currentOpp.coindcxRate || currentOpp.binanceRate) : (vA === "Binance" ? currentOpp.binanceRate : currentOpp.bitgetRate);
-            const rateB = vB === "Bybit" ? currentOpp.bybitRate : (vB === "CoinDCX" ? currentOpp.coindcxRate : currentOpp.bitgetRate);
-            let isInverted = false;
-            let expectedYieldBps = 0;
-
-            if (hedge.isAsymmetric && hedge.venueAIntervalHours && hedge.venueBIntervalHours) {
-              const macroCycle = calculateAsymmetricMacroYield(rateA || 0, hedge.venueAIntervalHours, rateB || 0, hedge.venueBIntervalHours, config.timingMode);
-              const isHedgeShortA = hedge.direction.toUpperCase().includes("SHORT_A") ||
-                (hedge.venueA && hedge.direction.toUpperCase().includes(`SHORT_${hedge.venueA.toUpperCase()}`)) ||
-                hedge.direction.toUpperCase().startsWith("SHORT");
-              const liveDominantShortA = macroCycle.recommendedDirection === "SHORT_A_LONG_B";
-
-              if (isHedgeShortA !== liveDominantShortA && macroCycle.grossYieldBps >= 30) {
-                isInverted = true;
-                expectedYieldBps = -macroCycle.grossYieldBps;
-              }
-            } else {
-              const yieldEval = calculateHedgeFundingYield(hedge.direction, rateA || 0, rateB || 0);
-              // Require severe confirmed negative carry (<= -30 bps), not micro-flickers around 0
-              if (yieldEval.expectedYieldBps <= -30) {
-                isInverted = true;
-                expectedYieldBps = yieldEval.expectedYieldBps;
-              }
-            }
-
-            // Anti-Whipsaw Filter: Never fire within first 15m of entry, and require severe confirmed negative carry
-            const holdDurationMs = now - (hedge.entryTime || now);
-            const isOutsideJitterWindow = holdDurationMs >= 15 * 60 * 1000;
-
-            if (isInverted && isOutsideJitterWindow && now < hedge.fundingSettlementTime - 15000) {
-              appendBotLog(
-                state,
-                `[CIRCUIT BREAKER: FUNDING RATE INVERSION] Bot "${bot.name}": Confirmed severe funding inversion on ${hedge.symbol} (Yield: ${expectedYieldBps} bps after ${Math.round(holdDurationMs / 60000)}m hold). Unwinding hedge early.`,
-                "warn",
-                user.id,
-                bot.id
-              );
-              hedge.status = "CLOSING";
-              hedge.unwindReason = "CIRCUIT_BREAKER_FUNDING_INVERSION";
-              const freshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
-              const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
-              if (closeRes.success) {
-                hedge.status = "CLOSED";
-                hedge.closeTime = Date.now();
-                hedge.closeBinancePrice = freshPrices.bnPrice;
-                hedge.closeBitgetPrice = freshPrices.bgPrice;
-                hedge.closeDivergencePct = freshPrices.divergencePct;
-                hedge.pnl = closeRes.pnl;
-                bot.completedHedges.unshift(hedge);
-                if (bot.completedHedges.length > 50) {
-                  bot.completedHedges = bot.completedHedges.slice(0, 50);
-                }
-              } else {
-                survivingHedges.push(hedge);
-              }
-              continue;
-            }
-          }
-        }
-
-        // =========================================================================
-        // SPREAD COLLAPSE & PRICE CONVERGENCE EARLY EXIT
-        // (User Rule: When live spread drops below 25 bps, exit early once price converges)
-        // =========================================================================
-        const enableSpreadCollapseExit = config.enableSpreadCollapseExit === true; // Default OFF
-        const collapseThresholdBps = config.spreadCollapseExitBps ?? 25.0;
-        const holdDurationMinutes = Math.max(0, (now - (hedge.entryTime || now)) / 60000);
-        const settlementHasPassedForExit = now >= (hedge.fundingSettlementTime || 0);
-
-        // Strict Invariant: Never allow premature exit before funding settlement or minimum hold has passed
-        if (enableSpreadCollapseExit && (settlementHasPassedForExit || holdDurationMinutes >= 30)) {
-          const currentOpp = opportunities.find((o: any) => o.symbol === hedge.symbol);
-          if (currentOpp) {
-            const rateA = vA === "CoinDCX" ? (currentOpp.coindcxRate || currentOpp.binanceRate) : (vA === "Binance" ? currentOpp.binanceRate : currentOpp.bitgetRate);
-            const rateB = vB === "Bybit" ? currentOpp.bybitRate : (vB === "CoinDCX" ? currentOpp.coindcxRate : currentOpp.bitgetRate);
-            
-            let liveSpreadBps = 0;
-            if (hedge.isAsymmetric && hedge.venueAIntervalHours && hedge.venueBIntervalHours) {
-              const asym = calculateAsymmetricMacroYield(rateA || 0, hedge.venueAIntervalHours, rateB || 0, hedge.venueBIntervalHours, config.timingMode);
-              liveSpreadBps = asym.grossYieldBps;
-            } else {
-              liveSpreadBps = Math.abs((rateA || 0) - (rateB || 0)) * 100;
-            }
-
-            if (liveSpreadBps < collapseThresholdBps) {
-              const freshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
-              if (!hedge.divergenceHistory) hedge.divergenceHistory = [];
-              hedge.divergenceHistory.push({ timestamp: now, divPct: freshPrices.divergencePct });
-              if (hedge.divergenceHistory.length > 100) {
-                hedge.divergenceHistory = hedge.divergenceHistory.filter((s) => s.timestamp >= now - 45 * 60 * 1000);
-              }
-
-              const { evaluateZeroLossExitGate } = await import("./exitOptimizer");
-              const exitDecision = evaluateZeroLossExitGate(hedge, freshPrices);
-
-              if (exitDecision.canExit) {
-                appendBotLog(
-                  state,
-                  `[SPREAD COLLAPSE HARVEST EXIT] Bot "${bot.name}": ${hedge.symbol} live funding spread collapsed to ${liveSpreadBps.toFixed(2)} bps (< ${collapseThresholdBps} bps threshold) and price divergence converged (${freshPrices.divergencePct.toFixed(4)}%). Exit approved by Zero-Loss Gate: ${exitDecision.reason}`,
-                  "info",
-                  user.id,
-                  bot.id
-                );
-                hedge.status = "CLOSING";
-                hedge.unwindReason = `SPREAD_COLLAPSE_${Math.round(liveSpreadBps)}BPS_CONVERGED`;
-                const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
-                if (closeRes.success) {
-                  hedge.status = "CLOSED";
-                  hedge.closeTime = Date.now();
-                  hedge.closeBinancePrice = freshPrices.bnPrice;
-                  hedge.closeBitgetPrice = freshPrices.bgPrice;
-                  hedge.closeDivergencePct = freshPrices.divergencePct;
-                  hedge.pnl = closeRes.pnl;
-                  bot.completedHedges.unshift(hedge);
-                  if (bot.completedHedges.length > 50) {
-                    bot.completedHedges = bot.completedHedges.slice(0, 50);
-                  }
-                  quarantineBotSymbol(bot, hedge.symbol, 180, "Spread collapse early recycled exit", state, user.id);
-                } else {
-                  survivingHedges.push(hedge);
-                }
-                continue;
-              } else {
-                if (state.cyclesCompleted % 4 === 0) {
-                  appendBotLog(
-                    state,
-                    `[SPREAD COLLAPSE BLOCKED BY ZERO-LOSS GATE] Bot "${bot.name}": ${hedge.symbol} spread collapsed to ${liveSpreadBps.toFixed(2)} bps (< ${collapseThresholdBps} bps), but early exit blocked to prevent loss: ${exitDecision.reason}`,
-                    "info",
-                    user.id,
-                    bot.id
-                  );
-                }
-              }
-            }
-          }
-        }
-
-        const waitThreshold = hedge.fundingSettlementTime + (config.postSettlementWaitSeconds || 15) * 1000;
-        const settlementHasPassed = now >= waitThreshold;
-
-        if (!settlementHasPassed) {
-          if (hedge.isAsymmetric && hedge.earliestNextFundingTime && now >= hedge.earliestNextFundingTime && state.cyclesCompleted % 6 === 0) {
-            const remainingSeconds = Math.max(0, Math.round((waitThreshold - now) / 1000));
-            appendBotLog(
-              state,
-              `[ASYMMETRIC HARVEST ACTIVE] Bot "${bot.name}": ${hedge.symbol} completed intermediate settlement on faster venue. Holding position until macro settlement at ${new Date(hedge.fundingSettlementTime).toISOString()} (${remainingSeconds}s remaining).`,
-              "info",
-              user.id,
-              bot.id
-            );
-          }
-          survivingHedges.push(hedge);
-          continue;
-        }
-
-        // =========================================================================
-        // TIERED ROI TAKE-PROFIT ENGINE (20% Target Convergence & 50% Hard Blowoff)
-        // =========================================================================
-        const freshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
-        const lev1 = hedge.binanceLeverage || 10;
-        const lev2 = hedge.bitgetLeverage || 10;
-        const avgLev = (lev1 + lev2) / 2 || 10;
-        const initialMargin = (hedge.notionalUsdt > 0) ? (hedge.notionalUsdt / avgLev) : 4.0;
-
-        const leg1Dir = hedge.direction.startsWith("SHORT_") ? -1 : 1;
-        const leg2Dir = -leg1Dir;
-        const leg1Entry = hedge.entryBinancePrice || (hedge as any).entryPriceA || 0;
-        const leg2Entry = hedge.entryBitgetPrice || (hedge as any).entryPriceB || 0;
-        const leg1Pnl = leg1Entry > 0 ? leg1Dir * (freshPrices.bnPrice - leg1Entry) * hedge.effectiveQty : 0;
-        const leg2Pnl = leg2Entry > 0 ? leg2Dir * (freshPrices.bgPrice - leg2Entry) * hedge.effectiveQty : 0;
-        const grossPriceSpreadPnl = leg1Pnl + leg2Pnl;
-
-        const estExitFees = (freshPrices.bnPrice + freshPrices.bgPrice) * hedge.effectiveQty * 0.0006;
-        const totalEstFees = (hedge.totalFeesUsdt || (hedge.leg1FeeUsdt || 0) + (hedge.leg2FeeUsdt || 0) || 0.05) + estExitFees;
-        const liveFunding = hedge.fundingClaimedUsdt || 0;
-        const estNetPnl = parseFloat((grossPriceSpreadPnl + liveFunding - totalEstFees).toFixed(4));
-        const currentRoiPct = initialMargin > 0 ? parseFloat(((estNetPnl / initialMargin) * 100).toFixed(2)) : 0;
-
-        const targetRoiThreshold = config.targetRoiTakeProfitPct ?? 20.0;
-        const hardRoiThreshold = config.hardRoiTakeProfitPct ?? 50.0;
-        const maxExitDivergencePct = typeof config.closeMaxPriceDivergencePct === "number"
-          ? config.closeMaxPriceDivergencePct
-          : 0.05;
-
-        // Tier 2: Hard Blowoff Emergency Close at +50% ROI Profit OR -50% ROI Loss (Instant Close & Bypass Divergence Gate)
-        if (currentRoiPct >= hardRoiThreshold || currentRoiPct <= -hardRoiThreshold) {
-          const isHardLoss = currentRoiPct <= -hardRoiThreshold;
-          appendBotLog(
-            state,
-            `[${isHardLoss ? "HARD STOP-LOSS" : "HARD TAKE-PROFIT"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} achieved ${currentRoiPct.toFixed(1)}% ROI (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin | ${isHardLoss ? "Loss threshold -" + hardRoiThreshold + "% reached" : "Profit threshold +" + hardRoiThreshold + "% reached"}). Bypassing price divergence gate and executing IMMEDIATE dual close to ${isHardLoss ? "prevent exchange liquidation" : "lock in harvest"}!`,
-            isHardLoss ? "error" : "success",
-            user.id,
-            bot.id
-          );
-          hedge.status = "CLOSING";
-          hedge.unwindReason = isHardLoss ? `HARD_STOP_LOSS_${Math.round(hardRoiThreshold)}_ROI` : `HARD_TAKE_PROFIT_${Math.round(hardRoiThreshold)}_ROI`;
-          const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
-          if (closeRes.success) {
-            hedge.status = "CLOSED";
-            hedge.closeTime = Date.now();
-            hedge.closeBinancePrice = freshPrices.bnPrice;
-            hedge.closeBitgetPrice = freshPrices.bgPrice;
-            hedge.closeDivergencePct = freshPrices.divergencePct;
-            hedge.pnl = closeRes.pnl;
-            bot.completedHedges.unshift(hedge);
-            if (bot.completedHedges.length > 50) {
-              bot.completedHedges = bot.completedHedges.slice(0, 50);
-            }
-            quarantineBotSymbol(bot, hedge.symbol, 300, isHardLoss ? "Hard stop-loss emergency exit" : "Hard blowoff take-profit realized", state, user.id);
-          } else {
-            survivingHedges.push(hedge);
-          }
-          continue;
-        }
-
-        // Tier 1: Target Convergence Exit at +20% ROI Profit OR -20% ROI Loss (Active & Closes When Price Divergence Matches Config)
-        if (currentRoiPct >= targetRoiThreshold || currentRoiPct <= -targetRoiThreshold) {
-          const isTargetLoss = currentRoiPct <= -targetRoiThreshold;
-          const isParitySafe = freshPrices.divergencePct <= maxExitDivergencePct;
-          if (isParitySafe) {
-            appendBotLog(
-              state,
-              `[${isTargetLoss ? "TARGET STOP-LOSS" : "TARGET TAKE-PROFIT"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} reached ${currentRoiPct.toFixed(1)}% ROI (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin) and exit divergence (${freshPrices.divergencePct.toFixed(3)}%) <= configured target (${maxExitDivergencePct}%). Executing dual close...`,
-              isTargetLoss ? "warn" : "success",
-              user.id,
-              bot.id
-            );
-            hedge.status = "CLOSING";
-            hedge.unwindReason = isTargetLoss ? `TARGET_STOP_LOSS_${Math.round(targetRoiThreshold)}_ROI` : `TARGET_TAKE_PROFIT_${Math.round(targetRoiThreshold)}_ROI`;
-            const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
-            if (closeRes.success) {
-              hedge.status = "CLOSED";
-              hedge.closeTime = Date.now();
-              hedge.closeBinancePrice = freshPrices.bnPrice;
-              hedge.closeBitgetPrice = freshPrices.bgPrice;
-              hedge.closeDivergencePct = freshPrices.divergencePct;
-              hedge.pnl = closeRes.pnl;
-              bot.completedHedges.unshift(hedge);
-              if (bot.completedHedges.length > 50) {
-                bot.completedHedges = bot.completedHedges.slice(0, 50);
-              }
-              quarantineBotSymbol(bot, hedge.symbol, 300, isTargetLoss ? "Target stop-loss realized" : "Target take-profit realized", state, user.id);
-            } else {
-              survivingHedges.push(hedge);
-            }
-            continue;
-          } else {
-            hedge.status = "WAITING_PRICE_PARITY";
-            survivingHedges.push(hedge);
-            if (state.cyclesCompleted % 4 === 0) {
-              appendBotLog(
-                state,
-                `[${isTargetLoss ? "STOP-LOSS ARMED" : "TAKE-PROFIT ARMED"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} threshold reached (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin). Active & waiting for price divergence reversion (${freshPrices.divergencePct.toFixed(3)}% > ${maxExitDivergencePct}% config target).`,
-                isTargetLoss ? "warn" : "info",
-                user.id,
-                bot.id
-              );
-            }
-            continue;
-          }
-        }
-
-        // 4. POST-SETTLEMENT EVALUATION: CARRY CONTINUATION HOLD vs PROFIT-FIRST EXIT
-        // Step 1: Check Carry Continuation (Roll into next cycle if next funding spread remains profitable)
-        const enableContinuation = config.enableCarryContinuation !== false;
-        const minContinuationSpreadBps = config.minContinuationSpreadBps ?? Math.max(20, (config.minSpreadBps || 30) * 0.7);
-
-        let nextYieldBps = 0;
-        const currentOppForContinuation = opportunities.find((o: any) => o.symbol === hedge.symbol);
-        if (enableContinuation && currentOppForContinuation) {
-          const rateA = vA === "CoinDCX" ? (currentOppForContinuation.coindcxRate || currentOppForContinuation.binanceRate) : (vA === "Binance" ? currentOppForContinuation.binanceRate : currentOppForContinuation.bitgetRate);
-          const rateB = vB === "Bybit" ? currentOppForContinuation.bybitRate : (vB === "CoinDCX" ? currentOppForContinuation.coindcxRate : currentOppForContinuation.bitgetRate);
-          let isProfitableContinuation = false;
-
-          if (hedge.isAsymmetric && hedge.venueAIntervalHours && hedge.venueBIntervalHours) {
-            const macroCycle = calculateAsymmetricMacroYield(rateA || 0, hedge.venueAIntervalHours, rateB || 0, hedge.venueBIntervalHours, config.timingMode);
-            const isHedgeShortA = hedge.direction.toUpperCase().includes("SHORT_A") ||
-              (hedge.venueA && hedge.direction.toUpperCase().includes(`SHORT_${hedge.venueA.toUpperCase()}`)) ||
-              hedge.direction.toUpperCase().startsWith("SHORT");
-            const liveDominantShortA = macroCycle.recommendedDirection === "SHORT_A_LONG_B";
-            if (isHedgeShortA === liveDominantShortA && macroCycle.grossYieldBps >= minContinuationSpreadBps) {
-              isProfitableContinuation = true;
-              nextYieldBps = macroCycle.grossYieldBps;
-            }
-          } else {
-            const yieldEval = calculateHedgeFundingYield(hedge.direction, rateA || 0, rateB || 0);
-            if (!yieldEval.isNegativeYield && yieldEval.expectedYieldBps >= minContinuationSpreadBps) {
-              isProfitableContinuation = true;
-              nextYieldBps = yieldEval.expectedYieldBps;
-            }
-          }
-
-          // Advance settlement time to next cycle if live exchange next funding time is ahead
-          const nextTargetSettlement = hedge.isAsymmetric
-            ? (liveSyncCheck.macroNextFundingTime || (now + (hedge.venueBIntervalHours || 4) * 3600 * 1000))
-            : (liveSyncCheck.venueANextFundingTime || (now + 4 * 3600 * 1000));
-
-          if (isProfitableContinuation && nextTargetSettlement > now + 60000) {
-            hedge.cyclesHarvested = (hedge.cyclesHarvested || 1) + 1;
-            hedge.lastHarvestedSettlementTime = hedge.fundingSettlementTime;
-            hedge.fundingSettlementTime = nextTargetSettlement;
-            if (hedge.isAsymmetric) {
-              hedge.macroNextFundingTime = nextTargetSettlement;
-              hedge.earliestNextFundingTime = liveSyncCheck.earliestNextFundingTime || (now + 3600 * 1000);
-            }
-            hedge.status = "ACTIVE";
-            appendBotLog(
-              state,
-              `[CARRY CONTINUATION HOLD] Bot "${bot.name}": ${hedge.symbol} settlement passed. Next cycle projected spread remains lucrative (+${nextYieldBps.toFixed(1)} bps >= ${minContinuationSpreadBps} bps). Rolling position into next settlement at ${new Date(nextTargetSettlement).toISOString()} to compound harvest without paying exit/re-entry taker fees (Harvest Cycle #${hedge.cyclesHarvested}).`,
-              "success",
-              user.id,
-              bot.id
-            );
-            survivingHedges.push(hedge);
-            continue;
-          }
-        }
-
-        // Step 2: Zero-Loss Dynamic Exit Engine Evaluation
-        const postFreshPrices = await fetchFreshPrices(hedge.symbol, vA, vB);
-        if (!hedge.divergenceHistory) hedge.divergenceHistory = [];
-        hedge.divergenceHistory.push({ timestamp: now, divPct: postFreshPrices.divergencePct });
-        if (hedge.divergenceHistory.length > 100) {
-          hedge.divergenceHistory = hedge.divergenceHistory.filter((s) => s.timestamp >= now - 45 * 60 * 1000);
-        }
-
-        const { evaluateZeroLossExitGate } = await import("./exitOptimizer");
-        const postSettlementHoldMinutes = Math.max(0, (now - (hedge.lastHarvestedSettlementTime || hedge.fundingSettlementTime)) / 60000);
-
-        // Pass forward spread from continuation check if available
-        const forwardSpreadBps = (enableContinuation && currentOppForContinuation) ? nextYieldBps : undefined;
-        const exitDecision = evaluateZeroLossExitGate(hedge, postFreshPrices, undefined, forwardSpreadBps);
-
-        // Catastrophic stop loss or 30-min structural basis decoupling override: emergency close
-        if (exitDecision.exitType === "CATASTROPHIC_STOP" || exitDecision.exitType === "STRUCTURAL_BASIS_DECOUPLING") {
-          const isStructural = exitDecision.exitType === "STRUCTURAL_BASIS_DECOUPLING";
-          appendBotLog(
-            state,
-            `[${isStructural ? "STRUCTURAL BASIS RISK EXIT" : "CATASTROPHIC STOP LOSS"}] Bot "${bot.name}": ${hedge.symbol} ${exitDecision.reason}. Executing emergency close!`,
-            isStructural ? "warn" : "error",
-            user.id,
-            bot.id
-          );
-          hedge.status = "CLOSING";
-          hedge.unwindReason = isStructural ? "STRUCTURAL_BASIS_DECOUPLING_30M" : "CATASTROPHIC_STOP_LOSS";
-          const closeRes = await executeDualHedgeClose(hedge, postFreshPrices, bot.name, state, creds, user.id, bot.id);
-          if (closeRes.success) {
-            hedge.status = "CLOSED";
-            hedge.closeTime = Date.now();
-            hedge.closeBinancePrice = postFreshPrices.bnPrice;
-            hedge.closeBitgetPrice = postFreshPrices.bgPrice;
-            hedge.closeDivergencePct = postFreshPrices.divergencePct;
-            hedge.pnl = closeRes.pnl;
-            bot.completedHedges.unshift(hedge);
-            if (bot.completedHedges.length > 50) bot.completedHedges = bot.completedHedges.slice(0, 50);
-            quarantineBotSymbol(bot, hedge.symbol, isStructural ? 1800 : 3600, isStructural ? "Structural basis decoupling 30m cutoff" : "Catastrophic stop-loss exit", state, user.id);
-          } else {
-            survivingHedges.push(hedge);
-          }
-          continue;
-        }
-
-        // If Zero-Loss Gate approves exit (Net PnL >= +$0.01 USDT)
-        if (exitDecision.canExit) {
-          appendBotLog(
-            state,
-            `[ZERO-LOSS EXIT CONFIRMED] Bot "${bot.name}": ${hedge.symbol} harvest complete (${hedge.cyclesHarvested || 1} cycle(s)). Net PnL: +$${exitDecision.netPnL.toFixed(4)} USDT (Basis: $${exitDecision.grossBasisPnL.toFixed(4)}, Funding: +$${exitDecision.fundingClaimed.toFixed(4)}, Fees: -$${exitDecision.totalFeesUsdt.toFixed(4)}). Exit mode: ${exitDecision.exitType}. Executing dual close...`,
-            "success",
-            user.id,
-            bot.id
-          );
-
-          hedge.status = "CLOSING";
-          hedge.unwindReason = `ZERO_LOSS_${exitDecision.exitType}`;
-          const closeRes = await executeDualHedgeClose(hedge, postFreshPrices, bot.name, state, creds, user.id, bot.id);
-
-          if (closeRes.success) {
-            hedge.status = "CLOSED";
-            hedge.closeTime = Date.now();
-            hedge.closeBinancePrice = postFreshPrices.bnPrice;
-            hedge.closeBitgetPrice = postFreshPrices.bgPrice;
-            hedge.closeDivergencePct = postFreshPrices.divergencePct;
-            hedge.pnl = closeRes.pnl;
-
-            bot.completedHedges.unshift(hedge);
-            if (bot.completedHedges.length > 50) {
-              bot.completedHedges = bot.completedHedges.slice(0, 50);
-            }
-
-            appendBotLog(
-              state,
-              `[HEDGE CLOSED] Successfully unwound ${hedge.symbol} hedge by "${bot.name}". Net Realized PnL: $${closeRes.pnl} USDT (${hedge.cyclesHarvested || 1} cycle(s) harvested).`,
-              "success",
-              user.id
-            );
-
-            // 5-minute lightweight quarantine (instead of 1 hour) to clear post-close order dust
-            quarantineBotSymbol(bot, hedge.symbol, 300, "Dual hedge settlement convergence", state, user.id);
-          } else if (closeRes.error === "STRICT_DELTA_NEUTRAL_FREEZE") {
-            hedge.status = "FROZEN_PROXY_DOWN";
-            survivingHedges.push(hedge);
-          } else if ((hedge.status as string) === "ORPHAN_RECOVERY" || (hedge.status as string) === "SYNTHETIC_DELTA_LOCKED") {
-            survivingHedges.push(hedge);
-            appendBotLog(
-              state,
-              `[ORPHAN/SYNTHETIC ACTIVE] Bot "${bot.name}": ${hedge.symbol} is currently in ${hedge.status}. Auto-healing/reconciliation engaged on priority.`,
-              "warn",
-              user.id
-            );
-          } else {
-            hedge.status = "ACTIVE";
-            survivingHedges.push(hedge);
-            appendBotLog(
-              state,
-              `[CLOSE RETRY] Bot "${bot.name}": Error closing ${hedge.symbol}: ${closeRes.error}. Will retry on next cycle.`,
-              "warn",
-              user.id
-            );
-          }
-          continue;
-        }
-
-        // Zero-Loss Gate blocked exit: Net PnL would be negative or basis is unconverged.
-        // DO NOT DUMP! Protect capital by waiting for basis convergence or rolling forward.
-        hedge.status = "WAITING_PRICE_PARITY";
-        survivingHedges.push(hedge);
-
-        if (state.cyclesCompleted % 4 === 0) {
-          appendBotLog(
-            state,
-            `[ZERO-LOSS GATE HOLD] Bot "${bot.name}": ${hedge.symbol} settlement passed (${Math.round(postSettlementHoldMinutes)}m elapsed). ${exitDecision.reason}`,
-            "warn",
-            user.id,
-            bot.id
-          );
-        }
-        continue;
-      }
-
-      bot.activeHedges = survivingHedges;
+      const exitResult = await evaluateAndProcessActiveHedges(
+        bot,
+        state,
+        user,
+        creds,
+        now,
+        opportunities
+      );
+      bot.activeHedges = exitResult.survivingHedges;
 
       // ─────────────────────────────────────────────────────────────
       // PHASE 1.5: ORPHAN SAFETY & SYNTHETIC LOCK SUSPENSION
@@ -6060,7 +6369,7 @@ export async function runTenantBotCycle(
         if (symbolHedgesInBot >= 2) continue;
 
         // CORRIDOR FLEET GUARD (Invariant 11): Prevent cross-bot collisions on same corridor
-        if (fleetCorridorActiveSymbols.has(coin.symbol) || isCorridorSymbolLocked(corridor, coin.symbol)) {
+        if (fleetCorridorActiveSymbols.has(coin.symbol) || isCorridorSymbolLocked(corridor, coin.symbol, user.id)) {
           if (state.cyclesCompleted % 6 === 0) {
             appendBotLog(
               state,
@@ -6739,6 +7048,85 @@ export async function runTenantBotCycle(
 }
 
 /**
+ * Dual-Cadence Sub-Second Active Hedge Exit Monitor (250ms fast loop).
+ * Idles in <0.01ms with zero API/network overhead when 0 positions are active.
+ * When in-flight positions exist, samples live streaming mark prices and fires
+ * instant zero-latency dual closes as soon as Net ROI >= +0.30% or Take-Profit >= +20%.
+ */
+export async function runFastActiveHedgeExitMonitor(): Promise<void> {
+  if (globalForBot.fastExitIsExecuting) {
+    return;
+  }
+  globalForBot.fastExitIsExecuting = true;
+
+  try {
+    const allUsers = getAllActiveUsers();
+    if (allUsers.length === 0) return;
+
+    const now = Date.now();
+    const cachedOpps = globalForBot.cachedOpportunities || [];
+
+    for (const user of allUsers) {
+      // Fast in-memory check without touching disk if tenant state is loaded
+      const tenantKey = user.id || "usr_admin_varsha";
+      let state = globalForBot.tenantStates?.[tenantKey];
+      if (!state) {
+        state = loadBotState(user.id);
+      }
+      if (!state || !state.isRunning) continue;
+
+      // Find bots that have active in-flight hedges
+      const botsWithActiveHedges = state.bots.filter(
+        (b) => b.enabled && Array.isArray(b.activeHedges) && b.activeHedges.length > 0
+      );
+      if (botsWithActiveHedges.length === 0) {
+        continue; // 0 positions open for this user: instant bypass (<0.01ms, 0 network calls)
+      }
+
+      // Check tenant lock to avoid collision with 5s scanner cycle
+      if (globalForBot.tenantLocks && globalForBot.tenantLocks.has(user.id)) {
+        continue; // Scanner cycle is actively running for this user
+      }
+
+      const creds = getDecryptedUserApiKeys(user);
+      if (!creds) continue;
+
+      let stateDirty = false;
+
+      for (const bot of botsWithActiveHedges) {
+        if (globalForBot.tenantLocks) globalForBot.tenantLocks.add(user.id);
+
+        try {
+          const { closedCount, survivingHedges } = await evaluateAndProcessActiveHedges(
+            bot,
+            state,
+            user,
+            creds,
+            now,
+            cachedOpps
+          );
+
+          if (closedCount > 0) {
+            bot.activeHedges = survivingHedges;
+            stateDirty = true;
+          }
+        } finally {
+          if (globalForBot.tenantLocks) globalForBot.tenantLocks.delete(user.id);
+        }
+      }
+
+      if (stateDirty) {
+        saveBotState(state, user.id);
+      }
+    }
+  } catch (err: any) {
+    console.error("[FAST EXIT MONITOR ERROR]:", err);
+  } finally {
+    globalForBot.fastExitIsExecuting = false;
+  }
+}
+
+/**
  * Master Autonomous Multi-Bot Cycle
  * Iterates across all active tenant users:
  * 1. Fetches public funding opportunities once globally
@@ -6765,6 +7153,7 @@ export async function runAutonomousBotCycle(): Promise<void> {
   try {
     // 1. Fetch shared candidate opportunities once across the entire VPS node
     const opportunities = await fetchOpportunityCoins();
+    globalForBot.cachedOpportunities = opportunities;
 
     // 2. Fetch all registered users
     const allUsers = getAllActiveUsers();
@@ -6821,6 +7210,13 @@ export function ensureBotWorker(): void {
     globalForBot.botInterval = setInterval(() => {
       runAutonomousBotCycle().catch(() => {});
     }, 5000);
+  }
+
+  // Dual-Cadence 250ms sub-second exit monitor for in-flight active hedges
+  if (!globalForBot.fastExitInterval) {
+    globalForBot.fastExitInterval = setInterval(() => {
+      runFastActiveHedgeExitMonitor().catch(() => {});
+    }, 250);
   }
 
   // Self-keep-alive heartbeat interval: periodically triggers cycle to keep event loop active

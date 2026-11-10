@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2026-11-10T11:44:47.524Z",
+    "message": "[MEMORY RESET] Bot \"Conservative Funding Sniper\" [PER]: Cleared 0 locked coin(s) and anti-churn quarantines from bot \"Conservative Funding Sniper\". All universe coins now eligible for trading.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T11:26:32.809Z",
+    "message": "[MEMORY RESET] Bot \"Conservative Funding Sniper\" [PER]: Cleared 0 locked coin(s) and anti-churn quarantines from bot \"Conservative Funding Sniper\". All universe coins now eligible for trading. [3]",
+    "level": "info",
+    "count": 3,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "isRunning": false,
+  "fsmState": "PAUSED",
+  "config": {
+    "maxConcurrentPositions": 3,
+    "maxPositionsPerSymbol": 1,
+    "maxCapitalAllocationUsdt": 60,
+    "orderNotionalUsdt": 15,
+    "minDispersion24hPercent": 0.4,
+    "maxLiveCompressionPercent": 0.1,
+    "antiCollisionSanityPercent": 5,
+    "relativeExpansionTargetPercent": 0.38,
+    "zeroLossNetHurdleUsdt": 0.01,
+    "adverseStopLossPercent": -0.15,
+    "nominalStagnancyMinutes": 180,
+    "maxStagnancyCeilingMinutes": 360,
+    "makerWatchdogMs": 8000,
+    "adverseDriftWatchdogPercent": 0.08,
+    "adverseDriftSampleMs": 120,
+    "wsWatchdogTimeoutMs": 500,
+    "partialFillReconcileMs": 500,
+    "roundtripFeeFrictionPercent": 0.26,
+    "dryRun": false,
+    "noNewTrades": false,
+    "maxAdverseFundingRatePercent": -0.03,
+    "settlementLockoutMinutes": 10,
+    "hardCarryBreakerPercent": 0.08
+  },
+  "activePositions": {},
+  "closedPositions": [],
+  "telemetry": {
+    "activePositionsCount": 0,
+    "closedPositionsCount": 0,
+    "totalRealizedNetPnlUsdt": 0,
+    "totalRoundtripFeesUsdt": 0,
+    "winRate": 0,
+    "profitFactor": 0,
+    "averageHoldDurationMinutes": 0,
+    "candidatesCount": 0,
+    "systemStatus": "HEALTHY",
+    "lastScanTimestamp": 0,
+    "cycleCount": 0,
+    "totalVolumeUsdt": 0,
+    "lockStatus": {
+      "isLocked": false
+    },
+    "peak24hDispersionObservedPercent": 0,
+    "netDeltaBaseExposure": 0
+  },
+  "lastUpdated": 1794315657002
+}

@@ -10,10 +10,34 @@
  */
 
 import type { ActiveBotHedge } from "./botEngine";
+import {
+  HARD_SAFETY_FLOOR_USDT,
+  BASE_NOTIONAL_UNIT_USDT,
+  getEffectiveZeroLossFloorUsdt,
+} from "./divergence/engine";
 
+export { HARD_SAFETY_FLOOR_USDT, BASE_NOTIONAL_UNIT_USDT, getEffectiveZeroLossFloorUsdt };
 export const MIN_EXIT_PROFIT_USDT = 0.01;
+export const DEFAULT_MIN_NET_HEDGE_TARGET_PCT = 0.30; // 0.30% Net ROI hurdle on total invested capital
+
+/**
+ * Calculates the dynamic auto-adaptive profit hurdle in USDT based on total invested margin.
+ * Adapts to capital size and leverage, strictly enforcing the $0.0100 USDT safety floor:
+ * AdaptiveFloorUsdt = max(hardFloorUsdt, totalMarginUsdt * (minNetTargetPct / 100))
+ */
+export function calculateAdaptiveZeroLossFloorUsdt(
+  totalMarginUsdt: number,
+  minNetTargetPct: number = DEFAULT_MIN_NET_HEDGE_TARGET_PCT,
+  hardFloorUsdt: number = HARD_SAFETY_FLOOR_USDT
+): number {
+  const targetFloor = parseFloat((totalMarginUsdt * (minNetTargetPct / 100)).toFixed(4));
+  return Math.max(hardFloorUsdt, targetFloor);
+}
+
 export const CATASTROPHIC_STOP_LOSS_ROI = -20.0;
-export const MIN_CONTINUATION_SPREAD_BPS = 20.0;
+/** Minimum forward continuation funding spread: 0.200% */
+export const MIN_CONTINUATION_SPREAD_PCT = 0.20; // 0.200%
+export const MIN_CONTINUATION_SPREAD_BPS = 20.0; // Legacy export alias: 0.200%
 export const MAX_ADAPTIVE_PARITY_DIV_PCT = 0.25;
 
 export interface FreshPricePair {
@@ -92,7 +116,7 @@ export function calculateDirectionalBasisPnL(
  * Half-life = ln(2) / theta
  */
 export function estimateOrnsteinUhlenbeckStopping(
-  currentBasisBps: number,
+  currentBasisMetric: number,
   historicalBasisSamples: number[] = []
 ): OUStoppingResult {
   if (!historicalBasisSamples || historicalBasisSamples.length < 5) {
@@ -100,7 +124,7 @@ export function estimateOrnsteinUhlenbeckStopping(
       historicalBasisSamples && historicalBasisSamples.length > 0
         ? historicalBasisSamples.reduce((a, b) => a + b, 0) / historicalBasisSamples.length
         : 0;
-    const zScore = Math.abs(currentBasisBps - sampleMean) / 10.0;
+    const zScore = Math.abs(currentBasisMetric - sampleMean) / 10.0;
     return {
       theta: 0.0866, // ~8 min half-life
       mu: sampleMean,
@@ -152,7 +176,7 @@ export function estimateOrnsteinUhlenbeckStopping(
     sse += (y - pred) * (y - pred);
   }
   const sigma = Math.sqrt(sse / Math.max(1, nPairs - 2));
-  const zScore = sigma > 0.001 ? Math.abs(currentBasisBps - mu) / sigma : 0;
+  const zScore = sigma > 0.001 ? Math.abs(currentBasisMetric - mu) / sigma : 0;
 
   const shouldWait = zScore > 1.8 && halfLifeMinutes <= 30;
   const expectedConvergenceMinutes = Math.min(45, halfLifeMinutes * Math.max(1, zScore));
@@ -171,7 +195,7 @@ export function estimateOrnsteinUhlenbeckStopping(
 /**
  * Method 1 & Central Gate: Guaranteed Net-Positive Exit Gate
  * Enforces the invariant:
- * NetPnL = GrossBasisPnL + FundingClaimed - EntryFees - EstExitFees >= +$0.01 USDT
+ * NetPnL = GrossBasisPnL + FundingClaimed - EntryFees - EstExitFees >= dynamicFloor (minimum +$0.0100 USDT)
  * 
  * Only Catastrophic Stop Loss (-40% ROI) is permitted to exit at a net loss.
  */
@@ -179,7 +203,9 @@ export function evaluateZeroLossExitGate(
   hedge: ActiveBotHedge,
   freshPrices: FreshPricePair,
   historicalBasisSamples: number[] = [],
-  nextCyclePredictedSpreadBps?: number
+  nextCyclePredictedSpreadPercent?: number,
+  configuredMinProfitUsdt?: number,
+  configuredMinNetTargetPct?: number
 ): ExitDecision {
   const { grossBasisPnL } = calculateDirectionalBasisPnL(
     hedge,
@@ -197,11 +223,14 @@ export function evaluateZeroLossExitGate(
     now >= hedge.fundingSettlementTime
   ) {
     const cycles = Math.max(1, hedge.cyclesHarvested || 1);
-    const estSpreadBps = hedge.fundingRatePct
-      ? hedge.fundingRatePct * 100
-      : hedge.entrySpreadBps || 25;
+    const estSpreadPct =
+      hedge.fundingRatePct !== undefined
+        ? hedge.fundingRatePct
+        : hedge.entrySpreadBps
+        ? hedge.entrySpreadBps / 10000
+        : 0.0025;
     const notional = hedge.notionalUsdt || freshPrices.bnPrice * hedge.effectiveQty;
-    const estFunding = notional * (estSpreadBps / 10000) * cycles;
+    const estFunding = notional * estSpreadPct * cycles;
     fundingClaimed = parseFloat(Math.max(0, estFunding).toFixed(4));
   }
 
@@ -211,15 +240,17 @@ export function evaluateZeroLossExitGate(
     (hedge.leg1FeeUsdt || 0) + (hedge.leg2FeeUsdt || 0) ||
     parseFloat((notional * 0.00115).toFixed(4));
 
-  // Projected exit fee: Maker Leg 1 (2.0 bps) + Taker Leg 2 (6.49 bps) = 8.49 bps
+  // Projected exit fee: Maker Leg 1 (0.020%) + Taker Leg 2 (0.0649%) = 0.0849%
   const estExitFees = parseFloat((notional * (0.00020 + 0.000649)).toFixed(4));
   const totalFeesUsdt = parseFloat((entryFees + estExitFees).toFixed(4));
   const netPnL = parseFloat((grossBasisPnL + fundingClaimed - totalFeesUsdt).toFixed(4));
 
   const leverage = hedge.binanceLeverage || 10;
-  const initialMargin = (hedge.notionalUsdt || notional || 30.0) / leverage;
+  const legMargin = (hedge.notionalUsdt || notional || 30.0) / leverage;
+  const totalMargin = legMargin * 2;
+  const minNetTargetPct = configuredMinNetTargetPct;
   const currentRoiPct =
-    initialMargin > 0 ? parseFloat(((netPnL / initialMargin) * 100).toFixed(2)) : 0;
+    totalMargin > 0 ? parseFloat(((netPnL / totalMargin) * 100).toFixed(3)) : 0;
 
   const effectiveBasisSamples =
     historicalBasisSamples && historicalBasisSamples.length >= 5
@@ -228,10 +259,18 @@ export function evaluateZeroLossExitGate(
       ? hedge.divergenceHistory.map((s) => s.divPct * 100)
       : historicalBasisSamples;
 
-  const currentBasisBps = freshPrices.divergencePct * 100;
+  const currentBasisMetric = freshPrices.divergencePct * 100;
   const ouResult = estimateOrnsteinUhlenbeckStopping(
-    currentBasisBps,
+    currentBasisMetric,
     effectiveBasisSamples
+  );
+
+  // Auto-adaptive dynamic zero-loss floor hurdle
+  const effectiveExitFloorUsdt = getEffectiveZeroLossFloorUsdt(
+    hedge.notionalUsdt || notional,
+    configuredMinProfitUsdt,
+    leverage,
+    configuredMinNetTargetPct
   );
 
   // 1. CATASTROPHIC STOP-LOSS LIMIT (Emergency override)
@@ -252,11 +291,18 @@ export function evaluateZeroLossExitGate(
   }
 
   // 1.5 ADVERSE CARRY INVERSION BREAKER (Prevents "Hotel California" Lockup Trap)
-  // If forward spread has flipped severely negative (<= -20 bps), holding further guarantees continuous fee bleed.
-  if (
-    nextCyclePredictedSpreadBps !== undefined &&
-    nextCyclePredictedSpreadBps <= -20.0
-  ) {
+  // If forward spread has flipped severely negative (<= -0.20%), holding further guarantees continuous fee bleed.
+  const isAdverseCarryInversion =
+    nextCyclePredictedSpreadPercent !== undefined &&
+    (nextCyclePredictedSpreadPercent <= -20.0 ||
+      (nextCyclePredictedSpreadPercent < 0 && nextCyclePredictedSpreadPercent <= -0.20));
+
+  if (isAdverseCarryInversion) {
+    const formattedSpreadPct =
+      Math.abs(nextCyclePredictedSpreadPercent!) >= 1.0
+        ? (nextCyclePredictedSpreadPercent! / 100).toFixed(2)
+        : nextCyclePredictedSpreadPercent!.toFixed(2);
+
     return {
       canExit: true,
       exitType: "EMERGENCY_TAKER_EXIT",
@@ -268,7 +314,7 @@ export function evaluateZeroLossExitGate(
       currentRoiPct,
       halfLifeMinutes: ouResult.halfLifeMinutes,
       zScore: ouResult.zScore,
-      reason: `Adverse Carry Inversion Breaker triggered: Forward funding spread inverted to ${nextCyclePredictedSpreadBps.toFixed(1)} bps <= -20.0 bps. Overriding Net-Positive Gate to halt terminal fee bleed.`,
+      reason: `Adverse Carry Inversion Breaker triggered: Forward funding spread inverted to ${formattedSpreadPct}% (<= -0.20%). Overriding Net-Positive Gate to halt terminal fee bleed.`,
     };
   }
 
@@ -300,12 +346,27 @@ export function evaluateZeroLossExitGate(
   }
 
   // 2. NET-POSITIVE INVARIANT CHECK
-  if (netPnL < MIN_EXIT_PROFIT_USDT) {
+  const isTargetAchieved =
+    netPnL >= effectiveExitFloorUsdt &&
+    (minNetTargetPct === undefined || currentRoiPct >= minNetTargetPct);
+
+  if (!isTargetAchieved) {
+    const targetText =
+      minNetTargetPct !== undefined
+        ? ` (+${currentRoiPct}% < +${minNetTargetPct.toFixed(2)}% target)`
+        : "";
     // If forward spread is profitable, roll carry forward
-    if (
-      nextCyclePredictedSpreadBps &&
-      nextCyclePredictedSpreadBps >= MIN_CONTINUATION_SPREAD_BPS
-    ) {
+    const isLucrativeContinuation =
+      nextCyclePredictedSpreadPercent !== undefined &&
+      (nextCyclePredictedSpreadPercent >= MIN_CONTINUATION_SPREAD_BPS ||
+        nextCyclePredictedSpreadPercent >= MIN_CONTINUATION_SPREAD_PCT);
+
+    if (isLucrativeContinuation) {
+      const formattedContinuationPct =
+        Math.abs(nextCyclePredictedSpreadPercent!) >= 1.0
+          ? (nextCyclePredictedSpreadPercent! / 100).toFixed(2)
+          : nextCyclePredictedSpreadPercent!.toFixed(2);
+
       return {
         canExit: false,
         exitType: "CONTINUATION_HOLD",
@@ -317,7 +378,7 @@ export function evaluateZeroLossExitGate(
         currentRoiPct,
         halfLifeMinutes: ouResult.halfLifeMinutes,
         zScore: ouResult.zScore,
-        reason: `Blocked by Zero-Loss Gate: Net PnL ($${netPnL}) < +$0.01. Rolling into next cycle (+${nextCyclePredictedSpreadBps.toFixed(1)} bps >= ${MIN_CONTINUATION_SPREAD_BPS} bps) to compound harvest.`,
+        reason: `Blocked by Zero-Loss Gate: Net PnL ($${netPnL}) < +$${effectiveExitFloorUsdt.toFixed(4)}${targetText}. Rolling into next cycle (+${formattedContinuationPct}% >= 0.20%) to compound harvest.`,
       };
     }
 
@@ -333,11 +394,15 @@ export function evaluateZeroLossExitGate(
       currentRoiPct,
       halfLifeMinutes: ouResult.halfLifeMinutes,
       zScore: ouResult.zScore,
-      reason: `Blocked by Zero-Loss Gate: Net PnL ($${netPnL}) < +$0.01 (Basis: $${grossBasisPnL}, Funding: +$${fundingClaimed}, Fees: -$${totalFeesUsdt}). Holding for basis parity reversion (OU zScore: ${ouResult.zScore}, t_half: ${ouResult.halfLifeMinutes}m).`,
+      reason: `Blocked by Zero-Loss Gate: Net PnL ($${netPnL}) < +$${effectiveExitFloorUsdt.toFixed(4)}${targetText} (Basis: $${grossBasisPnL}, Funding: +$${fundingClaimed}, Fees: -$${totalFeesUsdt}). Holding for basis parity reversion (OU zScore: ${ouResult.zScore}, t_half: ${ouResult.halfLifeMinutes}m).`,
     };
   }
 
-  // 3. NET-POSITIVE CONFIRMED (NetPnL >= +$0.01 USDT)
+  // 3. NET-POSITIVE CONFIRMED (NetPnL >= effectiveExitFloorUsdt && ROI >= minNetTargetPct)
+  const targetMetText =
+    minNetTargetPct !== undefined
+      ? `, +${currentRoiPct}% ROI >= +${minNetTargetPct.toFixed(2)}% target`
+      : `, +${currentRoiPct}% ROI`;
   if (freshPrices.divergencePct <= 0.05) {
     return {
       canExit: true,
@@ -350,7 +415,7 @@ export function evaluateZeroLossExitGate(
       currentRoiPct,
       halfLifeMinutes: ouResult.halfLifeMinutes,
       zScore: ouResult.zScore,
-      reason: `Guaranteed Net-Positive Confirmed ($${netPnL} USDT, +${currentRoiPct}% ROI). Divergence is tight (${freshPrices.divergencePct.toFixed(3)}% <= 0.05%). Executing Maker Post-Only unwind.`,
+      reason: `Guaranteed Net-Positive Confirmed ($${netPnL} USDT${targetMetText}). Divergence is tight (${freshPrices.divergencePct.toFixed(3)}% <= 0.05%). Executing Maker Post-Only unwind.`,
     };
   }
 
@@ -366,12 +431,12 @@ export function evaluateZeroLossExitGate(
       currentRoiPct,
       halfLifeMinutes: ouResult.halfLifeMinutes,
       zScore: ouResult.zScore,
-      reason: `Guaranteed Net-Positive Confirmed ($${netPnL} USDT). Divergence (${freshPrices.divergencePct.toFixed(3)}%) is within adaptive safe window (<= ${MAX_ADAPTIVE_PARITY_DIV_PCT}%). Executing limit unwind.`,
+      reason: `Guaranteed Net-Positive Confirmed ($${netPnL} USDT${targetMetText}). Divergence (${freshPrices.divergencePct.toFixed(3)}%) is within adaptive safe window (<= ${MAX_ADAPTIVE_PARITY_DIV_PCT}%). Executing limit unwind.`,
     };
   }
 
-  // If divergence is wider than 0.25%, but Net PnL is solidly positive (>= $0.05)
-  if (netPnL >= 0.05) {
+  // If divergence is wider than 0.25%, but Net PnL is solidly positive (>= effectiveExitFloorUsdt or $0.05)
+  if (netPnL >= Math.max(0.05, effectiveExitFloorUsdt)) {
     return {
       canExit: true,
       exitType: "MAKER_POST_ONLY",
@@ -383,7 +448,7 @@ export function evaluateZeroLossExitGate(
       currentRoiPct,
       halfLifeMinutes: ouResult.halfLifeMinutes,
       zScore: ouResult.zScore,
-      reason: `Guaranteed Net-Positive Confirmed ($${netPnL} USDT). Profit absorbs divergence. Executing Maker Post-Only unwind.`,
+      reason: `Guaranteed Net-Positive Confirmed ($${netPnL} USDT${targetMetText}). Profit absorbs divergence. Executing Maker Post-Only unwind.`,
     };
   }
 
@@ -496,11 +561,14 @@ export async function reconcileHedgeFunding(
   // Fallback to rate-based accrued funding if exchange queries returned zero but settlement passed
   if (realizedFunding === 0 && hedge.fundingSettlementTime && now >= hedge.fundingSettlementTime) {
     const cycles = Math.max(1, hedge.cyclesHarvested || 1);
-    const estSpreadBps = hedge.fundingRatePct
-      ? hedge.fundingRatePct * 100
-      : hedge.entrySpreadBps || 25;
+    const estSpreadPct =
+      hedge.fundingRatePct !== undefined
+        ? hedge.fundingRatePct
+        : hedge.entrySpreadBps
+        ? hedge.entrySpreadBps / 10000
+        : 0.0025;
     const notional = hedge.notionalUsdt || 30.0;
-    realizedFunding = parseFloat((notional * (estSpreadBps / 10000) * cycles).toFixed(4));
+    realizedFunding = parseFloat((notional * estSpreadPct * cycles).toFixed(4));
   }
 
   if (realizedFunding !== 0) {

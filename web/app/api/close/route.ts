@@ -597,7 +597,7 @@ export async function POST(req: NextRequest) {
       try {
         const symbolClosed = targetSymbol || binanceRes.orders?.[0]?.symbol || bitgetRes.orders?.[0]?.symbol || coindcxRes.orders?.[0]?.symbol || bybitRes.orders?.[0]?.symbol;
         if (symbolClosed) {
-          lockFlattenedCoinForBot(symbolClosed);
+          lockFlattenedCoinForBot(symbolClosed, undefined, creds.user?.id);
         }
       } catch (lockErr) {
         console.error("Failed to engage flatten memory lock:", lockErr);

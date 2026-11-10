@@ -784,7 +784,7 @@ export default function ProfilePage() {
             </div>
             <div className="bg-zinc-950 p-3 rounded-xl border border-zinc-800">
               <div className="text-zinc-500 text-[10px]">ACTIVE HEDGES</div>
-              <div className="font-bold text-accent-amber mt-1">{daemon.activeHedges}</div>
+              <div className="font-bold text-accent-amber mt-1">{Array.isArray(daemon.activeHedges) ? daemon.activeHedges.length : (typeof daemon.activeHedges === "number" ? daemon.activeHedges : 0)}</div>
             </div>
           </div>
         </div>

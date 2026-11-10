@@ -1,0 +1,74 @@
+[
+  {
+    "timestamp": "2026-11-10T14:40:40.824Z",
+    "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [111]",
+    "level": "warn",
+    "count": 111,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:07:34.833Z",
+    "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [70]",
+    "level": "warn",
+    "count": 70,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:25.071Z",
+    "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [242]",
+    "level": "warn",
+    "count": 242,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:12:26.252Z",
+    "message": "Bot \"Alex Quant Sniper\" [PER]: Manual scan cycle triggered by quant_trader_alex@testvault.org.",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:12:14.586Z",
+    "message": "Bot \"Alex Quant Sniper\" [PER]: Parameters updated for \"Alex Quant Sniper\": Corridor=COINDCX_BYBIT, Mode=ALL_ASYMMETRIC, Budget=$20 USDT, Min Spread=35bps, Parity Div=0.05%, Cap=$250",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:12:00.095Z",
+    "message": "Bot \"Alex Quant Sniper\" [PER]: Parameters updated for \"Alex Quant Sniper\": Corridor=COINDCX_BYBIT, Mode=ALL_ASYMMETRIC, Budget=$20 USDT, Min Spread=35bps, Parity Div=0.05%, Cap=$500",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:12:58.430Z",
+    "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:10:08.654Z",
+    "message": "[BOT CREATED] Bot \"Alex Quant Sniper\" [PER]: New bot \"Alex Quant Sniper\" added with preset \"conservative_5bps_sniper.set\".",
+    "level": "success",
+    "count": 1,
+    "botId": "bot-808654",
+    "botName": "Alex Quant Sniper [PER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:10:08.636Z",
+    "message": "[KEYS REQUIRED] Bot \"Conservative Funding Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-1",
+    "botName": "Conservative Funding Sniper [PER]"
+  }
+]

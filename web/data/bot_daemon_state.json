@@ -47,7 +47,9 @@
         "enableFundingInversionCircuitBreaker": false,
         "enableCarryContinuation": true,
         "minContinuationSpreadBps": 22,
-        "scanIntervalSeconds": 5
+        "scanIntervalSeconds": 5,
+        "normalCoinLeverage": 20,
+        "volatileCoinLeverage": 10
       },
       "flattenedCoinsBlacklist": [],
       "symbolCooldowns": {},
@@ -1547,7 +1549,9 @@
         "enableFundingInversionCircuitBreaker": false,
         "enableCarryContinuation": true,
         "minContinuationSpreadBps": 18,
-        "scanIntervalSeconds": 5
+        "scanIntervalSeconds": 5,
+        "normalCoinLeverage": 20,
+        "volatileCoinLeverage": 10
       },
       "flattenedCoinsBlacklist": [],
       "symbolCooldowns": {},
@@ -6456,7 +6460,9 @@
     "enableZeroLossGate": true,
     "enableFundingInversionCircuitBreaker": false,
     "enableCarryContinuation": true,
-    "minContinuationSpreadBps": 18
+    "minContinuationSpreadBps": 18,
+    "normalCoinLeverage": 20,
+    "volatileCoinLeverage": 10
   },
   "activeHedges": [],
   "completedHedges": [

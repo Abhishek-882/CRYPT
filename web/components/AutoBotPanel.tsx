@@ -2689,7 +2689,7 @@ export default function AutoBotPanel() {
                 className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-1.5 text-zinc-100 text-xs focus:border-amber-500 outline-none font-mono"
               />
               <div className="flex gap-1 pt-0.5">
-                {[20, 30, 50, 100, 200].map((b) => (
+                {[20, 30, 40, 50, 100, 200].map((b) => (
                   <button
                     key={b}
                     type="button"
@@ -2703,6 +2703,9 @@ export default function AutoBotPanel() {
                     ${b}
                   </button>
                 ))}
+              </div>
+              <div className="text-[9.5px] text-zinc-500 font-mono pt-0.5">
+                Total margin budget (${(maxAmountPerHedgeUsdt / 2).toFixed(0)}/side). Leveraged order notional scales up with leverage.
               </div>
             </div>
 

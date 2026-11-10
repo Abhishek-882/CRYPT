@@ -30,6 +30,9 @@ import { getUserActiveConsents, getUserConsentHistory } from "@/lib/complianceSt
 import {
   acquireDaemonLock,
   releaseDaemonLock,
+  releaseDaemonLockForTenant,
+  registerTenantForDaemonLock,
+  unregisterTenantForDaemonLock,
   isDaemonLocked,
   isDaemonLockHeldByCurrentProcess,
   getDaemonLockInfo,
@@ -126,6 +129,8 @@ export async function GET(req: NextRequest) {
       success: true,
       daemon: {
         ...state,
+        activeHedges: state.bots.reduce((sum, b) => sum + (b.activeHedges?.length || 0), 0) + (Array.isArray(state.activeHedges) ? state.activeHedges.length : 0),
+        activeHedgesCount: state.bots.reduce((sum, b) => sum + (b.activeHedges?.length || 0), 0) + (Array.isArray(state.activeHedges) ? state.activeHedges.length : 0),
         uptimeSeconds,
         serverTime: Date.now(),
         userId,
@@ -204,7 +209,7 @@ export async function POST(req: Request) {
 
   if (action === "start") {
     if (!isDaemonLockHeldByCurrentProcess()) {
-      const lock = acquireDaemonLock({ throwOnCollision: false });
+      const lock = acquireDaemonLock({ throwOnCollision: false, userId });
       if (!lock.acquired) {
         return NextResponse.json(
           {
@@ -217,6 +222,7 @@ export async function POST(req: Request) {
         );
       }
     }
+    registerTenantForDaemonLock(userId);
     state.isRunning = true;
     const activeBot = state.bots.find((b) => b.id === state.activeBotId) || state.bots[0];
     if (activeBot) {
@@ -237,13 +243,29 @@ export async function POST(req: Request) {
     runAutonomousBotCycle().catch(() => {});
   } else if (action === "stop") {
     state.isRunning = false;
-    releaseDaemonLock();
-    appendBotLog(state, `Autonomous Server Daemon paused by user ${user?.email || "Admin"}.`, "warn", userId);
+    saveBotState(state, userId);
+    unregisterTenantForDaemonLock(userId);
+
+    // Inspect active registered tenants across the platform
+    const allUsers = getAllActiveUsers();
+    const otherRunningTenants = allUsers.filter((u) => u.id !== userId && loadBotState(u.id).isRunning);
+    const remainingCount = otherRunningTenants.length;
+
+    releaseDaemonLockForTenant(userId, { remainingTenants: remainingCount });
+
+    appendBotLog(
+      state,
+      remainingCount > 0
+        ? `Autonomous Server Daemon paused by user ${user?.email || "Admin"} (${remainingCount} other active tenant${remainingCount === 1 ? "" : "s"} still running; host daemon lock preserved).`
+        : `Autonomous Server Daemon paused by user ${user?.email || "Admin"} (0 active tenants remaining; host daemon lock unlinked).`,
+      "warn",
+      userId
+    );
     saveBotState(state, userId);
   } else if (action === "toggle_daemon") {
     if (!state.isRunning) {
       if (!isDaemonLockHeldByCurrentProcess()) {
-        const lock = acquireDaemonLock({ throwOnCollision: false });
+        const lock = acquireDaemonLock({ throwOnCollision: false, userId });
         if (!lock.acquired) {
           return NextResponse.json(
             {
@@ -256,10 +278,20 @@ export async function POST(req: Request) {
           );
         }
       }
+      registerTenantForDaemonLock(userId);
+      state.isRunning = true;
     } else {
-      releaseDaemonLock();
+      state.isRunning = false;
+      saveBotState(state, userId);
+      unregisterTenantForDaemonLock(userId);
+
+      // Inspect active registered tenants across the platform
+      const allUsers = getAllActiveUsers();
+      const otherRunningTenants = allUsers.filter((u) => u.id !== userId && loadBotState(u.id).isRunning);
+      const remainingCount = otherRunningTenants.length;
+
+      releaseDaemonLockForTenant(userId, { remainingTenants: remainingCount });
     }
-    state.isRunning = !state.isRunning;
     appendBotLog(
       state,
       `Autonomous Master Daemon toggled: ${state.isRunning ? "RUNNING 24/7" : "PAUSED"}`,
@@ -284,6 +316,10 @@ export async function POST(req: Request) {
       const nextEnabled = body.enabled !== undefined ? Boolean(body.enabled) : !bot.enabled;
       bot.enabled = nextEnabled;
       bot.config.enabled = nextEnabled;
+      if (nextEnabled) {
+        state.isRunning = true;
+        registerTenantForDaemonLock(userId);
+      }
       appendBotLog(
         state,
         `Bot "${bot.name}" toggled: ${nextEnabled ? "ACTIVE (Scanning)" : "PAUSED"}`,
@@ -356,7 +392,7 @@ export async function POST(req: Request) {
       bot.updatedAt = Date.now();
       appendBotLog(
         state,
-        `Parameters updated for "${bot.name}": Corridor=${bot.config.executionCorridor || "COINDCX_BYBIT"}, Mode=${bot.config.intervalMode || "ALL_ASYMMETRIC"}, Budget=$${bot.config.maxAmountPerHedgeUsdt || 30} USDT, Min Spread=${bot.config.minSpreadBps}bps, Parity Div=${bot.config.maxPriceDivergencePct}%, Cap=$${bot.maxMarginCapUsdt}`,
+        `Parameters updated for "${bot.name}": Corridor=${bot.config.executionCorridor || "COINDCX_BYBIT"}, Mode=${bot.config.intervalMode || "ALL_ASYMMETRIC"}, Budget=$${bot.config.maxAmountPerHedgeUsdt || 30} USDT, Min Spread=${((bot.config.minSpreadBps ?? 0) / 100).toFixed(2)}%, Parity Div=${bot.config.maxPriceDivergencePct}%, Cap=$${bot.maxMarginCapUsdt}`,
         "info",
         userId
       );
@@ -645,13 +681,19 @@ export async function POST(req: Request) {
   const activeBot = state.bots.find((b) => b.id === state.activeBotId) || state.bots[0];
 
   const enabledBotsCount = state.bots.filter((b) => b.enabled).length;
+  const allUsersForResponse = getAllActiveUsers();
+  const remainingActiveTenants = allUsersForResponse.filter((u) => loadBotState(u.id).isRunning).length;
 
   return NextResponse.json(
     {
       success: true,
       action,
+      isRunning: state.isRunning,
+      remainingActiveTenants,
       daemon: {
         ...state,
+        activeHedges: state.bots.reduce((sum, b) => sum + (b.activeHedges?.length || 0), 0) + (Array.isArray(state.activeHedges) ? state.activeHedges.length : 0),
+        activeHedgesCount: state.bots.reduce((sum, b) => sum + (b.activeHedges?.length || 0), 0) + (Array.isArray(state.activeHedges) ? state.activeHedges.length : 0),
         uptimeSeconds,
         serverTime: Date.now(),
         userId,
@@ -663,6 +705,9 @@ export async function POST(req: Request) {
             ? (activeBot?.enabled ? (activeBot?.statusText || "RUNNING_24_7") : `${enabledBotsCount} of ${state.bots.length} Bots Running`)
             : "ALL_BOTS_PAUSED"
           : "STOPPED",
+        isLocked: isDaemonLocked(),
+        lockInfo: getDaemonLockInfo(),
+        remainingActiveTenants,
       },
     },
     {

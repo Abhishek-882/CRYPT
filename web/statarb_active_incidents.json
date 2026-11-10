@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "inc_1794069262533_vbqqp",
+    "timestamp": "2026-11-07T16:34:22.533Z",
+    "errorType": "EXECUTION_ERROR",
+    "symbol": "ERA",
+    "details": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for ERA (Bybit REST IOC taker order failed: [110094] Order does not meet minimum order value 5USDT). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "urgency": "CRITICAL",
+    "resolved": false
+  }
+]

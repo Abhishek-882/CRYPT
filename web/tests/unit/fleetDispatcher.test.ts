@@ -84,4 +84,60 @@ describe("Phase 4: Centralized Fleet Priority Queue Dispatcher", () => {
     const acquired3 = dispatcher.acquireFleetLock("ETHUSDT", "BITGET_BYBIT", "bot-2");
     expect(acquired3).toBe(true);
   });
+
+  it("should allow concurrent cross-tenant execution locks on the same market pair", () => {
+    // Tenant 1 trading agent acquires lock on BTCUSDT
+    const acquiredTenant1 = dispatcher.acquireFleetLock("BTCUSDT", "BINANCE_BYBIT", "agent-1", "usr_tenant_1");
+    expect(acquiredTenant1).toBe(true);
+
+    // Tenant 2 trading agent simultaneously acquires lock on BTCUSDT on independent exchange account
+    const acquiredTenant2 = dispatcher.acquireFleetLock("BTCUSDT", "BINANCE_BYBIT", "agent-2", "usr_tenant_2");
+    expect(acquiredTenant2).toBe(true);
+
+    // Both tenants have active locks on the same symbol without collision
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", undefined, "usr_tenant_1")).toBe(true);
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", undefined, "usr_tenant_2")).toBe(true);
+
+    // Requesting agent is permitted for its own tenant
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", "agent-1", "usr_tenant_1")).toBe(false);
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", "agent-2", "usr_tenant_2")).toBe(false);
+
+    // Secondary agent under same tenant is locked out
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", "agent-3", "usr_tenant_1")).toBe(true);
+
+    // Tenant 1 releases lock
+    dispatcher.releaseFleetLock("BTCUSDT", "BINANCE_BYBIT", "agent-1", "usr_tenant_1");
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", undefined, "usr_tenant_1")).toBe(false);
+
+    // Tenant 2 lock remains active on disk/memory
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", undefined, "usr_tenant_2")).toBe(true);
+
+    // Tenant 2 releases lock
+    dispatcher.releaseFleetLock("BTCUSDT", "BINANCE_BYBIT", "agent-2", "usr_tenant_2");
+    expect(dispatcher.isSymbolLockedFleetWide("BTCUSDT", undefined, "usr_tenant_2")).toBe(false);
+  });
+
+  it("should enforce intra-tenant fleet mutual exclusion while maintaining cross-tenant isolation", () => {
+    // Tenant Alpha has Instance 1 and Instance 2
+    const tAlphaInst1 = dispatcher.acquireFleetLock("SOLUSDT", "COINDCX_BYBIT", "alpha-inst-1", "usr_tenant_alpha");
+    expect(tAlphaInst1).toBe(true);
+
+    // Instance 2 of Tenant Alpha attempts to acquire lock on same symbol -> denied
+    const tAlphaInst2 = dispatcher.acquireFleetLock("SOLUSDT", "COINDCX_BYBIT", "alpha-inst-2", "usr_tenant_alpha");
+    expect(tAlphaInst2).toBe(false);
+
+    // Tenant Beta Instance 1 attempts to acquire lock on SOLUSDT -> permitted
+    const tBetaInst1 = dispatcher.acquireFleetLock("SOLUSDT", "COINDCX_BYBIT", "beta-inst-1", "usr_tenant_beta");
+    expect(tBetaInst1).toBe(true);
+  });
+
+  it("should generate correct lock keys using getLockKey with and without tenant scoping", () => {
+    // Scoped keys with tenant ID
+    expect(dispatcher.getLockKey("BTCUSDT", "BINANCE_BYBIT", "usr_100")).toBe("usr_100_BINANCE_BYBIT_BTCUSDT");
+    expect(dispatcher.getLockKey("BTCUSDT", undefined, "usr_100")).toBe("usr_100_BTCUSDT");
+
+    // Unscoped keys for backward compatibility
+    expect(dispatcher.getLockKey("BTCUSDT", "BINANCE_BYBIT")).toBe("BINANCE_BYBIT_BTCUSDT");
+    expect(dispatcher.getLockKey("BTCUSDT")).toBe("BTCUSDT");
+  });
 });

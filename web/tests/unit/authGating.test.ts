@@ -24,6 +24,16 @@ import {
   decryptVaultSecret,
   getCockpitVaultKey,
 } from "@/lib/cryptoVault";
+import {
+  getVerifiedCredentialsForTenant,
+  MissingCredentialsError,
+  fetchAvailableBalances,
+  isCorridorSymbolLocked,
+  releaseCorridorSymbolLock,
+  DEFAULT_CONFIG,
+  BotConfig,
+} from "@/lib/botEngine";
+import { getLivePositionsForVenues } from "@/lib/exchangePositions";
 
 describe("Auth & Vault Security Gating Engine", () => {
   beforeAll(() => {
@@ -130,6 +140,102 @@ describe("Auth & Vault Security Gating Engine", () => {
 
       const decrypted = decryptVaultSecret(tampered);
       expect(decrypted).toBe("");
+    });
+  });
+
+  describe("Phase 2: Strict Credential Isolation & Admin Secret Fallback Stripping", () => {
+    it("should reject non-admin tenant execution when required corridor credentials are missing", () => {
+      const tenantId = "usr_tenant_test_1";
+      const partialCreds = {
+        binanceKey: "valid_binance_key_123",
+        binanceSecret: "valid_binance_sec_123",
+      };
+
+      expect(() => {
+        getVerifiedCredentialsForTenant(tenantId, partialCreds, "BINANCE_BYBIT");
+      }).toThrow(MissingCredentialsError);
+
+      try {
+        getVerifiedCredentialsForTenant(tenantId, partialCreds, "BINANCE_BYBIT");
+      } catch (err: any) {
+        expect(err.code).toBe("MISSING_EXCHANGE_CREDENTIALS");
+        expect(err.message).toContain("Bybit");
+        expect(err.message).toContain(tenantId);
+      }
+    });
+
+    it("should reject non-admin tenant when credentials object is undefined", () => {
+      const tenantId = "usr_tenant_test_2";
+      expect(() => {
+        getVerifiedCredentialsForTenant(tenantId, undefined, "BINANCE_BYBIT");
+      }).toThrowError(/MISSING_EXCHANGE_CREDENTIALS/);
+    });
+
+    it("should resolve decrypted credentials for non-admin tenant when valid keys are configured", () => {
+      const tenantId = "usr_tenant_test_3";
+      const plainBybitSec = "bybit_secret_cleartext_789";
+      const encBybitSec = encryptVaultSecret(plainBybitSec);
+
+      const tenantCreds = {
+        binanceKey: "bn_key_abc_123",
+        binanceSecret: "bn_sec_abc_123",
+        bybitKey: "byb_key_xyz_456",
+        bybitSecret: encBybitSec,
+      };
+
+      const result = getVerifiedCredentialsForTenant(tenantId, tenantCreds, "BINANCE_BYBIT");
+      expect(result.isAdmin).toBe(false);
+      expect(result.binanceKey).toBe("bn_key_abc_123");
+      expect(result.binanceSecret).toBe("bn_sec_abc_123");
+      expect(result.bybitKey).toBe("byb_key_xyz_456");
+      expect(result.bybitSecret).toBe(plainBybitSec);
+    });
+
+    it("should preserve system default credentials fallback for verified administrator", () => {
+      const adminResult = getVerifiedCredentialsForTenant("usr_admin_varsha", undefined, "BINANCE_BYBIT");
+      expect(adminResult.isAdmin).toBe(true);
+      expect(adminResult.binanceKey.length).toBeGreaterThan(0);
+      expect(adminResult.bybitKey.length).toBeGreaterThan(0);
+    });
+
+    it("should return zero balances for non-admin accounts with missing exchange credentials", async () => {
+      const balances = await fetchAvailableBalances(undefined, "usr_tenant_no_keys");
+      expect(balances.binanceBal).toBe(0);
+      expect(balances.bitgetBal).toBe(0);
+      expect(balances.bybitBal).toBe(0);
+      expect(balances.coindcxBal).toBe(0);
+    });
+
+    it("should isolate live position queries and prevent non-admin from reading admin positions", async () => {
+      const snapshot = await getLivePositionsForVenues(["Binance"], undefined, "usr_tenant_isolated", true, "usr_tenant_isolated");
+      const binanceOpenSymbols = snapshot.venueOpenSymbols.get("binance");
+      expect(binanceOpenSymbols?.size).toBe(0);
+    });
+
+    it("should scope in-flight entry locks by tenant without cross-tenant collision", () => {
+      const tenantAlpha = "usr_tenant_lock_alpha";
+      const tenantBeta = "usr_tenant_lock_beta";
+
+      expect(isCorridorSymbolLocked("BINANCE_BYBIT", "AVAXUSDT", tenantAlpha)).toBe(false);
+      expect(isCorridorSymbolLocked("BINANCE_BYBIT", "AVAXUSDT", tenantBeta)).toBe(false);
+
+      // Release helper cleans up cleanly
+      releaseCorridorSymbolLock("BINANCE_BYBIT", "AVAXUSDT", tenantAlpha);
+      expect(isCorridorSymbolLocked("BINANCE_BYBIT", "AVAXUSDT", tenantAlpha)).toBe(false);
+    });
+
+    it("should provide user-configurable leverage targets with 20x normal and 10x volatile coin defaults", () => {
+      // Verify defaults
+      expect(DEFAULT_CONFIG.normalCoinLeverage).toBe(20);
+      expect(DEFAULT_CONFIG.volatileCoinLeverage).toBe(10);
+
+      // Verify custom tenant configuration overrides
+      const customConfig: Partial<BotConfig> = {
+        normalCoinLeverage: 25,
+        volatileCoinLeverage: 12,
+      };
+      expect(customConfig.normalCoinLeverage).toBe(25);
+      expect(customConfig.volatileCoinLeverage).toBe(12);
     });
   });
 });

@@ -26,8 +26,18 @@ export interface FleetLockInfo {
   symbol: string;
   corridor: string;
   botId: string;
+  userId?: string;
   acquiredAt: number;
   expiresAt: number;
+}
+
+/**
+ * Generate a mutex lock key scoped by tenant ID and symbol/corridor
+ */
+export function getLockKey(symbol: string, corridor?: string, userId?: string): string {
+  const sym = symbol.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const prefix = userId ? `${userId}_` : "";
+  return corridor ? `${prefix}${corridor.toUpperCase()}_${sym}` : `${prefix}${sym}`;
 }
 
 export class FleetDispatcher {
@@ -35,9 +45,8 @@ export class FleetDispatcher {
   private activeLocks: Map<string, FleetLockInfo> = new Map();
   private readonly lockTtlMs: number = 30000; // 30-second watchdog lock
 
-  private getLockKey(symbol: string, corridor?: string): string {
-    const sym = symbol.toUpperCase().replace(/[^A-Z0-9]/g, "");
-    return corridor ? `${corridor.toUpperCase()}_${sym}` : sym;
+  public getLockKey(symbol: string, corridor?: string, userId?: string): string {
+    return getLockKey(symbol, corridor, userId);
   }
 
   /**
@@ -78,14 +87,14 @@ export class FleetDispatcher {
   /**
    * Acquire a fleet-wide mutex lock on a symbol/corridor for trade entry
    */
-  public acquireFleetLock(symbol: string, corridor: string, botId: string): boolean {
+  public acquireFleetLock(symbol: string, corridor: string, botId: string, userId?: string): boolean {
     const now = Date.now();
     this.cleanExpiredLocks(now);
 
-    const symKey = this.getLockKey(symbol);
-    const corridorKey = this.getLockKey(symbol, corridor);
+    const symKey = this.getLockKey(symbol, undefined, userId);
+    const corridorKey = this.getLockKey(symbol, corridor, userId);
 
-    // If locked by any other bot, deny acquisition
+    // If locked by any other bot for this tenant/scope, deny acquisition
     const existingSymLock = this.activeLocks.get(symKey);
     if (existingSymLock && existingSymLock.botId !== botId && existingSymLock.expiresAt > now) {
       return false;
@@ -101,6 +110,7 @@ export class FleetDispatcher {
       symbol: symbol.toUpperCase(),
       corridor: corridor.toUpperCase(),
       botId,
+      userId,
       acquiredAt: now,
       expiresAt: now + this.lockTtlMs,
     };
@@ -113,9 +123,9 @@ export class FleetDispatcher {
   /**
    * Release fleet-wide lock upon trade completion or abort
    */
-  public releaseFleetLock(symbol: string, corridor: string, botId: string): void {
-    const symKey = this.getLockKey(symbol);
-    const corridorKey = this.getLockKey(symbol, corridor);
+  public releaseFleetLock(symbol: string, corridor: string, botId: string, userId?: string): void {
+    const symKey = this.getLockKey(symbol, undefined, userId);
+    const corridorKey = this.getLockKey(symbol, corridor, userId);
 
     const symLock = this.activeLocks.get(symKey);
     if (symLock && symLock.botId === botId) {
@@ -131,11 +141,11 @@ export class FleetDispatcher {
   /**
    * Check if a symbol is currently locked fleet-wide
    */
-  public isSymbolLockedFleetWide(symbol: string, requestingBotId?: string): boolean {
+  public isSymbolLockedFleetWide(symbol: string, requestingBotId?: string, userId?: string): boolean {
     const now = Date.now();
     this.cleanExpiredLocks(now);
 
-    const symKey = this.getLockKey(symbol);
+    const symKey = this.getLockKey(symbol, undefined, userId);
     const lock = this.activeLocks.get(symKey);
     if (!lock) return false;
     if (requestingBotId && lock.botId === requestingBotId) return false;
@@ -145,7 +155,7 @@ export class FleetDispatcher {
   /**
    * Retrieve the highest-ranking candidate currently queued for a bot
    */
-  public pollBestCandidateForBot(botId: string): FleetCandidateEntry | null {
+  public pollBestCandidateForBot(botId: string, userId?: string): FleetCandidateEntry | null {
     const now = Date.now();
     this.cleanExpiredLocks(now);
 
@@ -153,7 +163,7 @@ export class FleetDispatcher {
     const viable = this.queue.filter((item) => {
       if (item.botId !== botId) return false;
       if (now - item.timestamp > 60000) return false;
-      return !this.isSymbolLockedFleetWide(item.symbol, botId);
+      return !this.isSymbolLockedFleetWide(item.symbol, botId, userId);
     });
 
     if (viable.length === 0) return null;

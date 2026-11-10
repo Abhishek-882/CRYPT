@@ -1,0 +1,58 @@
+[
+  {
+    "timestamp": "2026-11-10T14:40:35.973Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [111]",
+    "level": "warn",
+    "count": 111,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-10T13:07:29.945Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [70]",
+    "level": "warn",
+    "count": 70,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-10T12:08:22.433Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [242]",
+    "level": "warn",
+    "count": 242,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:12:56.140Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [7]",
+    "level": "warn",
+    "count": 7,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:08:02.982Z",
+    "message": "Bot \"Emma Alpha Harvester\" [TER]: User user_quant_emma_1794301682803@testvault.org activated 24/7 Autonomous Multi-Bot Server Engine. Scanning funding countdowns, spread and price parity continuously across all active bots.",
+    "level": "success",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:08:02.973Z",
+    "message": "Bot \"Emma Alpha Harvester\" [TER]: Parameters updated for \"Emma Alpha Harvester\": Corridor=COINDCX_BYBIT, Mode=ALL_ASYMMETRIC, Budget=$25 USDT, Min Spread=15bps, Parity Div=0.05%, Cap=$300",
+    "level": "info",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-10T09:08:02.962Z",
+    "message": "[BOT CREATED] Bot \"Emma Alpha Harvester\" [TER]: New bot \"Emma Alpha Harvester\" added with preset \"conservative_5bps_sniper.set\".",
+    "level": "success",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  }
+]

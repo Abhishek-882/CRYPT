@@ -1,1 +1,1856 @@
-[]
+[
+  {
+    "timestamp": "2026-11-08T02:28:18.223Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [EMERGENCY UNWIND COMPLETE] Unwound 8830 ZILUSDT on BYBIT @ $0.0017. Exposure neutralized to 0. [2]",
+    "level": "success",
+    "count": 2,
+    "symbol": "ZILUSDT"
+  },
+  {
+    "timestamp": "2026-11-08T01:49:58.000Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for SIREN: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343532393235363231393a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "SIREN",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343532393235363231393a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-08T01:49:57.997Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol SIREN placed on cooldown for 30s until 5:50:27 PM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "SIREN"
+  },
+  {
+    "timestamp": "2026-11-08T01:49:53.827Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for CARV (STAGNANCY_DECOUPLING_UNWIND): Real Net PnL: $-0.0883 USDT | Total Fees: $0.0333 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CARV",
+    "details": {
+      "realNetPnl": -0.0883,
+      "realTotalFees": 0.0333,
+      "exitType": "STAGNANCY_DECOUPLING_UNWIND",
+      "executionHash": "0x3235393639363836323a306362383736"
+    }
+  },
+  {
+    "timestamp": "2026-11-08T01:49:53.513Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on CARV. Leg 1 Maker filled (458) @ $0.0314, Leg 2 Taker filled (458) @ $0.0314 via WEBSOCKET in 149ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CARV"
+  },
+  {
+    "timestamp": "2026-11-08T01:49:49.771Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for BIRB (STAGNANCY_DECOUPLING_UNWIND): Real Net PnL: $-0.0154 USDT | Total Fees: $0.0296 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "BIRB",
+    "details": {
+      "realNetPnl": -0.0154,
+      "realTotalFees": 0.0296,
+      "exitType": "STAGNANCY_DECOUPLING_UNWIND",
+      "executionHash": "0x3938373036303036303a666266316362"
+    }
+  },
+  {
+    "timestamp": "2026-11-08T01:49:49.444Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on BIRB. Leg 1 Maker filled (158) @ $0.0896, Leg 2 Taker filled (158) @ $0.0897 via WEBSOCKET in 154ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T17:08:38.938Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on BIRB: SHORT_BYBIT_LONG_BINANCE | Notional: $14.92 USDT | Quantity: 158",
+    "level": "success",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T17:08:38.931Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on BIRB. Leg 1 Maker filled (158) @ $0.0945, Leg 2 Taker filled (158) @ $0.0946 via WEBSOCKET in 170ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T17:08:30.744Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343131353531353134333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343131353531353134333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T17:08:30.741Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol AKE placed on cooldown for 30s until 9:09:00 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE"
+  },
+  {
+    "timestamp": "2026-11-07T17:08:07.321Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CAP: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3736353833333831313a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CAP",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3736353833333831313a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T17:08:07.318Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CAP placed on cooldown for 30s until 9:08:37 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CAP"
+  },
+  {
+    "timestamp": "2026-11-07T17:07:58.546Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ARIA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313735393238343736313a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313735393238343736313a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T17:07:58.542Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ARIA placed on cooldown for 30s until 9:08:28 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T17:07:45.384Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for SIGN: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313237343238333938373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "SIGN",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313237343238333938373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T17:07:45.382Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol SIGN placed on cooldown for 30s until 9:08:15 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "SIGN"
+  },
+  {
+    "timestamp": "2026-11-07T17:07:20.112Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for ARIA (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0734 USDT | Total Fees: $0.0312 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA",
+    "details": {
+      "realNetPnl": -0.0734,
+      "realTotalFees": 0.0312,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x313735393235383733363a6564353164"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T17:07:19.789Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ARIA. Leg 1 Maker filled (96) @ $0.1604, Leg 2 Taker filled (96) @ $0.1596 via WEBSOCKET in 253ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T16:34:28.359Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on ARIA: SHORT_BINANCE_LONG_BYBIT | Notional: $14.97 USDT | Quantity: 96",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T16:34:28.354Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ARIA. Leg 1 Maker filled (96) @ $0.1560, Leg 2 Taker filled (96) @ $0.1556 via WEBSOCKET in 144ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T16:34:22.551Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ERA: Leg 2 hedge execution failed on both WS and REST. Emergency market unwind executed on Leg 1 within sub-40ms. Orphan risk eliminated. (Hash: 0x313132343638343136383a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA",
+    "details": {
+      "status": "EMERGENCY_UNWOUND",
+      "executionHash": "0x313132343638343136383a7374617431",
+      "reason": "Leg 2 hedge execution failed on both WS and REST. Emergency market unwind executed on Leg 1 within sub-40ms. Orphan risk eliminated."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T16:34:22.548Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol ERA quarantined for 60m until 9:34:22 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T16:34:22.533Z",
+    "message": "[ERROR] [STATARB-OU-PERP] [CIRCUIT BREAKER: 40ms AUTO-UNWIND] Leg 2 hedge execution failed on both WS and REST for ERA (Bybit REST IOC taker order failed: [110094] Order does not meet minimum order value 5USDT). Emergency unwind executed on BINANCE (1 attempts, success: true). Blacklisting symbol for 60m.",
+    "level": "error",
+    "count": 1,
+    "symbol": "ERA",
+    "details": {
+      "restError": "Bybit REST IOC taker order failed: [110094] Order does not meet minimum order value 5USDT",
+      "unwindSuccess": true,
+      "unwindAttempts": 1
+    }
+  },
+  {
+    "timestamp": "2026-11-07T16:33:58.373Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for MEGA (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0419 USDT | Total Fees: $0.0230 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "MEGA",
+    "details": {
+      "realNetPnl": -0.0419,
+      "realTotalFees": 0.023,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x3639323533323033323a383062616565"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T16:33:57.362Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on MEGA. Leg 1 Maker filled (315) @ $0.0500, Leg 2 Taker filled (315) @ $0.0499 via WEBSOCKET in 170ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "MEGA"
+  },
+  {
+    "timestamp": "2026-11-07T15:00:49.357Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for WLFI: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343435313838313731393a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "WLFI",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343435313838313731393a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T15:00:49.354Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol WLFI placed on cooldown for 30s until 7:01:19 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "WLFI"
+  },
+  {
+    "timestamp": "2026-11-07T15:00:41.581Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on MEGA: SHORT_BINANCE_LONG_BYBIT | Notional: $15.01 USDT | Quantity: 315",
+    "level": "success",
+    "count": 1,
+    "symbol": "MEGA"
+  },
+  {
+    "timestamp": "2026-11-07T15:00:41.576Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on MEGA. Leg 1 Maker filled (315) @ $0.0476, Leg 2 Taker filled (315) @ $0.0475 via WEBSOCKET in 155ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "MEGA"
+  },
+  {
+    "timestamp": "2026-11-07T15:00:35.147Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BIRB: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3938343834333730363a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3938343834333730363a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T15:00:35.144Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BIRB placed on cooldown for 30s until 7:01:05 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T15:00:26.095Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343131323239313931373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343131323239313931373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T15:00:26.092Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol AKE placed on cooldown for 30s until 7:00:56 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE"
+  },
+  {
+    "timestamp": "2026-11-07T15:00:21.167Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CAP: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3736343431373231373a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CAP",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3736343431373231373a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T15:00:21.163Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CAP placed on cooldown for 30s until 7:00:51 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CAP"
+  },
+  {
+    "timestamp": "2026-11-07T14:59:55.436Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for CAP (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0192 USDT | Total Fees: $0.0312 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CAP",
+    "details": {
+      "realNetPnl": -0.0192,
+      "realTotalFees": 0.0312,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x3736343430313738313a303137343266"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:59:55.113Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on CAP. Leg 1 Maker filled (150) @ $0.1022, Leg 2 Taker filled (150) @ $0.1022 via WEBSOCKET in 175ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CAP"
+  },
+  {
+    "timestamp": "2026-11-07T14:54:53.792Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for JCT (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0461 USDT | Total Fees: $0.0302 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "JCT",
+    "details": {
+      "realNetPnl": -0.0461,
+      "realTotalFees": 0.0302,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x313239393437333138353a3562653832"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:54:08.718Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631363137313236363a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631363137313236363a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:54:08.715Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 6:54:38 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T14:54:03.397Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on JCT: SHORT_BINANCE_LONG_BYBIT | Notional: $14.89 USDT | Quantity: 5300",
+    "level": "success",
+    "count": 1,
+    "symbol": "JCT"
+  },
+  {
+    "timestamp": "2026-11-07T14:54:53.461Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on JCT. Leg 1 Maker filled (5300) @ $0.0028, Leg 2 Taker filled (5300) @ $0.0028 via WEBSOCKET in 167ms. Net delta: 0.0000. [2]",
+    "level": "success",
+    "count": 2,
+    "symbol": "JCT"
+  },
+  {
+    "timestamp": "2026-11-07T14:54:03.055Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on CAP: SHORT_BINANCE_LONG_BYBIT | Notional: $14.87 USDT | Quantity: 150",
+    "level": "success",
+    "count": 1,
+    "symbol": "CAP"
+  },
+  {
+    "timestamp": "2026-11-07T14:54:03.050Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on CAP. Leg 1 Maker filled (150) @ $0.0989, Leg 2 Taker filled (150) @ $0.0988 via WEBSOCKET in 152ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CAP"
+  },
+  {
+    "timestamp": "2026-11-07T14:53:21.314Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for ERA (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0204 USDT | Total Fees: $0.0224 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ERA",
+    "details": {
+      "realNetPnl": -0.0204,
+      "realTotalFees": 0.0224,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x313132343535303737383a6463663134"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:53:20.998Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ERA. Leg 1 Maker filled (204) @ $0.0728, Leg 2 Taker filled (204) @ $0.0730 via WEBSOCKET in 167ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T14:17:53.178Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ZETA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323833373431353538303a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ZETA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323833373431353538303a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:17:53.176Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ZETA placed on cooldown for 30s until 6:18:23 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ZETA"
+  },
+  {
+    "timestamp": "2026-11-07T14:17:49.360Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on ERA: SHORT_BYBIT_LONG_BINANCE | Notional: $14.96 USDT | Quantity: 204",
+    "level": "success",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T14:17:49.354Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ERA. Leg 1 Maker filled (204) @ $0.0733, Leg 2 Taker filled (204) @ $0.0735 via WEBSOCKET in 170ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T14:16:51.334Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ZETA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323833373431343635373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ZETA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323833373431343635373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:16:51.330Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ZETA placed on cooldown for 30s until 6:17:21 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ZETA"
+  },
+  {
+    "timestamp": "2026-11-07T14:16:48.924Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631363038333731323a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631363038333731323a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:16:48.921Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 6:17:18 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T14:16:32.292Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for LSK (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0149 USDT | Total Fees: $0.0221 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "realNetPnl": -0.0149,
+      "realTotalFees": 0.0221,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x333631363038323135353a3438376531"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:16:30.463Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on LSK. Leg 1 Maker filled (80) @ $0.1817, Leg 2 Taker filled (80) @ $0.1821 via WEBSOCKET in 178ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T14:11:05.941Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for ARIA (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.1351 USDT | Total Fees: $0.0298 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA",
+    "details": {
+      "realNetPnl": -0.1351,
+      "realTotalFees": 0.0298,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x313735373838353335393a3437653166"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T14:11:05.620Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ARIA. Leg 1 Maker filled (94) @ $0.1537, Leg 2 Taker filled (94) @ $0.1523 via WEBSOCKET in 197ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T13:14:25.183Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for CYBER (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $0.0258 USDT | Total Fees: $0.0228 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CYBER",
+    "details": {
+      "realNetPnl": 0.0258,
+      "realTotalFees": 0.0228,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x333737393230303139323a3733363934"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T13:14:24.157Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on CYBER. Leg 1 Maker filled (48.6) @ $0.3150, Leg 2 Taker filled (48.6) @ $0.3146 via WEBSOCKET in 177ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CYBER"
+  },
+  {
+    "timestamp": "2026-11-07T12:30:20.721Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on ARIA: SHORT_BINANCE_LONG_BYBIT | Notional: $15.00 USDT | Quantity: 94",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T12:30:20.717Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ARIA. Leg 1 Maker filled (94) @ $0.1596, Leg 2 Taker filled (94) @ $0.1593 via WEBSOCKET in 144ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T12:30:14.499Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for ICNT (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0416 USDT | Total Fees: $0.0228 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ICNT",
+    "details": {
+      "realNetPnl": -0.0416,
+      "realTotalFees": 0.0228,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x313234313734383138373a6333336333"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T12:30:13.487Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ICNT. Leg 1 Maker filled (47) @ $0.3276, Leg 2 Taker filled (47) @ $0.3272 via WEBSOCKET in 190ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ICNT"
+  },
+  {
+    "timestamp": "2026-11-07T12:10:17.799Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on ICNT: SHORT_BINANCE_LONG_BYBIT | Notional: $14.94 USDT | Quantity: 47",
+    "level": "success",
+    "count": 1,
+    "symbol": "ICNT"
+  },
+  {
+    "timestamp": "2026-11-07T12:10:17.794Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ICNT. Leg 1 Maker filled (47) @ $0.3163, Leg 2 Taker filled (47) @ $0.3163 via WEBSOCKET in 142ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ICNT"
+  },
+  {
+    "timestamp": "2026-11-07T12:10:15.269Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for BTW (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $0.0326 USDT | Total Fees: $0.0187 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "BTW",
+    "details": {
+      "realNetPnl": 0.0326,
+      "realTotalFees": 0.0187,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x333035343437383438333a6263326563"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T12:10:14.939Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on BTW. Leg 1 Maker filled (13) @ $1.1670, Leg 2 Taker filled (10) @ $1.1674 via WEBSOCKET in 173ms. Net delta: 3.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "BTW"
+  },
+  {
+    "timestamp": "2026-11-07T11:56:59.955Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for EVAA (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0596 USDT | Total Fees: $0.0315 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "EVAA",
+    "details": {
+      "realNetPnl": -0.0596,
+      "realTotalFees": 0.0315,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x323538313133383430303a3333643736"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T11:56:58.940Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on EVAA. Leg 1 Maker filled (10.4) @ $1.5028, Leg 2 Taker filled (10.4) @ $1.5043 via WEBSOCKET in 183ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "EVAA"
+  },
+  {
+    "timestamp": "2026-11-07T11:40:41.789Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for CARV (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $0.1621 USDT | Total Fees: $0.0225 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CARV",
+    "details": {
+      "realNetPnl": 0.1621,
+      "realTotalFees": 0.0225,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x3235383635393837333a643030313236"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T11:40:38.767Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for CARV (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.0323 USDT | Total Fees: $0.0225 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CARV",
+    "details": {
+      "realNetPnl": -0.0323,
+      "realTotalFees": 0.0225,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x3235383635393734393a666263343332"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T11:40:40.117Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on CARV. Leg 1 Maker filled (458) @ $0.0324, Leg 2 Taker filled (458) @ $0.0326 via WEBSOCKET in 144ms. Net delta: 0.0000. [2]",
+    "level": "success",
+    "count": 2,
+    "symbol": "CARV"
+  },
+  {
+    "timestamp": "2026-11-07T10:45:17.318Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on ZIL: SHORT_BYBIT_LONG_BINANCE | Notional: $15.00 USDT | Quantity: 8831 [2]",
+    "level": "success",
+    "count": 2,
+    "symbol": "ZIL"
+  },
+  {
+    "timestamp": "2026-11-07T10:45:17.312Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ZIL. Leg 1 Maker filled (8831) @ $0.0017, Leg 2 Taker filled (8830) @ $0.0017 via WEBSOCKET in 148ms. Net delta: 1.0000. [2]",
+    "level": "success",
+    "count": 2,
+    "symbol": "ZIL"
+  },
+  {
+    "timestamp": "2026-11-07T10:45:14.968Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on CARV: SHORT_BYBIT_LONG_BINANCE | Notional: $15.00 USDT | Quantity: 458",
+    "level": "success",
+    "count": 1,
+    "symbol": "CARV"
+  },
+  {
+    "timestamp": "2026-11-07T10:45:14.963Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on CARV. Leg 1 Maker filled (458) @ $0.0328, Leg 2 Taker filled (458) @ $0.0329 via WEBSOCKET in 145ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CARV"
+  },
+  {
+    "timestamp": "2026-11-07T10:45:09.866Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BLESS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323630303036303538303a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323630303036303538303a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:45:09.861Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BLESS placed on cooldown for 30s until 2:45:39 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS"
+  },
+  {
+    "timestamp": "2026-11-07T10:45:00.431Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ORDER: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3737343134313533353a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ORDER",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3737343134313533353a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:45:00.428Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ORDER placed on cooldown for 30s until 2:45:30 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ORDER"
+  },
+  {
+    "timestamp": "2026-11-07T10:44:31.343Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [REAL LEDGER SETTLEMENT] Position closed for ARIA (PROFITABLE_CONVERGENCE_EXIT): Real Net PnL: $-0.4173 USDT | Total Fees: $0.0311 USDT.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA",
+    "details": {
+      "realNetPnl": -0.4173,
+      "realTotalFees": 0.0311,
+      "exitType": "PROFITABLE_CONVERGENCE_EXIT",
+      "executionHash": "0x313735363039363130393a6634306532"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:44:31.001Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ARIA. Leg 1 Maker filled (96) @ $0.1596, Leg 2 Taker filled (96) @ $0.1588 via WEBSOCKET in 193ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:21.133Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for PONS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3433333137343230353a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "PONS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3433333137343230353a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:27:21.131Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol PONS placed on cooldown for 30s until 2:27:51 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "PONS"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:13.746Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for WLFI: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343435313536333531393a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "WLFI",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343435313536333531393a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:27:13.743Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol WLFI placed on cooldown for 30s until 2:27:43 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "WLFI"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:12.758Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on ARIA: SHORT_BINANCE_LONG_BYBIT | Notional: $15.00 USDT | Quantity: 96",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:12.754Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on ARIA. Leg 1 Maker filled (96) @ $0.1555, Leg 2 Taker filled (96) @ $0.1550 via WEBSOCKET in 206ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:12.365Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on CYBER: SHORT_BYBIT_LONG_BINANCE | Notional: $15.00 USDT | Quantity: 48.6",
+    "level": "success",
+    "count": 1,
+    "symbol": "CYBER"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:12.358Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on CYBER. Leg 1 Maker filled (48.6) @ $0.3082, Leg 2 Taker filled (48.6) @ $0.3088 via WEBSOCKET in 211ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "CYBER"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:03.148Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on LSK: SHORT_BYBIT_LONG_BINANCE | Notional: $15.00 USDT | Quantity: 80",
+    "level": "success",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:27:03.144Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on LSK. Leg 1 Maker filled (80) @ $0.1869, Leg 2 Taker filled (80) @ $0.1874 via WEBSOCKET in 211ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:26:50.034Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3239363938323132353a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3239363938323132353a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:26:50.032Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CT placed on cooldown for 30s until 2:27:20 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT"
+  },
+  {
+    "timestamp": "2026-11-07T10:26:23.226Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on EVAA: SHORT_BYBIT_LONG_BINANCE | Notional: $15.00 USDT | Quantity: 10.4",
+    "level": "success",
+    "count": 1,
+    "symbol": "EVAA"
+  },
+  {
+    "timestamp": "2026-11-07T10:26:23.220Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on EVAA. Leg 1 Maker filled (10.4) @ $1.4404, Leg 2 Taker filled (10.4) @ $1.4392 via WEBSOCKET in 141ms. Net delta: 0.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "EVAA"
+  },
+  {
+    "timestamp": "2026-11-07T10:25:23.228Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for EVAA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323538303036313033373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "EVAA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323538303036313033373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:25:23.224Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol EVAA placed on cooldown for 30s until 2:25:53 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "EVAA"
+  },
+  {
+    "timestamp": "2026-11-07T10:25:04.228Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3239363930383434303a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3239363930383434303a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:25:04.225Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CT placed on cooldown for 30s until 2:25:34 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT"
+  },
+  {
+    "timestamp": "2026-11-07T10:24:47.854Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ARIA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313735353934373638363a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313735353934373638363a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:24:47.852Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ARIA placed on cooldown for 30s until 2:25:17 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T10:24:42.336Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CYBER: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333737383631313736323a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CYBER",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333737383631313736323a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:24:41.498Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CYBER: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333737383631313639363a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CYBER",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333737383631313639363a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:24:42.334Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CYBER placed on cooldown for 30s until 2:25:12 AM to prevent repetitive entry loops. [2]",
+    "level": "warn",
+    "count": 2,
+    "symbol": "CYBER"
+  },
+  {
+    "timestamp": "2026-11-07T10:24:40.008Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631343636343838383a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631343636343838383a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:24:40.006Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 2:25:10 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:24:18.850Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ERA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313132333837363530333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313132333837363530333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:24:18.847Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ERA placed on cooldown for 30s until 2:24:48 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T10:24:16.051Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ACT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333936363433353935303a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333936363433353935303a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:24:16.049Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ACT placed on cooldown for 30s until 2:24:46 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT"
+  },
+  {
+    "timestamp": "2026-11-07T10:24:05.350Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BIRB: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3938333435393237303a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3938333435393237303a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:24:05.348Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BIRB placed on cooldown for 30s until 2:24:35 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T10:23:15.802Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BLESS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323630303033373235373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323630303033373235373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:23:15.799Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BLESS placed on cooldown for 30s until 2:23:45 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS"
+  },
+  {
+    "timestamp": "2026-11-07T10:23:11.265Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ACT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333936363432333736393a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333936363432333736393a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:23:11.262Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ACT placed on cooldown for 30s until 2:23:41 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT"
+  },
+  {
+    "timestamp": "2026-11-07T10:22:26.618Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BIRB: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3938333435323335303a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3938333435323335303a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:22:26.616Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BIRB placed on cooldown for 30s until 2:22:56 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T10:22:16.165Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631343634353535333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631343634353535333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:22:16.163Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 2:22:46 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:22:07.923Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ERA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313132333837333831333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313132333837333831333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:22:07.921Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ERA placed on cooldown for 30s until 2:22:37 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T10:21:54.813Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LYN: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313733303139323232303a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LYN",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313733303139323232303a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:21:52.610Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LYN: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313733303139313832303a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LYN",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313733303139313832303a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:21:54.810Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LYN placed on cooldown for 30s until 2:22:24 AM to prevent repetitive entry loops. [2]",
+    "level": "warn",
+    "count": 2,
+    "symbol": "LYN"
+  },
+  {
+    "timestamp": "2026-11-07T10:21:20.759Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [ENTRY FILLED] Delta-neutral position opened on BTW: SHORT_BYBIT_LONG_BINANCE | Notional: $15.00 USDT | Quantity: 13",
+    "level": "success",
+    "count": 1,
+    "symbol": "BTW"
+  },
+  {
+    "timestamp": "2026-11-07T10:21:20.754Z",
+    "message": "[SUCCESS] [STATARB-OU-PERP] [DELTA NEUTRAL LOCKED] Established 1:1 hedge on BTW. Leg 1 Maker filled (13) @ $1.1464, Leg 2 Taker filled (10) @ $1.1458 via WEBSOCKET in 184ms. Net delta: 3.0000.",
+    "level": "success",
+    "count": 1,
+    "symbol": "BTW"
+  },
+  {
+    "timestamp": "2026-11-07T10:20:59.914Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ACT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333936363430313837333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333936363430313837333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:20:58.299Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ACT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333936363430313536313a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333936363430313536313a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:20:59.911Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ACT placed on cooldown for 30s until 2:21:29 AM to prevent repetitive entry loops. [2]",
+    "level": "warn",
+    "count": 2,
+    "symbol": "ACT"
+  },
+  {
+    "timestamp": "2026-11-07T10:20:36.714Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ERA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313132333837323737323a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313132333837323737323a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:20:36.711Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ERA placed on cooldown for 30s until 2:21:06 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T10:20:08.267Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631343632383833353a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631343632383833353a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:20:08.264Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 2:20:38 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:19:49.568Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BEAT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x353736373434313531333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BEAT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x353736373434313531333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:19:49.566Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BEAT placed on cooldown for 30s until 2:20:19 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BEAT"
+  },
+  {
+    "timestamp": "2026-11-07T10:19:30.943Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BLESS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323630303033313137383a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323630303033313137383a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:19:30.684Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BLESS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323630303033313137373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323630303033313137373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:19:30.941Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BLESS placed on cooldown for 30s until 2:20:00 AM to prevent repetitive entry loops. [2]",
+    "level": "warn",
+    "count": 2,
+    "symbol": "BLESS"
+  },
+  {
+    "timestamp": "2026-11-07T10:19:17.600Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for WLFI: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343435313535363534353a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "WLFI",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343435313535363534353a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:19:17.597Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol WLFI placed on cooldown for 30s until 2:19:47 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "WLFI"
+  },
+  {
+    "timestamp": "2026-11-07T10:19:09.436Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for HUMA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323736363833323530373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "HUMA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323736363833323530373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:19:09.434Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol HUMA placed on cooldown for 30s until 2:19:39 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "HUMA"
+  },
+  {
+    "timestamp": "2026-11-07T10:19:01.696Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343130363530373038333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343130363530373038333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:19:01.074Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343130363530363639393a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343130363530363639393a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:18:16.827Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343130363434393539373a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343130363434393539373a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:19:01.693Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol AKE placed on cooldown for 30s until 2:19:31 AM to prevent repetitive entry loops. [3]",
+    "level": "warn",
+    "count": 3,
+    "symbol": "AKE"
+  },
+  {
+    "timestamp": "2026-11-07T10:18:01.011Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ARIA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313735353930333536393a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313735353930333536393a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:18:01.008Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ARIA placed on cooldown for 30s until 2:18:31 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T10:16:24.559Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3239363738373031393a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3239363738373031393a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:16:24.557Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CT placed on cooldown for 30s until 2:16:54 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT"
+  },
+  {
+    "timestamp": "2026-11-07T10:16:20.158Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343130363239313233333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343130363239313233333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:16:20.154Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol AKE placed on cooldown for 30s until 2:16:50 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE"
+  },
+  {
+    "timestamp": "2026-11-07T10:15:05.138Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ELSA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3434333937333230373a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ELSA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3434333937333230373a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:15:05.135Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ELSA placed on cooldown for 30s until 2:15:35 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ELSA"
+  },
+  {
+    "timestamp": "2026-11-07T10:14:56.721Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BLESS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323630303032353134303a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323630303032353134303a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:14:33.223Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343130363138313433363a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343130363138313433363a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:14:33.221Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol AKE placed on cooldown for 30s until 2:15:03 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE"
+  },
+  {
+    "timestamp": "2026-11-07T10:14:03.822Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BLESS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323630303032343439333a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323630303032343439333a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:14:56.718Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BLESS placed on cooldown for 30s until 2:15:26 AM to prevent repetitive entry loops. [2]",
+    "level": "warn",
+    "count": 2,
+    "symbol": "BLESS"
+  },
+  {
+    "timestamp": "2026-11-07T10:13:13.975Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BIRB: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3938333430363535373a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3938333430363535373a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:13:13.972Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BIRB placed on cooldown for 30s until 2:13:43 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T10:12:34.995Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3239363733373038333a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3239363733373038333a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:12:34.992Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CT placed on cooldown for 30s until 2:13:04 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CT"
+  },
+  {
+    "timestamp": "2026-11-07T10:12:21.465Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ARIA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313735353835393937303a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313735353835393937303a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:12:21.463Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ARIA placed on cooldown for 30s until 2:12:51 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ARIA"
+  },
+  {
+    "timestamp": "2026-11-07T10:11:25.480Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BIRB: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3938333339343636373a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3938333339343636373a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:11:25.477Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BIRB placed on cooldown for 30s until 2:11:55 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BIRB"
+  },
+  {
+    "timestamp": "2026-11-07T10:10:44.767Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BLESS: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323630303031393435343a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323630303031393435343a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:10:44.763Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol BLESS placed on cooldown for 30s until 2:11:14 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BLESS"
+  },
+  {
+    "timestamp": "2026-11-07T10:09:29.107Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for CAP: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x3735393839383530353a73746174315f)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CAP",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x3735393839383530353a73746174315f",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:09:29.103Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol CAP placed on cooldown for 30s until 2:09:59 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "CAP"
+  },
+  {
+    "timestamp": "2026-11-07T10:08:54.838Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for HUMA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x323736363830343533343a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "HUMA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x323736363830343533343a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:08:54.834Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol HUMA placed on cooldown for 30s until 2:09:24 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "HUMA"
+  },
+  {
+    "timestamp": "2026-11-07T10:07:54.396Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631343533363830363a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631343533363830363a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:07:54.392Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 2:08:24 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:06:28.949Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631343532383131343a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631343532383131343a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:06:28.946Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 2:06:58 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:04:53.217Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LSK: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x333631343531393239323a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x333631343531393239323a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:04:53.215Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol LSK placed on cooldown for 30s until 2:05:23 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LSK"
+  },
+  {
+    "timestamp": "2026-11-07T10:03:47.507Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ERA: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313132333834313838363a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313132333834313838363a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:03:47.505Z",
+    "message": "[WARN] [STATARB-OU-PERP] [COOLDOWN ACTIVATED: 30S] Symbol ERA placed on cooldown for 30s until 2:04:17 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ERA"
+  },
+  {
+    "timestamp": "2026-11-07T10:00:18.698Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for BTW: Leg 1 Post-Only order rejected: [-2027] Exceeded the maximum allowable position at current leverage. (Hash: 0x73746174315f31373934303435363138)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BTW",
+    "details": {
+      "status": "REJECTED",
+      "executionHash": "0x73746174315f31373934303435363138",
+      "reason": "Leg 1 Post-Only order rejected: [-2027] Exceeded the maximum allowable position at current leverage."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T10:00:18.696Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol BTW quarantined for 60 minutes until 3:00:18 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "BTW"
+  },
+  {
+    "timestamp": "2026-11-07T09:46:29.617Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for TA: Leg 1 Post-Only order rejected: [-2027] Exceeded the maximum allowable position at current leverage. (Hash: 0x73746174315f31373934303434373839)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "TA",
+    "details": {
+      "status": "REJECTED",
+      "executionHash": "0x73746174315f31373934303434373839",
+      "reason": "Leg 1 Post-Only order rejected: [-2027] Exceeded the maximum allowable position at current leverage."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T09:46:29.614Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol TA quarantined for 60 minutes until 2:46:29 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "TA"
+  },
+  {
+    "timestamp": "2026-11-07T09:44:14.286Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for JCT: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313239353235393733343a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "JCT",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313239353235393733343a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T09:44:14.281Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol JCT quarantined for 60 minutes until 2:44:14 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "JCT"
+  },
+  {
+    "timestamp": "2026-11-07T09:43:40.229Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for LYN: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x313733303031353732353a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LYN",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x313733303031353732353a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T09:43:40.225Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol LYN quarantined for 60 minutes until 2:43:40 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "LYN"
+  },
+  {
+    "timestamp": "2026-11-07T09:38:02.307Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343130343337393339363a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343130343337393339363a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T09:38:02.302Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol AKE quarantined for 60 minutes until 2:38:02 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE"
+  },
+  {
+    "timestamp": "2026-11-07T09:14:03.758Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for ACT: Leg 1 Post-Only order rejected: [-2015] Invalid API-key, IP, or permissions for action (Hash: 0x73746174315f31373934303432383432)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT",
+    "details": {
+      "status": "REJECTED",
+      "executionHash": "0x73746174315f31373934303432383432",
+      "reason": "Leg 1 Post-Only order rejected: [-2015] Invalid API-key, IP, or permissions for action"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T09:14:03.755Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol ACT quarantined for 60 minutes until 2:14:03 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "ACT"
+  },
+  {
+    "timestamp": "2026-11-07T09:13:30.476Z",
+    "message": "[WARN] [STATARB-OU-PERP] [ENTRY ABORTED] Order execution aborted for AKE: Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss. (Hash: 0x343130333334343737393a7374617431)",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE",
+    "details": {
+      "status": "ABORTED_TIMEOUT",
+      "executionHash": "0x343130333334343737393a7374617431",
+      "reason": "Leg 1 Maker limit unfilled after 8000ms timeout. Cancelled cleanly with $0.00 loss."
+    }
+  },
+  {
+    "timestamp": "2026-11-07T09:13:30.473Z",
+    "message": "[WARN] [STATARB-OU-PERP] [QUARANTINE ACTIVATED: 60M] Symbol AKE quarantined for 60 minutes until 2:13:30 AM to prevent repetitive entry loops.",
+    "level": "warn",
+    "count": 1,
+    "symbol": "AKE"
+  }
+]
