@@ -397,8 +397,8 @@ export default function TradeHistoryPage() {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
-  // Pre-seed with verified Bot 2 ledger so the page immediately displays verified history with zero delay/zeroes
-  const [userTrades, setUserTrades] = useState<any[]>(BENCHMARK_BOT2_TRADES);
+  // Strict multi-tenant state: start empty and strictly load logged-in user's trades
+  const [userTrades, setUserTrades] = useState<any[]>([]);
   const [activeHedges, setActiveHedges] = useState<any[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -576,9 +576,8 @@ export default function TradeHistoryPage() {
         });
       });
 
-      if (combinedUserTrades.length > 0) {
-        setUserTrades(combinedUserTrades);
-      }
+      // Unconditionally set to current user's genuine trades (isolated strictly to their account)
+      setUserTrades(combinedUserTrades);
       setActiveHedges(daemonActive);
       setLastRefreshedAt(Date.now());
       setSecondsAgo(0);
@@ -612,10 +611,18 @@ export default function TradeHistoryPage() {
     return () => clearInterval(interval);
   }, [currentUser, fetchLiveTrades]);
 
-  // Active dataset: userTrades defaults to verified 15-trade Bot 2 ledger and auto-merges new live fills
+  // Active dataset: strictly isolated to current authenticated user's genuine trades
   const displayTrades = useMemo(() => {
-    return userTrades && userTrades.length > 0 ? userTrades : BENCHMARK_BOT2_TRADES;
-  }, [userTrades]);
+    if (userTrades && userTrades.length > 0) {
+      return userTrades;
+    }
+    // Only if logged in as the system admin, allow fallback to institutional benchmark calibration trades
+    if (currentUser?.role === "admin" || currentUser?.id === "usr_admin_varsha") {
+      return BENCHMARK_BOT2_TRADES;
+    }
+    // For regular users (e.g. rada), NEVER leak admin trades; strictly return their own trades (empty if 0)
+    return [];
+  }, [userTrades, currentUser]);
 
   // Filtered rows based on search, status, and DATE RANGE
   const filteredRows = useMemo(() => {
@@ -1253,22 +1260,26 @@ export default function TradeHistoryPage() {
                       <div className="max-w-md mx-auto space-y-3">
                         <ShieldCheck className="w-10 h-10 text-cyan-400 mx-auto opacity-70" />
                         <div className="text-sm font-bold text-white">
-                          No Trades Match Your Filter Criteria
+                          {displayTrades.length === 0 ? "No Closed Trades Yet on Your Account" : "No Trades Match Your Filter Criteria"}
                         </div>
                         <p className="text-xs text-zinc-400 leading-relaxed">
-                          Try adjusting your date range or search keyword, or click &apos;Reset All Filters&apos; to view all {displayTrades.length} verified Bot 2 trades.
+                          {displayTrades.length === 0
+                            ? "Your bot will automatically log closed arbitrage cycles and dual-leg settlement receipts here in real-time."
+                            : `Try adjusting your date range or search keyword, or click 'Reset All Filters' to view all ${displayTrades.length} trades.`}
                         </p>
-                        <button
-                          onClick={() => {
-                            setStartDate("");
-                            setEndDate("");
-                            setSearchQuery("");
-                            setStatusFilter("ALL");
-                          }}
-                          className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-colors"
-                        >
-                          Reset All Filters
-                        </button>
+                        {displayTrades.length > 0 && (
+                          <button
+                            onClick={() => {
+                              setStartDate("");
+                              setEndDate("");
+                              setSearchQuery("");
+                              setStatusFilter("ALL");
+                            }}
+                            className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-colors"
+                          >
+                            Reset All Filters
+                          </button>
+                        )}
                       </div>
                     </td>
                   </tr>
