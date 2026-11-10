@@ -1303,15 +1303,16 @@ export default function TradeHistoryPage() {
                     const leg2Gross = typeof t.leg2GrossPnl === "number" ? t.leg2GrossPnl : ((t.grossVal || 0) - leg1Gross);
 
                     const totalFees = Math.abs(t.feesVal || 0.034);
-                    const leg1Fee = typeof t.leg1Fees === "number" ? t.leg1Fees : (totalFees * 0.48);
-                    const leg2Fee = typeof t.leg2Fees === "number" ? t.leg2Fees : (totalFees - leg1Fee);
+                    const leg1Fee = typeof t.leg1Fees === "number" ? Math.abs(t.leg1Fees) : (totalFees * 0.48);
+                    const leg2Fee = typeof t.leg2Fees === "number" ? Math.abs(t.leg2Fees) : (totalFees - leg1Fee);
 
                     const totalFunding = t.fundingVal || 0;
                     const leg1Funding = typeof t.leg1Funding === "number" ? t.leg1Funding : (totalFunding * 0.8);
                     const leg2Funding = typeof t.leg2Funding === "number" ? t.leg2Funding : (totalFunding - leg1Funding);
 
-                    const leg1Net = typeof t.leg1NetPnl === "number" ? t.leg1NetPnl : (leg1Gross + leg1Funding - leg1Fee);
-                    const leg2Net = typeof t.leg2NetPnl === "number" ? t.leg2NetPnl : (leg2Gross + leg2Funding - leg2Fee);
+                    // Strictly enforce fundamental accounting identity: Net = Gross + Funding - Fees
+                    const leg1Net = leg1Gross + leg1Funding - leg1Fee;
+                    const leg2Net = leg2Gross + leg2Funding - leg2Fee;
 
                     const leg1OrderId = t.leg1OrderId || "3793614690";
                     const leg1CloseOrderId = t.leg1CloseOrderId || "3796901894";
