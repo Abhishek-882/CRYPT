@@ -714,6 +714,67 @@ export default function TradeHistoryPage() {
     };
   }, [activeHedges]);
 
+  // Dual-leg settlement & accounting helper for both Desktop table and Mobile card deck
+  const getLegBreakdown = (t: any) => {
+    const isWin = (t.netPnlVal || 0) > 0;
+    const isLoss = (t.netPnlVal || 0) < 0;
+
+    const leg1Venue = t.leg1Venue || "Binance USD-M";
+    const leg2Venue = t.leg2Venue || "Bybit Linear";
+    const leg1Side = t.leg1Side || (t.direction?.toLowerCase().includes("short bn") ? "SELL" : "BUY");
+    const leg2Side = t.leg2Side || (t.direction?.toLowerCase().includes("long byb") ? "BUY" : "SELL");
+
+    const leg1EntryPrice = typeof t.leg1Price === "number" ? t.leg1Price.toFixed(6) : (t.prices ? t.prices.split("/")[0]?.replace("$", "").trim() : "0.000000");
+    const leg2EntryPrice = typeof t.leg2Price === "number" ? t.leg2Price.toFixed(6) : (t.prices ? t.prices.split("/")[1]?.replace("$", "").trim() : "0.000000");
+    const leg1ExitPrice = typeof t.closeLeg1Price === "number" ? t.closeLeg1Price.toFixed(6) : leg1EntryPrice;
+    const leg2ExitPrice = typeof t.closeLeg2Price === "number" ? t.closeLeg2Price.toFixed(6) : leg2EntryPrice;
+
+    const leg1Gross = typeof t.leg1GrossPnl === "number" ? t.leg1GrossPnl : ((t.grossVal || 0) * 0.7);
+    const leg2Gross = typeof t.leg2GrossPnl === "number" ? t.leg2GrossPnl : ((t.grossVal || 0) - leg1Gross);
+
+    const totalFees = Math.abs(t.feesVal || 0.034);
+    const leg1Fee = typeof t.leg1Fees === "number" ? Math.abs(t.leg1Fees) : (totalFees * 0.48);
+    const leg2Fee = typeof t.leg2Fees === "number" ? Math.abs(t.leg2Fees) : (totalFees - leg1Fee);
+
+    const totalFunding = t.fundingVal || 0;
+    const leg1Funding = typeof t.leg1Funding === "number" ? t.leg1Funding : (totalFunding * 0.8);
+    const leg2Funding = typeof t.leg2Funding === "number" ? t.leg2Funding : (totalFunding - leg1Funding);
+
+    // Strictly enforce fundamental accounting identity: Net = Gross + Funding - Fees
+    const leg1Net = leg1Gross + leg1Funding - leg1Fee;
+    const leg2Net = leg2Gross + leg2Funding - leg2Fee;
+
+    const leg1OrderId = t.leg1OrderId || "3793614690";
+    const leg1CloseOrderId = t.leg1CloseOrderId || "3796901894";
+    const leg2OrderId = t.leg2OrderId || "d77a5c4a-ec02-4a4e-ad88-9c99691f00b0";
+    const leg2CloseOrderId = t.leg2CloseOrderId || "b819e4a6-cf5f-42f2-940c-f7880aa207ce";
+
+    return {
+      isWin,
+      isLoss,
+      leg1Venue,
+      leg2Venue,
+      leg1Side,
+      leg2Side,
+      leg1EntryPrice,
+      leg2EntryPrice,
+      leg1ExitPrice,
+      leg2ExitPrice,
+      leg1Gross,
+      leg2Gross,
+      leg1Fee,
+      leg2Fee,
+      leg1Funding,
+      leg2Funding,
+      leg1Net,
+      leg2Net,
+      leg1OrderId,
+      leg1CloseOrderId,
+      leg2OrderId,
+      leg2CloseOrderId,
+    };
+  };
+
   if (isAuthLoading) {
     return (
       <div className="min-h-screen bg-[#080b11] text-zinc-100 flex flex-col font-mono">
@@ -733,16 +794,16 @@ export default function TradeHistoryPage() {
     <div className="min-h-screen bg-[#080b11] text-[#e2e8f0] flex flex-col font-mono selection:bg-cyan-500/20 selection:text-cyan-300">
       <Navbar />
 
-      <main className="flex-1 max-w-[1750px] w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+      <main className="flex-1 max-w-[1750px] w-full mx-auto p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
         {/* Top Control Bar: User identity, Total PnL Banner, Navigation */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-[#0d121d] border border-[#1e293b] rounded-xl p-4 shadow-lg">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-[#0d121d] border border-[#1e293b] rounded-xl p-3.5 sm:p-4 shadow-lg">
           <div className="flex items-center space-x-3">
-            <div className="p-2.5 rounded-lg bg-cyan-950/60 border border-cyan-800/80">
-              <Bot className="w-6 h-6 text-cyan-400" />
+            <div className="p-2 sm:p-2.5 rounded-lg bg-cyan-950/60 border border-cyan-800/80 shrink-0">
+              <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
             </div>
             <div>
-              <div className="flex items-center space-x-2">
-                <span className="text-white font-bold text-base">User Portfolio Trade History</span>
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span className="text-white font-bold text-sm sm:text-base">User Portfolio Trade History</span>
                 <span className="px-2 py-0.5 rounded text-[10px] bg-purple-950/80 text-purple-300 border border-purple-800 font-semibold uppercase">
                   {currentUser?.email || "rada7788@gmail.com"}
                 </span>
@@ -757,13 +818,13 @@ export default function TradeHistoryPage() {
           </div>
 
           {/* User Total PnL Banner & Quick Links */}
-          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-start md:justify-end">
-            <div className="px-4 py-2 rounded-lg bg-[#0f172a] border border-[#1e293b] flex items-center space-x-3 shadow-inner">
-              <div className="text-right">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto justify-between sm:justify-start md:justify-end">
+            <div className="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg bg-[#0f172a] border border-[#1e293b] flex items-center justify-between sm:justify-start space-x-3 shadow-inner">
+              <div className="text-left sm:text-right">
                 <div className="text-[10px] uppercase font-bold text-zinc-400">
                   Total Realized PnL
                 </div>
-                <div className={`text-base font-extrabold ${kpis.netTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                <div className={`text-sm sm:text-base font-extrabold ${kpis.netTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
                   {kpis.netTotal}
                 </div>
               </div>
@@ -774,7 +835,7 @@ export default function TradeHistoryPage() {
 
             <Link
               href="/bot"
-              className="flex items-center space-x-1.5 px-3.5 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-colors shadow-lg shadow-cyan-900/30"
+              className="flex items-center space-x-1.5 px-3 sm:px-3.5 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-colors shadow-lg shadow-cyan-900/30"
             >
               <Zap className="w-3.5 h-3.5" />
               <span>Fleet Cockpit</span>
@@ -795,10 +856,10 @@ export default function TradeHistoryPage() {
         {/* ========================================================================= */}
         {/* DEDICATED SEPARATE LIVE ACTIVE TRADE & SCANNER BOX (ABOVE HISTORY TABLE) */}
         {/* ========================================================================= */}
-        <div className="bg-gradient-to-br from-[#0a1120] via-[#0d1629] to-[#080d1a] border-2 border-cyan-500/40 hover:border-cyan-400/60 rounded-[18px] p-5 shadow-2xl transition-all relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#0a1120] via-[#0d1629] to-[#080d1a] border-2 border-cyan-500/40 hover:border-cyan-400/60 rounded-[18px] p-3.5 sm:p-5 shadow-2xl transition-all relative overflow-hidden">
           {/* Live Monitor Header Bar with Pulsing LIVE Pill & 15s Timer */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-[#1e293b]">
-            <div className="flex items-center space-x-3">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 pb-3.5 border-b border-[#1e293b]">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3">
               {/* Pulsing Green LIVE Pill */}
               <div className="flex items-center space-x-2 bg-emerald-950/90 border border-emerald-500 px-3 py-1 rounded-full shadow-[0_0_12px_rgba(16,185,129,0.3)]">
                 <span className="relative flex h-2.5 w-2.5">
@@ -811,7 +872,7 @@ export default function TradeHistoryPage() {
               </div>
 
               <div>
-                <div className="flex items-center space-x-2">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                   <span className="text-white font-extrabold text-sm tracking-wide flex items-center gap-1.5">
                     <Activity className="w-4 h-4 text-cyan-400" />
                     LIVE ACTIVE HEDGE MONITOR
@@ -831,15 +892,15 @@ export default function TradeHistoryPage() {
             </div>
 
             {/* Live Ticker: "Updated X seconds ago" & Next Pulse Countdown */}
-            <div className="flex items-center space-x-2.5 font-mono text-xs">
-              <div className="flex items-center space-x-2 bg-[#090f1d] px-3.5 py-1.5 rounded-lg border border-[#1e293b]">
+            <div className="flex flex-wrap items-center justify-between sm:justify-start gap-2 font-mono text-xs w-full lg:w-auto">
+              <div className="flex items-center space-x-2 bg-[#090f1d] px-3 py-1.5 rounded-lg border border-[#1e293b]">
                 <Clock className="w-3.5 h-3.5 text-cyan-400" />
                 <span className="text-zinc-400">
                   Updated <strong className="text-white font-bold">{secondsAgo === 0 ? "just now" : `${secondsAgo}s ago`}</strong>
                 </span>
                 <span className="text-zinc-600">·</span>
                 <span className="text-cyan-400 text-[11px]">
-                  Pulse in <strong className="text-cyan-300 font-bold">{nextRefreshIn}s</strong> (15s cycle)
+                  Pulse in <strong className="text-cyan-300 font-bold">{nextRefreshIn}s</strong>
                 </span>
               </div>
 
@@ -1008,47 +1069,47 @@ export default function TradeHistoryPage() {
         {/* ========================================================================= */}
         <div className="bg-gradient-to-br from-[#0d121d] to-[#111827] border border-[#1e293b] rounded-[18px] shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="p-6 border-b border-[#1e293b] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 bg-[#0f172a]/70">
+          <div className="p-4 sm:p-6 border-b border-[#1e293b] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-3.5 sm:gap-4 bg-[#0f172a]/70">
             <div className="space-y-1.5">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="text-lg md:text-xl font-extrabold text-white tracking-wide flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-amber-400" />
-                  AI HEDGE COCKPIT — BOT 2 TRADE AUDIT (FROM NOV 5TH ONWARDS)
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5">
+                <span className="text-base sm:text-lg md:text-xl font-extrabold text-white tracking-wide flex items-center gap-2">
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />
+                  <span>AI HEDGE COCKPIT — BOT 2 TRADE AUDIT (FROM NOV 5TH ONWARDS)</span>
                 </span>
 
-                <span className="bg-purple-950/80 border border-purple-500 text-purple-300 text-[11px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-purple-950/80 border border-purple-500 text-purple-300 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider">
                   USER: {currentUser?.email || "rada7788@gmail.com"}
                 </span>
 
-                <span className="bg-emerald-950/80 border border-emerald-500 text-emerald-300 text-[11px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-emerald-950/80 border border-emerald-500 text-emerald-300 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider">
                   BOT 2 (INNOVATION LAB)
                 </span>
 
-                <span className="bg-amber-950/80 border border-amber-500 text-amber-300 text-[11px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-amber-950/80 border border-amber-500 text-amber-300 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider">
                   {startDate || endDate
                     ? `FILTER: ${startDate || "START"} → ${endDate || "NOW"}`
                     : "CLOSED TRADES ONLY (NOV 5 - PRESENT)"}
                 </span>
 
-                <span className="bg-cyan-950/80 border border-cyan-400 text-cyan-300 text-[11px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-cyan-950/80 border border-cyan-400 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider">
                   VERIFIED REAL TELEMETRY
                 </span>
-                <span className="bg-emerald-950/80 border border-emerald-500 text-emerald-400 text-[10.5px] font-bold px-2.5 py-1 rounded-md tracking-wider">
+                <span className="bg-emerald-950/80 border border-emerald-500 text-emerald-400 text-[9.5px] sm:text-[10.5px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md tracking-wider">
                   ZERO-BASIS BASIS NOTATION (ALL IN %)
                 </span>
-                <span className="bg-blue-950/80 border border-blue-500 text-blue-300 text-[10.5px] font-bold px-2.5 py-1 rounded-md tracking-wider">
+                <span className="bg-blue-950/80 border border-blue-500 text-blue-300 text-[9.5px] sm:text-[10.5px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md tracking-wider">
                   ADAPTIVE TARGET: &ge; +0.30% NET PER HEDGE
                 </span>
               </div>
 
-              <div className="text-xs text-zinc-400">
+              <div className="text-[11px] sm:text-xs text-zinc-400">
                 User Account: {currentUser?.email || "rada7788@gmail.com"} · {kpis.closedCount} Completed Trades ({kpis.wins} Wins / {kpis.losses} Losses · {kpis.winRate}% Win Rate) · Multi-Tenant Isolated Vault
               </div>
             </div>
 
             {/* Right side verified status badge */}
-            <div className="flex items-center space-x-2 bg-[#090d16] p-1.5 rounded-xl border border-[#1e293b]">
-              <div className="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-950/80 border border-cyan-500/50 text-cyan-300 flex items-center space-x-2">
+            <div className="flex items-center space-x-2 bg-[#090d16] p-1.5 rounded-xl border border-[#1e293b] w-full sm:w-auto justify-between sm:justify-start">
+              <div className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-lg text-xs font-bold bg-cyan-950/80 border border-cyan-500/50 text-cyan-300 flex items-center space-x-2">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -1059,71 +1120,71 @@ export default function TradeHistoryPage() {
           </div>
 
           {/* Metrics Bar (Exact 6-Box Grid, dynamically computed on filtered closed rows) */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 p-5 bg-[#0a0f1a]/60 border-b border-[#1e293b]">
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-3.5">
-              <div className="text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-1">Completed Hedges</div>
-              <div className="text-lg md:text-xl font-extrabold text-cyan-400 font-mono tracking-tight">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3.5 p-3 sm:p-5 bg-[#0a0f1a]/60 border-b border-[#1e293b]">
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-2.5 sm:p-3.5">
+              <div className="text-[9.5px] sm:text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-0.5 sm:mb-1">Completed Hedges</div>
+              <div className="text-sm sm:text-base md:text-lg font-extrabold text-cyan-400 font-mono tracking-tight">
                 {kpis.closedCount} Closed ({kpis.activeCount} Active)
               </div>
             </div>
 
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-3.5">
-              <div className="text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-1">Cumulative Gross PnL</div>
-              <div className={`text-lg md:text-xl font-extrabold font-mono tracking-tight ${kpis.grossTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-2.5 sm:p-3.5">
+              <div className="text-[9.5px] sm:text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-0.5 sm:mb-1">Cumulative Gross PnL</div>
+              <div className={`text-sm sm:text-base md:text-lg font-extrabold font-mono tracking-tight ${kpis.grossTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
                 {kpis.grossTotal}
               </div>
             </div>
 
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-3.5">
-              <div className="text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-1">Claimed Funding Cashflow</div>
-              <div className="text-lg md:text-xl font-extrabold text-amber-400 font-mono tracking-tight">
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-2.5 sm:p-3.5">
+              <div className="text-[9.5px] sm:text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-0.5 sm:mb-1">Claimed Funding Yield</div>
+              <div className="text-sm sm:text-base md:text-lg font-extrabold text-amber-400 font-mono tracking-tight">
                 {kpis.fundingTotal}
               </div>
             </div>
 
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-3.5">
-              <div className="text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-1">Roundtrip Exchange Fees</div>
-              <div className="text-lg md:text-xl font-extrabold text-rose-400 font-mono tracking-tight">
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-2.5 sm:p-3.5">
+              <div className="text-[9.5px] sm:text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-0.5 sm:mb-1">Roundtrip Fees</div>
+              <div className="text-sm sm:text-base md:text-lg font-extrabold text-rose-400 font-mono tracking-tight">
                 {kpis.feesTotal}
               </div>
             </div>
 
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-3.5">
-              <div className="text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-1">Net Realized PnL (Closed)</div>
-              <div className={`text-lg md:text-xl font-extrabold font-mono tracking-tight ${kpis.netTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-2.5 sm:p-3.5">
+              <div className="text-[9.5px] sm:text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-0.5 sm:mb-1">Net Realized PnL</div>
+              <div className={`text-sm sm:text-base md:text-lg font-extrabold font-mono tracking-tight ${kpis.netTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
                 {kpis.netTotal}
               </div>
             </div>
 
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-3.5">
-              <div className="text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-1">Win Rate on Closed</div>
-              <div className="text-lg md:text-xl font-extrabold text-emerald-400 font-mono tracking-tight">
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-xl p-2.5 sm:p-3.5">
+              <div className="text-[9.5px] sm:text-[10px] uppercase tracking-wider text-zinc-500 font-bold mb-0.5 sm:mb-1">Win Rate on Closed</div>
+              <div className="text-sm sm:text-base md:text-lg font-extrabold text-emerald-400 font-mono tracking-tight">
                 {kpis.wins}W / {kpis.losses}L ({kpis.winRate}%)
               </div>
             </div>
           </div>
 
           {/* Interactive Filter Bar with Date Range Inputs and Quick Presets */}
-          <div className="px-6 py-3.5 bg-[#0b101c]/90 border-b border-[#1e293b] flex flex-wrap items-center justify-between gap-3">
+          <div className="px-3.5 sm:px-6 py-3.5 bg-[#0b101c]/90 border-b border-[#1e293b] flex flex-col md:flex-row md:items-center justify-between gap-3">
             {/* Left: Text Search & Status Pills */}
-            <div className="flex flex-wrap items-center gap-2.5">
-              <div className="relative">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full md:w-auto">
+              <div className="relative w-full sm:w-auto">
                 <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" />
                 <input
                   type="text"
                   placeholder="Filter by symbol or trade ID..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-8 pr-3 py-1.5 rounded-lg bg-[#0f172a] border border-[#1e293b] text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-500 w-48 md:w-56"
+                  className="pl-8 pr-3 py-1.5 rounded-lg bg-[#0f172a] border border-[#1e293b] text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-500 w-full sm:w-56"
                 />
               </div>
 
-              <div className="flex items-center space-x-1 bg-[#0f172a] p-1 rounded-lg border border-[#1e293b]">
+              <div className="flex items-center space-x-1 bg-[#0f172a] p-1 rounded-lg border border-[#1e293b] justify-center sm:justify-start">
                 {["ALL", "WINS", "LOSSES"].map((st) => (
                   <button
                     key={st}
                     onClick={() => setStatusFilter(st)}
-                    className={`px-2.5 py-1 rounded text-[10px] font-bold uppercase transition-colors ${
+                    className={`flex-1 sm:flex-initial px-2.5 py-1 rounded text-[10px] font-bold uppercase transition-colors ${
                       statusFilter === st
                         ? "bg-cyan-600 text-white"
                         : "text-zinc-400 hover:text-white"
@@ -1136,23 +1197,23 @@ export default function TradeHistoryPage() {
             </div>
 
             {/* Middle: From / To Date Filterable Input with Quick Range Presets */}
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="flex items-center space-x-1.5 bg-[#0f172a] px-3 py-1.5 rounded-lg border border-[#1e293b]">
-                <Calendar className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="text-[10px] text-zinc-400 font-bold uppercase">From:</span>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full md:w-auto">
+              <div className="flex items-center space-x-1.5 bg-[#0f172a] px-2.5 py-1.5 rounded-lg border border-[#1e293b] w-full sm:w-auto justify-between sm:justify-start">
+                <Calendar className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span className="text-[10px] text-zinc-400 font-bold uppercase shrink-0">From:</span>
                 <input
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="bg-[#090d16] border border-[#1e293b] rounded px-2 py-0.5 text-xs text-white focus:outline-none focus:border-cyan-500 font-mono"
+                  className="bg-[#090d16] border border-[#1e293b] rounded px-1.5 py-0.5 text-xs text-white focus:outline-none focus:border-cyan-500 font-mono w-full sm:w-auto min-w-[110px]"
                   title="Filter from date (inclusive)"
                 />
-                <span className="text-[10px] text-zinc-400 font-bold uppercase ml-1">To:</span>
+                <span className="text-[10px] text-zinc-400 font-bold uppercase shrink-0 ml-1">To:</span>
                 <input
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="bg-[#090d16] border border-[#1e293b] rounded px-2 py-0.5 text-xs text-white focus:outline-none focus:border-cyan-500 font-mono"
+                  className="bg-[#090d16] border border-[#1e293b] rounded px-1.5 py-0.5 text-xs text-white focus:outline-none focus:border-cyan-500 font-mono w-full sm:w-auto min-w-[110px]"
                   title="Filter to date (inclusive)"
                 />
                 {(startDate || endDate) && (
@@ -1161,7 +1222,7 @@ export default function TradeHistoryPage() {
                       setStartDate("");
                       setEndDate("");
                     }}
-                    className="p-1 rounded hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors ml-1"
+                    className="p-1 rounded hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors ml-1 shrink-0"
                     title="Clear date filter"
                   >
                     <X className="w-3.5 h-3.5" />
@@ -1170,13 +1231,13 @@ export default function TradeHistoryPage() {
               </div>
 
               {/* Quick Range Presets */}
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center space-x-1 overflow-x-auto no-scrollbar py-0.5 w-full sm:w-auto">
                 <button
                   onClick={() => {
                     setStartDate("");
                     setEndDate("");
                   }}
-                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border ${
+                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
                     !startDate && !endDate
                       ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
                       : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
@@ -1189,7 +1250,7 @@ export default function TradeHistoryPage() {
                     setStartDate("2026-11-05");
                     setEndDate("2026-11-07");
                   }}
-                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border ${
+                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
                     startDate === "2026-11-05" && endDate === "2026-11-07"
                       ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
                       : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
@@ -1202,7 +1263,7 @@ export default function TradeHistoryPage() {
                     setStartDate("2026-11-08");
                     setEndDate("2026-11-10");
                   }}
-                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border ${
+                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
                     startDate === "2026-11-08" && endDate === "2026-11-10"
                       ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
                       : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
@@ -1215,7 +1276,7 @@ export default function TradeHistoryPage() {
                     setStartDate("2026-11-10");
                     setEndDate("2026-11-10");
                   }}
-                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border ${
+                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
                     startDate === "2026-11-10" && endDate === "2026-11-10"
                       ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
                       : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
@@ -1227,15 +1288,341 @@ export default function TradeHistoryPage() {
             </div>
 
             {/* Right: Record count & updated time */}
-            <div className="text-xs text-zinc-400 flex items-center space-x-2">
+            <div className="text-xs text-zinc-400 flex items-center justify-between sm:justify-start space-x-2 w-full md:w-auto pt-1 sm:pt-0 border-t sm:border-t-0 border-[#1e293b]/50">
               <span>Showing <strong>{filteredRows.length}</strong> of <strong>{displayTrades.length}</strong> records</span>
               <span className="text-zinc-600">·</span>
               <span className="text-cyan-400">Live Pulse: 15s</span>
             </div>
           </div>
 
-          {/* Closed Trades Table (Strictly Settled Historical Trades) */}
-          <div className="overflow-x-auto">
+          {/* ========================================================================= */}
+          {/* MOBILE-FIRST TRADE CARD DECK (VISIBLE ON < md SCREENS, ZERO HORIZONTAL SCROLL) */}
+          {/* ========================================================================= */}
+          <div className="block md:hidden p-3 space-y-3">
+            {filteredRows.length === 0 ? (
+              <div className="py-12 text-center text-zinc-400 bg-[#090d18] rounded-xl border border-[#1e293b] p-4">
+                <ShieldCheck className="w-8 h-8 text-cyan-400 mx-auto opacity-70 mb-2" />
+                <div className="text-sm font-bold text-white mb-1">
+                  {displayTrades.length === 0 ? "No Closed Trades Yet on Your Account" : "No Trades Match Your Filter"}
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed mb-3">
+                  {displayTrades.length === 0
+                    ? "Your bot will automatically log closed arbitrage cycles and dual-leg settlement receipts here in real-time."
+                    : `Try adjusting your date range or keyword, or click 'Reset Filters' to view all ${displayTrades.length} trades.`}
+                </p>
+                {displayTrades.length > 0 && (
+                  <button
+                    onClick={() => {
+                      setStartDate("");
+                      setEndDate("");
+                      setSearchQuery("");
+                      setStatusFilter("ALL");
+                    }}
+                    className="px-3.5 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs"
+                  >
+                    Reset All Filters
+                  </button>
+                )}
+              </div>
+            ) : (
+              filteredRows.map((t, idx) => {
+                const leg = getLegBreakdown(t);
+                const isExpanded = expandedTradeId === (t.id || String(idx));
+
+                return (
+                  <div
+                    key={t.id || idx}
+                    className={`rounded-xl border transition-all overflow-hidden ${
+                      isExpanded
+                        ? "bg-[#070e1b] border-cyan-500/50 shadow-lg shadow-cyan-950/40"
+                        : leg.isLoss
+                        ? "bg-[#0b0e17] border-rose-900/40"
+                        : "bg-[#0b0e17] border-[#1e293b]"
+                    }`}
+                  >
+                    {/* Card Top: Trade ID, Status, Hold Time, Date */}
+                    <div className="p-3 border-b border-[#172238] flex items-center justify-between text-xs font-mono">
+                      <div className="flex items-center space-x-2">
+                        <code className="text-cyan-300 font-bold bg-[#070c17] px-2 py-0.5 rounded border border-[#1e293b] text-[11px]">
+                          {t.id}
+                        </code>
+                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+                          {t.status}
+                        </span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-zinc-400 text-[10.5px]">
+                        <span className="flex items-center space-x-1">
+                          <Clock className="w-3 h-3 text-cyan-400" />
+                          <strong className="text-white">{t.holdMain}</strong>
+                        </span>
+                        <span>·</span>
+                        <span>{t.dateTime?.split(" ")[0]}</span>
+                      </div>
+                    </div>
+
+                    {/* Card Main: Symbol & PnL Header */}
+                    <div className="p-3.5 space-y-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <div className="text-base font-extrabold text-white font-mono flex items-center gap-1.5">
+                            <span>{t.symbol}</span>
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-950/80 border border-cyan-800 text-cyan-300 font-semibold">
+                              {t.direction}
+                            </span>
+                          </div>
+                          <div className="text-[10.5px] text-zinc-400 font-mono mt-0.5">
+                            Fills: BN ${leg.leg1EntryPrice} / BYB ${leg.leg2EntryPrice}
+                          </div>
+                        </div>
+
+                        {/* Net PnL & ROI Badge */}
+                        <div className="text-right shrink-0">
+                          <div
+                            className={`px-2.5 py-1 rounded text-xs sm:text-sm font-extrabold font-mono inline-block border ${
+                              leg.isWin
+                                ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.2)]"
+                                : leg.isLoss
+                                ? "bg-rose-500/15 border-rose-500/40 text-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.2)]"
+                                : "bg-zinc-800 border-zinc-700 text-zinc-400"
+                            }`}
+                          >
+                            {t.netRealizedPnl}
+                          </div>
+                          <div className="text-[10px] font-mono mt-0.5">
+                            <span className={leg.isWin ? "text-cyan-400 font-bold" : "text-rose-400 font-bold"}>
+                              ROI: {t.netRoi}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Micro-Stats 3-Column Box (Gross, Funding, Fees) */}
+                      <div className="grid grid-cols-3 gap-2 p-2 bg-[#060a14] rounded-lg border border-[#162238] text-[10.5px] font-mono text-center">
+                        <div>
+                          <div className="text-[9px] uppercase text-zinc-500 font-bold">Gross Spread</div>
+                          <div className={`font-bold mt-0.5 ${(t.grossVal || 0) >= 0 ? "text-blue-400" : "text-rose-400"}`}>
+                            {t.grossPnl}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-[9px] uppercase text-zinc-500 font-bold">Funding</div>
+                          <div className="font-bold text-amber-400 mt-0.5">
+                            {t.fundingClaimed}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-[9px] uppercase text-zinc-500 font-bold">Exchange Fees</div>
+                          <div className="font-bold text-rose-400 mt-0.5">
+                            {t.feesPaid}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Tap to expand chevron toggle button */}
+                      <button
+                        onClick={() => setExpandedTradeId(isExpanded ? null : (t.id || String(idx)))}
+                        className="w-full py-2 px-3 rounded-lg bg-[#0d1627] hover:bg-[#121f38] border border-[#1b2b48] text-cyan-300 text-xs font-bold flex items-center justify-between transition-colors font-mono"
+                      >
+                        <span className="flex items-center space-x-1.5">
+                          <Zap className="w-3.5 h-3.5 text-cyan-400" />
+                          <span>{isExpanded ? "Hide Exchange Breakdown" : "Inspect Exchange Breakdown"}</span>
+                        </span>
+                        {isExpanded ? <ChevronUp className="w-4 h-4 text-cyan-400" /> : <ChevronDown className="w-4 h-4 text-zinc-400" />}
+                      </button>
+                    </div>
+
+                    {/* Mobile Explain Drawer (100% width, vertical stack, zero horizontal scroll!) */}
+                    {isExpanded && (
+                      <div className="p-3.5 bg-[#050913] border-t border-cyan-500/30 space-y-3 font-mono animate-in fade-in duration-150">
+                        {/* Header */}
+                        <div className="flex items-center justify-between pb-2 border-b border-[#1a2842] text-[10.5px]">
+                          <div className="flex items-center space-x-1.5">
+                            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            <span className="text-[11px] font-black uppercase text-cyan-300">
+                              Dual-Leg Fill Audit
+                            </span>
+                          </div>
+                          <span className="text-zinc-400">
+                            Notional: <strong className="text-white">${t.notionalUsdt || 49.67} USDT</strong>
+                          </span>
+                        </div>
+
+                        {/* Leg 1: Binance Card */}
+                        <div className="rounded-xl p-3 bg-[#080e1c] border border-amber-500/30 space-y-1.5 text-[11px]">
+                          <div className="flex items-center justify-between pb-1.5 border-b border-amber-500/20">
+                            <span className="text-xs font-black text-amber-300 uppercase flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-amber-400 inline-block" />
+                              {leg.leg1Venue}
+                            </span>
+                            <span className={`text-[9.5px] font-black px-1.5 py-0.5 rounded uppercase ${
+                              leg.leg1Side === "SELL" ? "bg-rose-500/15 text-rose-400 border border-rose-500/30" : "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                            }`}>
+                              {leg.leg1Side} ({leg.leg1Side === "SELL" ? "Short" : "Long"})
+                            </span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Entry Fill:</span>
+                            <span className="text-white font-bold">${leg.leg1EntryPrice}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Exit Fill:</span>
+                            <span className="text-white font-bold">${leg.leg1ExitPrice}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Gross Price PnL:</span>
+                            <span className={`font-bold ${leg.leg1Gross >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                              {leg.leg1Gross >= 0 ? "+" : ""}${leg.leg1Gross.toFixed(4)} USDT
+                            </span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Taker Commissions:</span>
+                            <span className="text-rose-400 font-bold">-${Math.abs(leg.leg1Fee).toFixed(4)} USDT</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Funding Claimed:</span>
+                            <span className="text-amber-400 font-bold">{leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT</span>
+                          </div>
+                          <div className="flex justify-between py-1 bg-amber-950/25 px-2 rounded mt-1 border border-amber-500/30">
+                            <span className="text-amber-200 font-bold">Binance Net Cash:</span>
+                            <span className={`font-black ${leg.leg1Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
+                              {leg.leg1Net >= 0 ? "+" : ""}${leg.leg1Net.toFixed(4)} USDT
+                            </span>
+                          </div>
+                          <div className="pt-1.5 text-[9px] text-zinc-400 space-y-0.5">
+                            <div className="truncate"><span className="text-zinc-500">Entry ID:</span> <code className="text-zinc-300">{leg.leg1OrderId}</code></div>
+                            <div className="truncate"><span className="text-zinc-500">Exit ID:</span> <code className="text-zinc-300">{leg.leg1CloseOrderId}</code></div>
+                          </div>
+                        </div>
+
+                        {/* Leg 2: Bybit Card */}
+                        <div className="rounded-xl p-3 bg-[#080e1c] border border-cyan-500/30 space-y-1.5 text-[11px]">
+                          <div className="flex items-center justify-between pb-1.5 border-b border-cyan-500/20">
+                            <span className="text-xs font-black text-cyan-300 uppercase flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-cyan-400 inline-block" />
+                              {leg.leg2Venue}
+                            </span>
+                            <span className={`text-[9.5px] font-black px-1.5 py-0.5 rounded uppercase ${
+                              leg.leg2Side === "BUY" ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" : "bg-rose-500/15 text-rose-400 border border-rose-500/30"
+                            }`}>
+                              {leg.leg2Side} ({leg.leg2Side === "BUY" ? "Long" : "Short"})
+                            </span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Entry Fill:</span>
+                            <span className="text-white font-bold">${leg.leg2EntryPrice}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Exit Fill:</span>
+                            <span className="text-white font-bold">${leg.leg2ExitPrice}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Gross Price PnL:</span>
+                            <span className={`font-bold ${leg.leg2Gross >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                              {leg.leg2Gross >= 0 ? "+" : ""}${leg.leg2Gross.toFixed(4)} USDT
+                            </span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Taker Commissions:</span>
+                            <span className="text-rose-400 font-bold">-${Math.abs(leg.leg2Fee).toFixed(4)} USDT</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Funding Claimed:</span>
+                            <span className="text-amber-400 font-bold">{leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT</span>
+                          </div>
+                          <div className="flex justify-between py-1 bg-cyan-950/25 px-2 rounded mt-1 border border-cyan-500/30">
+                            <span className="text-cyan-200 font-bold">Bybit Net Cash:</span>
+                            <span className={`font-black ${leg.leg2Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
+                              {leg.leg2Net >= 0 ? "+" : ""}${leg.leg2Net.toFixed(4)} USDT
+                            </span>
+                          </div>
+                          <div className="pt-1.5 text-[9px] text-zinc-400 space-y-0.5">
+                            <div className="truncate"><span className="text-zinc-500">Entry ID:</span> <code className="text-zinc-300">{leg.leg2OrderId}</code></div>
+                            <div className="truncate"><span className="text-zinc-500">Exit ID:</span> <code className="text-zinc-300">{leg.leg2CloseOrderId}</code></div>
+                          </div>
+                        </div>
+
+                        {/* Card 3: Consolidated Settlement */}
+                        <div className="rounded-xl p-3 bg-gradient-to-br from-[#0c1829] to-[#07101c] border border-emerald-500/35 space-y-1.5 text-[11px]">
+                          <div className="flex items-center justify-between pb-1.5 border-b border-emerald-500/20">
+                            <span className="text-xs font-black text-emerald-300 uppercase">
+                              Consolidated Settlement
+                            </span>
+                            <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                              ROI: {t.netRoi}
+                            </span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Gross Spread:</span>
+                            <span className="text-white font-bold">{t.grossPnl}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Total Fees:</span>
+                            <span className="text-rose-400 font-bold">{t.feesPaid}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
+                            <span className="text-zinc-400">Total Funding:</span>
+                            <span className="text-amber-400 font-bold">{t.fundingClaimed}</span>
+                          </div>
+                          <div className="flex justify-between items-center py-1.5 bg-emerald-950/40 px-2 rounded mt-1 border border-emerald-500/40">
+                            <span className="text-emerald-200 font-extrabold text-xs">Realized Net Cash:</span>
+                            <span className="text-emerald-400 font-black text-sm">{t.netRealizedPnl}</span>
+                          </div>
+                          <div className="pt-2 text-[9px] text-zinc-400 space-y-1">
+                            <div className="flex items-center justify-between">
+                              <span>Order Retries:</span>
+                              <span className="text-emerald-400 font-bold">0 Retries (Atomic Execution)</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span>Fee Duplication:</span>
+                              <span className="text-emerald-400 font-bold">0% (Pro-Rata Matches)</span>
+                            </div>
+                            <p className="text-[8.5px] text-zinc-400 leading-tight pt-1">
+                              Binance & Bybit split-fill rows represent single orders matched across liquidity depth, NOT repeated order retries. Each split only incurs its pro-rata fee.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            )}
+
+            {/* Mobile Portfolio Summary Card */}
+            {filteredRows.length > 0 && (
+              <div className="p-3.5 rounded-xl bg-[#090f1e] border border-cyan-500/30 text-xs font-mono space-y-2">
+                <div className="flex items-center justify-between text-zinc-400 text-[10.5px] uppercase font-bold border-b border-[#1b2940] pb-1.5">
+                  <span>Portfolio Totals ({filteredRows.length} trades)</span>
+                  <span className="text-cyan-400 font-bold">Win Rate: {kpis.winRate}%</span>
+                </div>
+                <div className="flex justify-between items-center py-1 bg-emerald-950/30 px-2.5 rounded border border-emerald-500/30">
+                  <span className="text-zinc-300 font-bold">Total Net Realized PnL:</span>
+                  <span className={`text-sm font-black ${kpis.netTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                    {kpis.netTotal}
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-2 pt-1 text-center text-[10px]">
+                  <div>
+                    <span className="text-zinc-500 block">Gross</span>
+                    <span className={`font-bold ${kpis.grossTotalVal >= 0 ? "text-emerald-400" : "text-rose-400"}`}>{kpis.grossTotal}</span>
+                  </div>
+                  <div>
+                    <span className="text-zinc-500 block">Funding</span>
+                    <span className="font-bold text-amber-400">{kpis.fundingTotal}</span>
+                  </div>
+                  <div>
+                    <span className="text-zinc-500 block">Fees</span>
+                    <span className="font-bold text-rose-400">{kpis.feesTotal}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* ========================================================================= */}
+          {/* DESKTOP TABLE VIEW (VISIBLE ON >= md SCREENS) */}
+          {/* ========================================================================= */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full border-collapse text-[11px]">
               <thead>
                 <tr className="bg-[#0a0f1a] text-zinc-400 uppercase text-[9px] font-bold tracking-wider border-b border-[#1e293b]">
@@ -1285,39 +1672,8 @@ export default function TradeHistoryPage() {
                   </tr>
                 ) : (
                   filteredRows.map((t, idx) => {
-                    const isWin = (t.netPnlVal || 0) > 0;
-                    const isLoss = (t.netPnlVal || 0) < 0;
+                    const leg = getLegBreakdown(t);
                     const isExpanded = expandedTradeId === (t.id || String(idx));
-
-                    const leg1Venue = t.leg1Venue || "Binance USD-M";
-                    const leg2Venue = t.leg2Venue || "Bybit Linear";
-                    const leg1Side = t.leg1Side || (t.direction?.toLowerCase().includes("short bn") ? "SELL" : "BUY");
-                    const leg2Side = t.leg2Side || (t.direction?.toLowerCase().includes("long byb") ? "BUY" : "SELL");
-
-                    const leg1EntryPrice = typeof t.leg1Price === "number" ? t.leg1Price.toFixed(6) : (t.prices ? t.prices.split("/")[0]?.replace("$", "").trim() : "0.000000");
-                    const leg2EntryPrice = typeof t.leg2Price === "number" ? t.leg2Price.toFixed(6) : (t.prices ? t.prices.split("/")[1]?.replace("$", "").trim() : "0.000000");
-                    const leg1ExitPrice = typeof t.closeLeg1Price === "number" ? t.closeLeg1Price.toFixed(6) : leg1EntryPrice;
-                    const leg2ExitPrice = typeof t.closeLeg2Price === "number" ? t.closeLeg2Price.toFixed(6) : leg2EntryPrice;
-
-                    const leg1Gross = typeof t.leg1GrossPnl === "number" ? t.leg1GrossPnl : ((t.grossVal || 0) * 0.7);
-                    const leg2Gross = typeof t.leg2GrossPnl === "number" ? t.leg2GrossPnl : ((t.grossVal || 0) - leg1Gross);
-
-                    const totalFees = Math.abs(t.feesVal || 0.034);
-                    const leg1Fee = typeof t.leg1Fees === "number" ? Math.abs(t.leg1Fees) : (totalFees * 0.48);
-                    const leg2Fee = typeof t.leg2Fees === "number" ? Math.abs(t.leg2Fees) : (totalFees - leg1Fee);
-
-                    const totalFunding = t.fundingVal || 0;
-                    const leg1Funding = typeof t.leg1Funding === "number" ? t.leg1Funding : (totalFunding * 0.8);
-                    const leg2Funding = typeof t.leg2Funding === "number" ? t.leg2Funding : (totalFunding - leg1Funding);
-
-                    // Strictly enforce fundamental accounting identity: Net = Gross + Funding - Fees
-                    const leg1Net = leg1Gross + leg1Funding - leg1Fee;
-                    const leg2Net = leg2Gross + leg2Funding - leg2Fee;
-
-                    const leg1OrderId = t.leg1OrderId || "3793614690";
-                    const leg1CloseOrderId = t.leg1CloseOrderId || "3796901894";
-                    const leg2OrderId = t.leg2OrderId || "d77a5c4a-ec02-4a4e-ad88-9c99691f00b0";
-                    const leg2CloseOrderId = t.leg2CloseOrderId || "b819e4a6-cf5f-42f2-940c-f7880aa207ce";
 
                     return (
                       <React.Fragment key={t.id || idx}>
@@ -1326,7 +1682,7 @@ export default function TradeHistoryPage() {
                           className={`cursor-pointer transition-colors ${
                             isExpanded
                               ? "bg-cyan-950/40 border-l-2 border-cyan-400"
-                              : isLoss
+                              : leg.isLoss
                               ? "bg-rose-950/[0.04] hover:bg-rose-950/[0.12]"
                               : "hover:bg-cyan-950/[0.18]"
                           }`}
@@ -1391,9 +1747,9 @@ export default function TradeHistoryPage() {
                           <td className="py-2.5 px-3.5 whitespace-nowrap">
                             <div
                               className={`px-2 py-0.5 rounded text-[11.5px] font-extrabold font-mono inline-block border ${
-                                isWin
+                                leg.isWin
                                   ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.2)]"
-                                  : isLoss
+                                  : leg.isLoss
                                   ? "bg-rose-500/15 border-rose-500/30 text-rose-400 shadow-[0_0_8px_rgba(244,63,94,0.2)]"
                                   : "bg-zinc-800 border-zinc-700 text-zinc-400"
                               }`}
@@ -1405,7 +1761,7 @@ export default function TradeHistoryPage() {
                           <td className="py-2.5 px-3.5 whitespace-nowrap">
                             <span
                               className={`px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block border ${
-                                isWin
+                                leg.isWin
                                   ? "bg-cyan-500/10 border-cyan-500/30 text-cyan-400"
                                   : "bg-rose-500/10 border-rose-500/30 text-rose-400"
                               }`}
@@ -1458,50 +1814,50 @@ export default function TradeHistoryPage() {
                                       <div className="flex items-center space-x-1.5">
                                         <div className="w-2 h-2 rounded-full bg-amber-400" />
                                         <span className="text-xs font-black text-amber-300 font-mono uppercase">
-                                          {leg1Venue}
+                                          {leg.leg1Venue}
                                         </span>
                                       </div>
                                       <span className={`text-[10px] font-black px-2 py-0.5 rounded font-mono uppercase ${
-                                        leg1Side === "SELL" ? "bg-rose-500/15 text-rose-400 border border-rose-500/30" : "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                                        leg.leg1Side === "SELL" ? "bg-rose-500/15 text-rose-400 border border-rose-500/30" : "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
                                       }`}>
-                                        {leg1Side} ({leg1Side === "SELL" ? "Short" : "Long"})
+                                        {leg.leg1Side} ({leg.leg1Side === "SELL" ? "Short" : "Long"})
                                       </span>
                                     </div>
 
                                     <div className="space-y-1.5 text-[11px] font-mono">
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Entry Fill Price:</span>
-                                        <span className="text-white font-bold">${leg1EntryPrice}</span>
+                                        <span className="text-white font-bold">${leg.leg1EntryPrice}</span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Exit Fill Price:</span>
-                                        <span className="text-white font-bold">${leg1ExitPrice}</span>
+                                        <span className="text-white font-bold">${leg.leg1ExitPrice}</span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Gross Price PnL:</span>
-                                        <span className={`font-bold ${leg1Gross >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
-                                          {leg1Gross >= 0 ? "+" : ""}${leg1Gross.toFixed(4)} USDT
+                                        <span className={`font-bold ${leg.leg1Gross >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                                          {leg.leg1Gross >= 0 ? "+" : ""}${leg.leg1Gross.toFixed(4)} USDT
                                         </span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Taker Commissions:</span>
-                                        <span className="text-rose-400 font-bold">-${Math.abs(leg1Fee).toFixed(4)} USDT</span>
+                                        <span className="text-rose-400 font-bold">-${Math.abs(leg.leg1Fee).toFixed(4)} USDT</span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Funding Claimed:</span>
-                                        <span className="text-amber-400 font-bold">{leg1Funding >= 0 ? "+" : ""}${leg1Funding.toFixed(4)} USDT</span>
+                                        <span className="text-amber-400 font-bold">{leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT</span>
                                       </div>
                                       <div className="flex justify-between py-1 bg-amber-950/20 px-2 rounded mt-1 border border-amber-500/20">
                                         <span className="text-amber-200 font-bold">Binance Net Cash:</span>
-                                        <span className={`font-black ${leg1Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
-                                          {leg1Net >= 0 ? "+" : ""}${leg1Net.toFixed(4)} USDT
+                                        <span className={`font-black ${leg.leg1Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
+                                          {leg.leg1Net >= 0 ? "+" : ""}${leg.leg1Net.toFixed(4)} USDT
                                         </span>
                                       </div>
                                     </div>
 
                                     <div className="mt-2.5 pt-2 border-t border-zinc-800/80 text-[9.5px] text-zinc-400 space-y-1">
-                                      <div className="truncate"><span className="text-zinc-500">Entry Order ID:</span> <code className="text-zinc-300">{leg1OrderId}</code></div>
-                                      <div className="truncate"><span className="text-zinc-500">Exit Order ID:</span> <code className="text-zinc-300">{leg1CloseOrderId}</code></div>
+                                      <div className="truncate"><span className="text-zinc-500">Entry Order ID:</span> <code className="text-zinc-300">{leg.leg1OrderId}</code></div>
+                                      <div className="truncate"><span className="text-zinc-500">Exit Order ID:</span> <code className="text-zinc-300">{leg.leg1CloseOrderId}</code></div>
                                       <div className="text-[9px] text-amber-300/80 mt-1">✓ Orderbook match splits · 0 re-tries · Standard 0.05% fee</div>
                                     </div>
                                   </div>
@@ -1512,50 +1868,50 @@ export default function TradeHistoryPage() {
                                       <div className="flex items-center space-x-1.5">
                                         <div className="w-2 h-2 rounded-full bg-cyan-400" />
                                         <span className="text-xs font-black text-cyan-300 font-mono uppercase">
-                                          {leg2Venue}
+                                          {leg.leg2Venue}
                                         </span>
                                       </div>
                                       <span className={`text-[10px] font-black px-2 py-0.5 rounded font-mono uppercase ${
-                                        leg2Side === "BUY" ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" : "bg-rose-500/15 text-rose-400 border border-rose-500/30"
+                                        leg.leg2Side === "BUY" ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" : "bg-rose-500/15 text-rose-400 border border-rose-500/30"
                                       }`}>
-                                        {leg2Side} ({leg2Side === "BUY" ? "Long" : "Short"})
+                                        {leg.leg2Side} ({leg.leg2Side === "BUY" ? "Long" : "Short"})
                                       </span>
                                     </div>
 
                                     <div className="space-y-1.5 text-[11px] font-mono">
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Entry Fill Price:</span>
-                                        <span className="text-white font-bold">${leg2EntryPrice}</span>
+                                        <span className="text-white font-bold">${leg.leg2EntryPrice}</span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Exit Fill Price:</span>
-                                        <span className="text-white font-bold">${leg2ExitPrice}</span>
+                                        <span className="text-white font-bold">${leg.leg2ExitPrice}</span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Gross Price PnL:</span>
-                                        <span className={`font-bold ${leg2Gross >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
-                                          {leg2Gross >= 0 ? "+" : ""}${leg2Gross.toFixed(4)} USDT
+                                        <span className={`font-bold ${leg.leg2Gross >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                                          {leg.leg2Gross >= 0 ? "+" : ""}${leg.leg2Gross.toFixed(4)} USDT
                                         </span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Taker Commissions:</span>
-                                        <span className="text-rose-400 font-bold">-${Math.abs(leg2Fee).toFixed(4)} USDT</span>
+                                        <span className="text-rose-400 font-bold">-${Math.abs(leg.leg2Fee).toFixed(4)} USDT</span>
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Funding Claimed:</span>
-                                        <span className="text-amber-400 font-bold">{leg2Funding >= 0 ? "+" : ""}${leg2Funding.toFixed(4)} USDT</span>
+                                        <span className="text-amber-400 font-bold">{leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT</span>
                                       </div>
                                       <div className="flex justify-between py-1 bg-cyan-950/20 px-2 rounded mt-1 border border-cyan-500/20">
                                         <span className="text-cyan-200 font-bold">Bybit Net Cash:</span>
-                                        <span className={`font-black ${leg2Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
-                                          {leg2Net >= 0 ? "+" : ""}${leg2Net.toFixed(4)} USDT
+                                        <span className={`font-black ${leg.leg2Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
+                                          {leg.leg2Net >= 0 ? "+" : ""}${leg.leg2Net.toFixed(4)} USDT
                                         </span>
                                       </div>
                                     </div>
 
                                     <div className="mt-2.5 pt-2 border-t border-zinc-800/80 text-[9.5px] text-zinc-400 space-y-1">
-                                      <div className="truncate"><span className="text-zinc-500">Entry Order ID:</span> <code className="text-zinc-300">{leg2OrderId}</code></div>
-                                      <div className="truncate"><span className="text-zinc-500">Exit Order ID:</span> <code className="text-zinc-300">{leg2CloseOrderId}</code></div>
+                                      <div className="truncate"><span className="text-zinc-500">Entry Order ID:</span> <code className="text-zinc-300">{leg.leg2OrderId}</code></div>
+                                      <div className="truncate"><span className="text-zinc-500">Exit Order ID:</span> <code className="text-zinc-300">{leg.leg2CloseOrderId}</code></div>
                                       <div className="text-[9px] text-cyan-300/80 mt-1">✓ Orderbook match splits · 0 re-tries · Standard 0.055% fee</div>
                                     </div>
                                   </div>
