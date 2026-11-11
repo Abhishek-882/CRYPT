@@ -2303,7 +2303,7 @@ export default function AutoBotPanel() {
               <div className="p-3 rounded-xl bg-zinc-900/70 border border-zinc-800 space-y-2">
                 <div className="flex items-center justify-between">
                   <label className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
-                    TARGET ROI EXIT
+                    TARGET ROI TAKE-PROFIT
                   </label>
                   <span className="text-[9px] font-mono text-cyan-400 font-bold">
                     &ge; {targetRoiTakeProfitPct}% (Waits for Div &le; {closeMaxPriceDivergencePct}%)

@@ -1230,5 +1230,93 @@
     "timestamp": "2026-11-10T13:35:48.832Z",
     "ipAddress": "::1",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_d649872cbd69265b",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_DIAGNOSTICS_TELEMETRY",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:13:04.763Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1"
+  },
+  {
+    "id": "cst_c21c1fb9b2a68175",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_MARKET_CACHE",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:13:04.763Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1"
+  },
+  {
+    "id": "cst_ddd9202687f83003",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_DIAGNOSTICS_TELEMETRY",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:13:59.779Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_4907ce1fd4f696c8",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_MARKET_CACHE",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:13:59.779Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_5a3afc044977b35f",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_DIAGNOSTICS_TELEMETRY",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:14:36.499Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_b05c8127ac018e4e",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_MARKET_CACHE",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:14:36.499Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_7594938ce75351bf",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_DIAGNOSTICS_TELEMETRY",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:15:18.997Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_24926cb4ebd16b5b",
+    "userId": "usr_1794314482670_kyff8",
+    "userEmail": "rada7788@gmail.com",
+    "purpose": "PURPOSE_MARKET_CACHE",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-10T16:15:18.997Z",
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
   }
 ]

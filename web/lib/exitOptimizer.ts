@@ -34,7 +34,7 @@ export function calculateAdaptiveZeroLossFloorUsdt(
   return Math.max(hardFloorUsdt, targetFloor);
 }
 
-export const CATASTROPHIC_STOP_LOSS_ROI = -20.0;
+export const CATASTROPHIC_STOP_LOSS_ROI = -85.0; // Margin liquidation safeguard: -85% ROI on margin
 /** Minimum forward continuation funding spread: 0.200% */
 export const MIN_CONTINUATION_SPREAD_PCT = 0.20; // 0.200%
 export const MIN_CONTINUATION_SPREAD_BPS = 20.0; // Legacy export alias: 0.200%
@@ -273,8 +273,9 @@ export function evaluateZeroLossExitGate(
     configuredMinNetTargetPct
   );
 
-  // 1. CATASTROPHIC STOP-LOSS LIMIT (Emergency override)
-  if (currentRoiPct <= CATASTROPHIC_STOP_LOSS_ROI) {
+  // 1. CATASTROPHIC STOP-LOSS LIMIT (Emergency liquidation override after 120s entry grace period)
+  const holdDurationMs = Date.now() - (hedge.entryTime || Date.now());
+  if (holdDurationMs >= 120000 && currentRoiPct <= CATASTROPHIC_STOP_LOSS_ROI) {
     return {
       canExit: true,
       exitType: "CATASTROPHIC_STOP",
@@ -286,7 +287,7 @@ export function evaluateZeroLossExitGate(
       currentRoiPct,
       halfLifeMinutes: ouResult.halfLifeMinutes,
       zScore: ouResult.zScore,
-      reason: `Catastrophic stop-loss triggered: ROI ${currentRoiPct}% <= ${CATASTROPHIC_STOP_LOSS_ROI}% cap. Executing emergency risk cutoff.`,
+      reason: `Catastrophic stop-loss triggered: ROI ${currentRoiPct}% <= ${CATASTROPHIC_STOP_LOSS_ROI}% cap after ${Math.round(holdDurationMs / 1000)}s hold. Executing emergency risk cutoff.`,
     };
   }
 
@@ -324,7 +325,6 @@ export function evaluateZeroLossExitGate(
   const divergenceHistory = hedge.divergenceHistory || [];
   const thirtyMinutesAgo = now - 30 * 60 * 1000;
   const recentDivergenceSamples = divergenceHistory.filter((s) => s.timestamp >= thirtyMinutesAgo);
-  const holdDurationMs = now - (hedge.entryTime || now);
 
   if (holdDurationMs >= 30 * 60 * 1000 && recentDivergenceSamples.length >= 8) {
     const minDivPctInWindow = Math.min(...recentDivergenceSamples.map((s) => s.divPct));

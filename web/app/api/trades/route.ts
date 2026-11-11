@@ -19,14 +19,18 @@ export async function GET(req: NextRequest) {
   const isToday = (ts: number) => {
     if (!ts) return false;
     const d = new Date(ts);
-    return (
+    const isSameUtcDay =
+      d.getUTCFullYear() === now.getUTCFullYear() &&
+      d.getUTCMonth() === now.getUTCMonth() &&
+      d.getUTCDate() === now.getUTCDate();
+    const isSameLocalDay =
       d.getFullYear() === now.getFullYear() &&
       d.getMonth() === now.getMonth() &&
-      d.getDate() === now.getDate()
-    );
+      d.getDate() === now.getDate();
+    return isSameUtcDay || isSameLocalDay || (now.getTime() - ts <= 86400000);
   };
 
-  const todayMainnetTrades = mainnetTrades.filter((t) => isToday(t.timestamp || t.closeTimestamp || 0));
+  const todayMainnetTrades = mainnetTrades.filter((t) => isToday(t.closeTimestamp || t.timestamp || 0));
   const todayRealizedPnl = parseFloat(todayMainnetTrades.reduce((acc, t) => acc + (t.realizedPnl || 0), 0).toFixed(4));
   const todayFundingClaimed = parseFloat(todayMainnetTrades.reduce((acc, t) => acc + (t.fundingClaimedUsdt || 0), 0).toFixed(4));
   const todayNotional = parseFloat(todayMainnetTrades.reduce((acc, t) => acc + (t.notionalUsdt || 0), 0).toFixed(2));

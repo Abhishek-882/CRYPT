@@ -123,6 +123,49 @@ export function loadTrades(userId?: string, forceDiskRead: boolean = false): Ser
     }
   });
 
+  // Deduplicate and merge any CLS receipts into canonical parent records
+  const canonicalMap = new Map<string, ServerHedgeTrade>();
+  parsed.forEach((t) => {
+    if (!t.id.startsWith("CLS-")) {
+      canonicalMap.set(t.id, { ...t });
+    }
+  });
+
+  parsed.forEach((t) => {
+    if (t.id.startsWith("CLS-")) {
+      const parentId = t.id.replace("CLS-", "");
+      if (canonicalMap.has(parentId)) {
+        const parent = canonicalMap.get(parentId)!;
+        parent.status = "CLOSED";
+        parent.closeTimestamp = parent.closeTimestamp || t.closeTimestamp || t.timestamp;
+        parent.closeLeg1Price = parent.closeLeg1Price || t.closeLeg1Price || t.leg1Price;
+        parent.closeLeg2Price = parent.closeLeg2Price || t.closeLeg2Price || t.leg2Price;
+        parent.closeLeg1OrderId = parent.closeLeg1OrderId || t.closeLeg1OrderId;
+        parent.closeLeg2OrderId = parent.closeLeg2OrderId || t.closeLeg2OrderId;
+        parent.closeLeg1FeeUsdt = parent.closeLeg1FeeUsdt ?? t.closeLeg1FeeUsdt;
+        parent.closeLeg2FeeUsdt = parent.closeLeg2FeeUsdt ?? t.closeLeg2FeeUsdt;
+        if (t.durationMs && (!parent.durationMs || parent.durationMs === 120)) {
+          parent.durationMs = t.durationMs;
+        } else if (parent.closeTimestamp && parent.timestamp && (!parent.durationMs || parent.durationMs === 120)) {
+          parent.durationMs = Math.max(120, parent.closeTimestamp - parent.timestamp);
+        }
+        if (t.realizedPnl !== undefined) parent.realizedPnl = t.realizedPnl;
+        if (t.netHarvestUsdt !== undefined) parent.netHarvestUsdt = t.netHarvestUsdt;
+        if (t.priceSpreadPnlUsdt !== undefined) parent.priceSpreadPnlUsdt = t.priceSpreadPnlUsdt;
+        if (t.fundingClaimedUsdt !== undefined) parent.fundingClaimedUsdt = t.fundingClaimedUsdt;
+        if (t.totalFeesUsdt !== undefined) parent.totalFeesUsdt = t.totalFeesUsdt;
+        if (t.notes && !parent.notes) parent.notes = t.notes;
+        if ((t as any).unwindReason) (parent as any).unwindReason = (t as any).unwindReason;
+      } else {
+        canonicalMap.set(parentId, { ...t, id: parentId, status: "CLOSED" });
+      }
+    }
+  });
+
+  parsed = Array.from(canonicalMap.values()).sort(
+    (a, b) => (b.closeTimestamp || b.timestamp || 0) - (a.closeTimestamp || a.timestamp || 0)
+  );
+
   globalForTrades.tenantTrades![cacheKey] = parsed;
   globalForTrades.tenantTradesMtime![cacheKey] = Date.now();
   globalForTrades.tenantTradesSignature![cacheKey] = getTradesFileSignature(userId);
@@ -326,9 +369,11 @@ export function recordServerTrade(trade: Partial<ServerHedgeTrade>, userId?: str
   // Perfect History Saver: Synchronize parent entry trade with complete close receipt
   if (fullTrade.type === "DUAL_LEG_UNWIND" || fullTrade.status === "CLOSED" || fullTrade.type === "AUTONOMOUS_SERVER_CLOSE" || fullTrade.id.startsWith("CLS-")) {
     const parentHedgeId = fullTrade.id.startsWith("CLS-") ? fullTrade.id.replace(/^CLS-/, "") : null;
+    let foundParent = false;
     updated = updated.map((t) => {
       const isParentMatch = parentHedgeId ? t.id === parentHedgeId : (t.symbol === fullTrade.symbol && t.status === "ACTIVE" && t.id !== fullTrade.id);
       if (isParentMatch) {
+        foundParent = true;
         const cTime = fullTrade.closeTimestamp || now;
         const dur = Math.max(120, cTime - t.timestamp);
         const parentTotalFees = parseFloat(((t.leg1FeeUsdt || 0) + (t.leg2FeeUsdt || 0) + (fullTrade.closeLeg1FeeUsdt || 0) + (fullTrade.closeLeg2FeeUsdt || 0)).toFixed(4)) || fullTrade.totalFeesUsdt || t.totalFeesUsdt || 0;
@@ -351,10 +396,17 @@ export function recordServerTrade(trade: Partial<ServerHedgeTrade>, userId?: str
           netHarvestUsdt: fullTrade.netHarvestUsdt ?? fullTrade.realizedPnl,
           closeDivergencePct: fullTrade.closeDivergencePct,
           returnsPct: t.notionalUsdt && t.notionalUsdt > 0 ? parseFloat(((fullTrade.realizedPnl / t.notionalUsdt) * 100).toFixed(4)) : fullTrade.returnsPct,
+          unwindReason: (fullTrade as any).unwindReason || (t as any).unwindReason,
+          notes: fullTrade.notes || t.notes,
         };
       }
       return t;
     });
+
+    // If parent was found and enriched, drop the redundant duplicate CLS- record
+    if (foundParent && fullTrade.id.startsWith("CLS-")) {
+      updated = updated.filter((t) => t.id !== fullTrade.id);
+    }
   }
 
   saveTrades(updated, targetUser);

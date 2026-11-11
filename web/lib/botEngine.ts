@@ -447,7 +447,7 @@ export const DEFAULT_CONFIG: BotConfig = {
   minNetYieldHurdleBps: 15.0,
   maxBidAskSpreadBps: 25.0,
   maxPreTradeSlippagePct: 0.05,
-  enablePreTradeSlippageGate: false, // Default OFF as configured
+  enablePreTradeSlippageGate: true, // Default ON: Protects against order book sweeps
   enableSpreadCollapseExit: false, // Default false to prevent premature exits before funding settlement
   spreadCollapseExitBps: 25.0,
   scanIntervalSeconds: 5,
@@ -772,6 +772,80 @@ export const BUILT_IN_SET_FILES: BotSetFile[] = [
         allowAsymmetricFunding: true,
       },
       "Conservative 35bps Sniper"
+    ),
+    isBuiltIn: true,
+    createdAt: 1775000000000,
+    updatedAt: 1775000000000,
+  },
+  {
+    id: "set-lever3",
+    fileName: "lever3_depth_gate.set",
+    name: "Lever 3 (Depth Guard)",
+    description: "High-yield Binance ⇄ Bybit continuous spread arbitrage with Guard 1 (L2 Orderbook Depth Gate) and Post-Only Maker routing at 0.32% hurdle.",
+    config: {
+      enabled: true,
+      minSpreadBps: 32.0,
+      roundTripFeeBps: 18.0,
+      minNetYieldHurdleBps: 10.0,
+      maxPriceDivergencePct: 0.05,
+      balanceAllocationPct: 25,
+      leverageMode: "MAX_PER_COIN",
+      customLeverage: 10,
+      normalCoinLeverage: 20,
+      volatileCoinLeverage: 10,
+      maxSimultaneousHedges: 3,
+      maxMarginCapUsdt: 100,
+      maxAmountPerHedgeUsdt: 15,
+      postSettlementWaitSeconds: 15,
+      closeMaxPriceDivergencePct: 0.04,
+      scanIntervalSeconds: 3,
+      timingMode: "CONTINUOUS_SPREAD",
+      executionCorridor: "BINANCE_BYBIT",
+      enableFlattenMemoryLock: true,
+      allowAsymmetricFunding: true,
+      intervalMode: "ALL_ASYMMETRIC",
+      enablePreTradeSlippageGate: true,
+      liquidityTier: "THIN",
+      maxBidAskSpreadBps: 20.0,
+      maxPreTradeSlippagePct: 0.04,
+      enableMakerRouting: true,
+      enableZeroLossGate: true,
+      minNetHedgeTargetPct: 0.30,
+      fastExitIntervalMs: 250,
+    },
+    contentText: serializeConfigToSetText(
+      {
+        enabled: true,
+        minSpreadBps: 32.0,
+        roundTripFeeBps: 18.0,
+        minNetYieldHurdleBps: 10.0,
+        maxPriceDivergencePct: 0.05,
+        balanceAllocationPct: 25,
+        leverageMode: "MAX_PER_COIN",
+        customLeverage: 10,
+        normalCoinLeverage: 20,
+        volatileCoinLeverage: 10,
+        maxSimultaneousHedges: 3,
+        maxMarginCapUsdt: 100,
+        maxAmountPerHedgeUsdt: 15,
+        postSettlementWaitSeconds: 15,
+        closeMaxPriceDivergencePct: 0.04,
+        scanIntervalSeconds: 3,
+        timingMode: "CONTINUOUS_SPREAD",
+        executionCorridor: "BINANCE_BYBIT",
+        enableFlattenMemoryLock: true,
+        allowAsymmetricFunding: true,
+        intervalMode: "ALL_ASYMMETRIC",
+        enablePreTradeSlippageGate: true,
+        liquidityTier: "THIN",
+        maxBidAskSpreadBps: 20.0,
+        maxPreTradeSlippagePct: 0.04,
+        enableMakerRouting: true,
+        enableZeroLossGate: true,
+        minNetHedgeTargetPct: 0.30,
+        fastExitIntervalMs: 250,
+      },
+      "Lever 3 (Depth Guard)"
     ),
     isBuiltIn: true,
     createdAt: 1775000000000,
@@ -2782,7 +2856,7 @@ export async function evaluatePreTradeSlippageAndDepth(
   const minNetYieldHurdle = config?.minNetYieldHurdleBps ?? 15.0;
   const maxSpreadCeiling = config?.maxBidAskSpreadBps ?? 25.0;
   const takerFeeBps = config?.roundTripFeeBps ?? 25.0;
-  const isEnabled = config?.enablePreTradeSlippageGate === true;
+  const isEnabled = config?.enablePreTradeSlippageGate !== false;
 
   async function getVenueBook(venue: string, side: "BUY" | "SELL"): Promise<{ bid: number; ask: number; depthUsd: number; spreadBps: number }> {
     const v = venue.toLowerCase();
@@ -3249,7 +3323,11 @@ export async function executeDualHedgeEntry(
   // and Margin_A * binanceLeverage = Margin_B * bitgetLeverage (1:1 Delta-Neutral)
   const autoSplit = calculateAutoSplit(allocatedMargin, binanceLeverage, bitgetLeverage);
   const refPrice = coin.binanceMarkPrice || 100;
-  const targetNotional = Math.max(15, autoSplit.matchedNotional);
+  // Liquidity-Tier Depth Sizing Clamping:
+  // Strictly prevent sweeping thin altcoin order books when balance allocation produces large notional.
+  const tier = config.liquidityTier || (coin.liquidityTier || "MEDIUM");
+  const maxTierNotional = tier === "DEEP" ? 500 : tier === "THIN" ? 30 : 75;
+  const targetNotional = Math.max(15, Math.min(autoSplit.matchedNotional, maxTierNotional));
   let rawQty = targetNotional / refPrice;
 
   let minNotional = 12.0;
@@ -3481,11 +3559,12 @@ export async function executeDualHedgeEntry(
   const signedBasisBps = preExecPrices.signedBasisBps || 0;
   const isBasisFavorable = isShortA ? signedBasisBps > 0 : signedBasisBps < 0;
   const adverseDivergencePct = isBasisFavorable ? 0 : preExecPrices.divergencePct;
-  const basisSafetyCapExceeded = Math.abs(signedBasisBps) > 250;
+  const maxAllowedBasisGapBps = config.maxPriceDivergenceCapPct ? (config.maxPriceDivergenceCapPct * 100) : 30;
+  const basisSafetyCapExceeded = Math.abs(signedBasisBps) > maxAllowedBasisGapBps;
 
   if (adverseDivergencePct > preExecReq.requiredDivergencePct || basisSafetyCapExceeded) {
     const gateReason = basisSafetyCapExceeded
-      ? `BASIS_SAFETY_CAP: |${signedBasisBps.toFixed(1)}| bps > 250 bps safety cap`
+      ? `BASIS_SAFETY_CAP: |${signedBasisBps.toFixed(1)}| bps > ${maxAllowedBasisGapBps.toFixed(1)} bps (${(maxAllowedBasisGapBps / 100).toFixed(2)}%) safety cap`
       : `PRE_EXEC_PRICE_DIFF_WAIT: Adverse diff ${preExecPrices.divergencePct.toFixed(3)}% > ${preExecReq.requiredDivergencePct.toFixed(3)}% (${preExecReq.stage})`;
     appendBotLog(
       state,
@@ -5739,18 +5818,20 @@ export async function evaluateAndProcessActiveHedges(
       ? config.closeMaxPriceDivergencePct
       : 0.05;
 
-    // Tier 2: Hard Blowoff Emergency Close at +50% ROI Profit OR -50% ROI Loss
-    if (currentRoiPct >= hardRoiThreshold || currentRoiPct <= -hardRoiThreshold) {
-      const isHardLoss = currentRoiPct <= -hardRoiThreshold;
+    // Tier 2: Hard Blowoff Take-Profit (+50% ROI) OR Emergency Liquidation Guard (-85% ROI after 120s cooldown)
+    const isHardProfit = currentRoiPct >= hardRoiThreshold;
+    const holdDurationMs = now - (hedge.entryTime || now);
+    const isHardEmergencyLoss = currentRoiPct <= -85.0 && holdDurationMs >= 120000;
+    if (isHardProfit || isHardEmergencyLoss) {
       appendBotLog(
         state,
-        `[${isHardLoss ? "HARD STOP-LOSS" : "HARD TAKE-PROFIT"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} achieved ${currentRoiPct.toFixed(1)}% ROI (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin | ${isHardLoss ? "Loss threshold -" + hardRoiThreshold + "% reached" : "Profit threshold +" + hardRoiThreshold + "% reached"}). Bypassing price divergence gate and executing IMMEDIATE dual close to ${isHardLoss ? "prevent exchange liquidation" : "lock in harvest"}!`,
-        isHardLoss ? "error" : "success",
+        `[${isHardEmergencyLoss ? "EMERGENCY LIQUIDATION GUARD" : "HARD TAKE-PROFIT"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} achieved ${currentRoiPct.toFixed(1)}% ROI (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin | ${isHardEmergencyLoss ? "Emergency liquidation threshold -85% reached after 120s" : "Profit threshold +" + hardRoiThreshold + "% reached"}). Bypassing price divergence gate and executing IMMEDIATE dual close to ${isHardEmergencyLoss ? "prevent exchange liquidation" : "lock in harvest"}!`,
+        isHardEmergencyLoss ? "error" : "success",
         user.id,
         bot.id
       );
       hedge.status = "CLOSING";
-      hedge.unwindReason = isHardLoss ? `HARD_STOP_LOSS_${Math.round(hardRoiThreshold)}_ROI` : `HARD_TAKE_PROFIT_${Math.round(hardRoiThreshold)}_ROI`;
+      hedge.unwindReason = isHardEmergencyLoss ? `EMERGENCY_LIQUIDATION_GUARD_85_ROI` : `HARD_TAKE_PROFIT_${Math.round(hardRoiThreshold)}_ROI`;
       const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
       if (closeRes.success) {
         hedge.status = "CLOSED";
@@ -5763,7 +5844,7 @@ export async function evaluateAndProcessActiveHedges(
         if (bot.completedHedges.length > 50) {
           bot.completedHedges = bot.completedHedges.slice(0, 50);
         }
-        quarantineBotSymbol(bot, hedge.symbol, 300, isHardLoss ? "Hard stop-loss emergency exit" : "Hard blowoff take-profit realized", state, user.id);
+        quarantineBotSymbol(bot, hedge.symbol, 300, isHardEmergencyLoss ? "Emergency liquidation guard exit" : "Hard blowoff take-profit realized", state, user.id);
         closedCount++;
       } else {
         survivingHedges.push(hedge);
@@ -5771,20 +5852,19 @@ export async function evaluateAndProcessActiveHedges(
       continue;
     }
 
-    // Tier 1: Target Convergence Exit at +20% ROI Profit OR -20% ROI Loss
-    if (currentRoiPct >= targetRoiThreshold || currentRoiPct <= -targetRoiThreshold) {
-      const isTargetLoss = currentRoiPct <= -targetRoiThreshold;
+    // Tier 1: Target Convergence Take-Profit Exit at +20% ROI Profit (Pure Take-Profit, never early stop-loss on entry fee drag)
+    if (currentRoiPct >= targetRoiThreshold) {
       const isParitySafe = freshPrices.divergencePct <= maxExitDivergencePct;
       if (isParitySafe) {
         appendBotLog(
           state,
-          `[${isTargetLoss ? "TARGET STOP-LOSS" : "TARGET TAKE-PROFIT"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} reached ${currentRoiPct.toFixed(1)}% ROI (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin) and exit divergence (${freshPrices.divergencePct.toFixed(3)}%) <= configured target (${maxExitDivergencePct}%). Executing dual close...`,
-          isTargetLoss ? "warn" : "success",
+          `[TARGET TAKE-PROFIT: +${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} reached +${currentRoiPct.toFixed(1)}% ROI (+${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin) and exit divergence (${freshPrices.divergencePct.toFixed(3)}%) <= configured target (${maxExitDivergencePct}%). Executing dual close...`,
+          "success",
           user.id,
           bot.id
         );
         hedge.status = "CLOSING";
-        hedge.unwindReason = isTargetLoss ? `TARGET_STOP_LOSS_${Math.round(targetRoiThreshold)}_ROI` : `TARGET_TAKE_PROFIT_${Math.round(targetRoiThreshold)}_ROI`;
+        hedge.unwindReason = `TARGET_TAKE_PROFIT_${Math.round(targetRoiThreshold)}_ROI`;
         const closeRes = await executeDualHedgeClose(hedge, freshPrices, bot.name, state, creds, user.id, bot.id);
         if (closeRes.success) {
           hedge.status = "CLOSED";
@@ -5797,7 +5877,7 @@ export async function evaluateAndProcessActiveHedges(
           if (bot.completedHedges.length > 50) {
             bot.completedHedges = bot.completedHedges.slice(0, 50);
           }
-          quarantineBotSymbol(bot, hedge.symbol, 300, isTargetLoss ? "Target stop-loss realized" : "Target take-profit realized", state, user.id);
+          quarantineBotSymbol(bot, hedge.symbol, 300, "Target take-profit realized", state, user.id);
           closedCount++;
         } else {
           survivingHedges.push(hedge);
@@ -5809,8 +5889,8 @@ export async function evaluateAndProcessActiveHedges(
         if (state.cyclesCompleted % 4 === 0) {
           appendBotLog(
             state,
-            `[${isTargetLoss ? "STOP-LOSS ARMED" : "TAKE-PROFIT ARMED"}: ${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} threshold reached (${estNetPnl >= 0 ? "+" : ""}${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin). Active & waiting for price divergence reversion (${freshPrices.divergencePct.toFixed(3)}% > ${maxExitDivergencePct}% config target).`,
-            isTargetLoss ? "warn" : "info",
+            `[TAKE-PROFIT ARMED: +${currentRoiPct.toFixed(1)}% ROI] Bot "${bot.name}": ${hedge.symbol} threshold reached (+${estNetPnl.toFixed(4)} USDT on $${initialMargin.toFixed(2)} margin). Active & waiting for price divergence reversion (${freshPrices.divergencePct.toFixed(3)}% > ${maxExitDivergencePct}% config target).`,
+            "info",
             user.id,
             bot.id
           );

@@ -48,6 +48,8 @@ export interface ServerHedgeTrade {
   expectedSlippagePct?: number;
   bidAskSpreadBps?: number;
   unwindReason?: string;
+  notes?: string;
+  direction?: string;
   fundingRatePct?: number; // Funding rate % applied at settlement (e.g. -0.7304%)
   fundingRateApr?: number; // Annualized percentage rate (e.g. 1117.3%)
   fundingVenue?: string; // Venue where funding was settled / claimed

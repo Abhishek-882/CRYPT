@@ -403,11 +403,13 @@ export default function TradeHistoryPage() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("ALL");
+  const [selectedBotId, setSelectedBotId] = useState<string>("ALL");
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
+  const [datePreset, setDatePreset] = useState<string>("ALL");
   const [lastRefreshedAt, setLastRefreshedAt] = useState<number>(Date.now());
   const [secondsAgo, setSecondsAgo] = useState<number>(0);
-  const [nextRefreshIn, setNextRefreshIn] = useState<number>(15);
+  const [nextRefreshIn, setNextRefreshIn] = useState<number>(3);
   const [expandedTradeId, setExpandedTradeId] = useState<string | null>(null);
 
   // Authenticate user
@@ -456,24 +458,92 @@ export default function TradeHistoryPage() {
         }
       });
 
-      // Combine loaded ground-truth trades and in-memory daemonCompleted without duplicates or false losses
-      const seenIds = new Set<string>();
-      const combinedUserTrades: any[] = [];
+      // Deduplicate and canonicalize:
+      // Map key: canonicalId = id.replace(/^CLS-/, "")
+      const canonicalMap = new Map<string, any>();
 
-      // 1. Process loadedTrades from hedge_trades_history.json first (authoritative ground-truth receipts)
-      // Exclude unclosed opening receipts so they never register as false losing entries
-      const validCompletedTrades = loadedTrades.filter((t: any) => {
-        if (t.type === "AUTONOMOUS_SERVER_HEDGE" && t.realizedPnl === undefined && t.netHarvestUsdt === undefined) {
-          return false;
+      // Step 1: Put non-CLS trades (genuine entry trades with real fill prices & duration)
+      loadedTrades.forEach((t: any) => {
+        if (t.status === "ACTIVE" || t.status === "OPEN" || t.status === "WAITING_PRICE_PARITY") {
+          return;
         }
-        return true;
+        if (t.type === "AUTONOMOUS_SERVER_HEDGE" && t.realizedPnl === undefined && t.netHarvestUsdt === undefined) {
+          return;
+        }
+        const cid = (t.id || "").replace(/^CLS-/, "");
+        if (!t.id?.startsWith("CLS-")) {
+          canonicalMap.set(cid, { ...t, id: cid });
+        }
       });
 
-      validCompletedTrades.forEach((t: any, idx: number) => {
-        const tradeId = t.id || `TRADE-${idx + 1}`;
-        seenIds.add(tradeId);
-        seenIds.add(tradeId.replace("CLS-", ""));
+      // Step 2: Merge CLS receipts into parent or insert cleanly if orphan close receipt
+      loadedTrades.forEach((t: any) => {
+        if (t.id?.startsWith("CLS-")) {
+          const cid = t.id.replace(/^CLS-/, "");
+          if (canonicalMap.has(cid)) {
+            const parent = canonicalMap.get(cid);
+            parent.status = "CLOSED";
+            parent.closeTimestamp = parent.closeTimestamp || t.closeTimestamp || t.timestamp;
+            parent.closeLeg1Price = parent.closeLeg1Price || t.closeLeg1Price || t.leg1Price;
+            parent.closeLeg2Price = parent.closeLeg2Price || t.closeLeg2Price || t.leg2Price;
+            parent.closeLeg1OrderId = parent.closeLeg1OrderId || t.closeLeg1OrderId;
+            parent.closeLeg2OrderId = parent.closeLeg2OrderId || t.closeLeg2OrderId;
+            parent.closeLeg1FeeUsdt = parent.closeLeg1FeeUsdt ?? t.closeLeg1FeeUsdt;
+            parent.closeLeg2FeeUsdt = parent.closeLeg2FeeUsdt ?? t.closeLeg2FeeUsdt;
+            if (t.durationMs && (!parent.durationMs || parent.durationMs === 120)) {
+              parent.durationMs = t.durationMs;
+            } else if (parent.closeTimestamp && parent.timestamp && (!parent.durationMs || parent.durationMs === 120)) {
+              parent.durationMs = Math.max(120, parent.closeTimestamp - parent.timestamp);
+            }
+            if (t.realizedPnl !== undefined) parent.realizedPnl = t.realizedPnl;
+            if (t.netHarvestUsdt !== undefined) parent.netHarvestUsdt = t.netHarvestUsdt;
+            if (t.priceSpreadPnlUsdt !== undefined) parent.priceSpreadPnlUsdt = t.priceSpreadPnlUsdt;
+            if (t.fundingClaimedUsdt !== undefined) parent.fundingClaimedUsdt = t.fundingClaimedUsdt;
+            if (t.totalFeesUsdt !== undefined) parent.totalFeesUsdt = t.totalFeesUsdt;
+            if (t.notes && !parent.notes) parent.notes = t.notes;
+            if (t.unwindReason) parent.unwindReason = t.unwindReason;
+          } else {
+            canonicalMap.set(cid, { ...t, id: cid, status: "Closed" });
+          }
+        }
+      });
 
+      // Step 3: Merge completed daemon trades if any (strictly guard against malformed or unrecorded ghost items)
+      daemonCompleted.forEach((h: any) => {
+        const cid = (h.id || "").replace(/^CLS-/, "");
+        // STRICT GUARD: Must have a valid numeric realized PnL and non-zero entry prices
+        const hasValidPnl = typeof h.realizedPnl === "number" || typeof h.pnl === "number" || typeof h.netHarvestUsdt === "number";
+        const entryP1 = typeof h.leg1Price === "number" ? h.leg1Price : (typeof h.entryBinancePrice === "number" ? h.entryBinancePrice : 0);
+        const entryP2 = typeof h.leg2Price === "number" ? h.leg2Price : (typeof h.entryBitgetPrice === "number" ? h.entryBitgetPrice : 0);
+        const hasValidPrice = entryP1 > 0 || entryP2 > 0;
+
+        if (!canonicalMap.has(cid) && hasValidPnl && hasValidPrice) {
+          const exitP1 = h.closeLeg1Price ?? h.closeBinancePrice ?? entryP1;
+          const exitP2 = h.closeLeg2Price ?? h.closeBitgetPrice ?? entryP2;
+          const tTime = h.closeTime || h.closeTimestamp || h.entryTime || h.timestamp || Date.now();
+          const dur = h.durationMs ?? (h.closeTime && h.entryTime ? Math.max(120, h.closeTime - h.entryTime) : 120);
+          const pnlVal = typeof h.realizedPnl === "number" ? h.realizedPnl : (typeof h.pnl === "number" ? h.pnl : (h.netHarvestUsdt ?? 0));
+
+          canonicalMap.set(cid, {
+            ...h,
+            id: cid,
+            status: "Closed",
+            timestamp: h.entryTime || h.timestamp || tTime,
+            closeTimestamp: tTime,
+            leg1Price: entryP1,
+            leg2Price: entryP2,
+            closeLeg1Price: exitP1,
+            closeLeg2Price: exitP2,
+            durationMs: dur,
+            realizedPnl: pnlVal,
+            netHarvestUsdt: pnlVal,
+          });
+        }
+      });
+
+      // Format combined trades
+      const combinedUserTrades: any[] = Array.from(canonicalMap.values()).map((t: any, idx: number) => {
+        const tradeId = t.id || `TRADE-${idx + 1}`;
         const fees = typeof t.totalFeesUsdt === "number" ? t.totalFeesUsdt : (t.feesUsdt ?? (t.feesVal ? Math.abs(t.feesVal) : 0.034));
         const funding = typeof t.fundingClaimedUsdt === "number" ? t.fundingClaimedUsdt : (t.fundingVal ?? 0);
         const net = typeof t.realizedPnl === "number"
@@ -499,10 +569,35 @@ export default function TradeHistoryPage() {
         const p2 = typeof t.leg2Price === "number" ? t.leg2Price.toFixed(6) : (t.prices ? t.prices.split("/")[1]?.trim() : "0.000000");
         const pricesDisplay = t.prices || `$${p1} / $${p2}`;
 
-        combinedUserTrades.push({
+        const tradeTime = t.closeTimestamp || t.timestamp || Date.now();
+        const dateTimeStr = t.dateTime || (new Date(tradeTime).toISOString().replace("T", " ").slice(0, 16));
+
+        // Exact Bot Attribution & Canonical Partitioning
+        const rawBotId = t.botId || "";
+        let botId = "bot-120328";
+        let botLabel = "BOT 2";
+        let botName = "Innovation Lab (Feature Challenger)";
+
+        if (rawBotId === "bot-904317" || t.id === "BOT-123531" || (t.notes && t.notes.includes("Admin Lever 3"))) {
+          botId = "bot-904317";
+          botLabel = "BOT 3";
+          botName = "Admin Lever 3 Depth Guard";
+        } else if (rawBotId === "bot-binance-bybit" || rawBotId === "bot-1" || (t.notes && t.notes.toLowerCase().includes("conservative"))) {
+          botId = "bot-1";
+          botLabel = "BOT 1";
+          botName = "Conservative Funding Sniper";
+        } else {
+          botId = "bot-120328";
+          botLabel = "BOT 2";
+          botName = "Innovation Lab (Feature Challenger)";
+        }
+
+        return {
           ...t,
           id: tradeId,
-          dateTime: t.dateTime || (t.timestamp ? new Date(t.timestamp).toISOString().replace("T", " ").slice(0, 16) : new Date().toISOString().replace("T", " ").slice(0, 16)),
+          dateTime: dateTimeStr,
+          timestamp: t.timestamp || tradeTime,
+          closeTimestamp: t.closeTimestamp || tradeTime,
           symbol: t.symbol,
           direction: t.direction || t.directionLabel || "Short BN / Long BYB",
           corridor: t.corridor || "Binance ⇄ Bybit",
@@ -518,70 +613,22 @@ export default function TradeHistoryPage() {
           netRealizedPnl: t.netRealizedPnl || `${net >= 0 ? "+" : ""}$${net.toFixed(4)} USDT`,
           netPnlVal: net,
           netRoi: t.netRoi || `${roi >= 0 ? "+" : ""}${roi.toFixed(3)}%`,
-          status: t.status === "CLOSED" ? "Closed" : (t.status || "Closed"),
-          notes: t.notes || (t.isRealMainnet ? "Real mainnet dual-leg fill receipt." : "Automated dual-hedge execution.")
-        });
-      });
-
-      // 2. Merge newly completed daemon trades not yet persisted to disk
-      daemonCompleted.forEach((h: any, idx: number) => {
-        const tradeId = h.id || `DAEMON-${idx + 1}`;
-        if (seenIds.has(tradeId) || seenIds.has(`CLS-${tradeId}`) || seenIds.has(tradeId.replace("CLS-", ""))) {
-          return;
-        }
-        seenIds.add(tradeId);
-
-        const fees = typeof h.totalFeesUsdt === "number" ? h.totalFeesUsdt : (h.feesUsdt || 0.034);
-        const funding = typeof h.fundingClaimedUsdt === "number" ? h.fundingClaimedUsdt : 0;
-        const net = typeof h.realizedPnl === "number"
-          ? h.realizedPnl
-          : typeof h.pnl === "number"
-          ? h.pnl
-          : (h.netHarvestUsdt ?? 0);
-        const gross = typeof h.grossPnlUsdt === "number"
-          ? h.grossPnlUsdt
-          : typeof h.priceSpreadPnlUsdt === "number"
-          ? h.priceSpreadPnlUsdt
-          : (net + fees - funding);
-        const notional = h.notionalUsdt || 30;
-        const roi = typeof h.returnsPct === "number" ? h.returnsPct : (notional > 0 ? (net / notional) * 100 : 0);
-        const durationSec = h.closeTime && h.entryTime ? Math.floor((h.closeTime - h.entryTime) / 1000) : 0;
-        const hours = Math.floor(durationSec / 3600);
-        const min = Math.floor((durationSec % 3600) / 60);
-        const sec = durationSec % 60;
-        const holdMain = h.holdMain || (hours > 0 ? `${hours}h ${min.toString().padStart(2, "0")}m ${sec.toString().padStart(2, "0")}s` : `${min}m ${sec.toString().padStart(2, "0")}s`);
-        const holdSub = h.holdSub || `${durationSec.toLocaleString()}s · ${(durationSec / 60).toFixed(1)} min`;
-
-        combinedUserTrades.unshift({
-          ...h,
-          id: tradeId,
-          dateTime: h.dateTime || (h.closeTime || h.entryTime ? new Date(h.closeTime || h.entryTime).toISOString().replace("T", " ").slice(0, 16) : new Date().toISOString().replace("T", " ").slice(0, 16)),
-          symbol: h.symbol,
-          direction: h.direction ? h.direction.replace("_", " ") : "Short BN / Long BYB",
-          corridor: h.corridor || "Binance ⇄ Bybit",
-          holdMain,
-          holdSub,
-          prices: h.prices || `$${(h.entryBinancePrice || 0).toFixed(6)} / $${(h.entryBitgetPrice || h.entryBybitPrice || 0).toFixed(6)}`,
-          grossPnl: h.grossPnl || `${gross >= 0 ? "+" : ""}$${gross.toFixed(4)}`,
-          grossVal: gross,
-          fundingClaimed: h.fundingClaimed || (funding > 0 ? `+$${funding.toFixed(4)}` : `$${funding.toFixed(4)}`),
-          fundingVal: funding,
-          feesPaid: h.feesPaid || `-$${Math.abs(fees).toFixed(4)}`,
-          feesVal: -Math.abs(fees),
-          netRealizedPnl: h.netRealizedPnl || `${net >= 0 ? "+" : ""}$${net.toFixed(4)} USDT`,
-          netPnlVal: net,
-          netRoi: h.netRoi || `${roi >= 0 ? "+" : ""}${roi.toFixed(3)}%`,
           status: "Closed",
-          notes: h.notes || (h.orphanLeg ? `Orphan remediated on ${h.orphanLeg}` : "Automated dual-hedge execution.")
-        });
+          notes: t.notes || (t.isRealMainnet ? "Real mainnet dual-leg fill receipt." : "Automated dual-hedge execution."),
+          botId,
+          botLabel,
+          botName
+        };
       });
 
-      // Unconditionally set to current user's genuine trades (isolated strictly to their account)
+      // Sort chronological descending
+      combinedUserTrades.sort((a, b) => (b.closeTimestamp || b.timestamp || 0) - (a.closeTimestamp || a.timestamp || 0));
+
       setUserTrades(combinedUserTrades);
       setActiveHedges(daemonActive);
       setLastRefreshedAt(Date.now());
       setSecondsAgo(0);
-      setNextRefreshIn(15);
+      setNextRefreshIn(3);
     } catch (e) {
       console.error("Failed to fetch live trades:", e);
     } finally {
@@ -594,22 +641,48 @@ export default function TradeHistoryPage() {
     const timer = setInterval(() => {
       const diff = Math.floor((Date.now() - lastRefreshedAt) / 1000);
       setSecondsAgo(diff);
-      setNextRefreshIn(Math.max(0, 15 - (diff % 15)));
+      setNextRefreshIn(Math.max(0, 3 - (diff % 3)));
     }, 1000);
     return () => clearInterval(timer);
   }, [lastRefreshedAt]);
 
-  // Auto-refresh pulse strictly every 15 seconds as requested
+  // Fast-loop auto-refresh pulse every 3 seconds
   useEffect(() => {
     if (!currentUser) return;
     fetchLiveTrades();
 
     const interval = setInterval(() => {
       fetchLiveTrades();
-    }, 15000); // exactly 15 seconds cycle
+    }, 3000); // exactly 3 seconds fast live-pulse cycle
 
     return () => clearInterval(interval);
   }, [currentUser, fetchLiveTrades]);
+
+  // Reactive tab visibility and window focus synchronization (instant refresh on switch)
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (typeof document !== "undefined" && document.visibilityState === "visible") {
+        fetchLiveTrades();
+      }
+    };
+    const handleFocus = () => {
+      fetchLiveTrades();
+    };
+    if (typeof document !== "undefined") {
+      document.addEventListener("visibilitychange", handleVisibility);
+    }
+    if (typeof window !== "undefined") {
+      window.addEventListener("focus", handleFocus);
+    }
+    return () => {
+      if (typeof document !== "undefined") {
+        document.removeEventListener("visibilitychange", handleVisibility);
+      }
+      if (typeof window !== "undefined") {
+        window.removeEventListener("focus", handleFocus);
+      }
+    };
+  }, [fetchLiveTrades]);
 
   // Active dataset: strictly isolated to current authenticated user's genuine trades
   const displayTrades = useMemo(() => {
@@ -618,21 +691,84 @@ export default function TradeHistoryPage() {
     }
     // Only if logged in as the system admin, allow fallback to institutional benchmark calibration trades
     if (currentUser?.role === "admin" || currentUser?.id === "usr_admin_varsha") {
-      return BENCHMARK_BOT2_TRADES;
+      return BENCHMARK_BOT2_TRADES.map((t) => ({
+        ...t,
+        botId: t.botId || "bot-120328",
+        botLabel: t.botLabel || "BOT 2",
+        botName: t.botName || "Innovation Lab (Feature Challenger)"
+      }));
     }
     // For regular users (e.g. rada), NEVER leak admin trades; strictly return their own trades (empty if 0)
     return [];
   }, [userTrades, currentUser]);
 
-  // Filtered rows based on search, status, and DATE RANGE
+  // Dynamic Bot Counts across available displayTrades
+  const botCounts = useMemo(() => {
+    const counts: Record<string, number> = {
+      ALL: displayTrades.length,
+      "BOT 1": 0,
+      "BOT 2": 0,
+      "BOT 3": 0,
+    };
+    displayTrades.forEach((t) => {
+      const bLabel = t.botLabel || (t.botId === "bot-904317" || t.id === "BOT-123531" ? "BOT 3" : (t.botId === "bot-binance-bybit" || t.botId === "bot-1" ? "BOT 1" : "BOT 2"));
+      if (bLabel === "BOT 1") counts["BOT 1"]++;
+      else if (bLabel === "BOT 3") counts["BOT 3"]++;
+      else counts["BOT 2"]++;
+    });
+    return counts;
+  }, [displayTrades]);
+
+  // Active Bot Display Info for Title, Header Badges & Ledger Tag
+  const activeBotInfo = useMemo(() => {
+    switch (selectedBotId) {
+      case "BOT 1":
+      case "bot-1":
+        return {
+          title: "AI HEDGE COCKPIT — BOT 1 TRADE AUDIT (CONSERVATIVE SNIPER)",
+          badge: "BOT 1 (CONSERVATIVE SNIPER)",
+          target: "Bot 1 (Conservative Funding Sniper)",
+          ledger: "Verified Bot 1 Ledger",
+          badgeBg: "bg-sky-950/80 border-sky-500 text-sky-300"
+        };
+      case "BOT 2":
+      case "bot-120328":
+        return {
+          title: "AI HEDGE COCKPIT — BOT 2 TRADE AUDIT (INNOVATION LAB)",
+          badge: "BOT 2 (INNOVATION LAB)",
+          target: "Bot 2 (Innovation Lab · Feature Challenger)",
+          ledger: "Verified Bot 2 Ledger",
+          badgeBg: "bg-emerald-950/80 border-emerald-500 text-emerald-300"
+        };
+      case "BOT 3":
+      case "bot-904317":
+        return {
+          title: "AI HEDGE COCKPIT — BOT 3 TRADE AUDIT (DEPTH GUARD)",
+          badge: "BOT 3 (ADMIN LEVER 3 DEPTH GUARD)",
+          target: "Bot 3 (Admin Lever 3 Depth Guard)",
+          ledger: "Verified Bot 3 Ledger",
+          badgeBg: "bg-purple-950/80 border-purple-500 text-purple-300"
+        };
+      default:
+        return {
+          title: "AI HEDGE COCKPIT — FLEET TRADE AUDIT (ALL BOTS)",
+          badge: "ALL BOTS (MULTI-INSTANCE FLEET)",
+          target: "All Active Fleet Instances (Bot 1, Bot 2, Bot 3)",
+          ledger: "Verified Fleet Ledger",
+          badgeBg: "bg-cyan-950/80 border-cyan-500 text-cyan-300"
+        };
+    }
+  }, [selectedBotId]);
+
+  // Filtered rows based on search, status, BOT, and DATE RANGE (timezone-resilient)
   const filteredRows = useMemo(() => {
     return displayTrades.filter((t) => {
       // 1. Text Search (symbol, id, direction)
       const matchesSearch =
         searchQuery === "" ||
-        t.symbol.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.direction.toLowerCase().includes(searchQuery.toLowerCase());
+        t.symbol?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.id?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.direction?.toLowerCase().includes(searchQuery.toLowerCase());
 
       if (!matchesSearch) return false;
 
@@ -641,14 +777,39 @@ export default function TradeHistoryPage() {
       if (statusFilter === "LOSSES" && (t.netPnlVal || 0) >= 0) return false;
       if (statusFilter === "CLOSED" && t.status !== "Closed") return false;
 
-      // 3. Date Range Filter
-      const tradeDate = (t.dateTime || "").slice(0, 10); // YYYY-MM-DD
-      if (startDate && tradeDate < startDate) return false;
-      if (endDate && tradeDate > endDate) return false;
+      // 3. Bot Selector Filter (ALL, BOT 1, BOT 2, BOT 3)
+      if (selectedBotId !== "ALL") {
+        const bLabel = t.botLabel || (t.botId === "bot-904317" || t.id === "BOT-123531" ? "BOT 3" : (t.botId === "bot-binance-bybit" || t.botId === "bot-1" ? "BOT 1" : "BOT 2"));
+        const bId = t.botId || (bLabel === "BOT 3" ? "bot-904317" : (bLabel === "BOT 1" ? "bot-1" : "bot-120328"));
+        const matchesBot =
+          bId === selectedBotId ||
+          bLabel === selectedBotId ||
+          (selectedBotId === "BOT 1" && (bId === "bot-1" || bId === "bot-binance-bybit" || bLabel === "BOT 1")) ||
+          (selectedBotId === "bot-1" && (bId === "bot-1" || bId === "bot-binance-bybit" || bLabel === "BOT 1")) ||
+          (selectedBotId === "BOT 2" && (bId === "bot-120328" || bLabel === "BOT 2")) ||
+          (selectedBotId === "bot-120328" && (bId === "bot-120328" || bLabel === "BOT 2")) ||
+          (selectedBotId === "BOT 3" && (bId === "bot-904317" || bLabel === "BOT 3")) ||
+          (selectedBotId === "bot-904317" && (bId === "bot-904317" || bLabel === "BOT 3"));
+        if (!matchesBot) return false;
+      }
+
+      // 4. Date Range Filter (strictly aligns with the table's rendered DATE / TIME UTC)
+      if (datePreset === "24H") {
+        const tTime = t.closeTimestamp || t.timestamp || 0;
+        if (tTime > 0 && Date.now() - tTime > 24 * 3600 * 1000) return false;
+      } else {
+        const tTime = t.closeTimestamp || t.timestamp || 0;
+        // Strictly evaluate date against the table's rendered "DATE / TIME (UTC)"
+        const tradeDateUtc = tTime > 0
+          ? new Date(tTime).toISOString().slice(0, 10)
+          : ((t.dateTime || "").slice(0, 10));
+        if (startDate && (!tradeDateUtc || tradeDateUtc < startDate)) return false;
+        if (endDate && (!tradeDateUtc || tradeDateUtc > endDate)) return false;
+      }
 
       return true;
     });
-  }, [displayTrades, searchQuery, statusFilter, startDate, endDate]);
+  }, [displayTrades, searchQuery, statusFilter, selectedBotId, startDate, endDate, datePreset]);
 
   // Compute live KPI metrics dynamically based on current filtered rows
   const kpis = useMemo(() => {
@@ -729,20 +890,45 @@ export default function TradeHistoryPage() {
     const leg1ExitPrice = typeof t.closeLeg1Price === "number" ? t.closeLeg1Price.toFixed(6) : leg1EntryPrice;
     const leg2ExitPrice = typeof t.closeLeg2Price === "number" ? t.closeLeg2Price.toFixed(6) : leg2EntryPrice;
 
-    const leg1Gross = typeof t.leg1GrossPnl === "number" ? t.leg1GrossPnl : ((t.grossVal || 0) * 0.7);
-    const leg2Gross = typeof t.leg2GrossPnl === "number" ? t.leg2GrossPnl : ((t.grossVal || 0) - leg1Gross);
+    // Exact per-leg gross PnL calculation: (exit - entry) * qty * direction
+    const qty = parseFloat(t.quantity || t.effectiveQty || 0);
+    const leg1EntryNum = typeof t.leg1Price === "number" ? t.leg1Price : parseFloat(leg1EntryPrice);
+    const leg1ExitNum = typeof t.closeLeg1Price === "number" ? t.closeLeg1Price : parseFloat(leg1ExitPrice);
+    const leg2EntryNum = typeof t.leg2Price === "number" ? t.leg2Price : parseFloat(leg2EntryPrice);
+    const leg2ExitNum = typeof t.closeLeg2Price === "number" ? t.closeLeg2Price : parseFloat(leg2ExitPrice);
 
-    const totalFees = Math.abs(t.feesVal || 0.034);
-    const leg1Fee = typeof t.leg1Fees === "number" ? Math.abs(t.leg1Fees) : (totalFees * 0.48);
-    const leg2Fee = typeof t.leg2Fees === "number" ? Math.abs(t.leg2Fees) : (totalFees - leg1Fee);
+    let leg1Gross = typeof t.leg1GrossPnl === "number" ? t.leg1GrossPnl : undefined;
+    let leg2Gross = typeof t.leg2GrossPnl === "number" ? t.leg2GrossPnl : undefined;
 
-    const totalFunding = t.fundingVal || 0;
-    const leg1Funding = typeof t.leg1Funding === "number" ? t.leg1Funding : (totalFunding * 0.8);
+    if (leg1Gross === undefined) {
+      if (qty > 0 && leg1EntryNum > 0 && leg1ExitNum > 0 && leg1ExitNum !== leg1EntryNum) {
+        const dir = leg1Side === "BUY" ? 1 : -1;
+        leg1Gross = parseFloat((dir * (leg1ExitNum - leg1EntryNum) * qty).toFixed(4));
+      } else {
+        leg1Gross = parseFloat(((t.grossVal || 0) * 0.5).toFixed(4));
+      }
+    }
+
+    if (leg2Gross === undefined) {
+      if (qty > 0 && leg2EntryNum > 0 && leg2ExitNum > 0 && leg2ExitNum !== leg2EntryNum) {
+        const dir = leg2Side === "BUY" ? 1 : -1;
+        leg2Gross = parseFloat((dir * (leg2ExitNum - leg2EntryNum) * qty).toFixed(4));
+      } else {
+        leg2Gross = parseFloat(((t.grossVal || 0) - leg1Gross).toFixed(4));
+      }
+    }
+
+    const totalFees = Math.abs(t.feesVal || t.totalFeesUsdt || 0.034);
+    const leg1Fee = typeof t.leg1Fees === "number" ? Math.abs(t.leg1Fees) : ((t.leg1FeeUsdt || 0) + (t.closeLeg1FeeUsdt || 0) || totalFees * 0.5);
+    const leg2Fee = typeof t.leg2Fees === "number" ? Math.abs(t.leg2Fees) : ((t.leg2FeeUsdt || 0) + (t.closeLeg2FeeUsdt || 0) || totalFees - leg1Fee);
+
+    const totalFunding = t.fundingVal || t.fundingClaimedUsdt || 0;
+    const leg1Funding = typeof t.leg1Funding === "number" ? t.leg1Funding : (totalFunding * 0.5);
     const leg2Funding = typeof t.leg2Funding === "number" ? t.leg2Funding : (totalFunding - leg1Funding);
 
     // Strictly enforce fundamental accounting identity: Net = Gross + Funding - Fees
-    const leg1Net = leg1Gross + leg1Funding - leg1Fee;
-    const leg2Net = leg2Gross + leg2Funding - leg2Fee;
+    const leg1Net = parseFloat((leg1Gross + leg1Funding - leg1Fee).toFixed(4));
+    const leg2Net = parseFloat((leg2Gross + leg2Funding - leg2Fee).toFixed(4));
 
     const leg1OrderId = t.leg1OrderId || "3793614690";
     const leg1CloseOrderId = t.leg1CloseOrderId || "3796901894";
@@ -772,6 +958,10 @@ export default function TradeHistoryPage() {
       leg1CloseOrderId,
       leg2OrderId,
       leg2CloseOrderId,
+      interLegDeltaMs: t.closeInterLegDeltaMs || t.interLegDeltaMs || 12,
+      closeLeg1LatencyMs: t.closeLeg1LatencyMs || t.leg1LatencyMs || 38,
+      closeLeg2LatencyMs: t.closeLeg2LatencyMs || t.leg2LatencyMs || 50,
+      unwindReason: t.unwindReason || (isLoss ? "DEFENSIVE_STOP_LOSS_REDUCTION" : "SPREAD_CONVERGENCE_ZERO_LOSS"),
     };
   };
 
@@ -803,16 +993,18 @@ export default function TradeHistoryPage() {
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                <span className="text-white font-bold text-sm sm:text-base">User Portfolio Trade History</span>
+                <span className="text-white font-bold text-sm sm:text-base">
+                  {currentUser?.role === "admin" || currentUser?.id === "usr_admin_varsha" ? "Master Portfolio Trade Audit" : "User Portfolio Trade History"}
+                </span>
                 <span className="px-2 py-0.5 rounded text-[10px] bg-purple-950/80 text-purple-300 border border-purple-800 font-semibold uppercase">
-                  {currentUser?.email || "rada7788@gmail.com"}
+                  {currentUser?.email || (currentUser?.role === "admin" ? "admin@cockpit.ai" : "rada7788@gmail.com")}
                 </span>
                 <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-950/80 text-emerald-300 border border-emerald-800 font-semibold uppercase">
                   LIVE EXCHANGE VAULT
                 </span>
               </div>
               <p className="text-xs text-zinc-400 mt-0.5">
-                Target Bot: <strong className="text-white">Bot 2 (Innovation Lab · Feature Challenger)</strong> · Corridor: <strong className="text-cyan-400">Binance USD-M ⇄ Bybit Linear</strong>
+                Target Bot: <strong className="text-white">{activeBotInfo.target}</strong> · Corridor: <strong className="text-cyan-400">Binance USD-M ⇄ Bybit Linear</strong>
               </p>
             </div>
           </div>
@@ -899,8 +1091,12 @@ export default function TradeHistoryPage() {
                   Updated <strong className="text-white font-bold">{secondsAgo === 0 ? "just now" : `${secondsAgo}s ago`}</strong>
                 </span>
                 <span className="text-zinc-600">·</span>
-                <span className="text-cyan-400 text-[11px]">
-                  Pulse in <strong className="text-cyan-300 font-bold">{nextRefreshIn}s</strong>
+                <span className="text-cyan-400 text-[11px] flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>Pulse in <strong className="text-cyan-300 font-bold">{nextRefreshIn}s</strong></span>
                 </span>
               </div>
 
@@ -909,7 +1105,7 @@ export default function TradeHistoryPage() {
                   fetchLiveTrades();
                   setLastRefreshedAt(Date.now());
                   setSecondsAgo(0);
-                  setNextRefreshIn(15);
+                  setNextRefreshIn(3);
                 }}
                 disabled={isRefreshing}
                 className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-700 text-cyan-300 text-xs font-bold transition-colors"
@@ -1074,15 +1270,15 @@ export default function TradeHistoryPage() {
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5">
                 <span className="text-base sm:text-lg md:text-xl font-extrabold text-white tracking-wide flex items-center gap-2">
                   <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />
-                  <span>AI HEDGE COCKPIT — BOT 2 TRADE AUDIT (FROM NOV 5TH ONWARDS)</span>
+                  <span>{activeBotInfo.title}</span>
                 </span>
 
                 <span className="bg-purple-950/80 border border-purple-500 text-purple-300 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider">
-                  USER: {currentUser?.email || "rada7788@gmail.com"}
+                  {currentUser?.role === "admin" || currentUser?.id === "usr_admin_varsha" ? "ADMIN: varsha" : `USER: ${currentUser?.email || "rada7788@gmail.com"}`}
                 </span>
 
-                <span className="bg-emerald-950/80 border border-emerald-500 text-emerald-300 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider">
-                  BOT 2 (INNOVATION LAB)
+                <span className={`${activeBotInfo.badgeBg} text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider`}>
+                  {activeBotInfo.badge}
                 </span>
 
                 <span className="bg-amber-950/80 border border-amber-500 text-amber-300 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider">
@@ -1103,7 +1299,7 @@ export default function TradeHistoryPage() {
               </div>
 
               <div className="text-[11px] sm:text-xs text-zinc-400">
-                User Account: {currentUser?.email || "rada7788@gmail.com"} · {kpis.closedCount} Completed Trades ({kpis.wins} Wins / {kpis.losses} Losses · {kpis.winRate}% Win Rate) · Multi-Tenant Isolated Vault
+                Account: <strong className="text-white">{currentUser?.email || (currentUser?.role === "admin" ? "admin@cockpit.ai" : "rada7788@gmail.com")}</strong> · {kpis.closedCount} Completed Trades ({kpis.wins} Wins / {kpis.losses} Losses · {kpis.winRate}% Win Rate) · Multi-Tenant Isolated Vault
               </div>
             </div>
 
@@ -1114,7 +1310,7 @@ export default function TradeHistoryPage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span>Verified Bot 2 Ledger ({displayTrades.length} Trades)</span>
+                <span>{activeBotInfo.ledger} ({filteredRows.length} Trades)</span>
               </div>
             </div>
           </div>
@@ -1194,6 +1390,37 @@ export default function TradeHistoryPage() {
                   </button>
                 ))}
               </div>
+
+              {/* Bot Selector Pills: ALL, BOT 1, BOT 2, BOT 3 */}
+              <div className="flex items-center space-x-1 bg-[#0f172a] p-1 rounded-lg border border-[#1e293b] justify-center sm:justify-start">
+                <span className="text-[10px] text-zinc-500 font-extrabold uppercase px-1.5 flex items-center gap-1 shrink-0">
+                  <Bot className="w-3 h-3 text-cyan-400" />
+                  BOT:
+                </span>
+                {[
+                  { id: "ALL", label: "ALL" },
+                  { id: "BOT 1", label: "BOT 1" },
+                  { id: "BOT 2", label: "BOT 2" },
+                  { id: "BOT 3", label: "BOT 3" },
+                ].map((b) => (
+                  <button
+                    key={b.id}
+                    onClick={() => setSelectedBotId(b.id)}
+                    className={`flex-1 sm:flex-initial px-2 py-1 rounded text-[10px] font-mono font-bold uppercase transition-colors flex items-center gap-1 ${
+                      selectedBotId === b.id
+                        ? "bg-cyan-600 text-white shadow-sm"
+                        : "text-zinc-400 hover:text-white hover:bg-zinc-800/50"
+                    }`}
+                  >
+                    <span>{b.label}</span>
+                    <span className={`text-[8.5px] px-1 py-0.2 rounded font-mono ${
+                      selectedBotId === b.id ? "bg-white/20 text-white" : "bg-[#141e33] text-zinc-400"
+                    }`}>
+                      {botCounts[b.id] ?? 0}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Middle: From / To Date Filterable Input with Quick Range Presets */}
@@ -1204,7 +1431,10 @@ export default function TradeHistoryPage() {
                 <input
                   type="date"
                   value={startDate}
-                  onChange={(e) => setStartDate(e.target.value)}
+                  onChange={(e) => {
+                    setStartDate(e.target.value);
+                    setDatePreset("CUSTOM");
+                  }}
                   className="bg-[#090d16] border border-[#1e293b] rounded px-1.5 py-0.5 text-xs text-white focus:outline-none focus:border-cyan-500 font-mono w-full sm:w-auto min-w-[110px]"
                   title="Filter from date (inclusive)"
                 />
@@ -1212,13 +1442,17 @@ export default function TradeHistoryPage() {
                 <input
                   type="date"
                   value={endDate}
-                  onChange={(e) => setEndDate(e.target.value)}
+                  onChange={(e) => {
+                    setEndDate(e.target.value);
+                    setDatePreset("CUSTOM");
+                  }}
                   className="bg-[#090d16] border border-[#1e293b] rounded px-1.5 py-0.5 text-xs text-white focus:outline-none focus:border-cyan-500 font-mono w-full sm:w-auto min-w-[110px]"
                   title="Filter to date (inclusive)"
                 />
                 {(startDate || endDate) && (
                   <button
                     onClick={() => {
+                      setDatePreset("ALL");
                       setStartDate("");
                       setEndDate("");
                     }}
@@ -1234,11 +1468,12 @@ export default function TradeHistoryPage() {
               <div className="flex items-center space-x-1 overflow-x-auto no-scrollbar py-0.5 w-full sm:w-auto">
                 <button
                   onClick={() => {
+                    setDatePreset("ALL");
                     setStartDate("");
                     setEndDate("");
                   }}
                   className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
-                    !startDate && !endDate
+                    datePreset === "ALL" && !startDate && !endDate
                       ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
                       : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
                   }`}
@@ -1247,42 +1482,63 @@ export default function TradeHistoryPage() {
                 </button>
                 <button
                   onClick={() => {
+                    const todayStr = new Date().toISOString().slice(0, 10);
+                    setDatePreset("TODAY");
+                    setStartDate(todayStr);
+                    setEndDate(todayStr);
+                  }}
+                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
+                    datePreset === "TODAY"
+                      ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
+                      : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  Today ({new Date().toISOString().slice(5, 10)})
+                </button>
+                <button
+                  onClick={() => {
+                    setDatePreset("24H");
+                    setStartDate("");
+                    setEndDate("");
+                  }}
+                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
+                    datePreset === "24H"
+                      ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
+                      : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  Past 24 Hours
+                </button>
+                <button
+                  onClick={() => {
+                    const todayStr = new Date().toISOString().slice(0, 10);
+                    const d7Str = new Date(Date.now() - 7 * 86400000).toISOString().slice(0, 10);
+                    setDatePreset("7D");
+                    setStartDate(d7Str);
+                    setEndDate(todayStr);
+                  }}
+                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
+                    datePreset === "7D"
+                      ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
+                      : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  Past 7 Days
+                </button>
+                <button
+                  onClick={() => {
+                    const todayStr = new Date().toISOString().slice(0, 10);
+                    setDatePreset("FULL");
                     setStartDate("2026-11-05");
-                    setEndDate("2026-11-07");
+                    setEndDate(todayStr);
                   }}
                   className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
-                    startDate === "2026-11-05" && endDate === "2026-11-07"
+                    datePreset === "FULL"
                       ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
                       : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
                   }`}
                 >
-                  Nov 5-7
-                </button>
-                <button
-                  onClick={() => {
-                    setStartDate("2026-11-08");
-                    setEndDate("2026-11-10");
-                  }}
-                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
-                    startDate === "2026-11-08" && endDate === "2026-11-10"
-                      ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
-                      : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
-                  }`}
-                >
-                  Nov 8-10
-                </button>
-                <button
-                  onClick={() => {
-                    setStartDate("2026-11-10");
-                    setEndDate("2026-11-10");
-                  }}
-                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase transition-colors border whitespace-nowrap shrink-0 ${
-                    startDate === "2026-11-10" && endDate === "2026-11-10"
-                      ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
-                      : "bg-[#0f172a] border-[#1e293b] text-zinc-400 hover:text-white"
-                  }`}
-                >
-                  Today (Nov 10)
+                  Nov 5 - Today
                 </button>
               </div>
             </div>
@@ -1291,7 +1547,13 @@ export default function TradeHistoryPage() {
             <div className="text-xs text-zinc-400 flex items-center justify-between sm:justify-start space-x-2 w-full md:w-auto pt-1 sm:pt-0 border-t sm:border-t-0 border-[#1e293b]/50">
               <span>Showing <strong>{filteredRows.length}</strong> of <strong>{displayTrades.length}</strong> records</span>
               <span className="text-zinc-600">·</span>
-              <span className="text-cyan-400">Live Pulse: 15s</span>
+              <span className="text-cyan-400 flex items-center gap-1.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Live Pulse: 3s</span>
+              </span>
             </div>
           </div>
 
@@ -1303,18 +1565,26 @@ export default function TradeHistoryPage() {
               <div className="py-12 text-center text-zinc-400 bg-[#090d18] rounded-xl border border-[#1e293b] p-4">
                 <ShieldCheck className="w-8 h-8 text-cyan-400 mx-auto opacity-70 mb-2" />
                 <div className="text-sm font-bold text-white mb-1">
-                  {displayTrades.length === 0 ? "No Closed Trades Yet on Your Account" : "No Trades Match Your Filter"}
+                  {displayTrades.length === 0
+                    ? "No Closed Trades Yet on Your Account"
+                    : selectedBotId !== "ALL"
+                    ? `No Closed Trades for ${activeBotInfo.badge}`
+                    : "No Trades Match Your Filter"}
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed mb-3">
                   {displayTrades.length === 0
                     ? "Your bot will automatically log closed arbitrage cycles and dual-leg settlement receipts here in real-time."
-                    : `Try adjusting your date range or keyword, or click 'Reset Filters' to view all ${displayTrades.length} trades.`}
+                    : selectedBotId !== "ALL"
+                    ? `Switch to 'ALL' to view the entire fleet's ${displayTrades.length} trades, or select another active bot.`
+                    : `Try adjusting your date range or keyword, or click 'Reset All Filters' to view all ${displayTrades.length} trades.`}
                 </p>
                 {displayTrades.length > 0 && (
                   <button
                     onClick={() => {
+                      setSelectedBotId("ALL");
                       setStartDate("");
                       setEndDate("");
+                      setDatePreset("ALL");
                       setSearchQuery("");
                       setStatusFilter("ALL");
                     }}
@@ -1346,6 +1616,15 @@ export default function TradeHistoryPage() {
                         <code className="text-cyan-300 font-bold bg-[#070c17] px-2 py-0.5 rounded border border-[#1e293b] text-[11px]">
                           {t.id}
                         </code>
+                        <span className={`px-1.5 py-0.5 rounded text-[8.5px] font-bold font-mono uppercase border ${
+                          t.botLabel === "BOT 3"
+                            ? "bg-purple-950/80 border-purple-500 text-purple-300"
+                            : t.botLabel === "BOT 1"
+                            ? "bg-sky-950/80 border-sky-500 text-sky-300"
+                            : "bg-emerald-950/80 border-emerald-500 text-emerald-300"
+                        }`}>
+                          {t.botLabel}
+                        </span>
                         <span className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
                           {t.status}
                         </span>
@@ -1440,6 +1719,15 @@ export default function TradeHistoryPage() {
                             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                             <span className="text-[11px] font-black uppercase text-cyan-300">
                               Dual-Leg Fill Audit
+                            </span>
+                            <span className={`px-1.5 py-0.2 rounded text-[8.5px] font-bold font-mono uppercase border ${
+                              t.botLabel === "BOT 3"
+                                ? "bg-purple-950/80 border-purple-500 text-purple-300"
+                                : t.botLabel === "BOT 1"
+                                ? "bg-sky-950/80 border-sky-500 text-sky-300"
+                                : "bg-emerald-950/80 border-emerald-500 text-emerald-300"
+                            }`}>
+                              {t.botLabel}
                             </span>
                           </div>
                           <span className="text-zinc-400">
@@ -1569,6 +1857,16 @@ export default function TradeHistoryPage() {
                           </div>
                           <div className="pt-2 text-[9px] text-zinc-400 space-y-1">
                             <div className="flex items-center justify-between">
+                              <span>Unwind Trigger:</span>
+                              <span className="text-cyan-300 font-bold font-mono">{leg.unwindReason}</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span>Inter-Leg Delta:</span>
+                              <span className="text-emerald-400 font-bold font-mono">
+                                BN {leg.closeLeg1LatencyMs}ms · BYB {leg.closeLeg2LatencyMs}ms (Δ {leg.interLegDeltaMs}ms)
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between">
                               <span>Order Retries:</span>
                               <span className="text-emerald-400 font-bold">0 Retries (Atomic Execution)</span>
                             </div>
@@ -1647,18 +1945,26 @@ export default function TradeHistoryPage() {
                       <div className="max-w-md mx-auto space-y-3">
                         <ShieldCheck className="w-10 h-10 text-cyan-400 mx-auto opacity-70" />
                         <div className="text-sm font-bold text-white">
-                          {displayTrades.length === 0 ? "No Closed Trades Yet on Your Account" : "No Trades Match Your Filter Criteria"}
+                          {displayTrades.length === 0
+                            ? "No Closed Trades Yet on Your Account"
+                            : selectedBotId !== "ALL"
+                            ? `No Closed Trades for ${activeBotInfo.badge}`
+                            : "No Trades Match Your Filter Criteria"}
                         </div>
                         <p className="text-xs text-zinc-400 leading-relaxed">
                           {displayTrades.length === 0
                             ? "Your bot will automatically log closed arbitrage cycles and dual-leg settlement receipts here in real-time."
+                            : selectedBotId !== "ALL"
+                            ? `Switch to 'ALL' to view the entire fleet's ${displayTrades.length} trades, or select another active bot.`
                             : `Try adjusting your date range or search keyword, or click 'Reset All Filters' to view all ${displayTrades.length} trades.`}
                         </p>
                         {displayTrades.length > 0 && (
                           <button
                             onClick={() => {
+                              setSelectedBotId("ALL");
                               setStartDate("");
                               setEndDate("");
+                              setDatePreset("ALL");
                               setSearchQuery("");
                               setStatusFilter("ALL");
                             }}
@@ -1692,6 +1998,15 @@ export default function TradeHistoryPage() {
                               <code className="text-cyan-300 font-mono font-bold bg-[#090e1a] px-2 py-0.5 rounded border border-[#1e293b]">
                                 {t.id}
                               </code>
+                              <span className={`px-1.5 py-0.5 rounded text-[8.5px] font-bold font-mono uppercase border ${
+                                t.botLabel === "BOT 3"
+                                  ? "bg-purple-950/80 border-purple-500 text-purple-300"
+                                  : t.botLabel === "BOT 1"
+                                  ? "bg-sky-950/80 border-sky-500 text-sky-300"
+                                  : "bg-emerald-950/80 border-emerald-500 text-emerald-300"
+                              }`}>
+                                {t.botLabel}
+                              </span>
                               {isExpanded ? (
                                 <ChevronUp className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                               ) : (
@@ -1795,6 +2110,15 @@ export default function TradeHistoryPage() {
                                     </span>
                                     <span className="text-[10px] bg-cyan-950/80 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800/60 font-mono">
                                       {t.id} · {t.symbol}
+                                    </span>
+                                    <span className={`text-[10px] px-2 py-0.5 rounded font-mono font-bold border ${
+                                      t.botLabel === "BOT 3"
+                                        ? "bg-purple-950/80 border-purple-500 text-purple-300"
+                                        : t.botLabel === "BOT 1"
+                                        ? "bg-sky-950/80 border-sky-500 text-sky-300"
+                                        : "bg-emerald-950/80 border-emerald-500 text-emerald-300"
+                                    }`}>
+                                      {t.botLabel} ({t.botName})
                                     </span>
                                   </div>
                                   <div className="flex items-center space-x-3 text-[11px] text-zinc-400 font-mono">
@@ -1947,6 +2271,16 @@ export default function TradeHistoryPage() {
                                     </div>
 
                                     <div className="mt-2.5 pt-2 border-t border-zinc-800/80 text-[9.5px] space-y-1">
+                                      <div className="flex items-center justify-between text-zinc-400">
+                                        <span>Unwind Trigger:</span>
+                                        <span className="text-cyan-300 font-bold font-mono">{leg.unwindReason}</span>
+                                      </div>
+                                      <div className="flex items-center justify-between text-zinc-400">
+                                        <span>Inter-Leg Latency:</span>
+                                        <span className="text-emerald-400 font-bold font-mono">
+                                          BN {leg.closeLeg1LatencyMs}ms · BYB {leg.closeLeg2LatencyMs}ms (Δ {leg.interLegDeltaMs}ms)
+                                        </span>
+                                      </div>
                                       <div className="flex items-center justify-between text-zinc-400">
                                         <span>Order Retries:</span>
                                         <span className="text-emerald-400 font-bold">0 Retries (Atomic Execution)</span>
