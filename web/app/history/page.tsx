@@ -42,17 +42,22 @@ const BENCHMARK_BOT2_TRADES = [
     holdMain: "4h 01m 30s",
     holdSub: "14,491s · 241.5 min",
     prices: "$0.210280 / $0.210400",
-    grossPnl: "-$0.0426",
-    grossVal: -0.0426,
-    fundingClaimed: "$0.0000",
-    fundingVal: 0.0,
-    feesPaid: "-$0.0348",
-    feesVal: -0.0348,
+    grossPnl: "-$0.0839",
+    grossVal: -0.0839,
+    fundingClaimed: "+$0.0405",
+    fundingVal: 0.0405,
+    fundingClaimedUsdt: 0.0405,
+    leg1FundingUsdt: -0.1233,
+    leg2FundingUsdt: 0.1638,
+    leg1Funding: -0.1233,
+    leg2Funding: 0.1638,
+    feesPaid: "-$0.0340",
+    feesVal: -0.0340,
     netRealizedPnl: "-$0.0774 USDT",
     netPnlVal: -0.0774,
     netRoi: "-0.520%",
     status: "Closed",
-    notes: "Adverse basis divergence during 4h hold. Defensive stop-out preserved capital."
+    notes: "Adverse basis divergence during 4h hold. Real funding (+0.0405) mitigated basis loss. Defensive stop-out preserved capital."
   },
   {
     id: "BOT-140922",
@@ -84,12 +89,17 @@ const BENCHMARK_BOT2_TRADES = [
     holdMain: "1h 06m 27s",
     holdSub: "3,987s · 66.4 min",
     prices: "$0.277800 / $0.279700",
-    grossPnl: "+$0.0667",
-    grossVal: 0.0667,
-    fundingClaimed: "$0.0000",
-    fundingVal: 0.0,
-    feesPaid: "-$0.0317",
-    feesVal: -0.0317,
+    grossPnl: "+$0.0738",
+    grossVal: 0.0738,
+    fundingClaimed: "-$0.0048",
+    fundingVal: -0.0048,
+    fundingClaimedUsdt: -0.0048,
+    leg1FundingUsdt: 0,
+    leg2FundingUsdt: -0.0048,
+    leg1Funding: 0,
+    leg2Funding: -0.0048,
+    feesPaid: "-$0.0340",
+    feesVal: -0.0340,
     netRealizedPnl: "+$0.0350 USDT",
     netPnlVal: 0.0350,
     netRoi: "+0.252%",
@@ -105,12 +115,17 @@ const BENCHMARK_BOT2_TRADES = [
     holdMain: "2h 56m 45s",
     holdSub: "10,605s · 176.7 min",
     prices: "$0.001717 / $0.001757",
-    grossPnl: "+$0.2098",
-    grossVal: 0.2098,
-    fundingClaimed: "$0.0000",
-    fundingVal: 0.0,
-    feesPaid: "-$0.0355",
-    feesVal: -0.0355,
+    grossPnl: "+$0.1891",
+    grossVal: 0.1891,
+    fundingClaimed: "+$0.0192",
+    fundingVal: 0.0192,
+    fundingClaimedUsdt: 0.0192,
+    leg1FundingUsdt: 0,
+    leg2FundingUsdt: 0.0192,
+    leg1Funding: 0,
+    leg2Funding: 0.0192,
+    feesPaid: "-$0.0340",
+    feesVal: -0.0340,
     netRealizedPnl: "+$0.1743 USDT",
     netPnlVal: 0.1743,
     netRoi: "+1.163%",
@@ -189,17 +204,22 @@ const BENCHMARK_BOT2_TRADES = [
     holdMain: "3h 58m 09s",
     holdSub: "14,289s · 238.1 min",
     prices: "$0.039980 / $0.040100",
-    grossPnl: "-$0.0148",
-    grossVal: -0.0148,
-    fundingClaimed: "$0.0000",
-    fundingVal: 0.0,
-    feesPaid: "-$0.0341",
-    feesVal: -0.0341,
+    grossPnl: "$0.0000",
+    grossVal: 0.0,
+    fundingClaimed: "-$0.0096",
+    fundingVal: -0.0096,
+    fundingClaimedUsdt: -0.0096,
+    leg1FundingUsdt: -0.0088,
+    leg2FundingUsdt: -0.0007,
+    leg1Funding: -0.0088,
+    leg2Funding: -0.0007,
+    feesPaid: "-$0.0393",
+    feesVal: -0.0393,
     netRealizedPnl: "-$0.0489 USDT",
     netPnlVal: -0.0489,
     netRoi: "-0.331%",
     status: "Closed",
-    notes: "Carry Trap: Held 238m for funding; Binance had no 20:00 cycle (8h schedule). Fee drag loss."
+    notes: "Carry Trap: Held 238m for funding; Binance negative funding (-$0.0088) + Bybit (-$0.0007) plus fees resulted in -$0.0489 net loss."
   },
   {
     id: "BOT-769423",
@@ -254,15 +274,20 @@ const BENCHMARK_BOT2_TRADES = [
     prices: "$0.370300 / $0.371000",
     grossPnl: "$0.0000",
     grossVal: 0.0,
-    fundingClaimed: "$0.0000",
-    fundingVal: 0.0,
+    fundingClaimed: "-$0.0012",
+    fundingVal: -0.0012,
+    fundingClaimedUsdt: -0.0012,
+    leg1FundingUsdt: -0.0024,
+    leg2FundingUsdt: 0.0012,
+    leg1Funding: -0.0024,
+    leg2Funding: 0.0012,
     feesPaid: "-$0.0170",
     feesVal: -0.0170,
-    netRealizedPnl: "-$0.0170 USDT",
-    netPnlVal: -0.0170,
-    netRoi: "-0.115%",
+    netRealizedPnl: "-$0.0182 USDT",
+    netPnlVal: -0.0182,
+    netRoi: "-0.061%",
     status: "Closed",
-    notes: "Fee Drag Loss: Unwound at price parity ($0.0000 gross). Entry fees of -$0.0170 resulted in -0.115% fee loss."
+    notes: "Fee & Funding Drag Loss: Unwound at price parity ($0.0000 gross). Taker fees -$0.0170 + net funding -$0.0012 resulted in -$0.0182 net loss (-0.061% ROI)."
   },
   {
     id: "BOT-692739",
@@ -548,18 +573,33 @@ export default function TradeHistoryPage() {
       // Format combined trades
       const combinedUserTrades: any[] = Array.from(canonicalMap.values()).map((t: any, idx: number) => {
         const tradeId = t.id || `TRADE-${idx + 1}`;
-        const fees = typeof t.totalFeesUsdt === "number" ? t.totalFeesUsdt : (t.feesUsdt ?? (t.feesVal ? Math.abs(t.feesVal) : 0.034));
+        const fees = typeof t.totalFeesUsdt === "number" && t.totalFeesUsdt > 0
+          ? t.totalFeesUsdt
+          : (t.feesUsdt ?? (t.feesVal ? Math.abs(t.feesVal) : 0.034));
         const funding = typeof t.fundingClaimedUsdt === "number" ? t.fundingClaimedUsdt : (t.fundingVal ?? 0);
-        const net = typeof t.realizedPnl === "number"
+        let net = typeof t.realizedPnl === "number" && t.realizedPnl !== 0
           ? t.realizedPnl
-          : typeof t.pnl === "number"
+          : typeof t.pnl === "number" && t.pnl !== 0
           ? t.pnl
-          : (t.netHarvestUsdt ?? (t.netPnlVal ?? 0));
+          : (typeof t.netHarvestUsdt === "number" && t.netHarvestUsdt !== 0
+              ? t.netHarvestUsdt
+              : (typeof t.netPnlVal === "number" && t.netPnlVal !== 0 ? t.netPnlVal : undefined));
+
+        if (net === undefined && typeof t.netRealizedPnl === "string") {
+          const parsed = parseFloat(t.netRealizedPnl.replace(/[^0-9.-]/g, ""));
+          if (!isNaN(parsed) && parsed !== 0) {
+            net = parsed;
+          }
+        }
+        if (net === undefined) {
+          net = typeof t.realizedPnl === "number" ? t.realizedPnl : 0;
+        }
+
         const gross = typeof t.priceSpreadPnlUsdt === "number"
           ? t.priceSpreadPnlUsdt
           : (t.grossVal ?? (net + fees - funding));
         const notional = t.notionalUsdt || 30;
-        const roi = typeof t.returnsPct === "number"
+        const roi = typeof t.returnsPct === "number" && t.returnsPct !== 0
           ? t.returnsPct
           : (typeof t.netRoi === "string" ? parseFloat(t.netRoi) : (notional > 0 ? (net / notional) * 100 : 0));
         const durationSec = t.durationMs ? Math.floor(t.durationMs / 1000) : 0;
@@ -610,7 +650,7 @@ export default function TradeHistoryPage() {
           prices: pricesDisplay,
           grossPnl: t.grossPnl || `${gross >= 0 ? "+" : ""}$${gross.toFixed(4)}`,
           grossVal: gross,
-          fundingClaimed: t.fundingClaimed || (funding > 0 ? `+$${funding.toFixed(4)}` : `$${funding.toFixed(4)}`),
+          fundingClaimed: t.fundingClaimed || (funding !== 0 ? `${funding >= 0 ? "+" : ""}$${funding.toFixed(4)}` : `$0.0000`),
           fundingVal: funding,
           fundingClaimedUsdt: funding,
           leg1FundingUsdt: typeof t.leg1FundingUsdt === "number" ? t.leg1FundingUsdt : (typeof t.leg1Funding === "number" ? t.leg1Funding : undefined),
@@ -886,8 +926,27 @@ export default function TradeHistoryPage() {
 
   // Dual-leg settlement & accounting helper for both Desktop table and Mobile card deck
   const getLegBreakdown = (t: any) => {
-    const isWin = (t.netPnlVal || 0) > 0;
-    const isLoss = (t.netPnlVal || 0) < 0;
+    const rawRoiStr = typeof t.netRoi === "string" ? t.netRoi.trim() : "";
+    const rawNetStr = typeof t.netRealizedPnl === "string" ? t.netRealizedPnl.trim() : "";
+    const parsedRoi = parseFloat(rawRoiStr.replace(/[^0-9.-]/g, ""));
+    const parsedNet = parseFloat(rawNetStr.replace(/[^0-9.-]/g, ""));
+
+    const isLoss =
+      (typeof t.netPnlVal === "number" && t.netPnlVal < -0.00001) ||
+      (typeof t.realizedPnl === "number" && t.realizedPnl < -0.00001) ||
+      (typeof t.netHarvestUsdt === "number" && t.netHarvestUsdt < -0.00001) ||
+      (typeof t.returnsPct === "number" && t.returnsPct < -0.00001) ||
+      (rawRoiStr.startsWith("-") && parsedRoi < 0) ||
+      (rawNetStr.startsWith("-") && parsedNet < 0);
+
+    const isWin = !isLoss && (
+      (typeof t.netPnlVal === "number" && t.netPnlVal > 0.00001) ||
+      (typeof t.realizedPnl === "number" && t.realizedPnl > 0.00001) ||
+      (typeof t.netHarvestUsdt === "number" && t.netHarvestUsdt > 0.00001) ||
+      (typeof t.returnsPct === "number" && t.returnsPct > 0.00001) ||
+      (rawRoiStr.startsWith("+") && parsedRoi > 0) ||
+      (rawNetStr.startsWith("+") && parsedNet > 0)
+    );
 
     const leg1Venue = t.leg1Venue || "Binance USD-M";
     const leg2Venue = t.leg2Venue || "Bybit Linear";
@@ -931,11 +990,16 @@ export default function TradeHistoryPage() {
     const leg1Fee = typeof t.leg1Fees === "number" ? Math.abs(t.leg1Fees) : ((t.leg1FeeUsdt || 0) + (t.closeLeg1FeeUsdt || 0) || totalFees * 0.5);
     const leg2Fee = typeof t.leg2Fees === "number" ? Math.abs(t.leg2Fees) : ((t.leg2FeeUsdt || 0) + (t.closeLeg2FeeUsdt || 0) || totalFees - leg1Fee);
 
-    const totalFunding = t.fundingVal || t.fundingClaimedUsdt || 0;
+    const totalFunding = typeof t.fundingVal === "number" && t.fundingVal !== 0
+      ? t.fundingVal
+      : (typeof t.fundingClaimedUsdt === "number" && t.fundingClaimedUsdt !== 0
+          ? t.fundingClaimedUsdt
+          : (typeof t.fundingClaimed === "string" ? parseFloat(t.fundingClaimed.replace(/[^0-9.-]/g, "")) || 0 : 0));
+
     // Prefer per-leg fields written by engine (leg1FundingUsdt/leg2FundingUsdt from recordServerTrade,
     // or legacy leg1Funding/leg2Funding from pre-computed records). Fall back to 50/50 split and label as estimated.
     const hasPerLegData = typeof t.leg1FundingUsdt === "number" || typeof t.leg2FundingUsdt === "number"
-      || typeof t.leg1Funding === "number";
+      || typeof t.leg1Funding === "number" || typeof t.leg2Funding === "number";
     const leg1Funding = typeof t.leg1FundingUsdt === "number"
       ? t.leg1FundingUsdt
       : (typeof t.leg1Funding === "number" ? t.leg1Funding : parseFloat((totalFunding * 0.5).toFixed(4)));
@@ -1788,14 +1852,14 @@ export default function TradeHistoryPage() {
                           <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
                             <span className="text-zinc-400">Funding Claimed:</span>
                             <span className="text-amber-400 font-bold">
-                              {leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT
+                              {leg.leg1Funding >= 0 ? "+" : "-"}${Math.abs(leg.leg1Funding).toFixed(4)} USDT
                               {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
                             </span>
                           </div>
                           <div className="flex justify-between py-1 bg-amber-950/25 px-2 rounded mt-1 border border-amber-500/30">
                             <span className="text-amber-200 font-bold">Binance Net Cash:</span>
                             <span className={`font-black ${leg.leg1Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
-                              {leg.leg1Net >= 0 ? "+" : ""}${leg.leg1Net.toFixed(4)} USDT
+                              {leg.leg1Net >= 0 ? "+" : "-"}${Math.abs(leg.leg1Net).toFixed(4)} USDT
                             </span>
                           </div>
                           <div className="pt-1.5 text-[9px] text-zinc-400 space-y-0.5">
@@ -1838,14 +1902,14 @@ export default function TradeHistoryPage() {
                           <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
                             <span className="text-zinc-400">Funding Claimed:</span>
                             <span className="text-amber-400 font-bold">
-                              {leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT
+                              {leg.leg2Funding >= 0 ? "+" : "-"}${Math.abs(leg.leg2Funding).toFixed(4)} USDT
                               {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
                             </span>
                           </div>
                           <div className="flex justify-between py-1 bg-cyan-950/25 px-2 rounded mt-1 border border-cyan-500/30">
                             <span className="text-cyan-200 font-bold">Bybit Net Cash:</span>
                             <span className={`font-black ${leg.leg2Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
-                              {leg.leg2Net >= 0 ? "+" : ""}${leg.leg2Net.toFixed(4)} USDT
+                              {leg.leg2Net >= 0 ? "+" : "-"}${Math.abs(leg.leg2Net).toFixed(4)} USDT
                             </span>
                           </div>
                           <div className="pt-1.5 text-[9px] text-zinc-400 space-y-0.5">
@@ -2217,14 +2281,14 @@ export default function TradeHistoryPage() {
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Funding Claimed:</span>
                                         <span className="text-amber-400 font-bold">
-                                          {leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT
+                                          {leg.leg1Funding >= 0 ? "+" : "-"}${Math.abs(leg.leg1Funding).toFixed(4)} USDT
                                           {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
                                         </span>
                                       </div>
                                       <div className="flex justify-between py-1 bg-amber-950/20 px-2 rounded mt-1 border border-amber-500/20">
                                         <span className="text-amber-200 font-bold">Binance Net Cash:</span>
                                         <span className={`font-black ${leg.leg1Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
-                                          {leg.leg1Net >= 0 ? "+" : ""}${leg.leg1Net.toFixed(4)} USDT
+                                          {leg.leg1Net >= 0 ? "+" : "-"}${Math.abs(leg.leg1Net).toFixed(4)} USDT
                                         </span>
                                       </div>
                                     </div>
@@ -2274,14 +2338,14 @@ export default function TradeHistoryPage() {
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Funding Claimed:</span>
                                         <span className="text-amber-400 font-bold">
-                                          {leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT
+                                          {leg.leg2Funding >= 0 ? "+" : "-"}${Math.abs(leg.leg2Funding).toFixed(4)} USDT
                                           {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
                                         </span>
                                       </div>
                                       <div className="flex justify-between py-1 bg-cyan-950/20 px-2 rounded mt-1 border border-cyan-500/20">
                                         <span className="text-cyan-200 font-bold">Bybit Net Cash:</span>
                                         <span className={`font-black ${leg.leg2Net >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
-                                          {leg.leg2Net >= 0 ? "+" : ""}${leg.leg2Net.toFixed(4)} USDT
+                                          {leg.leg2Net >= 0 ? "+" : "-"}${Math.abs(leg.leg2Net).toFixed(4)} USDT
                                         </span>
                                       </div>
                                     </div>
