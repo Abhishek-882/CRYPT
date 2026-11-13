@@ -500,6 +500,10 @@ export default function TradeHistoryPage() {
             if (t.priceSpreadPnlUsdt !== undefined) parent.priceSpreadPnlUsdt = t.priceSpreadPnlUsdt;
             if (t.fundingClaimedUsdt !== undefined) parent.fundingClaimedUsdt = t.fundingClaimedUsdt;
             if (t.totalFeesUsdt !== undefined) parent.totalFeesUsdt = t.totalFeesUsdt;
+            if (t.leg1FundingUsdt !== undefined) parent.leg1FundingUsdt = t.leg1FundingUsdt;
+            if (t.leg2FundingUsdt !== undefined) parent.leg2FundingUsdt = t.leg2FundingUsdt;
+            if (t.leg1Funding !== undefined) parent.leg1Funding = t.leg1Funding;
+            if (t.leg2Funding !== undefined) parent.leg2Funding = t.leg2Funding;
             if (t.notes && !parent.notes) parent.notes = t.notes;
             if (t.unwindReason) parent.unwindReason = t.unwindReason;
           } else {
@@ -609,8 +613,10 @@ export default function TradeHistoryPage() {
           fundingClaimed: t.fundingClaimed || (funding > 0 ? `+$${funding.toFixed(4)}` : `$${funding.toFixed(4)}`),
           fundingVal: funding,
           fundingClaimedUsdt: funding,
-          leg1FundingUsdt: typeof t.leg1FundingUsdt === "number" ? t.leg1FundingUsdt : undefined,
-          leg2FundingUsdt: typeof t.leg2FundingUsdt === "number" ? t.leg2FundingUsdt : undefined,
+          leg1FundingUsdt: typeof t.leg1FundingUsdt === "number" ? t.leg1FundingUsdt : (typeof t.leg1Funding === "number" ? t.leg1Funding : undefined),
+          leg2FundingUsdt: typeof t.leg2FundingUsdt === "number" ? t.leg2FundingUsdt : (typeof t.leg2Funding === "number" ? t.leg2Funding : undefined),
+          leg1Funding: typeof t.leg1Funding === "number" ? t.leg1Funding : (typeof t.leg1FundingUsdt === "number" ? t.leg1FundingUsdt : undefined),
+          leg2Funding: typeof t.leg2Funding === "number" ? t.leg2Funding : (typeof t.leg2FundingUsdt === "number" ? t.leg2FundingUsdt : undefined),
           feesPaid: t.feesPaid || `-$${Math.abs(fees).toFixed(4)}`,
           feesVal: -Math.abs(fees),
           netRealizedPnl: t.netRealizedPnl || `${net >= 0 ? "+" : ""}$${net.toFixed(4)} USDT`,

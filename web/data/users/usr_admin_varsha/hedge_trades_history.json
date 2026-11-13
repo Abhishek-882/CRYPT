@@ -48,7 +48,11 @@
     "closeLeg2FeeUsdt": 0.018,
     "priceSpreadPnlUsdt": -1.2732,
     "fundingClaimedUsdt": -0.3312,
-    "closeDivergencePct": 4.35309
+    "closeDivergencePct": 4.35309,
+    "leg1FundingUsdt": -0.1567,
+    "leg2FundingUsdt": -0.1745,
+    "leg1Funding": -0.1567,
+    "leg2Funding": -0.1745
   },
   {
     "id": "BOT-628842",
@@ -150,7 +154,11 @@
     "closeLeg2FeeUsdt": 0.0193,
     "priceSpreadPnlUsdt": 0.338,
     "fundingClaimedUsdt": 0.0597,
-    "closeDivergencePct": 0.7119
+    "closeDivergencePct": 0.7119,
+    "leg1FundingUsdt": -0.046,
+    "leg2FundingUsdt": 0.1057,
+    "leg1Funding": -0.046,
+    "leg2Funding": 0.1057
   },
   {
     "id": "BOT-341987",
@@ -201,7 +209,11 @@
     "closeLeg2FeeUsdt": 0.0179,
     "priceSpreadPnlUsdt": 0.1152,
     "fundingClaimedUsdt": -0.0088,
-    "closeDivergencePct": 0.02615
+    "closeDivergencePct": 0.02615,
+    "leg1FundingUsdt": -0.0605,
+    "leg2FundingUsdt": 0.0516,
+    "leg1Funding": -0.0605,
+    "leg2Funding": 0.0516
   },
   {
     "id": "BOT-570800",
@@ -252,7 +264,11 @@
     "closeLeg2FeeUsdt": 0.0193,
     "priceSpreadPnlUsdt": 0.0838,
     "fundingClaimedUsdt": 0.0334,
-    "closeDivergencePct": 0.39186
+    "closeDivergencePct": 0.39186,
+    "leg1FundingUsdt": 0.0029,
+    "leg2FundingUsdt": 0.0306,
+    "leg1Funding": 0.0029,
+    "leg2Funding": 0.0306
   },
   {
     "id": "BOT-119015",
@@ -303,7 +319,11 @@
     "closeLeg2FeeUsdt": 0.0191,
     "priceSpreadPnlUsdt": 0.1287,
     "fundingClaimedUsdt": 0.0481,
-    "closeDivergencePct": 0.27992
+    "closeDivergencePct": 0.27992,
+    "leg1FundingUsdt": -0.0655,
+    "leg2FundingUsdt": 0.1135,
+    "leg1Funding": -0.0655,
+    "leg2Funding": 0.1135
   },
   {
     "id": "BOT-647523",
@@ -354,7 +374,11 @@
     "closeLeg2FeeUsdt": 0.0191,
     "priceSpreadPnlUsdt": 0.0165,
     "fundingClaimedUsdt": 0.0615,
-    "closeDivergencePct": 0.20804
+    "closeDivergencePct": 0.20804,
+    "leg1FundingUsdt": 0.0259,
+    "leg2FundingUsdt": 0.0356,
+    "leg1Funding": 0.0259,
+    "leg2Funding": 0.0356
   },
   {
     "id": "BOT-438838",
@@ -456,7 +480,11 @@
     "closeLeg2FeeUsdt": 0.0167,
     "priceSpreadPnlUsdt": 0.291,
     "fundingClaimedUsdt": 0.2252,
-    "closeDivergencePct": 1.02861
+    "closeDivergencePct": 1.02861,
+    "leg1FundingUsdt": -0.258,
+    "leg2FundingUsdt": 0.4832,
+    "leg1Funding": -0.258,
+    "leg2Funding": 0.4832
   },
   {
     "id": "BOT-123531",
@@ -508,7 +536,11 @@
     "unwindReason": "ZERO_LOSS_MAKER_POST_ONLY",
     "notes": "Admin Lever 3 Depth Guard post-settlement zero-loss harvest exit.",
     "closeLeg1FeeUsdt": 0.0154,
-    "closeLeg2FeeUsdt": 0.0201
+    "closeLeg2FeeUsdt": 0.0201,
+    "leg1FundingUsdt": -0.3442,
+    "leg2FundingUsdt": 0.2214,
+    "leg1Funding": -0.3442,
+    "leg2Funding": 0.2214
   },
   {
     "id": "BOT-685714",
@@ -754,7 +786,11 @@
     "closeLeg2FeeUsdt": 0.0079,
     "priceSpreadPnlUsdt": 0.2438,
     "fundingClaimedUsdt": 0.0751,
-    "closeDivergencePct": 3.777
+    "closeDivergencePct": 3.777,
+    "leg1FundingUsdt": -0.1564,
+    "leg2FundingUsdt": 0.2314,
+    "leg1Funding": -0.1564,
+    "leg2Funding": 0.2314
   },
   {
     "id": "BOT-194766",
@@ -796,20 +832,22 @@
     "closeLeg1Price": 0.198803744,
     "leg1GrossPnl": 0.0351,
     "leg1Fees": 0.0146,
-    "leg1Funding": 0.0416,
+    "leg1Funding": -0.1121,
     "leg1NetPnl": 0.0621,
     "leg1OrderId": "BN-3790632940",
     "leg1CloseOrderId": "BN-3795632940",
     "closeLeg2Price": 0.2006505,
     "leg2GrossPnl": 0.015,
     "leg2Fees": 0.0159,
-    "leg2Funding": 0.0104,
+    "leg2Funding": 0.1641,
     "leg2NetPnl": 0.0095,
     "leg2OrderId": "bb-ord-9t2jvy4g",
     "leg2CloseOrderId": "bb-cls-xh9giify",
     "closeLeg1OrderId": "2105267927",
     "closeLeg1FeeUsdt": 0.0062,
-    "closeLeg2FeeUsdt": 0.0082
+    "closeLeg2FeeUsdt": 0.0082,
+    "leg1FundingUsdt": -0.1121,
+    "leg2FundingUsdt": 0.1641
   },
   {
     "id": "BOT-923089",
@@ -906,20 +944,22 @@
     "closeLeg1Price": 0.167068672,
     "leg1GrossPnl": 0.0414,
     "leg1Fees": 0.0157,
-    "leg1Funding": 0.0354,
+    "leg1Funding": -0.1523,
     "leg1NetPnl": 0.0611,
     "leg1OrderId": "BN-3790542520",
     "leg1CloseOrderId": "BN-3795542520",
     "closeLeg2Price": 0.16916766,
     "leg2GrossPnl": 0.0177,
     "leg2Fees": 0.017,
-    "leg2Funding": 0.0088,
+    "leg2Funding": 0.1965,
     "leg2NetPnl": 0.0095,
     "leg2OrderId": "bb-ord-qwu271i2",
     "leg2CloseOrderId": "bb-cls-iar8m8be",
     "closeLeg1OrderId": "2092021172",
     "closeLeg1FeeUsdt": 0.0074,
-    "closeLeg2FeeUsdt": 0.0098
+    "closeLeg2FeeUsdt": 0.0098,
+    "leg1FundingUsdt": -0.1523,
+    "leg2FundingUsdt": 0.1965
   },
   {
     "id": "BOT-501653",
@@ -1012,20 +1052,22 @@
     "closeLeg1Price": 0.13020793600000002,
     "leg1GrossPnl": 0.0921,
     "leg1Fees": 0.0163,
-    "leg1Funding": 0.0131,
+    "leg1Funding": -0.0539,
     "leg1NetPnl": 0.0889,
     "leg1OrderId": "BN-3790497310",
     "leg1CloseOrderId": "BN-3795497310",
     "closeLeg2Price": 0.13165278,
     "leg2GrossPnl": 0.0395,
     "leg2Fees": 0.0177,
-    "leg2Funding": 0.0033,
+    "leg2Funding": 0.0702,
     "leg2NetPnl": 0.0251,
     "leg2OrderId": "bb-ord-e0s7e3xq",
     "leg2CloseOrderId": "bb-cls-ryvaz7vi",
     "closeLeg1OrderId": "2073411519",
     "closeLeg1FeeUsdt": 0.0075,
-    "closeLeg2FeeUsdt": 0.0099
+    "closeLeg2FeeUsdt": 0.0099,
+    "leg1FundingUsdt": -0.0539,
+    "leg2FundingUsdt": 0.0702
   },
   {
     "id": "BOT-749418",
@@ -1119,20 +1161,22 @@
     "closeLeg1Price": 0.008702815999999999,
     "leg1GrossPnl": 0.1291,
     "leg1Fees": 0.0141,
-    "leg1Funding": 0.0689,
+    "leg1Funding": 0.0729,
     "leg1NetPnl": 0.1839,
     "leg1OrderId": "BN-3790406890",
     "leg1CloseOrderId": "BN-3795406890",
     "closeLeg2Price": 0.008801568000000001,
     "leg2GrossPnl": 0.0553,
     "leg2Fees": 0.0153,
-    "leg2Funding": 0.0172,
+    "leg2Funding": 0.0132,
     "leg2NetPnl": 0.0572,
     "leg2OrderId": "bb-ord-kuyxawid",
     "leg2CloseOrderId": "bb-cls-18wed75h",
     "closeLeg1OrderId": "1451123902",
     "closeLeg1FeeUsdt": 0.0053,
-    "closeLeg2FeeUsdt": 0.0069
+    "closeLeg2FeeUsdt": 0.0069,
+    "leg1FundingUsdt": 0.0729,
+    "leg2FundingUsdt": 0.0132
   },
   {
     "id": "BOT-769423",
@@ -1174,20 +1218,22 @@
     "closeLeg1Price": 0.024280192000000003,
     "leg1GrossPnl": 0.0616,
     "leg1Fees": 0.0166,
-    "leg1Funding": 0.0198,
+    "leg1Funding": -0.1002,
     "leg1NetPnl": 0.0648,
     "leg1OrderId": "BN-3790361680",
     "leg1CloseOrderId": "BN-3795361680",
     "closeLeg2Price": 0.024843588,
     "leg2GrossPnl": 0.0264,
     "leg2Fees": 0.0179,
-    "leg2Funding": 0.005,
+    "leg2Funding": 0.125,
     "leg2NetPnl": 0.0135,
     "leg2OrderId": "bb-ord-tzkwn68t",
     "leg2CloseOrderId": "bb-cls-cf9hsb7j",
     "closeLeg1OrderId": "1654837267",
     "closeLeg1FeeUsdt": 0.0075,
-    "closeLeg2FeeUsdt": 0.0098
+    "closeLeg2FeeUsdt": 0.0098,
+    "leg1FundingUsdt": -0.1002,
+    "leg2FundingUsdt": 0.125
   },
   {
     "id": "BOT-295364",
