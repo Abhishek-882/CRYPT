@@ -1,9 +1,721 @@
 [
   {
-    "timestamp": "2026-11-11T17:14:39.810Z",
+    "timestamp": "2026-11-13T11:01:45.922Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [152]",
+    "level": "warn",
+    "count": 152,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T09:17:01.305Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [84]",
+    "level": "warn",
+    "count": 84,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T08:05:25.148Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [3]",
+    "level": "warn",
+    "count": 3,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T08:01:43.864Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [65]",
+    "level": "warn",
+    "count": 65,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T07:06:12.130Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T07:04:03.940Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [18]",
+    "level": "warn",
+    "count": 18,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T06:48:42.762Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T06:47:13.074Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T06:46:02.422Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T06:44:51.628Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [187]",
+    "level": "warn",
+    "count": 187,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T04:07:40.574Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T04:03:55.415Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T04:02:38.308Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T04:01:32.450Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [78]",
+    "level": "warn",
+    "count": 78,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T03:07:57.363Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T03:06:51.886Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T03:05:46.994Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T03:04:41.340Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T03:03:36.212Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T03:01:16.502Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:59:21.689Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:58:17.396Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:57:05.497Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:55:59.909Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:54:49.051Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:53:21.488Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:50:52.195Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:49:35.406Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:48:20.972Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:47:15.087Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:46:10.482Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:44:00.408Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:42:05.826Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:41:05.121Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [31]",
+    "level": "warn",
+    "count": 31,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:16:27.538Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [39]",
+    "level": "warn",
+    "count": 39,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T01:43:06.192Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [100]",
+    "level": "warn",
+    "count": 100,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T00:18:14.723Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T00:17:14.651Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [3]",
+    "level": "warn",
+    "count": 3,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T00:14:34.672Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [7]",
+    "level": "warn",
+    "count": 7,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T00:08:29.311Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [6]",
+    "level": "warn",
+    "count": 6,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-13T00:03:14.275Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [285]",
+    "level": "warn",
+    "count": 285,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T20:39:27.205Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [236]",
+    "level": "warn",
+    "count": 236,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T17:46:05.321Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+    "level": "warn",
+    "count": 5,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T17:41:44.692Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [57]",
+    "level": "warn",
+    "count": 57,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T16:53:23.404Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [221]",
+    "level": "warn",
+    "count": 221,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T14:10:12.442Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [24]",
+    "level": "warn",
+    "count": 24,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T13:49:52.552Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [72]",
+    "level": "warn",
+    "count": 72,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T12:48:45.630Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [401]",
+    "level": "warn",
+    "count": 401,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T08:05:06.937Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T08:01:51.715Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [242]",
+    "level": "warn",
+    "count": 242,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T05:16:29.929Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T05:15:23.780Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T05:14:17.820Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T05:12:54.266Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [83]",
+    "level": "warn",
+    "count": 83,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T04:02:15.569Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [13]",
+    "level": "warn",
+    "count": 13,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T03:50:55.034Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T03:47:20.323Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [10]",
+    "level": "warn",
+    "count": 10,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T03:38:19.704Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [30]",
+    "level": "warn",
+    "count": 30,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T03:12:00.947Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [6]",
+    "level": "warn",
+    "count": 6,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T03:06:20.250Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T03:02:17.462Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T03:01:09.254Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T02:57:20.271Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+    "level": "warn",
+    "count": 5,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T02:52:50.729Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [3]",
+    "level": "warn",
+    "count": 3,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T02:50:05.091Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [180]",
+    "level": "warn",
+    "count": 180,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:19:23.037Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:18:22.659Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:16:37.365Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:14:37.135Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:13:19.787Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:09:42.312Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:08:37.782Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:07:22.560Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:06:19.820Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:05:15.725Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:04:02.690Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:02:57.218Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-12T00:01:53.090Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [314]",
+    "level": "warn",
+    "count": 314,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T20:03:29.772Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T20:02:08.734Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [45]",
+    "level": "warn",
+    "count": 45,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T19:24:11.113Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [37]",
+    "level": "warn",
+    "count": 37,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T18:52:20.490Z",
     "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [44]",
     "level": "warn",
     "count": 44,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T18:13:36.042Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [11]",
+    "level": "warn",
+    "count": 11,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T18:03:51.307Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T18:02:51.047Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [7]",
+    "level": "warn",
+    "count": 7,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T17:56:05.099Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T17:55:01.811Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+    "level": "warn",
+    "count": 4,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T17:51:10.769Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+    "level": "warn",
+    "count": 1,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T17:50:05.527Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+    "level": "warn",
+    "count": 2,
+    "botId": "bot-682962",
+    "botName": "Emma Alpha Harvester [TER]"
+  },
+  {
+    "timestamp": "2026-11-11T17:48:05.715Z",
+    "message": "[KEYS REQUIRED] Bot \"Emma Alpha Harvester\" [TER]: User account user_quant_emma_1794301682803@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [84]",
+    "level": "warn",
+    "count": 84,
     "botId": "bot-682962",
     "botName": "Emma Alpha Harvester [TER]"
   },

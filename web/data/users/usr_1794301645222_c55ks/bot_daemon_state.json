@@ -3,8 +3,8 @@
   "runInBackgroundWhenClosed": true,
   "mode": "AUTONOMOUS_SERVER_24_7",
   "startedAt": 1794301646088,
-  "lastCycleAt": 1794417292495,
-  "cyclesCompleted": 21232,
+  "lastCycleAt": 1794567879938,
+  "cyclesCompleted": 53508,
   "activeBotId": "bot-808654",
   "bots": [
     {
@@ -136,10 +136,714 @@
       "completedHedges": [],
       "logs": [
         {
-          "timestamp": "2026-11-11T17:14:44.742Z",
-          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [44]",
+          "timestamp": "2026-11-13T11:01:51.115Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [239]",
           "level": "warn",
-          "count": 44,
+          "count": 239,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T08:01:58.689Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T08:00:52.649Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [64]",
+          "level": "warn",
+          "count": 64,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T07:06:17.241Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T07:04:16.701Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [18]",
+          "level": "warn",
+          "count": 18,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T06:48:47.857Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T06:47:22.287Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T06:46:08.554Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T06:44:56.621Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [80]",
+          "level": "warn",
+          "count": 80,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T05:37:37.022Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [107]",
+          "level": "warn",
+          "count": 107,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T04:07:46.782Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+          "level": "warn",
+          "count": 4,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T04:04:03.481Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T04:02:47.807Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T04:01:37.767Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [78]",
+          "level": "warn",
+          "count": 78,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T03:08:01.266Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T03:06:56.070Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T03:05:51.572Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T03:04:46.662Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T03:02:51.139Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T03:01:22.150Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:59:26.309Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:58:26.202Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:57:10.055Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:56:06.412Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:54:55.728Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:53:26.474Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:51:27.010Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:49:38.975Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:47:20.593Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:45:23.843Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:44:18.634Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:43:10.358Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:42:10.342Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:41:09.110Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [31]",
+          "level": "warn",
+          "count": 31,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T02:16:32.397Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [26]",
+          "level": "warn",
+          "count": 26,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T01:54:17.074Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [13]",
+          "level": "warn",
+          "count": 13,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T01:43:11.718Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [100]",
+          "level": "warn",
+          "count": 100,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T00:18:19.599Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [11]",
+          "level": "warn",
+          "count": 11,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-13T00:08:34.272Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [291]",
+          "level": "warn",
+          "count": 291,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T20:39:32.571Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [105]",
+          "level": "warn",
+          "count": 105,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T19:18:43.982Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [131]",
+          "level": "warn",
+          "count": 131,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T17:46:10.251Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+          "level": "warn",
+          "count": 5,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T17:41:50.109Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [89]",
+          "level": "warn",
+          "count": 89,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T16:26:27.701Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [189]",
+          "level": "warn",
+          "count": 189,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T14:10:18.187Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [497]",
+          "level": "warn",
+          "count": 497,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T08:05:10.633Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+          "level": "warn",
+          "count": 4,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T08:01:59.991Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T08:00:57.521Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [241]",
+          "level": "warn",
+          "count": 241,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T05:16:38.222Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T05:15:30.655Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T05:14:26.813Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T05:13:00.782Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [83]",
+          "level": "warn",
+          "count": 83,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T04:02:26.207Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T04:01:25.139Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [16]",
+          "level": "warn",
+          "count": 16,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T03:47:25.197Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [10]",
+          "level": "warn",
+          "count": 10,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T03:38:25.253Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [31]",
+          "level": "warn",
+          "count": 31,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T03:11:05.868Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+          "level": "warn",
+          "count": 4,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T03:07:25.486Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T03:06:25.167Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+          "level": "warn",
+          "count": 4,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T03:02:26.312Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T03:01:15.935Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T02:59:20.494Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T02:57:24.555Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+          "level": "warn",
+          "count": 5,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T02:52:56.210Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [181]",
+          "level": "warn",
+          "count": 181,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:21:27.847Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:20:27.758Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+          "level": "warn",
+          "count": 5,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:15:42.457Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:13:22.485Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+          "level": "warn",
+          "count": 4,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:09:47.230Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:08:41.983Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:07:27.595Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:06:27.001Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:05:19.704Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:04:07.204Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:03:02.059Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-12T00:01:57.351Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [315]",
+          "level": "warn",
+          "count": 315,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T20:02:18.256Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T20:01:15.152Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [82]",
+          "level": "warn",
+          "count": 82,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T18:51:25.542Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [8]",
+          "level": "warn",
+          "count": 8,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T18:44:15.533Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [35]",
+          "level": "warn",
+          "count": 35,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T18:13:41.779Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [9]",
+          "level": "warn",
+          "count": 9,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T18:05:51.387Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T18:04:00.545Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T18:02:55.486Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [7]",
+          "level": "warn",
+          "count": 7,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T17:56:10.527Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [3]",
+          "level": "warn",
+          "count": 3,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T17:53:15.123Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T17:51:16.291Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T17:50:11.082Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-808654",
+          "botName": "Alex Quant Sniper [PER]"
+        },
+        {
+          "timestamp": "2026-11-11T17:48:11.627Z",
+          "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [84]",
+          "level": "warn",
+          "count": 84,
           "botId": "bot-808654",
           "botName": "Alex Quant Sniper [PER]"
         },
@@ -3390,7 +4094,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-11-11T16:38:17.412Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-11-13T11:04:19.926Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -3431,7 +4135,7 @@
         "minNetHedgeTargetPct": 0.3,
         "fastExitIntervalMs": 250
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Lever 3 (Depth Guard)\n; Exported: 2026-11-11T16:38:17.413Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=32\nRoundTripFeeBps=18\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=10\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.04\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=THIN\nMinNetYieldHurdleBps=10\nMaxBidAskSpreadBps=20\nMaxPreTradeSlippagePct=0.04\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=3\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=BINANCE_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Lever 3 (Depth Guard)\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=32\nRoundTripFeeBps=18\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=10\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.04\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=THIN\nMinNetYieldHurdleBps=10\nMaxBidAskSpreadBps=20\nMaxPreTradeSlippagePct=0.04\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=3\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=BINANCE_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -3459,7 +4163,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-11-11T16:38:17.413Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -3487,7 +4191,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-11-11T16:38:17.413Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -3515,7 +4219,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Canary Micro-Staging 15USD\n; Exported: 2026-11-11T16:38:17.413Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=15\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=1\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Canary Micro-Staging 15USD\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=15\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=1\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -3523,10 +4227,714 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-11-11T17:14:44.742Z",
-      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [44]",
+      "timestamp": "2026-11-13T11:01:51.115Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [239]",
       "level": "warn",
-      "count": 44,
+      "count": 239,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T08:01:58.689Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T08:00:52.649Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [64]",
+      "level": "warn",
+      "count": 64,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T07:06:17.241Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T07:04:16.701Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [18]",
+      "level": "warn",
+      "count": 18,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T06:48:47.857Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T06:47:22.287Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T06:46:08.554Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T06:44:56.621Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [80]",
+      "level": "warn",
+      "count": 80,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T05:37:37.022Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [107]",
+      "level": "warn",
+      "count": 107,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T04:07:46.782Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+      "level": "warn",
+      "count": 4,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T04:04:03.481Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T04:02:47.807Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T04:01:37.767Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [78]",
+      "level": "warn",
+      "count": 78,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T03:08:01.266Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T03:06:56.070Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T03:05:51.572Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T03:04:46.662Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T03:02:51.139Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T03:01:22.150Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:59:26.309Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:58:26.202Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:57:10.055Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:56:06.412Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:54:55.728Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:53:26.474Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:51:27.010Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:49:38.975Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:47:20.593Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:45:23.843Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:44:18.634Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:43:10.358Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:42:10.342Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:41:09.110Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [31]",
+      "level": "warn",
+      "count": 31,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T02:16:32.397Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [26]",
+      "level": "warn",
+      "count": 26,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T01:54:17.074Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [13]",
+      "level": "warn",
+      "count": 13,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T01:43:11.718Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [100]",
+      "level": "warn",
+      "count": 100,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T00:18:19.599Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [11]",
+      "level": "warn",
+      "count": 11,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-13T00:08:34.272Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [291]",
+      "level": "warn",
+      "count": 291,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T20:39:32.571Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [105]",
+      "level": "warn",
+      "count": 105,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T19:18:43.982Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [131]",
+      "level": "warn",
+      "count": 131,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T17:46:10.251Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+      "level": "warn",
+      "count": 5,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T17:41:50.109Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [89]",
+      "level": "warn",
+      "count": 89,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T16:26:27.701Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [189]",
+      "level": "warn",
+      "count": 189,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T14:10:18.187Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [497]",
+      "level": "warn",
+      "count": 497,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T08:05:10.633Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+      "level": "warn",
+      "count": 4,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T08:01:59.991Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T08:00:57.521Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [241]",
+      "level": "warn",
+      "count": 241,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T05:16:38.222Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T05:15:30.655Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T05:14:26.813Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T05:13:00.782Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [83]",
+      "level": "warn",
+      "count": 83,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T04:02:26.207Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T04:01:25.139Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [16]",
+      "level": "warn",
+      "count": 16,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T03:47:25.197Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [10]",
+      "level": "warn",
+      "count": 10,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T03:38:25.253Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [31]",
+      "level": "warn",
+      "count": 31,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T03:11:05.868Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+      "level": "warn",
+      "count": 4,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T03:07:25.486Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T03:06:25.167Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+      "level": "warn",
+      "count": 4,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T03:02:26.312Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T03:01:15.935Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T02:59:20.494Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T02:57:24.555Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+      "level": "warn",
+      "count": 5,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T02:52:56.210Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [181]",
+      "level": "warn",
+      "count": 181,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:21:27.847Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:20:27.758Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [5]",
+      "level": "warn",
+      "count": 5,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:15:42.457Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:13:22.485Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [4]",
+      "level": "warn",
+      "count": 4,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:09:47.230Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:08:41.983Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:07:27.595Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:06:27.001Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:05:19.704Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:04:07.204Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:03:02.059Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-12T00:01:57.351Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [315]",
+      "level": "warn",
+      "count": 315,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T20:02:18.256Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T20:01:15.152Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [82]",
+      "level": "warn",
+      "count": 82,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T18:51:25.542Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [8]",
+      "level": "warn",
+      "count": 8,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T18:44:15.533Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [35]",
+      "level": "warn",
+      "count": 35,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T18:13:41.779Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [9]",
+      "level": "warn",
+      "count": 9,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T18:05:51.387Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T18:04:00.545Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T18:02:55.486Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [7]",
+      "level": "warn",
+      "count": 7,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T17:56:10.527Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [3]",
+      "level": "warn",
+      "count": 3,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T17:53:15.123Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T17:51:16.291Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading.",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T17:50:11.082Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-808654",
+      "botName": "Alex Quant Sniper [PER]"
+    },
+    {
+      "timestamp": "2026-11-11T17:48:11.627Z",
+      "message": "[KEYS REQUIRED] Bot \"Alex Quant Sniper\" [PER]: User account quant_trader_alex@testvault.org has no API keys configured. Please add exchange keys in Profile/Settings to activate live trading. [84]",
+      "level": "warn",
+      "count": 84,
       "botId": "bot-808654",
       "botName": "Alex Quant Sniper [PER]"
     },

@@ -11,6 +11,8 @@ const nextConfig = {
   experimental: {
     // Bundling ws breaks its frame masking ("mask is not a function"); load it from node_modules
     serverComponentsExternalPackages: ["ws"],
+    cpus: 1,
+    workerThreads: false,
   },
   compress: true,
   images: {

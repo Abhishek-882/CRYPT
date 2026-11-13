@@ -1318,5 +1318,27 @@
     "timestamp": "2026-11-10T16:15:18.997Z",
     "ipAddress": "::1",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_6c32c72d63f5871a",
+    "userId": "usr_admin_varsha",
+    "userEmail": "admin@safecoiner.com",
+    "purpose": "PURPOSE_DIAGNOSTICS_TELEMETRY",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-12T08:05:42.464Z",
+    "ipAddress": "2401:4900:882c:a8c2:808a:3213:3b22:afd3",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "cst_6ea4ad09460d9ed2",
+    "userId": "usr_admin_varsha",
+    "userEmail": "admin@safecoiner.com",
+    "purpose": "PURPOSE_MARKET_CACHE",
+    "status": "GRANTED",
+    "version": "v1.0-2026-DPDP",
+    "timestamp": "2026-11-12T08:05:42.464Z",
+    "ipAddress": "2401:4900:882c:a8c2:808a:3213:3b22:afd3",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
   }
 ]

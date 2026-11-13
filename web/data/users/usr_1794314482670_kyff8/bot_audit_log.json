@@ -1,9 +1,41 @@
 [
   {
-    "timestamp": "2026-11-11T17:14:50.622Z",
-    "message": "[BUFFER GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Available margin on Binance ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries. [315]",
+    "timestamp": "2026-11-13T11:04:28.189Z",
+    "message": "[BUFFER GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Available margin on Binance ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries.",
     "level": "warn",
-    "count": 315,
+    "count": 1,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-13T11:01:46.516Z",
+    "message": "[BUFFER GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Available margin on Binance ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries. [398]",
+    "level": "warn",
+    "count": 398,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-13T08:02:14.961Z",
+    "message": "[BUFFER GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Available margin on Binance ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries. [624]",
+    "level": "warn",
+    "count": 624,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-13T02:50:37.290Z",
+    "message": "[BUFFER GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Available margin on Binance ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries. [3048]",
+    "level": "warn",
+    "count": 3048,
+    "botId": "bot-120328",
+    "botName": "Innovation Lab (Feature Challenger) [GER]"
+  },
+  {
+    "timestamp": "2026-11-12T04:02:16.369Z",
+    "message": "[BUFFER GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Available margin on Binance ($0.00) is below the $0.50 minimum safety cushion. Pausing new entries. [1623]",
+    "level": "warn",
+    "count": 1623,
     "botId": "bot-120328",
     "botName": "Innovation Lab (Feature Challenger) [GER]"
   },
