@@ -1735,7 +1735,7 @@ export default function TradeHistoryPage() {
                         {/* Header */}
                         <div className="flex items-center justify-between pb-2 border-b border-[#1a2842] text-[10.5px]">
                           <div className="flex items-center space-x-1.5">
-                            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            <div className={`w-2 h-2 rounded-full ${leg.isLoss ? "bg-rose-400" : "bg-emerald-400"} animate-pulse`} />
                             <span className="text-[11px] font-black uppercase text-cyan-300">
                               Dual-Leg Fill Audit
                             </span>
@@ -1855,12 +1855,22 @@ export default function TradeHistoryPage() {
                         </div>
 
                         {/* Card 3: Consolidated Settlement */}
-                        <div className="rounded-xl p-3 bg-gradient-to-br from-[#0c1829] to-[#07101c] border border-emerald-500/35 space-y-1.5 text-[11px]">
-                          <div className="flex items-center justify-between pb-1.5 border-b border-emerald-500/20">
-                            <span className="text-xs font-black text-emerald-300 uppercase">
+                        <div className={`rounded-xl p-3 bg-gradient-to-br from-[#0c1829] to-[#07101c] border space-y-1.5 text-[11px] ${
+                          leg.isLoss ? "border-rose-500/40 shadow-rose-950/20" : "border-emerald-500/35"
+                        }`}>
+                          <div className={`flex items-center justify-between pb-1.5 border-b ${
+                            leg.isLoss ? "border-rose-500/20" : "border-emerald-500/20"
+                          }`}>
+                            <span className={`text-xs font-black uppercase ${
+                              leg.isLoss ? "text-rose-300" : "text-emerald-300"
+                            }`}>
                               Consolidated Settlement
                             </span>
-                            <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                            <span className={`text-[9.5px] font-bold px-1.5 py-0.5 rounded uppercase border ${
+                              leg.isLoss
+                                ? "bg-rose-500/20 text-rose-300 border-rose-500/40"
+                                : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                            }`}>
                               ROI: {t.netRoi}
                             </span>
                           </div>
@@ -1876,9 +1886,21 @@ export default function TradeHistoryPage() {
                             <span className="text-zinc-400">Total Funding:</span>
                             <span className="text-amber-400 font-bold">{t.fundingClaimed}</span>
                           </div>
-                          <div className="flex justify-between items-center py-1.5 bg-emerald-950/40 px-2 rounded mt-1 border border-emerald-500/40">
-                            <span className="text-emerald-200 font-extrabold text-xs">Realized Net Cash:</span>
-                            <span className="text-emerald-400 font-black text-sm">{t.netRealizedPnl}</span>
+                          <div className={`flex justify-between items-center py-1.5 px-2 rounded mt-1 border ${
+                            leg.isLoss
+                              ? "bg-rose-950/40 border-rose-500/40"
+                              : "bg-emerald-950/40 border-emerald-500/40"
+                          }`}>
+                            <span className={`font-extrabold text-xs ${
+                              leg.isLoss ? "text-rose-200" : "text-emerald-200"
+                            }`}>
+                              Realized Net Cash:
+                            </span>
+                            <span className={`font-black text-sm ${
+                              leg.isLoss ? "text-rose-400" : "text-emerald-400"
+                            }`}>
+                              {t.netRealizedPnl}
+                            </span>
                           </div>
                           <div className="pt-2 text-[9px] text-zinc-400 space-y-1">
                             <div className="flex items-center justify-between">
@@ -2129,7 +2151,7 @@ export default function TradeHistoryPage() {
                                 {/* Header Bar */}
                                 <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#1b2a47]">
                                   <div className="flex items-center space-x-2.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                                    <div className={`w-2.5 h-2.5 rounded-full ${leg.isLoss ? "bg-rose-400" : "bg-emerald-400"} animate-pulse`} />
                                     <span className="text-[12px] font-black uppercase tracking-wider text-cyan-300 font-mono">
                                       Audited Dual-Leg Settlement & Exchange Breakdown
                                     </span>
@@ -2272,12 +2294,22 @@ export default function TradeHistoryPage() {
                                   </div>
 
                                   {/* Card 3: Consolidated Settlement & Re-try Safety */}
-                                  <div className="rounded-xl p-3.5 bg-gradient-to-br from-[#0c1829] to-[#07101c] border border-emerald-500/30 shadow-lg relative overflow-hidden">
-                                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-emerald-500/20">
-                                      <span className="text-xs font-black text-emerald-300 font-mono uppercase">
+                                  <div className={`rounded-xl p-3.5 bg-gradient-to-br from-[#0c1829] to-[#07101c] border shadow-lg relative overflow-hidden ${
+                                    leg.isLoss ? "border-rose-500/40 shadow-rose-950/20" : "border-emerald-500/30"
+                                  }`}>
+                                    <div className={`flex items-center justify-between pb-2 mb-2 border-b ${
+                                      leg.isLoss ? "border-rose-500/20" : "border-emerald-500/20"
+                                    }`}>
+                                      <span className={`text-xs font-black font-mono uppercase ${
+                                        leg.isLoss ? "text-rose-300" : "text-emerald-300"
+                                      }`}>
                                         Consolidated Settlement
                                       </span>
-                                      <span className="text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase border ${
+                                        leg.isLoss
+                                          ? "bg-rose-500/20 text-rose-300 border-rose-500/40"
+                                          : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                                      }`}>
                                         ROI: {t.netRoi}
                                       </span>
                                     </div>
@@ -2295,9 +2327,21 @@ export default function TradeHistoryPage() {
                                         <span className="text-zinc-400">Total Funding Yield:</span>
                                         <span className="text-amber-400 font-bold">{t.fundingClaimed}</span>
                                       </div>
-                                      <div className="flex justify-between items-center py-1.5 bg-emerald-950/40 px-2.5 rounded mt-1 border border-emerald-500/40">
-                                        <span className="text-emerald-200 font-extrabold text-xs">Realized Net Cash:</span>
-                                        <span className="text-emerald-400 font-black text-sm">{t.netRealizedPnl}</span>
+                                      <div className={`flex justify-between items-center py-1.5 px-2.5 rounded mt-1 border ${
+                                        leg.isLoss
+                                          ? "bg-rose-950/40 border-rose-500/40"
+                                          : "bg-emerald-950/40 border-emerald-500/40"
+                                      }`}>
+                                        <span className={`font-extrabold text-xs ${
+                                          leg.isLoss ? "text-rose-200" : "text-emerald-200"
+                                        }`}>
+                                          Realized Net Cash:
+                                        </span>
+                                        <span className={`font-black text-sm ${
+                                          leg.isLoss ? "text-rose-400" : "text-emerald-400"
+                                        }`}>
+                                          {t.netRealizedPnl}
+                                        </span>
                                       </div>
                                     </div>
 

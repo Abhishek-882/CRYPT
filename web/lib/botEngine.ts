@@ -6674,8 +6674,9 @@ export async function runTenantBotCycle(
 
         if (!isTimingQualified) {
           // Track highest spread candidate on corridor even if timing window not open yet
-          // Hard filter: disqualify broken/disconnected pairs (>0.50% divergence)
-          if (divergencePct <= 0.50 && corridorSpreadBps > bestCorridorSpread) {
+          // Hard filter: disqualify broken/disconnected pairs (> configured safety divergence cap)
+          const safetyCap = config.maxPriceDivergenceCapPct || 0.50;
+          if (divergencePct <= safetyCap && corridorSpreadBps > bestCorridorSpread) {
             bestCorridorSpread = corridorSpreadBps;
             bestCorridorCandidate = {
               symbol: coin.symbol,

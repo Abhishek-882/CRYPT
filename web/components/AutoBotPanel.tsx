@@ -1894,6 +1894,8 @@ export default function AutoBotPanel() {
           <div className="flex items-center space-x-1 mt-1 text-[11px]">
             <span className="text-cyan-400 font-bold">In &le;{maxPriceDivergencePct}%</span>
             <span className="text-zinc-500">|</span>
+            <span className="text-amber-400 font-bold">Cap &le;{maxPriceDivergenceCapPct}%</span>
+            <span className="text-zinc-500">|</span>
             <span className="text-emerald-400 font-bold">Out &le;{closeMaxPriceDivergencePct}%</span>
           </div>
           <div className="text-[9px] text-zinc-400 mt-0.5 font-mono truncate">
@@ -2236,7 +2238,6 @@ export default function AutoBotPanel() {
                 onChange={(e) => {
                   const val = parseFloat(e.target.value) || 0.10;
                   setMaxPriceDivergencePct(val);
-                  setMaxPriceDivergenceCapPct(Math.max(val * 3, 0.50));
                 }}
                 className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-1.5 text-zinc-100 text-xs focus:border-cyan-500 outline-none font-mono"
               />
@@ -2247,7 +2248,6 @@ export default function AutoBotPanel() {
                     type="button"
                     onClick={() => {
                       setMaxPriceDivergencePct(d);
-                      setMaxPriceDivergenceCapPct(Math.max(d * 3, 0.50));
                     }}
                     className={`px-1.5 py-0.5 rounded border text-[9px] font-mono ${
                       maxPriceDivergencePct === d
@@ -2256,6 +2256,47 @@ export default function AutoBotPanel() {
                     }`}
                   >
                     {d}%
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 3B-2. SAFETY DIVERGENCE CAP (HARD CEILING) */}
+            <div className="p-3 rounded-xl bg-zinc-900/70 border border-zinc-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider flex items-center space-x-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-accent-amber" />
+                  <span>SAFETY DIVERGENCE CAP (HARD CEILING)</span>
+                </label>
+                <span className="text-[9px] font-mono text-accent-amber font-bold">
+                  &le; {maxPriceDivergenceCapPct}% ({(maxPriceDivergenceCapPct * 100).toFixed(0)} bps)
+                </span>
+              </div>
+              <div className="text-[10px] text-zinc-400 leading-tight">
+                Upper limit on allowed cross-exchange divergence. Disqualifies candidate pairs where Binance ⇄ Bybit basis dislocation exceeds this cap to protect against entering during extreme orderbook breakdown.
+              </div>
+              <input
+                type="number"
+                step="0.05"
+                min="0.10"
+                max="5.00"
+                value={maxPriceDivergenceCapPct}
+                onChange={(e) => setMaxPriceDivergenceCapPct(parseFloat(e.target.value) || 0.50)}
+                className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-1.5 text-zinc-100 text-xs focus:border-amber-500 outline-none font-mono"
+              />
+              <div className="flex flex-wrap gap-1 pt-0.5">
+                {[0.30, 0.50, 0.75, 1.00, 1.50, 2.00].map((cap) => (
+                  <button
+                    key={cap}
+                    type="button"
+                    onClick={() => setMaxPriceDivergenceCapPct(cap)}
+                    className={`px-1.5 py-0.5 rounded border text-[9px] font-mono ${
+                      maxPriceDivergenceCapPct === cap
+                        ? "bg-amber-500/20 text-accent-amber border-amber-500/60 font-bold"
+                        : "bg-zinc-800 text-zinc-400 border-zinc-700 hover:text-zinc-200"
+                    }`}
+                  >
+                    {(cap * 100).toFixed(0)} bps ({cap}%)
                   </button>
                 ))}
               </div>
