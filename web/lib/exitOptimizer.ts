@@ -478,6 +478,8 @@ export async function reconcileHedgeFunding(
   bybitCreds?: any
 ): Promise<number> {
   let realizedFunding = 0;
+  let leg1Funding = 0; // Binance leg funding (venueA)
+  let leg2Funding = 0; // Bybit/Bitget leg funding (venueB)
   const now = Date.now();
   const startTime = hedge.entryTime || now - 8 * 3600 * 1000;
 
@@ -502,6 +504,7 @@ export async function reconcileHedgeFunding(
         for (const item of res.data) {
           const val = parseFloat(item.income || "0");
           if (!isNaN(val)) {
+            leg1Funding += val;
             realizedFunding += val;
           }
         }
@@ -529,6 +532,7 @@ export async function reconcileHedgeFunding(
           if (item.symbol === hedge.symbol) {
             const funding = parseFloat(item.funding || item.change || "0");
             if (!isNaN(funding) && funding !== 0) {
+              leg2Funding += funding;
               realizedFunding += funding;
               foundTx = true;
             }
@@ -548,6 +552,7 @@ export async function reconcileHedgeFunding(
           for (const item of res.result.list) {
             const funding = parseFloat(item.funding || "0");
             if (!isNaN(funding)) {
+              leg2Funding += funding;
               realizedFunding += funding;
             }
           }
@@ -569,10 +574,16 @@ export async function reconcileHedgeFunding(
         : 0.0025;
     const notional = hedge.notionalUsdt || 30.0;
     realizedFunding = parseFloat((notional * estSpreadPct * cycles).toFixed(4));
+    // Fallback: split 50/50 between legs
+    leg1Funding = parseFloat((realizedFunding * 0.5).toFixed(4));
+    leg2Funding = parseFloat((realizedFunding - leg1Funding).toFixed(4));
   }
 
   if (realizedFunding !== 0) {
     hedge.fundingClaimedUsdt = parseFloat(realizedFunding.toFixed(4));
+    // Write per-leg funding (from exchange queries or 50/50 fallback)
+    hedge.leg1FundingUsdt = parseFloat(leg1Funding.toFixed(4));
+    hedge.leg2FundingUsdt = parseFloat(leg2Funding.toFixed(4));
   }
 
   return hedge.fundingClaimedUsdt || 0;

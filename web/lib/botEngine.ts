@@ -200,6 +200,9 @@ export interface ActiveBotHedge {
   totalFeesUsdt?: number;
   fundingClaimedUsdt?: number;
   fundingRatePct?: number;
+  // Per-leg funding attribution (populated by reconcileHedgeFunding and at close)
+  leg1FundingUsdt?: number;
+  leg2FundingUsdt?: number;
 }
 
 export interface BotLog {
@@ -5396,6 +5399,15 @@ export async function executeDualHedgeClose(
   const entryFees = (hedge.totalFeesUsdt || (hedge.leg1FeeUsdt || 0) + (hedge.leg2FeeUsdt || 0)) || 0;
   const totalFeesUsdt = parseFloat((entryFees + closeLeg1FeeUsdt + closeLeg2FeeUsdt).toFixed(4));
   const fundingClaimed = hedge.fundingClaimedUsdt || 0;
+
+  // Per-leg funding attribution: use stored per-leg values if available (populated by reconcileHedgeFunding),
+  // otherwise fall back to 50/50 split of combined total (symmetric notionals).
+  const leg1FundingUsdt = typeof hedge.leg1FundingUsdt === "number"
+    ? hedge.leg1FundingUsdt
+    : parseFloat((fundingClaimed * 0.5).toFixed(4));
+  const leg2FundingUsdt = typeof hedge.leg2FundingUsdt === "number"
+    ? hedge.leg2FundingUsdt
+    : parseFloat((fundingClaimed - leg1FundingUsdt).toFixed(4));
   // Net realized PnL correctly accounts for funding payments received or debited minus real exchange taker fees
   const netPnl = parseFloat((grossPriceSpreadPnl + fundingClaimed - totalFeesUsdt).toFixed(4));
 
@@ -5437,6 +5449,8 @@ export async function executeDualHedgeClose(
       botName: botName || hedge.botName,
       priceSpreadPnlUsdt: grossPriceSpreadPnl,
       fundingClaimedUsdt: fundingClaimed,
+      leg1FundingUsdt,
+      leg2FundingUsdt,
       fundingRatePct: hedge.fundingRatePct,
       feesUsdt: totalFeesUsdt,
       totalFeesUsdt,

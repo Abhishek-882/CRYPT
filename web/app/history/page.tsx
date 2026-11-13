@@ -608,6 +608,9 @@ export default function TradeHistoryPage() {
           grossVal: gross,
           fundingClaimed: t.fundingClaimed || (funding > 0 ? `+$${funding.toFixed(4)}` : `$${funding.toFixed(4)}`),
           fundingVal: funding,
+          fundingClaimedUsdt: funding,
+          leg1FundingUsdt: typeof t.leg1FundingUsdt === "number" ? t.leg1FundingUsdt : undefined,
+          leg2FundingUsdt: typeof t.leg2FundingUsdt === "number" ? t.leg2FundingUsdt : undefined,
           feesPaid: t.feesPaid || `-$${Math.abs(fees).toFixed(4)}`,
           feesVal: -Math.abs(fees),
           netRealizedPnl: t.netRealizedPnl || `${net >= 0 ? "+" : ""}$${net.toFixed(4)} USDT`,
@@ -923,8 +926,17 @@ export default function TradeHistoryPage() {
     const leg2Fee = typeof t.leg2Fees === "number" ? Math.abs(t.leg2Fees) : ((t.leg2FeeUsdt || 0) + (t.closeLeg2FeeUsdt || 0) || totalFees - leg1Fee);
 
     const totalFunding = t.fundingVal || t.fundingClaimedUsdt || 0;
-    const leg1Funding = typeof t.leg1Funding === "number" ? t.leg1Funding : (totalFunding * 0.5);
-    const leg2Funding = typeof t.leg2Funding === "number" ? t.leg2Funding : (totalFunding - leg1Funding);
+    // Prefer per-leg fields written by engine (leg1FundingUsdt/leg2FundingUsdt from recordServerTrade,
+    // or legacy leg1Funding/leg2Funding from pre-computed records). Fall back to 50/50 split and label as estimated.
+    const hasPerLegData = typeof t.leg1FundingUsdt === "number" || typeof t.leg2FundingUsdt === "number"
+      || typeof t.leg1Funding === "number";
+    const leg1Funding = typeof t.leg1FundingUsdt === "number"
+      ? t.leg1FundingUsdt
+      : (typeof t.leg1Funding === "number" ? t.leg1Funding : parseFloat((totalFunding * 0.5).toFixed(4)));
+    const leg2Funding = typeof t.leg2FundingUsdt === "number"
+      ? t.leg2FundingUsdt
+      : (typeof t.leg2Funding === "number" ? t.leg2Funding : parseFloat((totalFunding - leg1Funding).toFixed(4)));
+    const fundingIsEstimated = !hasPerLegData && totalFunding !== 0;
 
     // Strictly enforce fundamental accounting identity: Net = Gross + Funding - Fees
     const leg1Net = parseFloat((leg1Gross + leg1Funding - leg1Fee).toFixed(4));
@@ -952,6 +964,7 @@ export default function TradeHistoryPage() {
       leg2Fee,
       leg1Funding,
       leg2Funding,
+      fundingIsEstimated,
       leg1Net,
       leg2Net,
       leg1OrderId,
@@ -1768,7 +1781,10 @@ export default function TradeHistoryPage() {
                           </div>
                           <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
                             <span className="text-zinc-400">Funding Claimed:</span>
-                            <span className="text-amber-400 font-bold">{leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT</span>
+                            <span className="text-amber-400 font-bold">
+                              {leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT
+                              {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
+                            </span>
                           </div>
                           <div className="flex justify-between py-1 bg-amber-950/25 px-2 rounded mt-1 border border-amber-500/30">
                             <span className="text-amber-200 font-bold">Binance Net Cash:</span>
@@ -1815,7 +1831,10 @@ export default function TradeHistoryPage() {
                           </div>
                           <div className="flex justify-between py-0.5 border-b border-zinc-800/40">
                             <span className="text-zinc-400">Funding Claimed:</span>
-                            <span className="text-amber-400 font-bold">{leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT</span>
+                            <span className="text-amber-400 font-bold">
+                              {leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT
+                              {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
+                            </span>
                           </div>
                           <div className="flex justify-between py-1 bg-cyan-950/25 px-2 rounded mt-1 border border-cyan-500/30">
                             <span className="text-cyan-200 font-bold">Bybit Net Cash:</span>
@@ -2169,7 +2188,10 @@ export default function TradeHistoryPage() {
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Funding Claimed:</span>
-                                        <span className="text-amber-400 font-bold">{leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT</span>
+                                        <span className="text-amber-400 font-bold">
+                                          {leg.leg1Funding >= 0 ? "+" : ""}${leg.leg1Funding.toFixed(4)} USDT
+                                          {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
+                                        </span>
                                       </div>
                                       <div className="flex justify-between py-1 bg-amber-950/20 px-2 rounded mt-1 border border-amber-500/20">
                                         <span className="text-amber-200 font-bold">Binance Net Cash:</span>
@@ -2223,7 +2245,10 @@ export default function TradeHistoryPage() {
                                       </div>
                                       <div className="flex justify-between py-0.5 border-b border-zinc-800/50">
                                         <span className="text-zinc-400">Funding Claimed:</span>
-                                        <span className="text-amber-400 font-bold">{leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT</span>
+                                        <span className="text-amber-400 font-bold">
+                                          {leg.leg2Funding >= 0 ? "+" : ""}${leg.leg2Funding.toFixed(4)} USDT
+                                          {leg.fundingIsEstimated && <span className="text-zinc-500 text-[9px] ml-1">(est.)</span>}
+                                        </span>
                                       </div>
                                       <div className="flex justify-between py-1 bg-cyan-950/20 px-2 rounded mt-1 border border-cyan-500/20">
                                         <span className="text-cyan-200 font-bold">Bybit Net Cash:</span>
