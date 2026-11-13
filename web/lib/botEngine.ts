@@ -3326,9 +3326,8 @@ export async function executeDualHedgeEntry(
   // Liquidity-Tier Depth Sizing Clamping:
   // Strictly prevent sweeping thin altcoin order books when balance allocation produces large notional.
   const tier = config.liquidityTier || (coin.liquidityTier || "MEDIUM");
-  const maxTierNotional = tier === "DEEP" ? 1000 : tier === "THIN" ? 200 : 500;
-  const targetFloor = allocatedMargin >= 20 ? 40 : 15;
-  const targetNotional = Math.max(targetFloor, Math.min(autoSplit.matchedNotional, maxTierNotional));
+  const maxTierNotional = tier === "DEEP" ? 500 : tier === "THIN" ? 30 : 75;
+  const targetNotional = Math.max(15, Math.min(autoSplit.matchedNotional, maxTierNotional));
   let rawQty = targetNotional / refPrice;
 
   let minNotional = 12.0;
@@ -5921,7 +5920,7 @@ export async function evaluateAndProcessActiveHedges(
 
     // 4. POST-SETTLEMENT EVALUATION: CARRY CONTINUATION HOLD vs PROFIT-FIRST EXIT
     const enableContinuation = config.enableCarryContinuation !== false;
-    const minContinuationSpreadBps = config.minContinuationSpreadBps ?? Math.max(15, (config.minSpreadBps || 30) * 0.5);
+    const minContinuationSpreadBps = config.minContinuationSpreadBps ?? Math.max(20, (config.minSpreadBps || 30) * 0.7);
 
     let nextYieldBps = 0;
     const currentOppForContinuation = opportunities.find((o: any) => o.symbol === hedge.symbol);

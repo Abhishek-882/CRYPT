@@ -286,7 +286,7 @@ export default function AutoBotPanel() {
   const [enableSpreadCollapseExit, setEnableSpreadCollapseExit] = useState<boolean>(true);
   const [spreadCollapseExitBps, setSpreadCollapseExitBps] = useState<number>(25.0);
   const [enableCarryContinuation, setEnableCarryContinuation] = useState<boolean>(true);
-  const [minContinuationSpreadBps, setMinContinuationSpreadBps] = useState<number>(15);
+  const [minContinuationSpreadBps, setMinContinuationSpreadBps] = useState<number>(25);
   const [timingMode, setTimingMode] = useState<"FUNDING_SNIPER_5M" | "FUNDING_SNIPER_1M" | "CONTINUOUS_SPREAD">("FUNDING_SNIPER_5M");
   const [sniperWindowMinutes, setSniperWindowMinutes] = useState<number>(5);
   const [executionCorridor, setExecutionCorridor] = useState<"BINANCE_BITGET" | "BINANCE_COINDCX" | "BINANCE_BYBIT" | "COINDCX_BYBIT" | "COINDCX_BITGET" | "BITGET_BYBIT">("COINDCX_BYBIT");
@@ -491,7 +491,7 @@ export default function AutoBotPanel() {
           setEnableSpreadCollapseExit(curBot.config?.enableSpreadCollapseExit !== false);
           setSpreadCollapseExitBps(curBot.config?.spreadCollapseExitBps ?? 25.0);
           setEnableCarryContinuation(curBot.config?.enableCarryContinuation !== false);
-          setMinContinuationSpreadBps(curBot.config?.minContinuationSpreadBps ?? 15);
+          setMinContinuationSpreadBps(curBot.config?.minContinuationSpreadBps ?? 25);
           setTimingMode(curBot.config?.timingMode ?? "FUNDING_SNIPER_5M");
           setSniperWindowMinutes(curBot.config?.sniperWindowMinutes ?? (curBot.config?.timingMode === "FUNDING_SNIPER_1M" ? 1 : 5));
           setExecutionCorridor(curBot.config?.executionCorridor ?? "COINDCX_BYBIT");
@@ -703,7 +703,7 @@ export default function AutoBotPanel() {
           setEnableSpreadCollapseExit(curBot.config.enableSpreadCollapseExit !== false);
           setSpreadCollapseExitBps(curBot.config.spreadCollapseExitBps ?? 25.0);
           setEnableCarryContinuation(curBot.config.enableCarryContinuation !== false);
-          setMinContinuationSpreadBps(curBot.config.minContinuationSpreadBps ?? 15);
+          setMinContinuationSpreadBps(curBot.config.minContinuationSpreadBps ?? 25);
           setLiquidityTier(curBot.config.liquidityTier ?? "MEDIUM");
           setTimingMode(curBot.config.timingMode ?? "FUNDING_SNIPER_5M");
           setSniperWindowMinutes(curBot.config.sniperWindowMinutes ?? (curBot.config.timingMode === "FUNDING_SNIPER_1M" ? 1 : 5));
@@ -2423,7 +2423,7 @@ export default function AutoBotPanel() {
                       min="10"
                       max="100"
                       value={minContinuationSpreadBps}
-                      onChange={(e) => setMinContinuationSpreadBps(parseFloat(e.target.value) || 15)}
+                      onChange={(e) => setMinContinuationSpreadBps(parseFloat(e.target.value) || 25)}
                       className="w-14 bg-zinc-950 border border-zinc-800 rounded px-1.5 py-0.5 text-zinc-100 text-[10px] font-mono text-center outline-none focus:border-emerald-500"
                     />
                     <span className="font-mono text-zinc-500 text-[9px]">bps</span>

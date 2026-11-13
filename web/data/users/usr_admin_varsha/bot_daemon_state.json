@@ -3,8 +3,8 @@
   "runInBackgroundWhenClosed": true,
   "mode": "AUTONOMOUS_SERVER_24_7",
   "startedAt": 1794307904530,
-  "lastCycleAt": 1794567884937,
-  "cyclesCompleted": 386658,
+  "lastCycleAt": 1794568516949,
+  "cyclesCompleted": 386800,
   "activeBotId": "bot-904317",
   "bots": [
     {
@@ -36,7 +36,7 @@
         "maxBidAskSpreadBps": 35,
         "maxPreTradeSlippagePct": 0.15,
         "enablePreTradeSlippageGate": true,
-        "enableSpreadCollapseExit": false,
+        "enableSpreadCollapseExit": true,
         "spreadCollapseExitBps": 15,
         "scanIntervalSeconds": 5,
         "timingMode": "CONTINUOUS_SPREAD",
@@ -57,7 +57,7 @@
         "enableZeroLossGate": true,
         "enableFundingInversionCircuitBreaker": false,
         "enableCarryContinuation": true,
-        "minContinuationSpreadBps": 15
+        "minContinuationSpreadBps": 25
       },
       "flattenedCoinsBlacklist": [],
       "symbolCooldowns": {
@@ -73893,6 +73893,222 @@
       ],
       "logs": [
         {
+          "timestamp": "2026-11-13T11:15:09.038Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.520%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:14:53.764Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.09%, Diff: 3.291%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:14:42.846Z",
+          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 2718s.",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:14:39.975Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 521 pairs on Binance ⇄ Bybit. Corridor active. Candidate: MDTUSDT (Spread: 0.45%, Diff: 0.000%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:15:08.915Z",
+          "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+          "level": "info",
+          "count": 3,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:57.236Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.295%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:42.641Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.657%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:27.027Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.415%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:11.819Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.842%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:57.007Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.901%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:42.331Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.039%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:27.069Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.075%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:11.837Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.522%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:57.103Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.861%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:42.278Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.836%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:27.258Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.511%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:12.496Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.114%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:53.407Z",
+          "message": "[PRICE DIFF GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: INITUSDT spread is 1.03%, but fresh adverse diff 0.885% > stage target 0.463% (CONTINUOUS, 3190s left). Cascading to next candidate... [2]",
+          "level": "warn",
+          "count": 2,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:44.229Z",
+          "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($10.8) < $50 required for Thin Alt with 40 USDT order × 1.25x).. Cascading to next candidate...",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:42.647Z",
+          "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($42.5) < $50 required for Thin Alt with 40 USDT order × 1.25x).. Cascading to next candidate...",
+          "level": "warn",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:32.024Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 1.646%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:17.173Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.380%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:02.314Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.910%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:47.473Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.930%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:33.093Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.028%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:16.744Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.099%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:02.180Z",
+          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 4.051%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-120328",
+          "botName": "Innovation Lab (Feature Challenger) [GER]"
+        },
+        {
           "timestamp": "2026-11-13T11:04:47.162Z",
           "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 4.085%).",
           "level": "info",
@@ -73917,10 +74133,10 @@
           "botName": "Innovation Lab (Feature Challenger) [GER]"
         },
         {
-          "timestamp": "2026-11-13T11:04:47.031Z",
-          "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+          "timestamp": "2026-11-13T11:09:57.018Z",
+          "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [23]",
           "level": "info",
-          "count": 3,
+          "count": 23,
           "botId": "bot-120328",
           "botName": "Innovation Lab (Feature Challenger) [GER]"
         },
@@ -81675,236 +81891,20 @@
           "count": 1,
           "botId": "bot-120328",
           "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:47:19.814Z",
-          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: SNTUSDT (Spread: 1.52%, Diff: 75.061%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:47:09.893Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 4372s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:47:04.997Z",
-          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: SNTUSDT (Spread: 1.54%, Diff: 75.065%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:50.188Z",
-          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: SNTUSDT (Spread: 1.54%, Diff: 75.034%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:35.022Z",
-          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: SNTUSDT (Spread: 1.54%, Diff: 75.049%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:25.359Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XMRUSDT live spread collapsed to 0.04% (scanner saw 0.66%). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:24.966Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SIRENUSDT live funding unverified (stale venue data). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:23.308Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate HUMAUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-13T03:00:00.000Z vs 2026-11-13T04:00:00.000Z).). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:18.590Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XMRUSDT live funding unverified (stale venue data). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:17.921Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SIRENUSDT live spread collapsed to 0.06% (scanner saw 1.27%). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:24.559Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate PTBUSDT live funding unverified (stale venue data). Cascading to next candidate... [2]",
-          "level": "warn",
-          "count": 2,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:23.732Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate ESPORTSUSDT live spread collapsed to 0.00% (scanner saw 0.88%). Cascading to next candidate... [2]",
-          "level": "warn",
-          "count": 2,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:16.260Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate HUMAUSDT live funding unverified (stale venue data). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:14.618Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate IOSTUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 8h). Earliest countdown: 4427s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:14.519Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate PTBUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 8h). Earliest countdown: 827s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:14.434Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate HUMAUSDT on Binance ⇄ Bybit qualified with staggered intervals (1h vs 4h). Earliest countdown: 827s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:09.081Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 4432s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:05.002Z",
-          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: SNTUSDT (Spread: 1.56%, Diff: 75.049%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:50.040Z",
-          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: SNTUSDT (Spread: 1.56%, Diff: 75.026%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:35.036Z",
-          "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: SNTUSDT (Spread: 1.56%, Diff: 75.034%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:15.329Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate ESPORTSUSDT live spread collapsed to 0.00% (scanner saw 0.88%). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:14.571Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate PTBUSDT live funding unverified (stale venue data). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:46:50.077Z",
-          "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [5]",
-          "level": "info",
-          "count": 5,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:06.780Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate ESPORTSUSDT live funding unverified (stale venue data). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:05.961Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate PTBUSDT live spread collapsed to 0.00% (scanner saw 1.64%). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:13.792Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate SIRENUSDT live spread collapsed to 0.06% (scanner saw 1.27%). Cascading to next candidate... [2]",
-          "level": "warn",
-          "count": 2,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
-        },
-        {
-          "timestamp": "2026-11-13T02:45:05.160Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 4497s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-120328",
-          "botName": "Innovation Lab (Feature Challenger) [GER]"
         }
       ],
-      "statusText": "SCANNING [Binance⇄Bybit] (Top: INITUSDT - Spread: 1.03% - Cycle: 1h - Countdown: 3315s)",
+      "statusText": "SCANNING [Binance⇄Bybit] (Top: INITUSDT - Spread: 1.03% - Cycle: 1h - Countdown: 2683s)",
       "lastEvaluatedCandidate": {
         "symbol": "INITUSDT",
-        "spreadBps": 103.19,
-        "divergencePct": 4.0848,
-        "signedBasisBps": 425.87,
-        "secondsToFunding": 3315,
+        "spreadBps": 102.94,
+        "divergencePct": 3.4779,
+        "signedBasisBps": 360.32,
+        "secondsToFunding": 2683,
         "qualified": false,
-        "reason": "[STRUCTURAL DISLOCATION EXCLUSION] Price diff persistently >= 1.0% over 30m window (min: 3.987% >= 1.0%). Excluded as decoupled market."
+        "reason": "[STRUCTURAL DISLOCATION EXCLUSION] Price diff persistently >= 1.0% over 30m window (min: 3.291% >= 1.0%). Excluded as decoupled market."
       },
       "createdAt": 1793369120328,
-      "updatedAt": 1794567884937
+      "updatedAt": 1794568516949
     },
     {
       "id": "bot-904317",
@@ -81959,7 +81959,7 @@
         "enableMakerRouting": true,
         "enableZeroLossGate": true,
         "enableCarryContinuation": true,
-        "minContinuationSpreadBps": 15
+        "minContinuationSpreadBps": 25
       },
       "flattenedCoinsBlacklist": [],
       "symbolCooldowns": {
@@ -184898,6 +184898,246 @@
       ],
       "logs": [
         {
+          "timestamp": "2026-11-13T11:15:09.317Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.520%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:14:54.102Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.09%, Diff: 3.291%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:14:43.041Z",
+          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 2718s.",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:14:40.254Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 521 pairs on Binance ⇄ Bybit. Corridor active. Candidate: MDTUSDT (Spread: 0.45%, Diff: 0.000%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:15:09.204Z",
+          "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+          "level": "info",
+          "count": 3,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:57.565Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.295%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:42.951Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.657%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:31.979Z",
+          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3030s.",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:27.305Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.415%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:09:12.438Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.842%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:57.300Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.901%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:42.597Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.039%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:30.897Z",
+          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3090s.",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:27.387Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.075%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:08:12.694Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.522%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:57.408Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.861%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:42.581Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.836%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:27.692Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.511%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:27.433Z",
+          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3155s.",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:07:12.792Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.114%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:53.710Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 0.261%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:32.620Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 1.646%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:27.190Z",
+          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3215s.",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:17.475Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.380%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:06:02.634Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.910%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:47.767Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.930%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:33.415Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.028%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:26.198Z",
+          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3275s.",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:17.364Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.099%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
+          "timestamp": "2026-11-13T11:05:02.457Z",
+          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 4.051%).",
+          "level": "info",
+          "count": 1,
+          "botId": "bot-904317",
+          "botName": "Admin Lever 3 Depth Guard [ARD]"
+        },
+        {
           "timestamp": "2026-11-13T11:04:47.517Z",
           "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 4.085%).",
           "level": "info",
@@ -184930,10 +185170,10 @@
           "botName": "Admin Lever 3 Depth Guard [ARD]"
         },
         {
-          "timestamp": "2026-11-13T11:04:47.351Z",
-          "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+          "timestamp": "2026-11-13T11:09:57.444Z",
+          "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [23]",
           "level": "info",
-          "count": 3,
+          "count": 23,
           "botId": "bot-904317",
           "botName": "Admin Lever 3 Depth Guard [ARD]"
         },
@@ -192656,259 +192896,19 @@
           "count": 1,
           "botId": "bot-904317",
           "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:04:27.235Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (4m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8887) < +$0.0100 (+-14.901% < +0.30% target) (Basis: $-0.6825, Funding: +$-0.1467, Fees: -$0.0595). Holding for basis parity reversion (OU zScore: 7.7, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:04:03.179Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate IOSTUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-13T12:00:00.000Z vs 2026-11-13T16:00:00.000Z).). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:04:02.553Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate ESPORTSUSDT live spread collapsed to 0.00% (scanner saw 0.87%). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:04:01.922Z",
-          "message": "[LIVE FUNDING UNVERIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate HUMAUSDT live funding unverified ([DESYNCHRONIZED NEXT_FUNDING_TIME] Venue settlement times do not match (2026-11-13T10:00:00.000Z vs 2026-11-13T12:00:00.000Z).). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:04:01.245Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate PTBUSDT live spread collapsed to 0.00% (scanner saw 2.28%). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:04:00.284Z",
-          "message": "[PRE-TRADE SPREAD COLLAPSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate SIRENUSDT live spread collapsed to 0.00% (scanner saw 1.42%). Cascading to next candidate...",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:03:59.398Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate IOSTUSDT on Binance ⇄ Bybit qualified with staggered intervals (4h vs 8h). Earliest countdown: 10570s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:03:59.223Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate HUMAUSDT on Binance ⇄ Bybit qualified with staggered intervals (1h vs 4h). Earliest countdown: 10569s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:03:59.075Z",
-          "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate PTBUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 8h). Earliest countdown: 10569s.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:03:00.243Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1679) < +$0.0100 (+-2.815% < +0.30% target) (Basis: $-0.01, Funding: +$-0.0988, Fees: -$0.0591). Holding for basis parity reversion (OU zScore: 7.53, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:58.804Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1654) < +$0.0100 (+-2.773% < +0.30% target) (Basis: $-0.0075, Funding: +$-0.0988, Fees: -$0.0591). Holding for basis parity reversion (OU zScore: 7.61, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:57.304Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1679) < +$0.0100 (+-2.815% < +0.30% target) (Basis: $-0.01, Funding: +$-0.0988, Fees: -$0.0591). Holding for basis parity reversion (OU zScore: 7.52, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:55.803Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1654) < +$0.0100 (+-2.773% < +0.30% target) (Basis: $-0.0075, Funding: +$-0.0988, Fees: -$0.0591). Holding for basis parity reversion (OU zScore: 7.6, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:54.209Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1679) < +$0.0100 (+-2.815% < +0.30% target) (Basis: $-0.01, Funding: +$-0.0988, Fees: -$0.0591). Holding for basis parity reversion (OU zScore: 7.5, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:52.758Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.2133) < +$0.0100 (+-3.576% < +0.30% target) (Basis: $-0.0075, Funding: +$-0.1467, Fees: -$0.0591). Holding for basis parity reversion (OU zScore: 7.58, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:49.910Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8869) < +$0.0100 (+-14.871% < +0.30% target) (Basis: $-0.6805, Funding: +$-0.1467, Fees: -$0.0597). Holding for basis parity reversion (OU zScore: 14.84, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:48.979Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8889) < +$0.0100 (+-14.904% < +0.30% target) (Basis: $-0.6825, Funding: +$-0.1467, Fees: -$0.0597). Holding for basis parity reversion (OU zScore: 14.9, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:47.514Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (3m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9039) < +$0.0100 (+-15.156% < +0.30% target) (Basis: $-0.6975, Funding: +$-0.1467, Fees: -$0.0597). Holding for basis parity reversion (OU zScore: 15.47, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:13.961Z",
-          "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.49%, Diff: 2.278%).",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:13.845Z",
-          "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:13.701Z",
-          "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate INITUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
-          "level": "info",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:09.588Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.894) < +$0.0100 (+-14.99% < +0.30% target) (Basis: $-0.6876, Funding: +$-0.1467, Fees: -$0.0597). Holding for basis parity reversion (OU zScore: 15.36, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:08.681Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9189) < +$0.0100 (+-15.407% < +0.30% target) (Basis: $-0.7125, Funding: +$-0.1467, Fees: -$0.0597). Holding for basis parity reversion (OU zScore: 16.21, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:07.622Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9189) < +$0.0100 (+-15.407% < +0.30% target) (Basis: $-0.7125, Funding: +$-0.1467, Fees: -$0.0597). Holding for basis parity reversion (OU zScore: 16.22, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:06.708Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8913) < +$0.0100 (+-14.945% < +0.30% target) (Basis: $-0.685, Funding: +$-0.1467, Fees: -$0.0596). Holding for basis parity reversion (OU zScore: 15.3, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:05.749Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8713) < +$0.0100 (+-14.609% < +0.30% target) (Basis: $-0.665, Funding: +$-0.1467, Fees: -$0.0596). Holding for basis parity reversion (OU zScore: 14.72, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:04.801Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8763) < +$0.0100 (+-14.693% < +0.30% target) (Basis: $-0.67, Funding: +$-0.1467, Fees: -$0.0596). Holding for basis parity reversion (OU zScore: 14.88, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:03.864Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8738) < +$0.0100 (+-14.651% < +0.30% target) (Basis: $-0.6675, Funding: +$-0.1467, Fees: -$0.0596). Holding for basis parity reversion (OU zScore: 14.75, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:02.938Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8613) < +$0.0100 (+-14.442% < +0.30% target) (Basis: $-0.655, Funding: +$-0.1467, Fees: -$0.0596). Holding for basis parity reversion (OU zScore: 14.33, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
-        },
-        {
-          "timestamp": "2026-11-13T09:02:01.981Z",
-          "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (2m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.8659) < +$0.0100 (+-14.519% < +0.30% target) (Basis: $-0.6596, Funding: +$-0.1467, Fees: -$0.0596). Holding for basis parity reversion (OU zScore: 14.52, t_half: 68.97m).",
-          "level": "warn",
-          "count": 1,
-          "botId": "bot-904317",
-          "botName": "Admin Lever 3 Depth Guard [ARD]"
         }
       ],
-      "statusText": "SCANNING [Binance⇄Bybit] (Top: INITUSDT - Spread: 1.03% - Cycle: 1h - Countdown: 3315s)",
+      "statusText": "SCANNING [Binance⇄Bybit] (Top: INITUSDT - Spread: 1.03% - Cycle: 1h - Countdown: 2683s)",
       "lastEvaluatedCandidate": {
         "symbol": "INITUSDT",
-        "spreadBps": 103.19,
-        "divergencePct": 4.0848,
-        "secondsToFunding": 3315,
+        "spreadBps": 102.94,
+        "divergencePct": 3.4779,
+        "secondsToFunding": 2683,
         "qualified": false,
-        "reason": "[ANTI-CHURN QUARANTINE] Quarantined for 56m"
+        "reason": "[ANTI-CHURN QUARANTINE] Quarantined for 46m"
       },
       "createdAt": 1794330904317,
-      "updatedAt": 1794567884937
+      "updatedAt": 1794568516949
     }
   ],
   "setFiles": [
@@ -192935,7 +192935,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-11-13T11:04:19.926Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Conservative 35bps Sniper\n; Exported: 2026-11-13T11:14:36.934Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=500\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -192976,7 +192976,7 @@
         "minNetHedgeTargetPct": 0.3,
         "fastExitIntervalMs": 250
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Lever 3 (Depth Guard)\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=32\nRoundTripFeeBps=18\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=10\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.04\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=THIN\nMinNetYieldHurdleBps=10\nMaxBidAskSpreadBps=20\nMaxPreTradeSlippagePct=0.04\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=3\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=BINANCE_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Lever 3 (Depth Guard)\n; Exported: 2026-11-13T11:14:36.935Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=32\nRoundTripFeeBps=18\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=10\nMaxSimultaneousHedges=3\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.04\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=THIN\nMinNetYieldHurdleBps=10\nMaxBidAskSpreadBps=20\nMaxPreTradeSlippagePct=0.04\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=3\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=BINANCE_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -193004,7 +193004,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Aggressive Continuous Arbitrage\n; Exported: 2026-11-13T11:14:36.935Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.05\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=25\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=5\nMaxMarginCapUsdt=1000\nMaxAmountPerHedgeUsdt=50\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.05\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=CONTINUOUS_SPREAD\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -193032,7 +193032,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Balanced Institutional Harvest\n; Exported: 2026-11-13T11:14:36.935Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=20\nLeverageMode=MAX_PER_COIN\nCustomLeverage=50\nMaxSimultaneousHedges=4\nMaxMarginCapUsdt=750\nMaxAmountPerHedgeUsdt=30\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -193060,7 +193060,7 @@
         "enableFlattenMemoryLock": true,
         "allowAsymmetricFunding": true
       },
-      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Canary Micro-Staging 15USD\n; Exported: 2026-11-13T11:04:19.927Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=15\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=1\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
+      "contentText": "; ============================================================\n; AI-Hedge Delta-Neutral Quantitative Strategy Set File\n; Strategy Preset: Canary Micro-Staging 15USD\n; Exported: 2026-11-13T11:14:36.935Z\n; Compatible with: MetaTrader 4/5 & AI-Hedge Daemon Engine\n; ============================================================\nEnabled=true\nMinSpreadBps=35\nRoundTripFeeBps=25\nMaxPriceDivergencePct=0.03\nMaxDivergenceSpreadRatioPct=50\nMaxPriceDivergenceCapPct=0.5\nOptimalPriceDivergencePct=0.01\nBalanceAllocationPct=15\nLeverageMode=CUSTOM\nCustomLeverage=10\nMaxSimultaneousHedges=1\nMaxMarginCapUsdt=100\nMaxAmountPerHedgeUsdt=15\nPostSettlementWaitSeconds=15\nCloseMaxPriceDivergencePct=0.03\nTargetRoiTakeProfitPct=20\nHardRoiTakeProfitPct=50\nOrderBookDepth=MEDIUM\nMinNetYieldHurdleBps=15\nMaxBidAskSpreadBps=25\nMaxPreTradeSlippagePct=0.05\nEnablePreTradeSlippageGate=true\nEnableSpreadCollapseExit=true\nSpreadCollapseExitBps=25\nScanIntervalSeconds=5\nTimingMode=FUNDING_SNIPER_5M\nSniperWindowMinutes=5\nExecutionCorridor=COINDCX_BYBIT\nNormalCoinLeverage=20\nVolatileCoinLeverage=10\nMinNetHedgeTargetPct=0.3\nMinExitProfitUsdt=0.01\nFastExitIntervalMs=250\nEnableFlattenMemoryLock=true\nAllowAsymmetricFunding=true\nIntervalMode=ALL_ASYMMETRIC\nAllowedIntervalPairs=",
       "isBuiltIn": true,
       "createdAt": 1775000000000,
       "updatedAt": 1775000000000
@@ -193295,6 +193295,462 @@
   ],
   "logs": [
     {
+      "timestamp": "2026-11-13T11:15:09.317Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.520%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:15:09.038Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.520%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:14:54.102Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.09%, Diff: 3.291%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:14:53.764Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.09%, Diff: 3.291%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:14:43.041Z",
+      "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 2718s.",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:14:42.846Z",
+      "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 2718s.",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:14:40.254Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 521 pairs on Binance ⇄ Bybit. Corridor active. Candidate: MDTUSDT (Spread: 0.45%, Diff: 0.000%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:15:09.204Z",
+      "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+      "level": "info",
+      "count": 3,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:14:39.975Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 521 pairs on Binance ⇄ Bybit. Corridor active. Candidate: MDTUSDT (Spread: 0.45%, Diff: 0.000%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:15:08.915Z",
+      "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+      "level": "info",
+      "count": 3,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:57.565Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.295%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:57.236Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.295%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:42.951Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.657%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:42.641Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.657%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:31.979Z",
+      "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3030s.",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:27.305Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.415%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:27.027Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.415%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:12.438Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.842%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:09:11.819Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.97%, Diff: 3.842%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:57.300Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.901%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:57.007Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.901%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:42.597Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.039%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:42.331Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.039%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:30.897Z",
+      "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3090s.",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:27.387Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.075%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:27.069Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 4.075%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:12.694Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.522%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:08:11.837Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.89%, Diff: 3.522%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:57.408Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.861%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:57.103Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.861%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:42.581Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.836%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:42.278Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.836%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:27.692Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.511%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:27.433Z",
+      "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3155s.",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:27.258Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.511%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:12.792Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.114%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:07:12.496Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.81%, Diff: 3.114%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:53.710Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 0.261%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:53.407Z",
+      "message": "[PRICE DIFF GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: INITUSDT spread is 1.03%, but fresh adverse diff 0.885% > stage target 0.463% (CONTINUOUS, 3190s left). Cascading to next candidate... [2]",
+      "level": "warn",
+      "count": 2,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:44.229Z",
+      "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($10.8) < $50 required for Thin Alt with 40 USDT order × 1.25x).. Cascading to next candidate...",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:42.647Z",
+      "message": "[PRE-TRADE SLIPPAGE GATE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT skipped — ILLIQUID_BOOK_DEPTH: Top level depth too thin (Bybit ($42.5) < $50 required for Thin Alt with 40 USDT order × 1.25x).. Cascading to next candidate...",
+      "level": "warn",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:32.620Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 1.646%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:32.024Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 1.646%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:27.190Z",
+      "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3215s.",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:17.475Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.380%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:17.173Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 3.380%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:02.634Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.910%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:06:02.314Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.910%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:47.767Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.930%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:47.473Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 3.930%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:33.415Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.028%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:33.093Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.028%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:26.198Z",
+      "message": "[ASYMMETRIC FUNDING QUALIFIED] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate XCNUSDT on Binance ⇄ Bybit qualified with staggered intervals (8h vs 4h). Earliest countdown: 3275s.",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:17.364Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.099%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:16.744Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.99%, Diff: 4.099%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:02.457Z",
+      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 4.051%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-904317",
+      "botName": "Admin Lever 3 Depth Guard [ARD]"
+    },
+    {
+      "timestamp": "2026-11-13T11:05:02.180Z",
+      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 4.051%).",
+      "level": "info",
+      "count": 1,
+      "botId": "bot-120328",
+      "botName": "Innovation Lab (Feature Challenger) [GER]"
+    },
+    {
       "timestamp": "2026-11-13T11:04:47.517Z",
       "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 544 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 1.03%, Diff: 4.085%).",
       "level": "info",
@@ -193343,10 +193799,10 @@
       "botName": "Admin Lever 3 Depth Guard [ARD]"
     },
     {
-      "timestamp": "2026-11-13T11:04:47.351Z",
-      "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+      "timestamp": "2026-11-13T11:09:57.444Z",
+      "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [23]",
       "level": "info",
-      "count": 3,
+      "count": 23,
       "botId": "bot-904317",
       "botName": "Admin Lever 3 Depth Guard [ARD]"
     },
@@ -193359,10 +193815,10 @@
       "botName": "Innovation Lab (Feature Challenger) [GER]"
     },
     {
-      "timestamp": "2026-11-13T11:04:47.031Z",
-      "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [3]",
+      "timestamp": "2026-11-13T11:09:57.018Z",
+      "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions. [23]",
       "level": "info",
-      "count": 3,
+      "count": 23,
       "botId": "bot-120328",
       "botName": "Innovation Lab (Feature Challenger) [GER]"
     },
@@ -200837,462 +201293,6 @@
       "count": 1,
       "botId": "bot-904317",
       "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:29.619Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.001) < +$0.0100 (+-16.784% < +0.30% target) (Basis: $-0.795, Funding: +$-0.1467, Fees: -$0.0593). Holding for basis parity reversion (OU zScore: 5.15, t_half: 32.38m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:28.420Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9835) < +$0.0100 (+-16.491% < +0.30% target) (Basis: $-0.7775, Funding: +$-0.1467, Fees: -$0.0593). Holding for basis parity reversion (OU zScore: 4.84, t_half: 32.34m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:26.923Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9886) < +$0.0100 (+-16.576% < +0.30% target) (Basis: $-0.7825, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.91, t_half: 32.34m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:24.015Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9736) < +$0.0100 (+-16.325% < +0.30% target) (Basis: $-0.7675, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.65, t_half: 32.28m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:22.997Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9686) < +$0.0100 (+-16.241% < +0.30% target) (Basis: $-0.7625, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.56, t_half: 32.27m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:25.983Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9761) < +$0.0100 (+-16.367% < +0.30% target) (Basis: $-0.77, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.69, t_half: 32.31m). [3]",
-      "level": "warn",
-      "count": 3,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:20.949Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9811) < +$0.0100 (+-16.45% < +0.30% target) (Basis: $-0.775, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.79, t_half: 32.36m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:19.999Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9886) < +$0.0100 (+-16.576% < +0.30% target) (Basis: $-0.7825, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.92, t_half: 32.36m). [2]",
-      "level": "warn",
-      "count": 2,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:18.090Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9436) < +$0.0100 (+-15.822% < +0.30% target) (Basis: $-0.7375, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.13, t_half: 32.41m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:17.093Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9836) < +$0.0100 (+-16.492% < +0.30% target) (Basis: $-0.7775, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.86, t_half: 32.58m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:15.600Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9786) < +$0.0100 (+-16.408% < +0.30% target) (Basis: $-0.7725, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.78, t_half: 32.56m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:14.526Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9936) < +$0.0100 (+-16.66% < +0.30% target) (Basis: $-0.7875, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.05, t_half: 32.72m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:13.559Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9785) < +$0.0100 (+-16.407% < +0.30% target) (Basis: $-0.7725, Funding: +$-0.1467, Fees: -$0.0593). Holding for basis parity reversion (OU zScore: 4.81, t_half: 32.68m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:09:12.438Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (9m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9803) < +$0.0100 (+-16.437% < +0.30% target) (Basis: $-0.7743, Funding: +$-0.1467, Fees: -$0.0593). Holding for basis parity reversion (OU zScore: 4.85, t_half: 32.79m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:20.850Z",
-      "message": "[SCAN PULSE] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.60%, Diff: 2.557%).",
-      "level": "info",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:20.721Z",
-      "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions.",
-      "level": "info",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:20.569Z",
-      "message": "[RE-ENTRY GUARD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: Candidate INITUSDT skipped — active open position detected on Binance, Bybit in Live Positions.",
-      "level": "info",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:19.625Z",
-      "message": "[SCAN PULSE] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Scanned 551 pairs on Binance ⇄ Bybit. Corridor active. Candidate: INITUSDT (Spread: 0.60%, Diff: 2.557%).",
-      "level": "info",
-      "count": 1,
-      "botId": "bot-120328",
-      "botName": "Innovation Lab (Feature Challenger) [GER]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:19.514Z",
-      "message": "[RE-ENTRY GUARD] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate BTWUSDT skipped — active open position detected on Binance in Live Positions.",
-      "level": "info",
-      "count": 1,
-      "botId": "bot-120328",
-      "botName": "Innovation Lab (Feature Challenger) [GER]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:19.405Z",
-      "message": "[FLEET COLLISION GUARD (Invariant 11)] Bot \"Innovation Lab (Feature Challenger)\" [GER]: Candidate INITUSDT blocked — already claimed by active bot in BINANCE_BYBIT corridor.",
-      "level": "info",
-      "count": 1,
-      "botId": "bot-120328",
-      "botName": "Innovation Lab (Feature Challenger) [GER]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:15.686Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9784) < +$0.0100 (+-16.405% < +0.30% target) (Basis: $-0.7723, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.3, t_half: 38.99m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:14.712Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9697) < +$0.0100 (+-16.259% < +0.30% target) (Basis: $-0.7636, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.14, t_half: 38.95m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:13.757Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9834) < +$0.0100 (+-16.489% < +0.30% target) (Basis: $-0.7773, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.41, t_half: 39.07m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:12.730Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9853) < +$0.0100 (+-16.521% < +0.30% target) (Basis: $-0.7792, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.45, t_half: 39.06m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:11.809Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9878) < +$0.0100 (+-16.563% < +0.30% target) (Basis: $-0.7817, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.5, t_half: 39.1m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:10.841Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9728) < +$0.0100 (+-16.311% < +0.30% target) (Basis: $-0.7667, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.22, t_half: 39.06m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:09.674Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9753) < +$0.0100 (+-16.353% < +0.30% target) (Basis: $-0.7692, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.28, t_half: 39.13m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:08.519Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9865) < +$0.0100 (+-16.541% < +0.30% target) (Basis: $-0.7804, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.51, t_half: 39.14m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:07.365Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9765) < +$0.0100 (+-16.373% < +0.30% target) (Basis: $-0.7704, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.33, t_half: 39.3m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:06.429Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9901) < +$0.0100 (+-16.601% < +0.30% target) (Basis: $-0.784, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.58, t_half: 39.32m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:05.522Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9536) < +$0.0100 (+-15.989% < +0.30% target) (Basis: $-0.7475, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.89, t_half: 39.34m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:04.430Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9736) < +$0.0100 (+-16.325% < +0.30% target) (Basis: $-0.7675, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.26, t_half: 39.37m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:03.460Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9611) < +$0.0100 (+-16.115% < +0.30% target) (Basis: $-0.755, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.04, t_half: 39.5m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:02.465Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9611) < +$0.0100 (+-16.115% < +0.30% target) (Basis: $-0.755, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.05, t_half: 39.48m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:01.504Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9711) < +$0.0100 (+-16.283% < +0.30% target) (Basis: $-0.765, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.23, t_half: 39.45m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:08:00.348Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9542) < +$0.0100 (+-15.999% < +0.30% target) (Basis: $-0.7481, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 4.91, t_half: 39.4m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:56.578Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1651) < +$0.0100 (+-2.768% < +0.30% target) (Basis: $-0.0075, Funding: +$-0.0988, Fees: -$0.0588). Holding for basis parity reversion (OU zScore: 9.69, t_half: 43.01m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:59.452Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1651) < +$0.0100 (+-2.768% < +0.30% target) (Basis: $-0.0075, Funding: +$-0.0988, Fees: -$0.0588). Holding for basis parity reversion (OU zScore: 9.69, t_half: 42.96m). [3]",
-      "level": "warn",
-      "count": 3,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:53.342Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.1726) < +$0.0100 (+-2.894% < +0.30% target) (Basis: $-0.015, Funding: +$-0.0988, Fees: -$0.0588). Holding for basis parity reversion (OU zScore: 9.52, t_half: 43.13m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:51.191Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.971) < +$0.0100 (+-16.281% < +0.30% target) (Basis: $-0.7649, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.59, t_half: 45.45m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:50.127Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0298) < +$0.0100 (+-17.267% < +0.30% target) (Basis: $-0.8237, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.81, t_half: 45.67m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:49.192Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0098) < +$0.0100 (+-16.932% < +0.30% target) (Basis: $-0.8037, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.4, t_half: 45.57m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:47.990Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9946) < +$0.0100 (+-16.677% < +0.30% target) (Basis: $-0.7885, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.1, t_half: 45.54m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:47.043Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0011) < +$0.0100 (+-16.786% < +0.30% target) (Basis: $-0.795, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.23, t_half: 45.55m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:45.992Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0033) < +$0.0100 (+-16.823% < +0.30% target) (Basis: $-0.7972, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.29, t_half: 45.64m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:45.053Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0136) < +$0.0100 (+-16.995% < +0.30% target) (Basis: $-0.8075, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.5, t_half: 45.66m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:43.934Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0086) < +$0.0100 (+-16.911% < +0.30% target) (Basis: $-0.8025, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.41, t_half: 45.82m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:42.946Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0036) < +$0.0100 (+-16.828% < +0.30% target) (Basis: $-0.7975, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.31, t_half: 45.78m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:41.907Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0086) < +$0.0100 (+-16.911% < +0.30% target) (Basis: $-0.8025, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.42, t_half: 45.86m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:40.976Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0061) < +$0.0100 (+-16.87% < +0.30% target) (Basis: $-0.8, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.37, t_half: 45.83m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:39.826Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0161) < +$0.0100 (+-17.037% < +0.30% target) (Basis: $-0.81, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.59, t_half: 46.01m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:38.685Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9786) < +$0.0100 (+-16.408% < +0.30% target) (Basis: $-0.7725, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.81, t_half: 45.86m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:37.575Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9736) < +$0.0100 (+-16.325% < +0.30% target) (Basis: $-0.7675, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.72, t_half: 45.88m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:36.643Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9486) < +$0.0100 (+-15.905% < +0.30% target) (Basis: $-0.7425, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.22, t_half: 45.8m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:35.471Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0111) < +$0.0100 (+-16.953% < +0.30% target) (Basis: $-0.805, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.51, t_half: 46.24m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:34.339Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-1.0111) < +$0.0100 (+-16.953% < +0.30% target) (Basis: $-0.805, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 6.52, t_half: 46.22m).",
-      "level": "warn",
-      "count": 1,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
-    },
-    {
-      "timestamp": "2026-11-13T09:07:33.412Z",
-      "message": "[ZERO-LOSS GATE HOLD] Bot \"Admin Lever 3 Depth Guard\" [ARD]: INITUSDT settlement passed (8m elapsed). Blocked by Zero-Loss Gate: Net PnL ($-0.9636) < +$0.0100 (+-16.157% < +0.30% target) (Basis: $-0.7575, Funding: +$-0.1467, Fees: -$0.0594). Holding for basis parity reversion (OU zScore: 5.55, t_half: 46.05m). [2]",
-      "level": "warn",
-      "count": 2,
-      "botId": "bot-904317",
-      "botName": "Admin Lever 3 Depth Guard [ARD]"
     }
   ],
   "config": {
@@ -201342,7 +201342,7 @@
     "enableMakerRouting": true,
     "enableZeroLossGate": true,
     "enableCarryContinuation": true,
-    "minContinuationSpreadBps": 15
+    "minContinuationSpreadBps": 25
   },
   "activeHedges": [],
   "completedHedges": [
@@ -304274,13 +304274,13 @@
       "pnl": 0.1724
     }
   ],
-  "statusText": "SCANNING [Binance⇄Bybit] (Top: INITUSDT - Spread: 1.03% - Cycle: 1h - Countdown: 3315s)",
+  "statusText": "SCANNING [Binance⇄Bybit] (Top: INITUSDT - Spread: 1.03% - Cycle: 1h - Countdown: 2683s)",
   "lastEvaluatedCandidate": {
     "symbol": "INITUSDT",
-    "spreadBps": 103.19,
-    "divergencePct": 4.0848,
-    "secondsToFunding": 3315,
+    "spreadBps": 102.94,
+    "divergencePct": 3.4779,
+    "secondsToFunding": 2683,
     "qualified": false,
-    "reason": "[ANTI-CHURN QUARANTINE] Quarantined for 56m"
+    "reason": "[ANTI-CHURN QUARANTINE] Quarantined for 46m"
   }
 }
