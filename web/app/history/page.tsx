@@ -1687,7 +1687,9 @@ export default function TradeHistoryPage() {
                     key={t.id || idx}
                     className={`rounded-xl border transition-all overflow-hidden ${
                       isExpanded
-                        ? "bg-[#070e1b] border-cyan-500/50 shadow-lg shadow-cyan-950/40"
+                        ? leg.isLoss
+                          ? "bg-[#140a10] border-rose-500/50 shadow-lg shadow-rose-950/40"
+                          : "bg-[#070e1b] border-cyan-500/50 shadow-lg shadow-cyan-950/40"
                         : leg.isLoss
                         ? "bg-[#0b0e17] border-rose-900/40"
                         : "bg-[#0b0e17] border-[#1e293b]"
@@ -1696,11 +1698,15 @@ export default function TradeHistoryPage() {
                     {/* Card Top: Trade ID, Status, Hold Time, Date */}
                     <div className="p-3 border-b border-[#172238] flex items-center justify-between text-xs font-mono">
                       <div className="flex items-center space-x-2">
-                        <code className="text-cyan-300 font-bold bg-[#070c17] px-2 py-0.5 rounded border border-[#1e293b] text-[11px]">
+                        <code className={`font-bold px-2 py-0.5 rounded border text-[11px] ${
+                          leg.isLoss ? "bg-[#160a0f] text-rose-300 border-rose-900/60" : "bg-[#070c17] text-cyan-300 border-[#1e293b]"
+                        }`}>
                           {t.id}
                         </code>
                         <span className={`px-1.5 py-0.5 rounded text-[8.5px] font-bold font-mono uppercase border ${
-                          t.botLabel === "BOT 3"
+                          leg.isLoss
+                            ? "bg-rose-950/80 border-rose-500/60 text-rose-300"
+                            : t.botLabel === "BOT 3"
                             ? "bg-purple-950/80 border-purple-500 text-purple-300"
                             : t.botLabel === "BOT 1"
                             ? "bg-sky-950/80 border-sky-500 text-sky-300"
@@ -1708,7 +1714,13 @@ export default function TradeHistoryPage() {
                         }`}>
                           {t.botLabel}
                         </span>
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+                        <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase border ${
+                          leg.isLoss
+                            ? "bg-rose-950/50 border-rose-800/50 text-rose-300"
+                            : leg.isWin
+                            ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400"
+                            : "bg-zinc-800 border-zinc-700 text-zinc-400"
+                        }`}>
                           {t.status}
                         </span>
                       </div>
@@ -1795,16 +1807,22 @@ export default function TradeHistoryPage() {
 
                     {/* Mobile Explain Drawer (100% width, vertical stack, zero horizontal scroll!) */}
                     {isExpanded && (
-                      <div className="p-3.5 bg-[#050913] border-t border-cyan-500/30 space-y-3 font-mono animate-in fade-in duration-150">
+                      <div className={`p-3.5 space-y-3 font-mono animate-in fade-in duration-150 ${
+                        leg.isLoss ? "bg-[#0f070b] border-t border-rose-500/40" : "bg-[#050913] border-t border-cyan-500/30"
+                      }`}>
                         {/* Header */}
-                        <div className="flex items-center justify-between pb-2 border-b border-[#1a2842] text-[10.5px]">
+                        <div className={`flex items-center justify-between pb-2 border-b text-[10.5px] ${
+                          leg.isLoss ? "border-rose-500/20" : "border-[#1a2842]"
+                        }`}>
                           <div className="flex items-center space-x-1.5">
                             <div className={`w-2 h-2 rounded-full ${leg.isLoss ? "bg-rose-400" : "bg-emerald-400"} animate-pulse`} />
-                            <span className="text-[11px] font-black uppercase text-cyan-300">
+                            <span className={`text-[11px] font-black uppercase ${leg.isLoss ? "text-rose-300" : "text-cyan-300"}`}>
                               Dual-Leg Fill Audit
                             </span>
                             <span className={`px-1.5 py-0.2 rounded text-[8.5px] font-bold font-mono uppercase border ${
-                              t.botLabel === "BOT 3"
+                              leg.isLoss
+                                ? "bg-rose-950/80 border-rose-500/60 text-rose-300"
+                                : t.botLabel === "BOT 3"
                                 ? "bg-purple-950/80 border-purple-500 text-purple-300"
                                 : t.botLabel === "BOT 1"
                                 ? "bg-sky-950/80 border-sky-500 text-sky-300"
@@ -1969,21 +1987,21 @@ export default function TradeHistoryPage() {
                           <div className="pt-2 text-[9px] text-zinc-400 space-y-1">
                             <div className="flex items-center justify-between">
                               <span>Unwind Trigger:</span>
-                              <span className="text-cyan-300 font-bold font-mono">{leg.unwindReason}</span>
+                              <span className={`font-bold font-mono ${leg.isLoss ? "text-rose-300" : "text-cyan-300"}`}>{leg.unwindReason}</span>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Inter-Leg Delta:</span>
-                              <span className="text-emerald-400 font-bold font-mono">
+                              <span className={`font-bold font-mono ${leg.isLoss ? "text-rose-300" : "text-emerald-400"}`}>
                                 BN {leg.closeLeg1LatencyMs}ms · BYB {leg.closeLeg2LatencyMs}ms (Δ {leg.interLegDeltaMs}ms)
                               </span>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Order Retries:</span>
-                              <span className="text-emerald-400 font-bold">0 Retries (Atomic Execution)</span>
+                              <span className={`font-bold ${leg.isLoss ? "text-rose-300" : "text-emerald-400"}`}>0 Retries (Atomic Execution)</span>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Fee Duplication:</span>
-                              <span className="text-emerald-400 font-bold">0% (Pro-Rata Matches)</span>
+                              <span className={`font-bold ${leg.isLoss ? "text-rose-300" : "text-emerald-400"}`}>0% (Pro-Rata Matches)</span>
                             </div>
                             <p className="text-[8.5px] text-zinc-400 leading-tight pt-1">
                               Binance & Bybit split-fill rows represent single orders matched across liquidity depth, NOT repeated order retries. Each split only incurs its pro-rata fee.
@@ -2098,7 +2116,9 @@ export default function TradeHistoryPage() {
                           onClick={() => setExpandedTradeId(isExpanded ? null : (t.id || String(idx)))}
                           className={`cursor-pointer transition-colors ${
                             isExpanded
-                              ? "bg-cyan-950/40 border-l-2 border-cyan-400"
+                              ? leg.isLoss
+                                ? "bg-rose-950/30 border-l-2 border-rose-500"
+                                : "bg-cyan-950/40 border-l-2 border-cyan-400"
                               : leg.isLoss
                               ? "bg-rose-950/[0.04] hover:bg-rose-950/[0.12]"
                               : "hover:bg-cyan-950/[0.18]"
@@ -2106,11 +2126,17 @@ export default function TradeHistoryPage() {
                         >
                           <td className="py-2.5 px-3.5 whitespace-nowrap">
                             <div className="flex items-center space-x-1.5">
-                              <code className="text-cyan-300 font-mono font-bold bg-[#090e1a] px-2 py-0.5 rounded border border-[#1e293b]">
+                              <code className={`font-mono font-bold px-2 py-0.5 rounded border text-[11px] ${
+                                leg.isLoss
+                                  ? "bg-[#180a10] border-rose-800/60 text-rose-300"
+                                  : "bg-[#090e1a] border-[#1e293b] text-cyan-300"
+                              }`}>
                                 {t.id}
                               </code>
                               <span className={`px-1.5 py-0.5 rounded text-[8.5px] font-bold font-mono uppercase border ${
-                                t.botLabel === "BOT 3"
+                                leg.isLoss
+                                  ? "bg-rose-950/80 border-rose-500/60 text-rose-300"
+                                  : t.botLabel === "BOT 3"
                                   ? "bg-purple-950/80 border-purple-500 text-purple-300"
                                   : t.botLabel === "BOT 1"
                                   ? "bg-sky-950/80 border-sky-500 text-sky-300"
@@ -2119,9 +2145,9 @@ export default function TradeHistoryPage() {
                                 {t.botLabel}
                               </span>
                               {isExpanded ? (
-                                <ChevronUp className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                                <ChevronUp className={`w-3.5 h-3.5 shrink-0 ${leg.isLoss ? "text-rose-400" : "text-cyan-400"}`} />
                               ) : (
-                                <ChevronDown className="w-3.5 h-3.5 text-zinc-500 shrink-0 hover:text-cyan-400" />
+                                <ChevronDown className={`w-3.5 h-3.5 shrink-0 ${leg.isLoss ? "text-rose-500/70 hover:text-rose-400" : "text-zinc-500 hover:text-cyan-400"}`} />
                               )}
                             </div>
                           </td>
@@ -2197,7 +2223,13 @@ export default function TradeHistoryPage() {
                           </td>
 
                           <td className="py-2.5 px-3.5 whitespace-nowrap">
-                            <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+                            <span className={`px-2 py-0.5 rounded text-[9px] font-bold uppercase border ${
+                              leg.isLoss
+                                ? "bg-rose-950/50 border-rose-800/50 text-rose-300"
+                                : leg.isWin
+                                ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400"
+                                : "bg-zinc-800 border-zinc-700 text-zinc-400"
+                            }`}>
                               {t.status}
                             </span>
                           </td>
@@ -2209,21 +2241,37 @@ export default function TradeHistoryPage() {
 
                         {/* Collapsible Per-Exchange Explain Drawer */}
                         {isExpanded && (
-                          <tr className="bg-[#060b14] border-t border-b border-cyan-500/30 animate-in fade-in duration-150">
-                            <td colSpan={12} className="p-4 bg-gradient-to-b from-[#091322] via-[#070d18] to-[#050912]">
+                          <tr className={`border-t border-b animate-in fade-in duration-150 ${
+                            leg.isLoss ? "bg-[#0c0508] border-rose-500/40" : "bg-[#060b14] border-cyan-500/30"
+                          }`}>
+                            <td colSpan={12} className={`p-4 bg-gradient-to-b ${
+                              leg.isLoss
+                                ? "from-[#140810] via-[#0d050a] to-[#070305]"
+                                : "from-[#091322] via-[#070d18] to-[#050912]"
+                            }`}>
                               <div className="space-y-3.5 max-w-7xl mx-auto">
                                 {/* Header Bar */}
-                                <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#1b2a47]">
+                                <div className={`flex flex-wrap items-center justify-between gap-3 pb-3 border-b ${
+                                  leg.isLoss ? "border-rose-500/25" : "border-[#1b2a47]"
+                                }`}>
                                   <div className="flex items-center space-x-2.5">
                                     <div className={`w-2.5 h-2.5 rounded-full ${leg.isLoss ? "bg-rose-400" : "bg-emerald-400"} animate-pulse`} />
-                                    <span className="text-[12px] font-black uppercase tracking-wider text-cyan-300 font-mono">
+                                    <span className={`text-[12px] font-black uppercase tracking-wider font-mono ${
+                                      leg.isLoss ? "text-rose-300" : "text-cyan-300"
+                                    }`}>
                                       Audited Dual-Leg Settlement & Exchange Breakdown
                                     </span>
-                                    <span className="text-[10px] bg-cyan-950/80 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800/60 font-mono">
+                                    <span className={`text-[10px] px-2 py-0.5 rounded font-mono ${
+                                      leg.isLoss
+                                        ? "bg-rose-950/80 text-rose-300 border border-rose-800/60"
+                                        : "bg-cyan-950/80 text-cyan-400 border border-cyan-800/60"
+                                    }`}>
                                       {t.id} · {t.symbol}
                                     </span>
                                     <span className={`text-[10px] px-2 py-0.5 rounded font-mono font-bold border ${
-                                      t.botLabel === "BOT 3"
+                                      leg.isLoss
+                                        ? "bg-rose-950/80 border-rose-500/60 text-rose-300"
+                                        : t.botLabel === "BOT 3"
                                         ? "bg-purple-950/80 border-purple-500 text-purple-300"
                                         : t.botLabel === "BOT 1"
                                         ? "bg-sky-950/80 border-sky-500 text-sky-300"
@@ -2412,21 +2460,21 @@ export default function TradeHistoryPage() {
                                     <div className="mt-2.5 pt-2 border-t border-zinc-800/80 text-[9.5px] space-y-1">
                                       <div className="flex items-center justify-between text-zinc-400">
                                         <span>Unwind Trigger:</span>
-                                        <span className="text-cyan-300 font-bold font-mono">{leg.unwindReason}</span>
+                                        <span className={`font-bold font-mono ${leg.isLoss ? "text-rose-300" : "text-cyan-300"}`}>{leg.unwindReason}</span>
                                       </div>
                                       <div className="flex items-center justify-between text-zinc-400">
                                         <span>Inter-Leg Latency:</span>
-                                        <span className="text-emerald-400 font-bold font-mono">
+                                        <span className={`font-bold font-mono ${leg.isLoss ? "text-rose-300" : "text-emerald-400"}`}>
                                           BN {leg.closeLeg1LatencyMs}ms · BYB {leg.closeLeg2LatencyMs}ms (Δ {leg.interLegDeltaMs}ms)
                                         </span>
                                       </div>
                                       <div className="flex items-center justify-between text-zinc-400">
                                         <span>Order Retries:</span>
-                                        <span className="text-emerald-400 font-bold">0 Retries (Atomic Execution)</span>
+                                        <span className={`font-bold ${leg.isLoss ? "text-rose-300" : "text-emerald-400"}`}>0 Retries (Atomic Execution)</span>
                                       </div>
                                       <div className="flex items-center justify-between text-zinc-400">
                                         <span>Fee Duplication:</span>
-                                        <span className="text-emerald-400 font-bold">0% Duplication (Pro-Rata Matches)</span>
+                                        <span className={`font-bold ${leg.isLoss ? "text-rose-300" : "text-emerald-400"}`}>0% Duplication (Pro-Rata Matches)</span>
                                       </div>
                                       <p className="text-[8.5px] text-zinc-400 leading-tight pt-1">
                                         Binance & Bybit split-fill rows represent single orders matched across liquidity depth, NOT repeated order retries. Each split only incurs its pro-rata fee.
