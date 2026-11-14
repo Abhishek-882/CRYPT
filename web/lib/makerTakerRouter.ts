@@ -361,8 +361,52 @@ export class MakerTakerRouter {
           if (cancelRes?.data?.executedQty) {
             lastExecutedQty = parseFloat(cancelRes.data.executedQty || "0");
           }
+          if (cancelRes?.data?.avgPrice) {
+            lastAvgPrice = parseFloat(cancelRes.data.avgPrice || "0") || lastAvgPrice;
+          }
         } catch {
-          // Cancel attempted
+          // Cancel attempted - order may have already filled or expired
+        }
+
+        // CRITICAL ZERO-ORPHAN RECONCILIATION: Always query definitive exchange status.
+        // If the order already filled before or during cancellation, DELETE throws an error (-2011),
+        // which previously caused the engine to falsely assume executedQty = 0 and leave Leg 1 orphaned.
+        try {
+          const verifyRes = await signAndFetchBinance(
+            creds.apiKey,
+            creds.apiSecret,
+            "GET",
+            "/fapi/v1/order",
+            { symbol: req.symbol, orderId: exchangeOrderId },
+            true,
+            creds.endpoint
+          );
+          if (verifyRes?.data) {
+            const vStatus = verifyRes.data.status;
+            const vExecQty = parseFloat(verifyRes.data.executedQty || "0");
+            const vAvgPrice = parseFloat(verifyRes.data.avgPrice || "0");
+            if (vExecQty > lastExecutedQty) lastExecutedQty = vExecQty;
+            if (vAvgPrice > 0) lastAvgPrice = vAvgPrice;
+
+            if (vStatus === "FILLED" || (lastExecutedQty >= req.quantity && req.quantity > 0)) {
+              return {
+                filled: true,
+                cancelled: false,
+                orderId: exchangeOrderId,
+                clientOrderId,
+                venue: req.venue,
+                symbol: req.symbol,
+                side: req.side,
+                price: lastAvgPrice,
+                quantity: req.quantity,
+                executedQty: lastExecutedQty || req.quantity,
+                feeSavedBps: 30, // Saved 30 bps taker fee on Binance
+                durationMs: Date.now() - start,
+              };
+            }
+          }
+        } catch {
+          // Reconciliation attempt complete; fall back to lastExecutedQty
         }
 
         if (lastExecutedQty > 0) {
