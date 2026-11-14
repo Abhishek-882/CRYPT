@@ -428,10 +428,13 @@ export function getVerifiedCredentialsForTenant(
   };
 }
 
+// Flapping protection: symbol -> array of abort epoch timestamps in ms
+const symbolDepthAbortHistory = new Map<string, number[]>();
+
 export const DEFAULT_CONFIG: BotConfig = {
   enabled: true,
-  minSpreadBps: 35.0, // 0.35% minimum required gross funding spread to clear round-trip taker commissions
-  roundTripFeeBps: 25.0, // 25 bps (0.25%) default round-trip fee hurdle
+  minSpreadBps: 45.0, // 0.45% minimum required gross funding spread to clear round-trip taker commissions + safety buffer
+  roundTripFeeBps: 22.0, // 22 bps default round-trip fee hurdle
   maxPriceDivergencePct: 0.05,
   maxDivergenceSpreadRatioPct: 50,
   maxPriceDivergenceCapPct: 0.50,
@@ -3599,9 +3602,31 @@ export async function executeDualHedgeEntry(
   );
 
   if (!preExecSlippage.passed) {
+    const upperSym = symbol.toUpperCase();
+    const nowMs = Date.now();
+    const abortTimes = (symbolDepthAbortHistory.get(upperSym) || []).filter((t) => t >= nowMs - 15 * 60 * 1000);
+    abortTimes.push(nowMs);
+    symbolDepthAbortHistory.set(upperSym, abortTimes);
+
+    let flappingNote = "";
+    if (abortTimes.length >= 2) {
+      const botObj = state.bots.find((b) => b.id === botId);
+      if (botObj) {
+        quarantineBotSymbol(
+          botObj,
+          upperSym,
+          3600,
+          `Liquidity flapping protection: ${upperSym} failed depth/slippage checks ${abortTimes.length} times within 15m (${preExecSlippage.reason})`,
+          state,
+          userId
+        );
+        flappingNote = ` [FLAPPING GUARD: Quarantined for 1 hour after ${abortTimes.length} aborts in 15m]`;
+      }
+    }
+
     appendBotLog(
       state,
-      `[PRE-EXEC SLIPPAGE GATE] Bot "${botName}": At dispatch microsecond, ${symbol} failed friction check: ${preExecSlippage.reason}. Dispatch aborted to prevent fee/slippage burn.`,
+      `[PRE-EXEC SLIPPAGE GATE] Bot "${botName}": At dispatch microsecond, ${symbol} failed friction check: ${preExecSlippage.reason}.${flappingNote} Dispatch aborted to prevent fee/slippage burn.`,
       "warn",
       userId
     );
@@ -5965,7 +5990,13 @@ export async function evaluateAndProcessActiveHedges(
         ? (liveSyncCheck.macroNextFundingTime || (now + (hedge.venueBIntervalHours || 4) * 3600 * 1000))
         : (liveSyncCheck.venueANextFundingTime || (now + 4 * 3600 * 1000));
 
-      if (isProfitableContinuation && nextTargetSettlement > now + 60000) {
+      // SAFETY UPGRADE: CARRY CONTINUATION SOLVENCY GATE
+      // 1. Never roll carry if claimed funding was negative (paid debit to exchange instead of collecting yield)
+      const hasNegativeFunding = typeof hedge.fundingClaimedUsdt === "number" && hedge.fundingClaimedUsdt < 0;
+      // 2. Never roll carry if mark price divergence has expanded beyond 0.50% (50 bps)
+      const isDivergenceTooWide = freshPrices.divergencePct > (config.maxPriceDivergenceCapPct ?? 0.50);
+
+      if (isProfitableContinuation && !hasNegativeFunding && !isDivergenceTooWide && nextTargetSettlement > now + 60000) {
         hedge.cyclesHarvested = (hedge.cyclesHarvested || 1) + 1;
         hedge.lastHarvestedSettlementTime = hedge.fundingSettlementTime;
         hedge.fundingSettlementTime = nextTargetSettlement;
@@ -5983,6 +6014,14 @@ export async function evaluateAndProcessActiveHedges(
         );
         survivingHedges.push(hedge);
         continue;
+      } else if (isProfitableContinuation && (hasNegativeFunding || isDivergenceTooWide)) {
+        appendBotLog(
+          state,
+          `[CARRY CONTINUATION BLOCKED BY SOLVENCY GATE] Bot "${bot.name}": ${hedge.symbol} projected forward spread (+${(nextYieldBps / 100).toFixed(3)}%) was lucrative, but rolling carry blocked for capital safety: ${hasNegativeFunding ? `Negative claimed funding (${hedge.fundingClaimedUsdt} USDT)` : `Price divergence expanded (${freshPrices.divergencePct.toFixed(3)}% > ${(config.maxPriceDivergenceCapPct ?? 0.50)}% cap)`}. Proceeding to zero-loss exit evaluation.`,
+          "warn",
+          user.id,
+          bot.id
+        );
       }
     }
 
