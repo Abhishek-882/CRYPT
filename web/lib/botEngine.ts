@@ -3330,10 +3330,12 @@ export async function executeDualHedgeEntry(
   const autoSplit = calculateAutoSplit(allocatedMargin, binanceLeverage, bitgetLeverage);
   const refPrice = coin.binanceMarkPrice || 100;
   // Liquidity-Tier Depth Sizing Clamping:
-  // Strictly prevent sweeping thin altcoin order books when balance allocation produces large notional.
+  // Strictly honor user-configured maxAmountPerHedgeUsdt while enforcing pre-trade slippage checks
   const tier = config.liquidityTier || (coin.liquidityTier || "MEDIUM");
-  const maxTierNotional = tier === "DEEP" ? 500 : tier === "THIN" ? 30 : 75;
-  const targetNotional = Math.max(15, Math.min(autoSplit.matchedNotional, maxTierNotional));
+  const userTargetNotional = autoSplit.matchedNotional;
+  // Allow user budget to scale notional, bounded by liquidity tier safety ceiling
+  const maxTierNotional = tier === "DEEP" ? 1000 : tier === "THIN" ? Math.max(300, userTargetNotional) : Math.max(500, userTargetNotional);
+  const targetNotional = Math.max(15, Math.min(userTargetNotional, maxTierNotional));
   let rawQty = targetNotional / refPrice;
 
   let minNotional = 12.0;

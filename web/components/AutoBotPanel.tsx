@@ -1403,6 +1403,11 @@ export default function AutoBotPanel() {
 
                 {renderCorridorBadges()}
 
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold border border-emerald-500/40 bg-emerald-950/60 text-emerald-300 flex items-center space-x-1" title="Configured maximum margin budget per hedge">
+                  <DollarSign className="w-3 h-3 text-emerald-400" />
+                  <span>MAX/HEDGE: ${activeBot?.config?.maxAmountPerHedgeUsdt ?? 40} USDT (${((activeBot?.config?.maxAmountPerHedgeUsdt ?? 40) / 2).toFixed(0)}/side)</span>
+                </span>
+
                 {(() => {
                   const effectiveMode: FundingIntervalMode =
                     activeBot?.config?.intervalMode ||
@@ -1814,6 +1819,10 @@ export default function AutoBotPanel() {
             <span className="text-zinc-500 text-[10px]">
               / {activeBot?.config?.maxSimultaneousHedges ?? 3} MAX
             </span>
+          </div>
+          <div className="text-[9px] text-zinc-400 mt-1 font-mono flex items-center justify-between border-t border-zinc-800/60 pt-1">
+            <span className="text-zinc-500">MAX / HEDGE:</span>
+            <span className="text-emerald-400 font-bold">${activeBot?.config?.maxAmountPerHedgeUsdt ?? 40} (${((activeBot?.config?.maxAmountPerHedgeUsdt ?? 40) / 2).toFixed(0)}/side)</span>
           </div>
         </div>
 
@@ -2710,14 +2719,15 @@ export default function AutoBotPanel() {
               </div>
             </div>
 
-            {/* 4. BUDGET PER HEDGE */}
+            {/* 4. MAX USDT CAN BE USED PER HEDGE (BUDGET) */}
             <div className="p-3 rounded-xl bg-zinc-900/70 border border-zinc-800 space-y-2">
               <div className="flex items-center justify-between">
-                <label className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
-                  BUDGET PER HEDGE
+                <label className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <DollarSign className="w-3 h-3 text-emerald-400" />
+                  <span>MAX USDT CAN BE USED PER HEDGE</span>
                 </label>
                 <span className="text-[9px] font-mono text-emerald-400 font-bold">
-                  ${maxAmountPerHedgeUsdt} USDT
+                  ${maxAmountPerHedgeUsdt} USDT (${(maxAmountPerHedgeUsdt / 2).toFixed(0)}/side)
                 </span>
               </div>
               <input
@@ -2730,7 +2740,7 @@ export default function AutoBotPanel() {
                 className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-1.5 text-zinc-100 text-xs focus:border-amber-500 outline-none font-mono"
               />
               <div className="flex gap-1 pt-0.5">
-                {[20, 30, 40, 50, 100, 200].map((b) => (
+                {[20, 30, 40, 50, 100, 200, 400].map((b) => (
                   <button
                     key={b}
                     type="button"
@@ -2746,7 +2756,7 @@ export default function AutoBotPanel() {
                 ))}
               </div>
               <div className="text-[9.5px] text-zinc-500 font-mono pt-0.5">
-                Total margin budget (${(maxAmountPerHedgeUsdt / 2).toFixed(0)}/side). Leveraged order notional scales up with leverage.
+                Maximum total margin budget (${(maxAmountPerHedgeUsdt / 2).toFixed(0)} USDT margin per exchange). Leveraged order notional scales up with leverage (e.g. $40 budget @ 10x = $200 notional per side).
               </div>
             </div>
 
