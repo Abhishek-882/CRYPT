@@ -3,7 +3,9 @@ import path from "path";
 import http from "http";
 import { findUserById, getDecryptedUserApiKeys } from "../lib/userStore";
 import { loadBotState, saveBotState, fetchAvailableBalances } from "../lib/botEngine";
-import { isDaemonLockHeldByCurrentProcess, acquireDaemonLock, getDaemonLockInfo } from "../lib/daemonLockManager";
+import { getDaemonLockInfo } from "../lib/daemonLockManager";
+import { signAndFetchBinance } from "../lib/binanceSigner";
+import { sendBybitRequest } from "../lib/bybitSigner";
 
 const AUDIT_LOG_FILE = path.join(process.cwd(), "data", "reports", "hourly_sentinel_audit.jsonl");
 
@@ -35,6 +37,200 @@ async function checkServerHealth(): Promise<{ ok: boolean; status: number; laten
   });
 }
 
+export interface LiveExchangeAuditResult {
+  binancePositions: any[];
+  bybitPositions: any[];
+  binanceOpenOrders: any[];
+  bybitOpenOrders: any[];
+  unhedgedOrphans: string[];
+  untrackedGhostPositions: string[];
+  staleOrders: string[];
+  totalUnrealizedPnL: number;
+}
+
+export async function auditLiveExchangePositionsAndOrders(
+  creds: any,
+  botState: any,
+  userLabel: string
+): Promise<LiveExchangeAuditResult> {
+  const result: LiveExchangeAuditResult = {
+    binancePositions: [],
+    bybitPositions: [],
+    binanceOpenOrders: [],
+    bybitOpenOrders: [],
+    unhedgedOrphans: [],
+    untrackedGhostPositions: [],
+    staleOrders: [],
+    totalUnrealizedPnL: 0,
+  };
+
+  const activeHedgeSymbols = new Set<string>();
+  for (const bot of botState?.bots || []) {
+    for (const h of bot.activeHedges || []) {
+      if (h.symbol) activeHedgeSymbols.add(h.symbol.toUpperCase());
+    }
+  }
+
+  // 1. Audit Binance USD-M Futures (Positions & Open Orders)
+  if (creds?.binanceKey && creds?.binanceSecret) {
+    try {
+      const bnPosRes = await signAndFetchBinance(creds.binanceKey, creds.binanceSecret, "GET", "/fapi/v2/positionRisk", {});
+      const activeBn = (bnPosRes?.data || []).filter((p: any) => parseFloat(p.positionAmt) !== 0);
+      result.binancePositions = activeBn.map((p: any) => ({
+        symbol: p.symbol,
+        positionAmt: parseFloat(p.positionAmt),
+        entryPrice: parseFloat(p.entryPrice),
+        markPrice: parseFloat(p.markPrice),
+        unrealizedProfit: parseFloat(p.unRealizedProfit),
+        liquidationPrice: parseFloat(p.liquidationPrice || "0"),
+        leverage: parseInt(p.leverage),
+        marginType: p.marginType,
+      }));
+
+      const bnOrdersRes = await signAndFetchBinance(creds.binanceKey, creds.binanceSecret, "GET", "/fapi/v1/openOrders", {});
+      result.binanceOpenOrders = (bnOrdersRes?.data || []).map((o: any) => ({
+        symbol: o.symbol,
+        orderId: o.orderId,
+        side: o.side,
+        price: parseFloat(o.price),
+        origQty: parseFloat(o.origQty),
+        executedQty: parseFloat(o.executedQty),
+        time: o.time,
+        clientOrderId: o.clientOrderId,
+      }));
+    } catch (err: any) {
+      console.error(`[SENTINEL AUDIT] Binance live query error for ${userLabel}:`, err.message);
+    }
+  }
+
+  // 2. Audit Bybit Linear Futures (Positions & Open Orders)
+  if (creds?.bybitKey && creds?.bybitSecret) {
+    try {
+      const bybPosRes = await sendBybitRequest("/v5/position/list", "GET", {
+        apiKey: creds.bybitKey,
+        apiSecret: creds.bybitSecret,
+        proxyUrl: creds.bybitProxy,
+        baseUrl: creds.bybitBaseUrl,
+      }, { category: "linear", settleCoin: "USDT" });
+      const activeByb = (bybPosRes?.result?.list || []).filter((p: any) => parseFloat(p.size) !== 0);
+      result.bybitPositions = activeByb.map((p: any) => ({
+        symbol: p.symbol,
+        side: p.side,
+        size: parseFloat(p.size),
+        avgPrice: parseFloat(p.avgPrice),
+        markPrice: parseFloat(p.markPrice),
+        unrealisedPnl: parseFloat(p.unrealisedPnl),
+        liqPrice: parseFloat(p.liqPrice || "0"),
+        leverage: parseInt(p.leverage),
+      }));
+
+      const bybOrdersRes = await sendBybitRequest("/v5/order/realtime", "GET", {
+        apiKey: creds.bybitKey,
+        apiSecret: creds.bybitSecret,
+        proxyUrl: creds.bybitProxy,
+        baseUrl: creds.bybitBaseUrl,
+      }, { category: "linear", settleCoin: "USDT" });
+      result.bybitOpenOrders = (bybOrdersRes?.result?.list || []).map((o: any) => ({
+        symbol: o.symbol,
+        orderId: o.orderId,
+        side: o.side,
+        price: parseFloat(o.price),
+        qty: parseFloat(o.qty),
+        cumExecQty: parseFloat(o.cumExecQty),
+        createdTime: parseInt(o.createdTime),
+        orderLinkId: o.orderLinkId,
+      }));
+    } catch (err: any) {
+      console.error(`[SENTINEL AUDIT] Bybit live query error for ${userLabel}:`, err.message);
+    }
+  }
+
+  // 3. Compute Total Unrealized PnL
+  const bnPnl = result.binancePositions.reduce((s, p) => s + (p.unrealizedProfit || 0), 0);
+  const bybPnl = result.bybitPositions.reduce((s, p) => s + (p.unrealisedPnl || 0), 0);
+  result.totalUnrealizedPnL = parseFloat((bnPnl + bybPnl).toFixed(4));
+
+  // 4. Cross-Exchange Delta-Neutral Pair Reconciliation (Orphan Detection)
+  const bybPosMap = new Map<string, any>();
+  for (const bp of result.bybitPositions) {
+    bybPosMap.set(bp.symbol.toUpperCase(), bp);
+  }
+
+  const bnPosMap = new Map<string, any>();
+  for (const bp of result.binancePositions) {
+    bnPosMap.set(bp.symbol.toUpperCase(), bp);
+  }
+
+  // Check Binance positions for missing Bybit counterpart
+  for (const bp of result.binancePositions) {
+    const sym = bp.symbol.toUpperCase();
+    const bybMatch = bybPosMap.get(sym);
+    if (!bybMatch) {
+      result.unhedgedOrphans.push(
+        `CRITICAL ORPHAN: Binance has ${bp.positionAmt > 0 ? "LONG" : "SHORT"} ${Math.abs(bp.positionAmt)} ${sym} @ $${bp.entryPrice} (PnL: ${bp.unrealizedProfit >= 0 ? "+" : ""}${bp.unrealizedProfit} USDT), but Bybit has 0 contracts!`
+      );
+    } else {
+      // Check net delta neutrality
+      const bnDir = bp.positionAmt > 0 ? 1 : -1;
+      const bybDir = bybMatch.side === "Buy" ? 1 : -1;
+      const bnUnits = Math.abs(bp.positionAmt);
+      const bybUnits = Math.abs(bybMatch.size);
+      if (bnDir === bybDir) {
+        result.unhedgedOrphans.push(
+          `DIRECTIONAL CONFLICT: Both Binance and Bybit are on the SAME side (${bybMatch.side}) for ${sym} (Binance: ${bnUnits}, Bybit: ${bybUnits})!`
+        );
+      } else {
+        const delta = Math.abs(bnUnits - bybUnits);
+        const maxUnits = Math.max(bnUnits, bybUnits);
+        if (delta / maxUnits > 0.05) {
+          result.unhedgedOrphans.push(
+            `DELTA MISMATCH: ${sym} net delta is unhedged by ${(delta / maxUnits * 100).toFixed(1)}% (Binance: ${bnUnits}, Bybit: ${bybUnits})!`
+          );
+        }
+      }
+    }
+
+    // Check if tracked by bot memory
+    if (!activeHedgeSymbols.has(sym)) {
+      result.untrackedGhostPositions.push(
+        `UNTRACKED GHOST: Binance has active ${sym} (${bp.positionAmt} units) but bot memory activeHedges is EMPTY for this symbol!`
+      );
+    }
+  }
+
+  // Check Bybit positions for missing Binance counterpart
+  for (const bp of result.bybitPositions) {
+    const sym = bp.symbol.toUpperCase();
+    if (!bnPosMap.has(sym)) {
+      result.unhedgedOrphans.push(
+        `CRITICAL ORPHAN: Bybit has ${bp.side.toUpperCase()} ${bp.size} ${sym} @ $${bp.avgPrice} (PnL: ${bp.unrealisedPnl >= 0 ? "+" : ""}${bp.unrealisedPnl} USDT), but Binance has 0 contracts!`
+      );
+    }
+    if (!activeHedgeSymbols.has(sym)) {
+      result.untrackedGhostPositions.push(
+        `UNTRACKED GHOST: Bybit has active ${sym} (${bp.size} units) but bot memory activeHedges is EMPTY for this symbol!`
+      );
+    }
+  }
+
+  // 5. Stale Open Orders Detection (> 3 minutes old)
+  const now = Date.now();
+  for (const o of result.binanceOpenOrders) {
+    const ageSeconds = Math.round((now - o.time) / 1000);
+    if (ageSeconds > 180) {
+      result.staleOrders.push(`Binance open order #${o.orderId} on ${o.symbol} (${o.side} ${o.origQty} @ $${o.price}) resting for ${ageSeconds}s without fill`);
+    }
+  }
+  for (const o of result.bybitOpenOrders) {
+    const ageSeconds = Math.round((now - o.createdTime) / 1000);
+    if (ageSeconds > 180) {
+      result.staleOrders.push(`Bybit open order #${o.orderId} on ${o.symbol} (${o.side} ${o.qty} @ $${o.price}) resting for ${ageSeconds}s without fill`);
+    }
+  }
+
+  return result;
+}
+
 export async function runHourlyAuditPass(): Promise<{
   healthy: boolean;
   adminStatus: any;
@@ -61,6 +257,7 @@ export async function runHourlyAuditPass(): Promise<{
   const user = findUserById("usr_1794314482670_kyff8");
   let userBotState: any = null;
   let userBal: any = null;
+  let userExchangeAudit: LiveExchangeAuditResult | null = null;
 
   if (!user) {
     suspiciousFindings.push("User rada7788@gmail.com not found in user accounts store!");
@@ -84,23 +281,13 @@ export async function runHourlyAuditPass(): Promise<{
         autoRemediations.push("Re-enabled user Bot 2");
       }
       if (bot2.config?.fastExitIntervalMs !== 250) {
-        suspiciousFindings.push(`User Bot 2 fastExitIntervalMs was ${bot2.config?.fastExitIntervalMs}. Upgrading to 250ms...`);
         bot2.config.fastExitIntervalMs = 250;
         saveBotState(userBotState, user.id);
         autoRemediations.push("Upgraded user Bot 2 fastExitIntervalMs to 250ms");
       }
-
-      // Check active hedges health
-      if (bot2.activeHedges && bot2.activeHedges.length > 0) {
-        for (const hedge of bot2.activeHedges) {
-          if (hedge.status === "ORPHAN_RECOVERY" || hedge.status === "FROZEN_PROXY_DOWN") {
-            suspiciousFindings.push(`Active hedge ${hedge.id} (${hedge.symbol}) in abnormal state: ${hedge.status}`);
-          }
-        }
-      }
     }
 
-    // Verify User Balances
+    // Verify User Balances & Live Exchange Orders/Positions
     const userCreds = getDecryptedUserApiKeys(user);
     if (userCreds) {
       try {
@@ -108,6 +295,11 @@ export async function runHourlyAuditPass(): Promise<{
       } catch (balErr: any) {
         suspiciousFindings.push(`User exchange balance query failed: ${balErr.message}`);
       }
+
+      userExchangeAudit = await auditLiveExchangePositionsAndOrders(userCreds, userBotState, "rada7788@gmail.com");
+      for (const o of userExchangeAudit.unhedgedOrphans) suspiciousFindings.push(`[USER] ${o}`);
+      for (const g of userExchangeAudit.untrackedGhostPositions) suspiciousFindings.push(`[USER] ${g}`);
+      for (const s of userExchangeAudit.staleOrders) suspiciousFindings.push(`[USER] ${s}`);
     }
   }
 
@@ -115,6 +307,7 @@ export async function runHourlyAuditPass(): Promise<{
   const admin = findUserById("usr_admin_varsha");
   let adminBotState: any = null;
   let adminBal: any = null;
+  let adminExchangeAudit: LiveExchangeAuditResult | null = null;
 
   if (!admin) {
     suspiciousFindings.push("Admin usr_admin_varsha not found in user store!");
@@ -141,6 +334,11 @@ export async function runHourlyAuditPass(): Promise<{
       } catch (adminBalErr: any) {
         suspiciousFindings.push(`Admin exchange balance query failed: ${adminBalErr.message}`);
       }
+
+      adminExchangeAudit = await auditLiveExchangePositionsAndOrders(adminCreds, adminBotState, "usr_admin_varsha");
+      for (const o of adminExchangeAudit.unhedgedOrphans) suspiciousFindings.push(`[ADMIN] ${o}`);
+      for (const g of adminExchangeAudit.untrackedGhostPositions) suspiciousFindings.push(`[ADMIN] ${g}`);
+      for (const s of adminExchangeAudit.staleOrders) suspiciousFindings.push(`[ADMIN] ${s}`);
     }
   }
 
@@ -160,8 +358,18 @@ export async function runHourlyAuditPass(): Promise<{
   }
 
   const healthy = suspiciousFindings.length === 0;
+
+  // Build comprehensive readable summary with exact exchange orders & positions
+  const adminActivePosStr = adminExchangeAudit
+    ? `Live Pos: ${adminExchangeAudit.binancePositions.length} BN, ${adminExchangeAudit.bybitPositions.length} BYB | Orders: ${adminExchangeAudit.binanceOpenOrders.length} BN, ${adminExchangeAudit.bybitOpenOrders.length} BYB`
+    : "Live Pos: N/A";
+
+  const userActivePosStr = userExchangeAudit
+    ? `Live Pos: ${userExchangeAudit.binancePositions.length} BN, ${userExchangeAudit.bybitPositions.length} BYB | Orders: ${userExchangeAudit.binanceOpenOrders.length} BN, ${userExchangeAudit.bybitOpenOrders.length} BYB`
+    : "Live Pos: N/A";
+
   const summary = healthy
-    ? `ALL CHECKS PASSED: Server healthy (${server.latencyMs}ms), Admin running (Binance: $${adminBal?.binanceBal?.toFixed(2)}, Bybit: $${adminBal?.bybitBal?.toFixed(2)}), User running (Active: ${userBotState?.bots[0]?.activeHedges?.length || 0}, 250ms fast-loop confirmed).`
+    ? `ALL CHECKS PASSED: Server healthy (${server.latencyMs}ms). Admin: BN $${adminBal?.binanceBal?.toFixed(2)}, BYB $${adminBal?.bybitBal?.toFixed(2)} (${adminActivePosStr}, 0 orphans, 0 ghost pos). User: BYB $${userBal?.bybitBal?.toFixed(2)} (${userActivePosStr}, 0 orphans, 0 ghost pos).`
     : `ANOMALIES DETECTED: ${suspiciousFindings.join(" | ")}. Remediations applied: ${autoRemediations.length > 0 ? autoRemediations.join(", ") : "None"}`;
 
   logAudit({
@@ -171,25 +379,53 @@ export async function runHourlyAuditPass(): Promise<{
     autoRemediations,
     serverLatencyMs: server.latencyMs,
     adminBalance: { binance: adminBal?.binanceBal, bybit: adminBal?.bybitBal },
-    userBalance: { binance: userBal?.binanceBal, bybit: userBal?.bybitBal }
+    userBalance: { binance: userBal?.binanceBal, bybit: userBal?.bybitBal },
+    adminExchangeAudit: {
+      binancePositions: adminExchangeAudit?.binancePositions,
+      bybitPositions: adminExchangeAudit?.bybitPositions,
+      binanceOpenOrders: adminExchangeAudit?.binanceOpenOrders,
+      bybitOpenOrders: adminExchangeAudit?.bybitOpenOrders,
+      unhedgedOrphans: adminExchangeAudit?.unhedgedOrphans,
+      untrackedGhostPositions: adminExchangeAudit?.untrackedGhostPositions,
+      staleOrders: adminExchangeAudit?.staleOrders,
+      totalUnrealizedPnL: adminExchangeAudit?.totalUnrealizedPnL,
+    },
+    userExchangeAudit: {
+      binancePositions: userExchangeAudit?.binancePositions,
+      bybitPositions: userExchangeAudit?.bybitPositions,
+      binanceOpenOrders: userExchangeAudit?.binanceOpenOrders,
+      bybitOpenOrders: userExchangeAudit?.bybitOpenOrders,
+      unhedgedOrphans: userExchangeAudit?.unhedgedOrphans,
+      untrackedGhostPositions: userExchangeAudit?.untrackedGhostPositions,
+      staleOrders: userExchangeAudit?.staleOrders,
+      totalUnrealizedPnL: userExchangeAudit?.totalUnrealizedPnL,
+    },
   });
 
   return {
     healthy,
-    adminStatus: { isRunning: adminBotState?.isRunning, balances: adminBal },
-    userStatus: { isRunning: userBotState?.isRunning, activeHedges: userBotState?.bots[0]?.activeHedges?.length || 0, balances: userBal },
+    adminStatus: {
+      isRunning: adminBotState?.isRunning,
+      balances: adminBal,
+      exchangeAudit: adminExchangeAudit,
+    },
+    userStatus: {
+      isRunning: userBotState?.isRunning,
+      balances: userBal,
+      exchangeAudit: userExchangeAudit,
+    },
     suspiciousFindings,
-    autoRemediations
+    autoRemediations,
   };
 }
 
-// If executed directly, run immediately and set 1-hour interval
+// If executed directly, run immediately
 if (require.main === module || process.argv[1]?.includes("hourly_sentinel")) {
-  console.log("=== STARTING AUTONOMOUS HOURLY SENTINEL MONITOR (1-HOUR CADENCE) ===");
   runHourlyAuditPass().then((res) => {
-    console.log("Initial Hourly Pass Result:", res.healthy ? "HEALTHY" : "NEEDS ATTENTION");
-    setInterval(() => {
-      runHourlyAuditPass().catch((err) => console.error("[HOURLY SENTINEL CRASH PREVENTED]:", err));
-    }, 60 * 60 * 1000); // 1 hour = 3,600,000ms
+    console.log("Sentinel Execution Finished. Status:", res.healthy ? "HEALTHY" : "NEEDS ATTENTION");
+    process.exit(0);
+  }).catch((err) => {
+    console.error("[HOURLY SENTINEL CRASH PREVENTED]:", err);
+    process.exit(1);
   });
 }

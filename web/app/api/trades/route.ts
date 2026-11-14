@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { loadTrades, saveTrades, recordServerTrade, isRealMainnetTrade } from "@/lib/serverTradeStore";
+import { loadTrades, saveTrades, recordServerTrade, isRealMainnetTrade, loadFailedOrders } from "@/lib/serverTradeStore";
 import { getAuthenticatedUser } from "@/lib/userStore";
 
 export const dynamic = "force-dynamic";
@@ -11,6 +11,7 @@ export async function GET(req: NextRequest) {
   }
   const userId = user.id;
   const trades = loadTrades(userId, true);
+  const failedOrders = loadFailedOrders(userId);
 
   const mainnetTrades = trades.filter((t) => isRealMainnetTrade(t));
   const simulationTrades = trades.filter((t) => !isRealMainnetTrade(t));
@@ -42,6 +43,8 @@ export async function GET(req: NextRequest) {
       trades,
       mainnetTrades,
       simulationTrades,
+      failedOrders,
+      failedCount: failedOrders.length,
       mainnetCount: mainnetTrades.length,
       simulationCount: simulationTrades.length,
       todaySummary: {
